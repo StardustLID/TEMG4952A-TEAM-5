@@ -13,6 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "flask-run-win": "cd ..\\backend && venv\\Scripts\\activate && flask run",
+    "flask-run-mac": "cd backend/ && . venv/bin/activate && flask run",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

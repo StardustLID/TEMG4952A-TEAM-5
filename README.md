@@ -26,7 +26,6 @@ Prerequisite: Install Python 3 in your system.
    npm install
    npm start
    ```
-5. Both frontend and backend servers are now running
 
 ### 1.2 For Mac Users,
 
@@ -48,40 +47,40 @@ Prerequisite: Install Python 3 in your system.
    npm install
    npm start
    ```
-5. Both frontend and backend servers are now running
+
+### 1.3 Troubleshooting
+
+If you failed to run `npm start` after running `npm install` at the `frontend/` directory, try re-installation all the npm packages:
+
+1. Delete `frontend/package-lock.json`
+2. Delete `frontend/node_modules` folder
+3. Run `npm cache clear --force` at the `frontend` directory
+4. Re-run `npm install`
 
 ## 2. Start Development Server
 
-### 2.1 For Windows Users,
+### 2.1 Via Command Line
 
-1. Open Powershell and change directory to this repository's root
-2. Run the following commands:
-   ```
-   cd .\backend\
-   .\venv\Scripts\activate
-   flask run
-   ```
-3. Keep this Powershell window running in background. At the same time, open another Powershell window and change directory to this repository's root folder
-4. Run the following commands:
-   ```
-   cd .\frontend\
-   npm start
-   ```
-5. Also keep this Powershell window running in background
-
-### 2.2 For Mac Users,
-
-1. Open Terminal and change directory to this repository's root
-2. Run the following commands:
-   ```
-   cd backend/
-   . venv/bin/activate
-   flask run
-   ```
-3. Keep this terminal window running in background. At the same time, open another terminal window and change directory to this repository's root folder
+1. `cd frontend/`
+2. Windows users: `npm run flask-run-win` ; Mac users: `npm run flask-run-mac`
+3. Keep this terminal running in background and open another terminal window. Change directory to this repository's root
 4. Run the following commands:
    ```
    cd frontend/
    npm start
    ```
-5. Also keep this terminal window running in background
+
+### 2.2 Via VS Code Interface
+
+1. If you have VS Code installed, open this repository's root folder in VS Code.
+2. Open the "Explorer" tab at the sidebar with the shortcut of "Ctrl + Shift + E"
+3. Expand the "NPM SCRIPTS" tab at the bottom of the Explorer sidebar window
+   <br />
+   ![npm scripts](./pics/vs_code_npm_scripts.png)
+4. For Windows users, hover over `flask-run-win - frontend` and press the right button to run the script
+   <br />
+   ![npm run flask-run-win](./pics/vs_code_click_flask-run-win.png)
+
+   If you are a Mac user, hover over `flask-run-mac - frontend` and press the right button
+
+5. Hover over `start - frontend` and press the right button to run the script
