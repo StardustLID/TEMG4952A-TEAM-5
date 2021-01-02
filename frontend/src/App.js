@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Investments from "./pages/Investments";
+import Companies from "./pages/Companies";
+import Settings from "./pages/Settings";
 import "./App.css";
 
 function App() {
@@ -16,14 +22,17 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>{title}</h1>
-        <p>
-          Read the code of <code>frontend/src/App.js</code> for more
-        </p>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={() => <Home title={title} />} />
+          <Route path="/companies" component={Companies} />
+          <Route path="/investments" component={Investments} />
+          <Route path="/settings" component={Settings} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
