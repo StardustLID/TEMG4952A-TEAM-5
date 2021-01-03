@@ -1,0 +1,10 @@
+bulk_export_processed/organizations_processed.csv filter=lfs diff=lfs merge=lfs -text
+bulk_export_processed/people_descriptions_processed.csv filter=lfs diff=lfs merge=lfs -text
+bulk_export_processed.csv.csv/organizations_processed_1.csv !text !filter !merge !diff
+bulk_export_processed.csv.csv/organizations_processed_2.csv !text !filter !merge !diff
+bulk_export_processed.csv.csv/organizations_processed_3.csv !text !filter !merge !diff
+bulk_export_processed.csv.csv/people_processed_1.csv !text !filter !merge !diff
+bulk_export_processed.csv.csv/people_processed_2.csv !text !filter !merge !diff
+bulk_export_processed.csv.csv/people_processed.csv !text !filter !merge !diff
+bulk_export_processed.csv.csv/organizations_processed.csv !text !filter !merge !diff
+bulk_export_processed.csv.csv/people_descriptions_processed.csv !text !filter !merge !diff
