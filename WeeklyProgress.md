@@ -42,7 +42,3 @@
 ### Overall Project Related
 ### Front-End
 ### Back-End
-
-
-   
- 
