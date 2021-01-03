@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import { IconContext } from "react-icons";
 import "./Navbar.css";
+import ubs_logo from "../../assets/ubs_white_logo.png";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -14,14 +15,17 @@ function Navbar() {
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <MdMenu size={30} onClick={showSidebar} />
+          <Link to="#" onClick={showSidebar} className="menu-icon navbar-control">
+            <MdMenu size={30} />
+          </Link>
+          <Link to="/" className="navbar-control">
+            <img src={ubs_logo} alt="UBS Logo" className="nav-ubs-logo" />
           </Link>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
+              <Link to="#" className="close-icon navbar-control">
                 <MdClose size={30} />
               </Link>
             </li>

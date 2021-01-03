@@ -19,10 +19,4 @@ export const SidebarData = [
     icon: <MdAttachMoney size={24} />,
     cName: "nav-text",
   },
-  {
-    title: "Settings",
-    path: "/settings",
-    icon: <MdSettings size={24} />,
-    cName: "nav-text",
-  },
 ];

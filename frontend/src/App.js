@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Investments from "./pages/Investments";
 import Companies from "./pages/Companies";
-import Settings from "./pages/Settings";
 import "./App.css";
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
           <Route path="/" exact component={() => <Home title={title} />} />
           <Route path="/companies" component={Companies} />
           <Route path="/investments" component={Investments} />
-          <Route path="/settings" component={Settings} />
         </Switch>
       </Router>
     </>
