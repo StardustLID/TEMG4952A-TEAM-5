@@ -19,7 +19,7 @@ function App() {
         // data = {'message': 'Flask is working!'}
         setTitle(data.message);
       });
-  });
+  }, []);
 
   // Material UI custom palette (https://material-ui.com/customization/palette/)
   const theme = createMuiTheme({
