@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "./pages/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import Home from "./pages/Home";
+import Investments from "./pages/Investments";
+import Companies from "./pages/Companies";
 import "./App.css";
 
 function App() {
@@ -15,15 +21,30 @@ function App() {
       });
   });
 
+  // Material UI custom palette (https://material-ui.com/customization/palette/)
+  const theme = createMuiTheme({
+    palette: {
+      type: "dark",
+      primary: {
+        light: "#E60100",
+        main: "#941a1a",
+      },
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>{title}</h1>
-        <p>
-          Read the code of <code>frontend/src/App.js</code> for more
-        </p>
-      </header>
-    </div>
+    <>
+      <Router>
+        <MuiThemeProvider theme={theme}>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact component={() => <Home title={title} />} />
+            <Route path="/companies" component={Companies} />
+            <Route path="/investments" component={Investments} />
+          </Switch>
+        </MuiThemeProvider>
+      </Router>
+    </>
   );
 }
 
