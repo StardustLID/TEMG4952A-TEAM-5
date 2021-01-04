@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./pages/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Home from "./pages/Home";
 import Investments from "./pages/Investments";
 import Companies from "./pages/Companies";
@@ -20,15 +21,28 @@ function App() {
       });
   });
 
+  // Material UI custom palette (https://material-ui.com/customization/palette/)
+  const theme = createMuiTheme({
+    palette: {
+      type: "dark",
+      primary: {
+        light: "#E60100",
+        main: "#941a1a",
+      },
+    },
+  });
+
   return (
     <>
       <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact component={() => <Home title={title} />} />
-          <Route path="/companies" component={Companies} />
-          <Route path="/investments" component={Investments} />
-        </Switch>
+        <MuiThemeProvider theme={theme}>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact component={() => <Home title={title} />} />
+            <Route path="/companies" component={Companies} />
+            <Route path="/investments" component={Investments} />
+          </Switch>
+        </MuiThemeProvider>
       </Router>
     </>
   );

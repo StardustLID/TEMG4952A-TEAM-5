@@ -1,0 +1,16 @@
+.menu-btn {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.nav-ubs-logo {
+  display: flex;
+  align-items: center;
+  margin-left: 45px;
+}
+
+.nav-ubs-logo:hover {
+  opacity: 0.8;
+  transition: 0.1s;
+}
