@@ -38,7 +38,7 @@ function App() {
         <MuiThemeProvider theme={theme}>
           <Navbar />
           <Switch>
-            <Route path="/" exact component={() => <Home title={title} />} />
+            <Route path="/" exact component={() => <Home />} />
             <Route path="/companies" component={Companies} />
             <Route path="/investments" component={Investments} />
           </Switch>
