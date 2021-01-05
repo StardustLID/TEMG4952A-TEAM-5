@@ -17,7 +17,7 @@ const muiTheme = createMuiTheme({
   },
   typography: {
     h1: {
-      fontSize: "2.125rem",
+      fontSize: "2rem",
       fontWeight: 700,
     },
   },

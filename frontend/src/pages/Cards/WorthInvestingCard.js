@@ -7,10 +7,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
     minHeight: 300,
-    backgroundColor: "white",
-    color: "Black",
   },
   bullet: {
     display: "inline-black",
@@ -18,10 +15,8 @@ const useStyles = makeStyles({
     transform: "scale(0.8)",
   },
   title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
+    fontSize: "1.5rem",
+    fontWeight: 700,
   },
 });
 
@@ -31,7 +26,7 @@ export default function WorthInvestingCard() {
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="Companies Worth Investing" />
+      <CardHeader title="Companies Worth Investing" classes={{ title: classes.title }} />
       <CardContent>
         <Typography variant="h5" component="h2">
           be{bull}nev{bull}o{bull}lent
