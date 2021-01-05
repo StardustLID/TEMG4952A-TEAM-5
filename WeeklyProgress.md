@@ -13,6 +13,7 @@
 | 31-12-20 | Set up for the React app project with flask   |
 | 02-01-21 | Build header & sidebar by React               |
 | 03-01-21 | Restructure header & sidebar with Material-UI |
+| 03-01-21 | Confirmed 1st draft of Figma design           |
 
 ### Back-End
 | Date     | Tasks                                    |
@@ -24,8 +25,16 @@
 
 ## Week 2 (4 Jan - 10 Jan)
 ### Overall Project Related
+* Confirmed that responsive UI, word description data have very low priority
+* 
 ### Front-End
+| Date     | Tasks                            |
+|----------|----------------------------------|
+| 04-01-21 | Explored uses of card components |
 ### Back-End
+| Date     | Tasks                                       |
+|----------|---------------------------------------------|
+| 04-01-21 | Added generic one-hot encoder for `ipo.csv` |
 
 ## Week 3 (11 Jan - 17 Jan)
 ### Overall Project Related
