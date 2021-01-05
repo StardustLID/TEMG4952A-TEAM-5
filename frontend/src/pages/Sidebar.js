@@ -8,30 +8,31 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { sidebarData } from "./sidebarData";
 
-// The sidebar menu component (Used in Navbar.js)
-const Sidebar = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: 250,
-      marginTop: 30,
-    },
-    listItem: {
-      color: "white",
-      "&$selected": {
-        backgroundColor: theme.palette.primary.main,
-        "&:hover": {
-          backgroundColor: "rgba(148, 26, 26, 0.3)",
-        },
-      },
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 250,
+    marginTop: 30,
+  },
+  listItem: {
+    color: "white",
+    "&$selected": {
+      backgroundColor: theme.palette.primary.main,
       "&:hover": {
         backgroundColor: "rgba(148, 26, 26, 0.3)",
       },
     },
-    listItemIcon: {
-      color: "white",
+    "&:hover": {
+      backgroundColor: "rgba(148, 26, 26, 0.3)",
     },
-    selected: {},
-  }));
+  },
+  listItemIcon: {
+    color: "white",
+  },
+  selected: {},
+}));
+
+// The sidebar menu component (Used in Navbar.js)
+const Sidebar = (props) => {
   const classes = useStyles(props);
 
   return (

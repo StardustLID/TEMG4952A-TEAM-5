@@ -10,6 +10,21 @@ import IconButton from "@material-ui/core/IconButton";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: "#343839",
+  },
+  menuBtn: {
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: theme.palette.action.hover, // Uses the value in muiTheme.js
+    },
+  },
+  sidebarPaper: {
+    backgroundColor: "#343839",
+  },
+}));
+
 const Navbar = (props) => {
   const [sidebar, setSidebar] = useState(false); // For toggling the temporary side bar
   const [selectedIndex, setSelectedIndex] = useState(0); // Which sidebar item is selected
@@ -22,20 +37,6 @@ const Navbar = (props) => {
     setSelectedIndex(index);
   };
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      backgroundColor: "#343839",
-    },
-    menuBtn: {
-      color: "#fff",
-      "&:hover": {
-        backgroundColor: theme.palette.action.hover, // Uses the value in muiTheme.js
-      },
-    },
-    sidebarPaper: {
-      backgroundColor: "#343839",
-    },
-  }));
   const classes = useStyles(props);
 
   return (
