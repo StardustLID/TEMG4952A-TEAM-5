@@ -8,8 +8,24 @@ import Drawer from "@material-ui/core/Drawer";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import Toolbar from "@material-ui/core/Toolbar";
+import { makeStyles } from "@material-ui/core/styles";
 
-function Navbar() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: "#343839",
+  },
+  menuBtn: {
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: theme.palette.action.hover, // Uses the value in muiTheme.js
+    },
+  },
+  sidebarPaper: {
+    backgroundColor: "#343839",
+  },
+}));
+
+const Navbar = (props) => {
   const [sidebar, setSidebar] = useState(false); // For toggling the temporary side bar
   const [selectedIndex, setSelectedIndex] = useState(0); // Which sidebar item is selected
 
@@ -21,12 +37,14 @@ function Navbar() {
     setSelectedIndex(index);
   };
 
+  const classes = useStyles(props);
+
   return (
     <>
-      <AppBar position="static" style={{ backgroundColor: "#343839" }}>
+      <AppBar position="sticky" className={classes.root}>
         <Toolbar>
-          <IconButton aria-label="menu" className="menu-btn" onClick={toggleSidebar}>
-            <Icon color="action">menu</Icon>
+          <IconButton aria-label="menu" className={classes.menuBtn} onClick={toggleSidebar}>
+            <Icon>menu</Icon>
           </IconButton>
           <Link to="/" className="nav-ubs-logo">
             <img src={ubs_logo} alt="UBS Logo" height="29" width="80" />
@@ -34,7 +52,12 @@ function Navbar() {
         </Toolbar>
       </AppBar>
 
-      <Drawer anchor="left" open={sidebar} onClose={toggleSidebar}>
+      <Drawer
+        anchor="left" // Open from left side
+        open={sidebar} // Open if true
+        onClose={toggleSidebar} // Callback fired when sidebar is closed
+        classes={{ paper: classes.sidebarPaper }} // Style the sidebar's background
+      >
         <Sidebar
           clickItem={clickSidebarItem} // onClick handler for items
           selected={selectedIndex} // Index of selected item
@@ -42,6 +65,6 @@ function Navbar() {
       </Drawer>
     </>
   );
-}
+};
 
 export default Navbar;
