@@ -6,10 +6,13 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 const muiTheme = createMuiTheme({
   palette: {
-    type: "dark",
+    type: "light",
     primary: {
-      light: "#E60100",
+      light: "#e60100",
       main: "#941a1a",
+    },
+    action: {
+      hover: "rgba(255, 255, 255, 0.08)",
     },
   },
   typography: {
