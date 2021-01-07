@@ -1,6 +1,8 @@
 # CSV Processing
 
-This markdown records the treatments to the raw CSV files obtained from Crunchbase. The processed files, if any, are appended with "_processed" at the end of the name. The rows/cols kept and dropped are as follows:
+This markdown records the treatments to the raw CSV files obtained from Crunchbase.
+
+## Step 1: Data Cleaning
 
 | File Name                      | Remarks                                |
 |--------------------------------|----------------------------------------|
@@ -22,3 +24,4 @@ This markdown records the treatments to the raw CSV files obtained from Crunchba
 | organizations                  | fintech, after 2010 only               |
 | people                         |                                        |
 | <del>people_descriptions       | too wordy, hard to extract useful info |
+
