@@ -4,10 +4,14 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   root: {
     minHeight: 600,
+  },
+  col: {
+    minHeight: 300,
   },
   bullet: {
     display: "inline-black",
@@ -28,9 +32,18 @@ export default function AllocationCard() {
     <Card className={classes.root}>
       <CardHeader title="US$50M Portfolio Allocation" classes={{ title: classes.title }} />
       <CardContent>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
+        <Grid container direction="column">
+          <Grid item>
+            <Typography variant="h5" component="h2">
+              By TimeSeries
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5" component="h2">
+              By Size
+            </Typography>
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   );

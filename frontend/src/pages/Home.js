@@ -26,7 +26,7 @@ const Home = (props) => {
   return (
     <Grid container className={classes.root}>
       <Grid item sm={1} /> {/* Adds left margin */}
-      <Grid container item sm={11} direction="column" spacing={2}>
+      <Grid container item sm={10} direction="column" spacing={2}>
         <Grid item>
           <Typography variant="h1" className={classes.title}>
             Home
@@ -47,6 +47,7 @@ const Home = (props) => {
           </Grid>
         </Grid>
       </Grid>
+      <Grid item sm={1} /> {/* Adds right margin */}
     </Grid>
   );
 };

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+
+import ScatterplotWrapper from "../../wrappers/ScatterplotWrapper";
+import ClusterBtn from "../../components/Cards_button/ClusterBtn";
 
 const useStyles = makeStyles({
   root: {
@@ -24,13 +28,25 @@ export default function RecentInvestmentsCard() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
+  /*const [Cluster, setClustor] = useState("children");
+
+  const ClusterBySelected = (cluster) => {
+    setClustor({ cluster });
+  };*/
+
   return (
     <Card className={classes.root}>
       <CardHeader title="Recent Investments" classes={{ title: classes.title }} />
       <CardContent>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
+        <Grid container>
+          <Grid item xs={3}>
+            <ClusterBtn />
+          </Grid>
+          <Grid item xs={9}>
+            {/*renderChart()*/}
+            <ScatterplotWrapper />
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   );
