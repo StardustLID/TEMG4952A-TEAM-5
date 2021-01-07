@@ -28,11 +28,11 @@ export default function RecentInvestmentsCard() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-  /*const [Cluster, setClustor] = useState("children");
+  const [cluster, setClustor] = useState("children");
 
-  const ClusterBySelected = (cluster) => {
+  const clusterBySelected = (cluster) => {
     setClustor({ cluster });
-  };*/
+  };
 
   return (
     <Card className={classes.root}>
@@ -40,11 +40,10 @@ export default function RecentInvestmentsCard() {
       <CardContent>
         <Grid container>
           <Grid item xs={3}>
-            <ClusterBtn />
+            <ClusterBtn clusterby={clusterBySelected} />
           </Grid>
           <Grid item xs={9}>
-            {/*renderChart()*/}
-            <ScatterplotWrapper />
+            <ScatterplotWrapper cluster={cluster} />
           </Grid>
         </Grid>
       </CardContent>

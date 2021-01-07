@@ -1,6 +1,28 @@
 import * as d3 from "d3";
 
-const url = "http://udemy-react-d3.firebaseio.com/children.json";
+const data1 = [
+  { age: "10", height: "152", name: "Tony" },
+  { age: "12", height: "148", name: "Jessica" },
+  { age: "9", height: "135", name: "Andrew" },
+  { age: "10", height: "145", name: "Emily" },
+  { age: "11", height: "141", name: "Richard" },
+];
+
+const data2 = [
+  { age: "29", height: "170", name: "Tony" },
+  { age: "26", height: "180", name: "Jessica" },
+  { age: "34", height: "169", name: "Andrew" },
+  { age: "54", height: "174", name: "Emily" },
+  { age: "33", height: "178", name: "Richard" },
+];
+
+const data3 = [
+  { age: "67", height: "100", name: "Tony" },
+  { age: "10", height: "100", name: "Jessica" },
+  { age: "55", height: "100", name: "Andrew" },
+  { age: "45", height: "100", name: "Emily" },
+  { age: "33", height: "170", name: "Richard" },
+];
 
 const MARGIN = { TOP: 10, BOTTOM: 80, LEFT: 70, RIGHT: 10 };
 const WIDTH = 500 - MARGIN.LEFT - MARGIN.RIGHT;
@@ -44,21 +66,28 @@ class D3Scatterplot {
       .attr("text-anchor", "middle")
       .text("Height in cm");
 
-    d3.json(url).then((data) => {
-      vis.data = data;
+    vis.data1 = data1;
+    vis.data2 = data2;
+    vis.data3 = data3;
 
-      // every second it will do "console.log"
-      d3.interval(() => {
-        vis.update();
-      }, 1000);
-    });
+    vis.update("phrases");
 
     /*this.update();
     console.log(vis.data);*/
   }
 
-  update() {
+  update(cluster) {
     let vis = this;
+
+    console.log(cluster);
+
+    if (cluster === "phrases") {
+      vis.data = vis.data1;
+    } else if (cluster === "sizes") {
+      vis.data = vis.data2;
+    } else {
+      vis.data = vis.data3;
+    }
 
     /*console.log("hi");
     console.log(vis.data);*/

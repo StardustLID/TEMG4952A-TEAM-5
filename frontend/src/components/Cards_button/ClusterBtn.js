@@ -16,14 +16,34 @@ function ClusterBtn(props) {
   return (
     <div className={classes.root}>
       <h4>Cluster by</h4>
-      <Button variant="outlined" color="primary">
-        Children
+      <Button
+        variant="outlined"
+        color="primary"
+        size="medium"
+        onClick={() => {
+          props.clusterby("phrases");
+        }}
+      >
+        Phrases
       </Button>
-      {/*<Button variant="outlined" color="primary" onClicked={props.Clusterby("sizes")}>*/}
-      <Button variant="outlined" color="primary">
+      <Button
+        variant="outlined"
+        color="primary"
+        size="medium"
+        onClick={() => {
+          props.clusterby("sizes");
+        }}
+      >
         Sizes
       </Button>
-      <Button variant="outlined" color="primary">
+      <Button
+        variant="outlined"
+        color="primary"
+        size="medium"
+        onClick={() => {
+          props.clusterby("catergory");
+        }}
+      >
         Catergory
       </Button>
     </div>
