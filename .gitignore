@@ -1,6 +1,6 @@
 # Misc
 .vscode/*
-.DS_Store
+**/.DS_Store
 
 # Frontend - See ./frontend/.gitignore
 
