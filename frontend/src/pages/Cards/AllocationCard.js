@@ -4,6 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import AllocationTable_home from "../../components/tables/AllocationTable_home";
 
 const useStyles = makeStyles({
   root: {
@@ -24,6 +25,7 @@ export default function AllocationCard() {
         <Grid container direction="column">
           <Grid item>
             <Typography variant="h3">By TimeSeries</Typography>
+            <AllocationTable_home />
           </Grid>
           <Grid item>
             <Typography variant="h3">By Size</Typography>

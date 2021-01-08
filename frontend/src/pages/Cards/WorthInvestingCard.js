@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
-import Typography from "@material-ui/core/Typography";
+import WorthInvestingTable_home from "../../components/tables/WorthInvestingTable_home";
 
 const useStyles = makeStyles({
   root: {
@@ -23,9 +23,7 @@ export default function WorthInvestingCard() {
     <Card className={classes.root}>
       <CardHeader title="Companies Worth Investing" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
+        <WorthInvestingTable_home />
       </CardContent>
     </Card>
   );
