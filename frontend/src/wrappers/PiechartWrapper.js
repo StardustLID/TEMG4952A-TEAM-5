@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import D3Piechart from "../components/d3_charts/D3Piechart";
 
 const PiechartWrapper = (props) => {
