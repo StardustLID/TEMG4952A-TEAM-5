@@ -13,10 +13,6 @@ const useStyles = makeStyles({
     margin: "0 2px",
     transform: "scale(0.8)",
   },
-  title: {
-    fontSize: "1.5rem",
-    fontWeight: 700,
-  },
 });
 
 export default function WorthInvestingCard() {
@@ -25,7 +21,7 @@ export default function WorthInvestingCard() {
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="Companies Worth Investing" classes={{ title: classes.title }} />
+      <CardHeader title="Companies Worth Investing" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
         <Typography variant="h5" component="h2">
           be{bull}nev{bull}o{bull}lent

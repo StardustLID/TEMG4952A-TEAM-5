@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 import ScatterplotWrapper from "../../wrappers/ScatterplotWrapper";
@@ -11,32 +10,22 @@ import ClusterBtn from "../../components/Cards_button/ClusterBtn";
 
 const useStyles = makeStyles({
   root: {
-    minHeight: 300,
-  },
-  bullet: {
-    display: "inline-black",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
-  title: {
-    fontSize: "1.5rem",
-    fontWeight: 700,
+    padding: 5,
   },
 });
 
-export default function RecentInvestmentsCard() {
-  const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+export default function RecentInvestmentsCard(props) {
+  const classes = useStyles(props);
 
-  const [cluster, setClustor] = useState("children");
+  const [cluster, setCluster] = useState("children");
 
   const clusterBySelected = (cluster) => {
-    setClustor({ cluster });
+    setCluster({ cluster });
   };
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="Recent Investments" classes={{ title: classes.title }} />
+      <CardHeader title="Recent Investments" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
         <Grid container>
           <Grid item xs={3}>
