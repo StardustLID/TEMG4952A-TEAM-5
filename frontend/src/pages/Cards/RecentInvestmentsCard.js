@@ -6,7 +6,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Grid from "@material-ui/core/Grid";
 
 import ScatterplotWrapper from "../../wrappers/ScatterplotWrapper";
-import ClusterBtn from "../../components/Cards_button/ClusterBtn";
+import ClusterBtnGroup from "../../components/Cards_button/ClusterBtnGroup";
 
 const useStyles = makeStyles({
   root: {
@@ -17,11 +17,10 @@ const useStyles = makeStyles({
 export default function RecentInvestmentsCard(props) {
   const classes = useStyles(props);
 
-  const [cluster, setCluster] = useState("children");
+  // This state has values of "phases", "sizes", "category"
+  const [cluster, setCluster] = useState("phases");
 
-  const clusterBySelected = (cluster) => {
-    setCluster({ cluster });
-  };
+  const clusterBySelected = (cluster) => setCluster(cluster);
 
   return (
     <Card className={classes.root}>
@@ -29,7 +28,7 @@ export default function RecentInvestmentsCard(props) {
       <CardContent>
         <Grid container>
           <Grid item xs={3}>
-            <ClusterBtn clusterby={clusterBySelected} />
+            <ClusterBtnGroup selected={cluster} clusterBy={clusterBySelected} />
           </Grid>
           <Grid item xs={9}>
             <ScatterplotWrapper cluster={cluster} />

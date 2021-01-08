@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 
+// Dummy data to be deleted
 const data1 = [
   { age: "10", height: "152", name: "Tony" },
   { age: "12", height: "148", name: "Jessica" },
@@ -32,7 +33,7 @@ class D3Scatterplot {
   constructor(element) {
     let vis = this;
 
-    //Create Canvas
+    // Create a SVG canvas at the root element (div.chart-area) 
     vis.g = d3
       .select(element)
       .append("svg")
@@ -41,14 +42,16 @@ class D3Scatterplot {
       .append("g")
       .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
-    //ScaleLinear
+    // Create linear scales for x-axis and y-axis
+    // We first define their ranges. Their domains are defined in the update(cluster) method
     vis.x = d3.scaleLinear().range([0, WIDTH]);
     vis.y = d3.scaleLinear().range([HEIGHT, 0]);
 
-    //Axis Generator
+    // Axis groups (ie. "containers" for the axis)
     vis.xAxisGroup = vis.g.append("g").attr("transform", `translate(0, ${HEIGHT})`);
     vis.yAxisGroup = vis.g.append("g");
 
+    // Legends for axis 
     vis.g
       .append("text")
       .attr("x", WIDTH / 2)
@@ -70,10 +73,8 @@ class D3Scatterplot {
     vis.data2 = data2;
     vis.data3 = data3;
 
-    vis.update("phrases");
-
-    /*this.update();
-    console.log(vis.data);*/
+    // Finish the initial rendering of the plot
+    vis.update("phases");
   }
 
   update(cluster) {
@@ -81,7 +82,7 @@ class D3Scatterplot {
 
     console.log(cluster);
 
-    if (cluster === "phrases") {
+    if (cluster === "phases") {
       vis.data = vis.data1;
     } else if (cluster === "sizes") {
       vis.data = vis.data2;
@@ -89,39 +90,45 @@ class D3Scatterplot {
       vis.data = vis.data3;
     }
 
-    /*console.log("hi");
-    console.log(vis.data);*/
-
+    // Define the domain of x-axis and y-axis
     vis.x.domain([0, d3.max(vis.data, (d) => Number(d.age))]);
     vis.y.domain([0, d3.max(vis.data, (d) => Number(d.height))]);
 
+    // Render x-axis and y-axis on screen
     const xAxisCall = d3.axisBottom(vis.x);
+    vis.xAxisGroup
+      .transition().duration(500)   // Transition animation for the axis
+      .call(xAxisCall);
+    
     const yAxisCall = d3.axisLeft(vis.y);
+    vis.yAxisGroup
+      .transition().duration(500)
+      .call(yAxisCall);
 
-    vis.xAxisGroup.call(xAxisCall);
-    vis.yAxisGroup.call(yAxisCall);
-
-    //data join
+    // Data join
     const circles = vis.g.selectAll("circle").data(vis.data, (d) => d.name);
 
-    //Exit
-    circles.exit().transition(1000).attr("cy", vis.y(0)).remove();
+    // Exit
+    circles.exit()
+      .transition().duration(500)
+      .attr("cy", vis.y(0))   // Dots would move downwards and get removed
+      .remove();
 
-    //update
+    // Update
     circles
-      .transition(1000)
+      .transition().duration(500)
       .attr("cx", (d) => vis.x(d.age))
       .attr("cy", (d) => vis.y(d.height));
 
-    //enter
+    // Enter
     circles
       .enter()
       .append("circle")
       .attr("cx", (d) => vis.x(d.age))
-      .attr("cy", (d) => vis.y(0))
+      .attr("cy", vis.y(0))   // Place the dots at bottom of the plot initially
       .attr("r", 5)
       .attr("fill", "red")
-      .transition(1000)
+      .transition().duration(500)
       .attr("cy", (d) => vis.y(d.height));
   }
 }
