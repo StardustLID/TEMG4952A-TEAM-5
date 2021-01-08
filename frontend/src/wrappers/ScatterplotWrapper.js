@@ -17,7 +17,7 @@ const ScatterplotWrapper = (props) => {
   // React will NOT re-render this component when props.cluster updates
   useEffect(() => {
     chart?.update(props.cluster);
-  }, [props.cluster]);
+  }, [chart, props.cluster]);
 
   return <div className="chart-area" ref={chartArea}></div>;
 };

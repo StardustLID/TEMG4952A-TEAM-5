@@ -28,6 +28,7 @@ function ClusterBtnGroup(props) {
           size="medium"
           disableElevation // No drop shadow if variant="contained"
           onClick={() => props.clusterBy(item.id)}
+          key={item.id}
         >
           {item.text}
         </Button>
