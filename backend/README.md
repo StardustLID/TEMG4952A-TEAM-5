@@ -1,9 +1,8 @@
-Documentation of Backend
+# Documentation of Backend
 
-<Week 1>
+## Week 1
 
-
-Current status:
+### Current status:
 
 1. Downloaded and pre-preprocessed csv files from crunchbase datasource,
 ("checksum_processed.csv", "acquisitions_processed.csv", "category_groups_processed.csv", "degrees.csv", "event_appearances_processed_1.csv", "events_processed.csv", "funding_rounds_processed.csv", "funds_processed.csv", "investment_partners_processed.csv", "investors_processed.csv", "ipos_processed.csv", "jobs_processed_1.csv", "org_parents_processed.csv", "organizations_processed_1.csv", "people_processed_1.csv)
@@ -16,7 +15,7 @@ including the deletion of unrelated and dummy columns, and revert all csv files 
 4. Contacting the UBS mentors to double check on the expectations on our prediction label.
 
 
-Plan for the coming week:
+### Plan for the coming week:
 
 1. Join all csv files, make sure no columns are left behind
 

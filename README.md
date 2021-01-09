@@ -2,6 +2,12 @@
 
 The repository of Team 5 for the HKUST course TEMG4952A "Special Project: Financial Investment Prototyping for UBS Zurich".
 
+## Table of Contents
+
+1. [Initial Set-up](#1-initial-set-up)
+2. [Start Development Server](#2-start-development-server)
+3. [Weekly Progress](#3-weekly-progress)
+
 ## 1. Initial Set-up
 
 Prerequisite: Install Python 3 in your system.
@@ -84,3 +90,7 @@ If you failed to run `npm start` after running `npm install` at the `frontend/` 
    If you are a Mac user, hover over `flask-run-mac - frontend` and press the right button
 
 5. Hover over `start - frontend` and press the right button to run the script
+
+## 3. Weekly Progress
+
+[Click here](./WeeklyProgress.md) to see the work progress for each week.
