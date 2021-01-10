@@ -25,7 +25,7 @@ const rows = [
   createData("Gingerbread", 356, 16.0),
 ];
 
-export default function WorthInvestingTable_home() {
+export default function AllocationTableHome() {
   const classes = useStyles();
 
   return (
