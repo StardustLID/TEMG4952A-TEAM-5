@@ -8,16 +8,10 @@ const useStyles = makeStyles({
   root: {
     minHeight: 300,
   },
-  bullet: {
-    display: "inline-black",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
 });
 
 export default function WorthInvestingCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>
