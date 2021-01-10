@@ -16,12 +16,12 @@
 | 03-01-21 | Confirmed 1st draft of Figma design           |
 
 ### Back-End
-| Date     | Tasks                                    |
-|----------|------------------------------------------|
-| 30-12-20 | Obtained Crunchbase dataset              |
-| 01-01-21 | Selected relevant columns for processing |
-| 02-01-21 | Data preprocessing for categories, funding rounds and other CSV |
-| 03-01-21 | Sliced the CSV into <100 MB each         |
+| Date     | Tasks                                                        |
+|----------|--------------------------------------------------------------|
+| 30-12-20 | Obtained Crunchbase dataset                                  |
+| 01-01-21 | Selected relevant columns for processing                     |
+| 02-01-21 | Data cleansing for categories, funding rounds and other CSVs |
+| 03-01-21 | Sliced the CSV into <100 MB each                             |
 
 ## Week 2 (4 Jan - 10 Jan)
 ### Overall Project Related
@@ -31,10 +31,16 @@
 | Date     | Tasks                            |
 |----------|----------------------------------|
 | 04-01-21 | Explored uses of card components |
+| 06-01-21 | Improved home screen appearance  |
+
 ### Back-End
-| Date     | Tasks                                       |
-|----------|---------------------------------------------|
-| 04-01-21 | Added generic one-hot encoder for `ipo.csv` |
+| Date     | Tasks                                                      |
+|----------|------------------------------------------------------------|
+| 04-01-21 | Added generic one-hot encoder for `ipo.csv` and other CSVs |
+| 06-01-21 | Joined all dataframes for data integration (file >60GB)    |
+| 07-01-21 | Improved the efficiency of encoders used                   |
+| 08-01-21 | Joined all dataframes for data integration (file 1.48GB)   |
+| 11-01-21 | Added preliminary data visualizations                      |
 
 ## Week 3 (11 Jan - 17 Jan)
 ### Overall Project Related
