@@ -4,6 +4,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import Icon from "@material-ui/core/Icon";
 import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,49 +21,32 @@ export default function CheckboxesGroup(props) {
 
   const { all, personal, blockchain } = props.selected;
 
+  const buttonData = [
+    { id: "all", checked: all, text: "All" },
+    { id: "personal", checked: personal, text: "Personal Finance" },
+    { id: "blockchain", checked: blockchain, text: "Blockchain" },
+  ];
+
   return (
     <div className={classes.root}>
       <FormControl component="fieldset" className={classes.formControl}>
         <FormLabel component="legend">Key:</FormLabel>
         <FormGroup>
-          <FormControlLabel
-            control={
-              <Checkbox
-                color="default"
-                checked={all}
-                onChange={() => props.categorizeBySelected("all", !all)}
-              />
-            }
-            label="All"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                color="default"
-                checked={personal}
-                onChange={() => props.categorizeBySelected("personal", !personal)}
-              />
-            }
-            label="Personal Finance"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                color="default"
-                checked={blockchain}
-                onChange={() => props.categorizeBySelected("blockchain", !blockchain)}
-              />
-            }
-            label="Blockchain"
-          />
+          {buttonData.map((item) => (
+            <FormControlLabel
+              key={item.id}
+              control={
+                <Checkbox
+                  checkedIcon={<Icon style={{ color: props.barColors[item.id] }}>check_box</Icon>}
+                  checked={item.checked}
+                  onChange={() => props.categorizeBySelected(item.id, !item.checked)}
+                />
+              }
+              label={item.text}
+            />
+          ))}
         </FormGroup>
       </FormControl>
     </div>
   );
 }
-
-/*const buttonData = [
-    { id: "all", text: "All" },
-    { id: "personal", text: "Personal Finance" },
-    { id: "blockchain", text: "Blockchain" },
-  ];*/

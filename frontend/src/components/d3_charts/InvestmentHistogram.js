@@ -32,7 +32,7 @@ const data3 = [
 ];
 
 export default class InvestmentHistogram {
-  constructor(element) {
+  constructor(element, barColors) {
     let vis = this;
 
     // Create a SVG canvas at the root element (div.plot-area)
@@ -61,6 +61,7 @@ export default class InvestmentHistogram {
       .text("Height in cm")
       .attr("transform", "rotate(-90)");
 
+    // Axis groups ("containers" for axis)
     vis.xAxisGroup = vis.g.append("g").attr("transform", `translate(0, ${HEIGHT})`);
 
     vis.yAxisGroup = vis.g.append("g");

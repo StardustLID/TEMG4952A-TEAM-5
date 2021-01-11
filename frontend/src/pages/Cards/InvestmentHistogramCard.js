@@ -13,6 +13,13 @@ const useStyles = makeStyles({
   },
 });
 
+// Colors of the histogram bars by category
+const barColors = {
+  all: "#e60100",
+  personal: "#07871e",
+  blockchain: "#08a89e",
+};
+
 export default function InvestmentsHistogramCard() {
   const classes = useStyles();
   const [category, setCategory] = useState({
@@ -31,10 +38,14 @@ export default function InvestmentsHistogramCard() {
       <CardContent>
         <Grid container spacing={2}>
           <Grid item>
-            <IHWrapper category={category} />
+            <IHWrapper category={category} barColors={barColors} />
           </Grid>
           <Grid item>
-            <IHCheckbox selected={category} categorizeBySelected={categorizeBySelected} />
+            <IHCheckbox
+              selected={category}
+              categorizeBySelected={categorizeBySelected}
+              barColors={barColors}
+            />
           </Grid>
         </Grid>
       </CardContent>
