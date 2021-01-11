@@ -15,9 +15,18 @@ const muiTheme = createMuiTheme({
       hover: "rgba(255, 255, 255, 0.08)",
     },
   },
+  // Used by <Typography />
   typography: {
     h1: {
       fontSize: "2rem",
+      fontWeight: 700,
+    },
+    h2: {
+      fontSize: "1.6rem",
+      fontWeight: 700,
+    },
+    h3: {
+      fontSize: "1.3rem",
       fontWeight: 700,
     },
   },

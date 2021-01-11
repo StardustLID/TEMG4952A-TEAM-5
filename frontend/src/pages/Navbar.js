@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import ubs_logo from "../assets/ubs_white_logo.png";
 import Sidebar from "./Sidebar";
-import "./Navbar.css";
 import AppBar from "@material-ui/core/AppBar";
 import Drawer from "@material-ui/core/Drawer";
 import Icon from "@material-ui/core/Icon";
@@ -18,6 +17,15 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     "&:hover": {
       backgroundColor: theme.palette.action.hover, // Uses the value in muiTheme.js
+    },
+  },
+  ubsLogoBtn: {
+    display: "flex",
+    alignItems: "center",
+    marginLeft: 45,
+    "&:hover": {
+      opacity: 0.8,
+      transition: "0.1s",
     },
   },
   sidebarPaper: {
@@ -46,7 +54,7 @@ const Navbar = (props) => {
           <IconButton aria-label="menu" className={classes.menuBtn} onClick={toggleSidebar}>
             <Icon>menu</Icon>
           </IconButton>
-          <Link to="/" className="nav-ubs-logo">
+          <Link to="/" className={classes.ubsLogoBtn} onClick={() => setSelectedIndex(0)}>
             <img src={ubs_logo} alt="UBS Logo" height="29" width="80" />
           </Link>
         </Toolbar>
