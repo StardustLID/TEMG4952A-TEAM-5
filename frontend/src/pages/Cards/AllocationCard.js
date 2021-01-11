@@ -1,36 +1,36 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import AllocationTableHome from "../../components/tables/AllocationTableHome";
 
 const useStyles = makeStyles({
   root: {
     minHeight: 600,
   },
-  bullet: {
-    display: "inline-black",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
-  title: {
-    fontSize: "1.5rem",
-    fontWeight: 700,
+  col: {
+    minHeight: 300,
   },
 });
 
 export default function AllocationCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="US$50M Portfolio Allocation" classes={{ title: classes.title }} />
+      <CardHeader title="US$50M Portfolio Allocation" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
+        <Grid container direction="column">
+          <Grid item>
+            <Typography variant="h3">By TimeSeries</Typography>
+            <AllocationTableHome />
+          </Grid>
+          <Grid item>
+            <Typography variant="h3">By Size</Typography>
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   );

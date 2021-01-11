@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./pages/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { MuiThemeProvider } from "@material-ui/core/styles";
@@ -9,6 +9,7 @@ import "./App.css";
 import muiTheme from "./theme/muiTheme";
 
 function App() {
+  /*
   const [title, setTitle] = useState("Flask API not working!"); // A state to store the title of our page
 
   // We set the title of the page to be the message we fetch from our Flask API
@@ -21,6 +22,7 @@ function App() {
         setTitle(data.message);
       });
   }, []);
+  */
 
   return (
     <>
@@ -28,7 +30,7 @@ function App() {
         <MuiThemeProvider theme={muiTheme}>
           <Navbar />
           <Switch>
-            <Route path="/" exact component={() => <Home />} />
+            <Route path="/" exact component={Home} />
             <Route path="/companies" component={Companies} />
             <Route path="/investments" component={Investments} />
           </Switch>

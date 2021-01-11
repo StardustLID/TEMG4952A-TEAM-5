@@ -1,5 +1,4 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import WICard from "./Cards/WorthInvestingCard";
 import RICard from "./Cards/RecentInvestmentsCard";
 import ACard from "./Cards/AllocationCard";
@@ -20,13 +19,13 @@ const useStyles = makeStyles({
   },
 });
 
-const Home = (props) => {
+export default function Home() {
   const classes = useStyles();
 
   return (
     <Grid container className={classes.root}>
       <Grid item sm={1} /> {/* Adds left margin */}
-      <Grid container item sm={11} direction="column" spacing={2}>
+      <Grid container item sm={10} direction="column" spacing={2}>
         <Grid item>
           <Typography variant="h1" className={classes.title}>
             Home
@@ -47,8 +46,7 @@ const Home = (props) => {
           </Grid>
         </Grid>
       </Grid>
+      <Grid item sm={1} /> {/* Adds right margin */}
     </Grid>
   );
-};
-
-export default Home;
+}
