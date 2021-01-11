@@ -10,11 +10,10 @@ export default function InvestmentHistogramWrapper(props) {
     setPlot(new InvestmentHistogram(plotArea.current, props.barColors));
   }, []);
 
-  // Calls the update(gender) method of D3Scatterplot class when props.cluster updates
-  // React will NOT re-render this component when props.cluster updates
+  // Calls the update(category) method of InvestmentHistogram class when props.category updates
+  // React will NOT re-render this component when props.category updates
   useEffect(() => {
     plot?.update(props.category);
-    //console.log(props.category);
   }, [plot, props.category]);
 
   return <div className="plot-area" ref={plotArea}></div>;

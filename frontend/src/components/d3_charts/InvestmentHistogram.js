@@ -1,15 +1,17 @@
 import * as d3 from "d3";
 
 const data = [
-  { group: "banana", all: 12, personal: 1, blockchain: 13 },
-  { group: "poacee", all: 6, personal: 6, blockchain: 33 },
-  { group: "sorgho", all: 11, personal: 28, blockchain: 12 },
-  { group: "triticum", all: 19, personal: 6, blockchain: 1 },
+  { group: "lorem", all: 12, personal: 1, blockchain: 13 },
+  { group: "ipsum", all: 6, personal: 6, blockchain: 33 },
+  { group: "sample", all: 11, personal: 28, blockchain: 12 },
+  { group: "text", all: 19, personal: 6, blockchain: 1 },
 ];
 
-const MARGIN = { TOP: 10, BOTTOM: 20, LEFT: 50, RIGHT: 30 };
+const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 60, RIGHT: 10 };
 const WIDTH = 460 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM;
+
+const ANIM_TIME = 300;  // Transition animation time in ms
 
 export default class InvestmentHistogram {
   // barColors = { all: "#e60100", personal: "#07871e", blockchain: "#08a89e" }
@@ -26,13 +28,24 @@ export default class InvestmentHistogram {
       .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
     vis.subgroups = ["all", "personal", "blockchain"];
-    vis.groups = ["banana", "poacee", "sorgho", "triticum"];
+    vis.groups = data.map(d => d.group);
 
     /** Scales for x-axis and y-axis */
+    vis.x = d3.scaleBand()
+      .domain(vis.groups)
+      .range([0, WIDTH])
+      .padding(0.2);
 
-    vis.x = d3.scaleBand().domain(vis.groups).range([0, WIDTH]).padding(0.2);
+    // Find the max. numerical value in each object in the "data" array
+    // ie. maxY_values = [13, 33, 28, 19]
+    const maxY_values = data.map(d => {     // d = every object in the "data" array
+      return d3.max(vis.subgroups, s => d[s]);
+    });
+    const maxY = d3.max(maxY_values);
 
-    vis.y = d3.scaleLinear().domain([0, 40]).range([HEIGHT, 0]);
+    vis.y = d3.scaleLinear()
+      .domain([0, maxY + 5])
+      .range([HEIGHT, 0]);
 
     /** Draws x-axis and y-axis */
     vis.xAxisGroup = vis.g.append("g").attr("transform", `translate(0, ${HEIGHT})`);
@@ -50,46 +63,71 @@ export default class InvestmentHistogram {
 
     vis.color = d3.scaleOrdinal().domain(vis.subgroups).range(vis.subgroups.map(s => barColors[s]));
 
-    /** Rendering */
-    vis.barsGroup = vis.g.append("g").selectAll("g").data(data);
+    /** Legends for axis */
+    vis.g
+      .append("text")
+      .attr("x", WIDTH / 2)
+      .attr("y", HEIGHT + 40)
+      .attr("font-size", 16)
+      .attr("text-anchor", "middle")
+      .text("x-axis Text");
 
-    // ENTER
-    vis.barsGroup
-      .enter()
+    vis.g
+      .append("text")
+      .attr("x", -HEIGHT / 2)
+      .attr("y", -40)
+      .attr("transform", "rotate(-90)")
+      .attr("font-size", 16)
+      .attr("text-anchor", "middle")
+      .text("y-axis Text");
+    
+    
+    /** Rendering the bars */
 
-      // Create a <g> for every group ("banana", "poacee", "sorgho", "triticum")
-      // Each group has one <g> that holds the 3 bars
+    // Each group's bars is wrapped by a <g>.
+    // barsGroup would select every <g> for every group and associate each group
+    // with an element from the "data" array.
+    vis.barsGroup = vis.g.append("g")
+      .selectAll("g")
+      .data(data);
+
+    // Create a new <g> and add corresponding bars for every new group/category
+    // Each <g> holds max. of 3 <rect> for the bars
+    vis.barsGroup.enter()
       .append("g")
-      .attr("class", "bar")
-      .attr("transform", (d) => `translate(${vis.x(d.group)}, 0)`)
+        .attr("class", "bar")
+        .attr("transform", (d) => `translate(${vis.x(d.group)}, 0)`)
+      // Select all rectangles within the <g> for a particular group
       .selectAll("rect")
       .data((d) =>
         vis.subgroups.map((key) => {
           return { key: key, value: d[key] };
         }),
       )
-      // [{key: "Nitrogen", value: "12"}, {key: "normal", value: "1"}, {key: "stress", value: "13"}]
+      // [{key: "all", value: 12}, {key: "personal", value: 1}, {key: "blockchain", value: 13}]
       // For each element in the above array, append a <rect> for it
       .enter()
-      .append("rect")
-      .attr("x", (d) => vis.xSubgroup(d.key))
-      .attr("y", (d) => vis.y(d.value))
-      .attr("width", vis.xSubgroup.bandwidth())
-      .attr("height", (d) => HEIGHT - vis.y(d.value))
-      .attr("fill", (d) => vis.color(d.key));
+        .append("rect")
+          .attr("x", d => vis.xSubgroup(d.key))
+          .attr("y", d => vis.y(d.value))
+          .attr("width", vis.xSubgroup.bandwidth())
+          .attr("height", d => HEIGHT - vis.y(d.value))
+          .attr("fill", d => vis.color(d.key));
   }
 
   update(category) {
     const vis = this;
 
-    // Inititalize the filtered and newKeys arrays
-    var filtered = [];
-    var newKeys = [];
+    /** Initialize the filtered and newKeys arrays */
+
+    var filtered = [];  // Stores subgroup names to be hidden
+    var newKeys = [];   // Stores subgroup names to be shown
 
     const { all, personal, blockchain } = category;
 
     if (all) {
-      newKeys.push("all");
+      // Since all == true, we wish to show it. Thus, we push "all" into newKeys
+      newKeys.push("all");  
     } else {
       filtered.push("all");
     }
@@ -106,72 +144,72 @@ export default class InvestmentHistogram {
       filtered.push("blockchain");
     }
 
-    console.log(filtered);
-    console.log(newKeys);
+    /** Update axis */
 
-    vis.xSubgroup.domain(newKeys).rangeRound([0, vis.x.bandwidth()]);
+    vis.xSubgroup
+      .domain(newKeys)
+      .rangeRound([0, vis.x.bandwidth()]);
+
     vis.y
       .domain([
         0,
-        d3.max(data, function (d) {
-          return d3.max(vis.subgroups, function (key) {
-            if (filtered.indexOf(key) == -1) return d[key];
+        d3.max(data, (d) => {
+          return d3.max(vis.subgroups, key => {
+            if (filtered.indexOf(key) === -1) return d[key];
           });
         }),
       ])
       .nice();
 
-    // update the y axis: (works)
-    vis.yAxisGroup.transition().call(d3.axisLeft(vis.y).ticks(null, "s")).duration(500);
+    // Animate the update of y-axis
+    vis.yAxisGroup
+      .transition().duration(ANIM_TIME)
+      .call(d3.axisLeft(vis.y).ticks(null, "s"));
 
-    //
-    // Filter out the bands that need to be hidden:
-    //
+    
+    /** Filter out the bands that need to be hidden */
+
     var bars = vis.g
       .selectAll(".bar")
       .selectAll("rect")
-      .data(function (d) {
-        return vis.subgroups.map(function (key) {
-          return { key: key, value: d[key] };
+      .data(d => {
+        return vis.subgroups.map(key => {
+          return { key: key, value: d[key] };   // eg. {key: "all", value: 12}
         });
       });
 
+    // Animate the removal of bars to be hidden
     bars
-      .filter(function (d) {
+      .filter(d => {
         return filtered.indexOf(d.key) > -1;
       })
-      .transition()
-      .attr("x", function (d) {
-        return d3.select(this).attr("x") + d3.select(this).attr("width") / 2;
-      })
+      .transition().duration(ANIM_TIME)
+      // .attr("x", (d) => {
+      //   return d3.select(this).attr("x") + d3.select(this).attr("width") / 2;
+      // })
       .attr("height", 0)
       .attr("width", 0)
-      .attr("y", function (d) {
-        return HEIGHT;
-      })
-      .duration(500);
+      .attr("y", HEIGHT);
+      
 
-    //
-    // Adjust the remaining bars:
-    //
+    /** Adjust the remaining bars */
     bars
-      .filter(function (d) {
-        return filtered.indexOf(d.key) == -1;
+      .filter(d => {
+        return filtered.indexOf(d.key) === -1;
       })
-      .transition()
-      .attr("x", function (d) {
+      .transition().duration(ANIM_TIME)
+      .attr("x", d => {
         return vis.xSubgroup(d.key);
       })
-      .attr("y", function (d) {
+      .attr("y", d => {
         return vis.y(d.value);
       })
-      .attr("height", function (d) {
+      .attr("height", d => {
         return HEIGHT - vis.y(d.value);
       })
       .attr("width", vis.xSubgroup.bandwidth())
-      .attr("fill", function (d) {
+      .attr("fill", d => {
         return vis.color(d.key);
-      })
-      .duration(500);
+      });
   }
 }
