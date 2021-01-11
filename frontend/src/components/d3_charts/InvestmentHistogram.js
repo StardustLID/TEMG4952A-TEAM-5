@@ -1,41 +1,21 @@
 import * as d3 from "d3";
 
-const MARGIN = { TOP: 10, BOTTOM: 80, LEFT: 70, RIGHT: 10 };
-const WIDTH = 700 - MARGIN.LEFT - MARGIN.RIGHT;
+const data = [
+  { group: "banana", all: 12, personal: 1, blockchain: 13 },
+  { group: "poacee", all: 6, personal: 6, blockchain: 33 },
+  { group: "sorgho", all: 11, personal: 28, blockchain: 12 },
+  { group: "triticum", all: 19, personal: 6, blockchain: 1 },
+];
+
+const MARGIN = { TOP: 10, BOTTOM: 20, LEFT: 50, RIGHT: 30 };
+const WIDTH = 460 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM;
-
-const data1 = [
-  { height: "777", name: "A" },
-  { height: "999", name: "B" },
-  { height: "1000", name: "C" },
-  { height: "444", name: "D" },
-  { height: "656", name: "E" },
-  { height: "200", name: "F" },
-];
-
-const data2 = [
-  { height: "200", name: "A" },
-  { height: "555", name: "B" },
-  { height: "400", name: "C" },
-  { height: "222", name: "D" },
-  { height: "400", name: "E" },
-  { height: "199", name: "F" },
-];
-
-const data3 = [
-  { height: "577", name: "A" },
-  { height: "444", name: "B" },
-  { height: "600", name: "C" },
-  { height: "222", name: "D" },
-  { height: "0", name: "E" },
-  { height: "1", name: "F" },
-];
 
 export default class InvestmentHistogram {
   constructor(element) {
     let vis = this;
 
-    // Create a SVG canvas at the root element (div.plot-area)
+    /** Add a SVG canvas to the root element (div) */
     vis.g = d3
       .select(element)
       .append("svg")
@@ -44,177 +24,153 @@ export default class InvestmentHistogram {
       .append("g")
       .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
-    // Create x Label
-    vis.xLabel = vis.g
-      .append("text")
-      .attr("x", WIDTH / 2)
-      .attr("y", HEIGHT + MARGIN.BOTTOM)
-      .attr("text-anchor", "middle") //to put it in the middle
-      .text("The World tallest");
+    vis.subgroups = ["all", "personal", "blockchain"];
+    vis.groups = ["banana", "poacee", "sorgho", "triticum"];
 
-    //Create y Label
-    vis.g
-      .append("text")
-      .attr("x", -(HEIGHT / 2))
-      .attr("y", -50)
-      .attr("text-anchor", "middle")
-      .text("Height in cm")
-      .attr("transform", "rotate(-90)");
+    /** Scales for x-axis and y-axis */
 
+    vis.x = d3.scaleBand().domain(vis.groups).range([0, WIDTH]).padding(0.2);
+
+    vis.y = d3.scaleLinear().domain([0, 40]).range([HEIGHT, 0]);
+
+    /** Draws x-axis and y-axis */
     vis.xAxisGroup = vis.g.append("g").attr("transform", `translate(0, ${HEIGHT})`);
+    vis.xAxisGroup.call(d3.axisBottom(vis.x).tickSize(0));
 
     vis.yAxisGroup = vis.g.append("g");
+    vis.yAxisGroup.call(d3.axisLeft(vis.y));
 
-    vis.allData = data1;
-    vis.personalData = data2;
-    vis.blockchainData = data3;
-
-    /*
-    //THIS PART SHOULD BE IN THE UPDATE PART IF THE X AND Y AXIS NEED TO CHANGE
-    vis.y = d3
-      .scaleLinear()
-      .domain([0, d3.max(vis.allData, (d) => d.height)])
-      .range([HEIGHT, 0]);
-
-    vis.x = d3
+    /** Add another scale for subgroup position */
+    vis.xSubgroup = d3
       .scaleBand()
-      .domain(vis.allData.map((d) => d.name))
-      .range([0, WIDTH])
-      .padding(0.4);
+      .domain(vis.subgroups)
+      .range([0, vis.x.bandwidth()])
+      .padding([0.05]);
 
-    //Call Axis
-    const xAxisCall = d3.axisBottom(vis.x);
-    vis.xAxisGroup.transition().duration(500).call(xAxisCall);
+    vis.color = d3.scaleOrdinal().domain(vis.subgroups).range(["#e41a1c", "#377eb8", "#4daf4a"]);
 
-    const yAxisCall = d3.axisLeft(vis.y);
-    vis.yAxisGroup.transition().duration(500).call(yAxisCall);
-    */
+    /** Rendering */
+    vis.barsGroup = vis.g.append("g").selectAll("g").data(data);
 
-    this.update({
-      all: true,
-      personal: true,
-      blockchain: true,
-    });
-  }
+    // ENTER
+    vis.barsGroup
+      .enter()
 
-  createAll() {
-    /*
-    const vis = this;
-
-    //Data Join
-    const rects = vis.g.selectAll("rect").data(vis.allData);
-
-    //Exit remove the element on the screen but no in the data array,
-    //ie. when like length 6 to length 5, one will exit and the 5 elements will update
-    rects.exit().transition().duration(400).attr("height", 0).attr("y", HEIGHT).remove();
-    //transition make it short within 500ms
-
-    //Update update the new rect that still exist in the data but also exist in the screen
-    rects
-      .transition()
-      .duration(500)
-      .attr("x", (d) => vis.x(d.name))
-      .attr("y", (d) => vis.y(d.height))
-      .attr("width", vis.x.bandwidth)
-      .attr("height", (d) => HEIGHT - vis.y(d.height));
-
-    //Enter enter the new rect that not exist on the screen but in the data array
-    rects
+      // Create a <g> for every group ("banana", "poacee", "sorgho", "triticum")
+      // Each group has one <g> that holds the 3 bars
+      .append("g")
+      .attr("class", "bar")
+      .attr("transform", (d) => `translate(${vis.x(d.group)}, 0)`)
+      .selectAll("rect")
+      .data((d) =>
+        vis.subgroups.map((key) => {
+          return { key: key, value: d[key] };
+        }),
+      )
+      // [{key: "Nitrogen", value: "12"}, {key: "normal", value: "1"}, {key: "stress", value: "13"}]
+      // For each element in the above array, append a <rect> for it
       .enter()
       .append("rect")
-      .attr("x", (d) => vis.x(d.name) - 10)
-      .attr("width", vis.x.bandwidth)
-      .attr("fill", "grey")
-      .attr("y", HEIGHT)
-      .transition()
-      .duration(500)
-      .attr("height", (d) => HEIGHT - vis.y(d.height))
-      .attr("y", (d) => vis.y(d.height));
-
-      */
-  }
-
-  createPersonal() {
-    /*
-    const vis = this;
-
-    //Data Join
-    const rects = vis.g.selectAll("rect").data(vis.personalData);
-
-    //Exit remove the element on the screen but no in the data array,
-    //ie. when like length 6 to length 5, one will exit and the 5 elements will update
-    rects.exit().transition().duration(400).attr("height", 0).attr("y", HEIGHT).remove();
-    //transition make it short within 500ms
-
-    //Update update the new rect that still exist in the data but also exist in the screen
-    rects
-      .transition()
-      .duration(500)
-      .attr("x", (d) => vis.x(d.name))
-      .attr("y", (d) => vis.y(d.height))
-      .attr("width", vis.x.bandwidth)
-      .attr("height", (d) => HEIGHT - vis.y(d.height));
-
-    //Enter enter the new rect that not exist on the screen but in the data array
-    rects
-      .enter()
-      .append("rect")
-      .attr("x", (d) => vis.x(d.name))
-      .attr("width", vis.x.bandwidth)
-      .attr("fill", "grey")
-      .attr("y", HEIGHT)
-      .transition()
-      .duration(500)
-      .attr("height", (d) => HEIGHT - vis.y(d.height))
-      .attr("y", (d) => vis.y(d.height));
-      */
-  }
-
-  createBlockchain() {
-    /*
-    const vis = this;
-
-    //Data Join
-    const rects = vis.g.selectAll("rect").data(vis.BlockchainData);
-
-    //Exit remove the element on the screen but no in the data array,
-    //ie. when like length 6 to length 5, one will exit and the 5 elements will update
-    rects.exit().transition().duration(400).attr("height", 0).attr("y", HEIGHT).remove();
-    //transition make it short within 500ms
-
-    //Update update the new rect that still exist in the data but also exist in the screen
-    rects
-      .transition()
-      .duration(500)
-      .attr("x", (d) => vis.x(d.name) + 10)
-      .attr("y", (d) => vis.y(d.height))
-      .attr("width", vis.x.bandwidth)
-      .attr("height", (d) => HEIGHT - vis.y(d.height));
-
-    //Enter enter the new rect that not exist on the screen but in the data array
-    rects
-      .enter()
-      .append("rect")
-      .attr("x", (d) => vis.x(d.name) + 10)
-      .attr("width", vis.x.bandwidth)
-      .attr("fill", "green")
-      .attr("y", HEIGHT)
-      .transition()
-      .duration(500)
-      .attr("height", (d) => HEIGHT - vis.y(d.height))
-      .attr("y", (d) => vis.y(d.height));
-      */
+      .attr("x", (d) => vis.xSubgroup(d.key))
+      .attr("y", (d) => vis.y(d.value))
+      .attr("width", vis.xSubgroup.bandwidth())
+      .attr("height", (d) => HEIGHT - vis.y(d.value))
+      .attr("fill", (d) => vis.color(d.key));
   }
 
   update(category) {
     const vis = this;
 
-    console.log(category);
+    // Inititalize the filtered and newKeys arrays
+    var filtered = [];
+    var newKeys = [];
 
-    if (category.all) this.createAll();
+    const { all, personal, blockchain } = category;
 
-    if (category.personal) this.createPersonal();
+    if (all) {
+      newKeys.push("all");
+    } else {
+      filtered.push("all");
+    }
 
-    if (category.blockchain) this.createBlockchain();
+    if (personal) {
+      newKeys.push("personal");
+    } else {
+      filtered.push("personal");
+    }
+
+    if (blockchain) {
+      newKeys.push("blockchain");
+    } else {
+      filtered.push("blockchain");
+    }
+
+    console.log(filtered);
+    console.log(newKeys);
+
+    vis.xSubgroup.domain(newKeys).rangeRound([0, vis.x.bandwidth()]);
+    vis.y
+      .domain([
+        0,
+        d3.max(data, function (d) {
+          return d3.max(vis.subgroups, function (key) {
+            if (filtered.indexOf(key) == -1) return d[key];
+          });
+        }),
+      ])
+      .nice();
+
+    // update the y axis: (works)
+    vis.yAxisGroup.transition().call(d3.axisLeft(vis.y).ticks(null, "s")).duration(500);
+
+    //
+    // Filter out the bands that need to be hidden:
+    //
+    var bars = vis.g
+      .selectAll(".bar")
+      .selectAll("rect")
+      .data(function (d) {
+        return vis.subgroups.map(function (key) {
+          return { key: key, value: d[key] };
+        });
+      });
+
+    bars
+      .filter(function (d) {
+        return filtered.indexOf(d.key) > -1;
+      })
+      .transition()
+      .attr("x", function (d) {
+        return d3.select(this).attr("x") + d3.select(this).attr("width") / 2;
+      })
+      .attr("height", 0)
+      .attr("width", 0)
+      .attr("y", function (d) {
+        return HEIGHT;
+      })
+      .duration(500);
+
+    //
+    // Adjust the remaining bars:
+    //
+    bars
+      .filter(function (d) {
+        return filtered.indexOf(d.key) == -1;
+      })
+      .transition()
+      .attr("x", function (d) {
+        return vis.xSubgroup(d.key);
+      })
+      .attr("y", function (d) {
+        return vis.y(d.value);
+      })
+      .attr("height", function (d) {
+        return HEIGHT - vis.y(d.value);
+      })
+      .attr("width", vis.xSubgroup.bandwidth())
+      .attr("fill", function (d) {
+        return vis.color(d.key);
+      })
+      .duration(500);
   }
 }
