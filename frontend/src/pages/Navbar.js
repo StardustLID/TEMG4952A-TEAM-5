@@ -54,7 +54,7 @@ const Navbar = (props) => {
           <IconButton aria-label="menu" className={classes.menuBtn} onClick={toggleSidebar}>
             <Icon>menu</Icon>
           </IconButton>
-          <Link to="/" className={classes.ubsLogoBtn}>
+          <Link to="/" className={classes.ubsLogoBtn} onClick={() => setSelectedIndex(0)}>
             <img src={ubs_logo} alt="UBS Logo" height="29" width="80" />
           </Link>
         </Toolbar>
