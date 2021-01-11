@@ -7,7 +7,7 @@ export default function InvestmentHistogramWrapper(props) {
 
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
-    setPlot(new InvestmentHistogram(plotArea.current, plotArea.barColors));
+    setPlot(new InvestmentHistogram(plotArea.current, props.barColors));
   }, []);
 
   // Calls the update(gender) method of D3Scatterplot class when props.cluster updates
