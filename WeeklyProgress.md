@@ -40,6 +40,10 @@
 | Date     | Tasks                                       |
 |----------|---------------------------------------------|
 | 04-01-21 | Added generic one-hot encoder for `ipo.csv` |
+| 06-01-21 | Joined all csv                              |
+| 07-01-21 | Formatted csv files into 1 dataframe        |
+| 10-01-21 | Handled partially about null and categorical|
+
 
 ## Week 3 (11 Jan - 17 Jan)
 ### Overall Project Related
