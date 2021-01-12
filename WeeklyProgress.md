@@ -43,6 +43,7 @@
 | 06-01-21 | Joined all csv                              |
 | 07-01-21 | Formatted csv files into 1 dataframe        |
 | 10-01-21 | Handled partially about null and categorical|
+| 10-01-21 | Plots and graphs selections                 |
 
 
 ## Week 3 (11 Jan - 17 Jan)
