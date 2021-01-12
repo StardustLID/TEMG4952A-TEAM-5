@@ -28,9 +28,14 @@
 * Confirmed that responsive UI, word description data have very low priority
 * 
 ### Front-End
-| Date     | Tasks                            |
-|----------|----------------------------------|
-| 04-01-21 | Explored uses of card components |
+| Date     | Tasks                                         |
+|----------|-----------------------------------------------|
+| 05-01-21 | Improvde Home page appearance and added cards |
+| 07-01-21 | Added wrappers for Home page's D3.js charts   |
+| 08-01-21 | Created a dynamic D3.js scatterplot           |
+| 08-01-21 | Added tables with dummy data in Home page     |
+| 10-01-21 | Added a wrapper for a dynamic multi-bar chart |
+
 ### Back-End
 | Date     | Tasks                                       |
 |----------|---------------------------------------------|
