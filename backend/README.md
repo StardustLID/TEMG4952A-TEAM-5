@@ -41,14 +41,14 @@ including the deletion of unrelated and dummy columns, and revert all csv files 
 
 4. Had a clear goal about what to predict upon receiving a reply from UBS.
 
+5. Plot selections from features required by UBS and any meaningful graphs, and communicated with frontend for the presentation of those graphs.
+
 
 ### Plan for the coming week:
 
 1. Consult TA about special data handling.
 
-2. Plot graphs according to features required by UBS, and to plot meaningful graphs (if any).
-
-3. Communicate with frontend for the presentation of those graphs.
+2. Normalise data for money value.
 
 4. Investigate on how to alocate $50m portfolio to companies specifying their "size" and "series".
 
