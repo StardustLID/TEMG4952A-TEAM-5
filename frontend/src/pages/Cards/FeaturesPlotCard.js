@@ -9,8 +9,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FeaturesPlotCard() {
+export default function FeaturesPlotCard(props) {
   const classes = useStyles();
+
+  const { selectedId } = props;
 
   return <Card className={classes.root}></Card>;
 }

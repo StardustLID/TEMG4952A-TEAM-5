@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,6 +18,15 @@ const useStyles = makeStyles({
 export default function Features() {
   const classes = useStyles();
 
+  // Stores the id of the selected item in the left button list
+  // See src/pages/featuresData.js for all possible values of id
+  const [selectedId, setSelectedId] = useState("num-employees");
+
+  // onClick handler for the left list of buttons
+  const listBtnHandler = (itemId) => {
+    setSelectedId(itemId);
+  };
+
   return (
     <Grid container className={classes.root}>
       <Grid item sm={1} /> {/* Adds left margin */}
@@ -28,10 +38,10 @@ export default function Features() {
         </Grid>
         <Grid container item direction="row" spacing={3}>
           <Grid item sm={3}>
-            <FeaturesBtnListCard />
+            <FeaturesBtnListCard selectedId={selectedId} listBtnHandler={listBtnHandler} />
           </Grid>
           <Grid item sm={9}>
-            <FeaturesPlotCard />
+            <FeaturesPlotCard selectedId={selectedId} />
           </Grid>
         </Grid>
       </Grid>
