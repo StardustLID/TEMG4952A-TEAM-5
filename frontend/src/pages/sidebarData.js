@@ -7,6 +7,11 @@ export const sidebarData = [
     icon: "home",
   },
   {
+    title: "Features Visualization",
+    path: "/features",
+    icon: "analytics",
+  },
+  {
     title: "Companies",
     path: "/companies",
     icon: "view_list",
