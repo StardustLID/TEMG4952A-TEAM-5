@@ -1,15 +1,41 @@
 import { Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import BarChartWrapper from "../wrappers/BarChartWrapper";
+import HistogramWrapper from "../wrappers/HistogramWrapper";
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: "#EBEBEB",
+    paddingBottom: 20,
+    // If overflow is not hidden, then a horizontal scroll bar appears
+    // Read more: https://material-ui.com/components/grid/#negative-margin
+    overflowX: "hidden",
+    overflowY: "hidden",
+  },
+  title: {
+    marginTop: 20,
+  },
+});
 
 function Companies() {
+  const classes = useStyles();
+
   return (
-    <Grid container>
-      <Grid item xs={0} sm={2} />
-      <Grid item xs={12} sm={8}>
-        <br />
-        <Typography variant="h4">Companies</Typography>
+    <Grid container className={classes.root}>
+      <Grid item sm={1} /> {/* Adds left margin */}
+      <Grid container item sm={10} direction="column" spacing={2}>
+        <Grid item>
+          <Typography variant="h1" className={classes.title}>
+            Histogram and Bar Chart Example
+          </Typography>
+        </Grid>
+        <Grid container item spacing={4}>
+          <Grid item>{<BarChartWrapper />}</Grid>
+          <Grid item>{<HistogramWrapper />}</Grid>
+        </Grid>
       </Grid>
-      <Grid item xs={0} sm={2} />
+      <Grid item sm={1} /> {/* Adds right margin */}
     </Grid>
   );
 }
