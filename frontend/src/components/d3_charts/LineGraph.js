@@ -7,13 +7,12 @@ const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM;
 // TODO: Task 1 input the XLabel, YLabel, json/csv
 const XLabel = "Hello";
 const YLabel = "898";
-const csv =
-"https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv";
-//TODO: Task 2 CHange the d.date and d.value to d.dataname on line 54, 57, 84, 85
+
+//TODO: Task 2 Change the d.date and d.value to d.dataname on line 54, 57, 84, 85
 // where d.date is for x axis and d.value is for y axis
 
 export default class LineGraph {
-  constructor(element) {
+  constructor(element, data) {
     let vis = this;
 
      /** Add a SVG canvas to the root element (div) */
@@ -49,44 +48,39 @@ export default class LineGraph {
 
     vis.yAxisGroup = vis.svg.append("g");
 
-    d3.csv(csv).then((data) => {
-        // Find the max of the y axis
-        var yMax = d3.max(data, function(d) { return +d.value; });
+    // Find the max of the y axis
+    var yMax = d3.max(data, d => d.value);
 
-        // Find the domain of Date 
-        var extent = d3.extent(data, function(d) { return d.date; })
-        const xDomain = [new Date(extent[0]), new Date(extent[1])]
+    // Find the domain of Date 
+    var extent = d3.extent(data, d => d.date)
+    const xDomain = [new Date(extent[0]), new Date(extent[1])]
 
-        // x, y Scale
-        var x = d3.scaleTime()
-            .domain(xDomain)
-            .range([ 0, WIDTH ]);
+    // x, y Scale
+    var x = d3.scaleTime()
+        .domain(xDomain)
+        .range([ 0, WIDTH ]);
 
-        var y = d3.scaleLinear()
-            .domain([0, yMax])
-            .range([ HEIGHT, 0 ]);
+    var y = d3.scaleLinear()
+        .domain([0, yMax])
+        .range([ HEIGHT, 0 ]);
 
-        // Call X and Y axis
-        const xAxisCall = d3.axisBottom(x);
-        vis.xAxisGroup.transition().duration(500).call(xAxisCall);
+    // Call X and Y axis
+    const xAxisCall = d3.axisBottom(x);
+    vis.xAxisGroup.transition().duration(500).call(xAxisCall);
 
-        const yAxisCall = d3.axisLeft(y);
-        vis.yAxisGroup.transition().duration(500).call(yAxisCall);
+    const yAxisCall = d3.axisLeft(y);
+    vis.yAxisGroup.transition().duration(500).call(yAxisCall);
 
-        // Plot the graph
-        vis.svg
-            .append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "steelblue")
-            .attr("stroke-width", 1.5)
-            .attr("d", d3.line()
-              .x((d)=> x(new Date(d.date)) )
-              .y((d)=> y(d.value ))
-            )
-    })
-
-}
-
-
+    // Plot the graph
+    vis.svg
+        .append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+          .x((d)=> x(new Date(d.date)) )
+          .y((d)=> y(d.value ))
+        )
+  }
 }

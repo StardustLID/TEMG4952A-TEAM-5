@@ -15,7 +15,7 @@ Prerequisite: Install Python 3 in your system.
    cd .\backend\
    py -m venv venv
    .\venv\Scripts\activate
-   pip install flask flask-cors python-dotenv
+   pip install -r requirements.txt
    flask run
    ```
 
@@ -36,7 +36,7 @@ Prerequisite: Install Python 3 in your system.
    cd backend/
    python3 -m venv venv
    . venv/bin/activate
-   pip install flask flask-cors python-dotenv
+   pip install -r requirements.txt
    flask run
    ```
 

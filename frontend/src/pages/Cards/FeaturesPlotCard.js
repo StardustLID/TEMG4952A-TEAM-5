@@ -4,6 +4,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import featuresData from "../featuresData";
 import SingleBarChartWrapper from "../../wrappers/SingleBarChartWrapper";
+import LineGraphWrapper from "../../wrappers/LineGraphWrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -22,16 +23,18 @@ export default function FeaturesPlotCard(props) {
 
   // Selected object from "featuresData" array imported from featuresData.js
   const selectedDataObj = featuresData.find((element) => element.id === selectedId);
+  const selectedChartID = selectedDataObj.id;
 
   // Evaluates which chart wrapper to use
   let chartWrapper = null;
   switch (selectedDataObj.chartType) {
     case "singleBar":
-      chartWrapper = <SingleBarChartWrapper chartID={selectedDataObj.id} />;
+      chartWrapper = <SingleBarChartWrapper chartID={selectedChartID} />;
       break;
     case "multiBar":
       break;
     case "line":
+      chartWrapper = <LineGraphWrapper chartID={selectedChartID} />;
       break;
     case "map":
       break;
