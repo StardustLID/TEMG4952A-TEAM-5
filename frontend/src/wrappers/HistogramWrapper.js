@@ -10,6 +10,7 @@ export default function HistogramWrapper(props) {
     setPlot(new Histogram(plotArea.current));
   }, []);
 
+  // TODO: if use update then need to uncomment thhis part
   // Calls the update(category) method of InvestmentHistogram class when props.category updates
   // React will NOT re-render this component when props.category updates
   /**useEffect(() => {

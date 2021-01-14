@@ -3,6 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import BarChartWrapper from "../wrappers/BarChartWrapper";
 import HistogramWrapper from "../wrappers/HistogramWrapper";
+import PieChartWrapper from "../wrappers/PiechartWrapper";
+import LineGraphWrapper from "../wrappers/LineGraphWrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -30,9 +32,15 @@ function Companies() {
             Histogram and Bar Chart Example
           </Typography>
         </Grid>
-        <Grid container item spacing={4}>
-          <Grid item>{<BarChartWrapper />}</Grid>
-          <Grid item>{<HistogramWrapper />}</Grid>
+        <Grid container item direction = "column" spacing={2}>
+          <Grid container item spacing={4}>
+            <Grid item>{<BarChartWrapper />}</Grid>
+            <Grid item>{<HistogramWrapper />}</Grid>
+          </Grid>
+          <Grid container item spacing={4}>
+            <Grid item>{<PieChartWrapper />}</Grid>
+            <Grid item>{<LineGraphWrapper />}</Grid>
+          </Grid>
         </Grid>
       </Grid>
       <Grid item sm={1} /> {/* Adds right margin */}
