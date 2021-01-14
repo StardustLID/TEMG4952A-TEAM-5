@@ -32,21 +32,15 @@ function Companies() {
             Histogram and Bar Chart Example
           </Typography>
         </Grid>
-<<<<<<< HEAD
         <Grid container item direction = "column" spacing={2}>
           <Grid container item spacing={4}>
-            <Grid item>{<BarChartWrapper />}</Grid>
+            <Grid item>{<SingleBarChartWrapper />}</Grid>
             <Grid item>{<HistogramWrapper />}</Grid>
           </Grid>
           <Grid container item spacing={4}>
             <Grid item>{<PieChartWrapper />}</Grid>
             <Grid item>{<LineGraphWrapper />}</Grid>
           </Grid>
-=======
-        <Grid container item spacing={4}>
-          <Grid item>{<SingleBarChartWrapper />}</Grid>
-          <Grid item>{<HistogramWrapper />}</Grid>
->>>>>>> b34132dc1d4884ef656ac8e3775497a665e77800
         </Grid>
       </Grid>
       <Grid item sm={1} /> {/* Adds right margin */}
