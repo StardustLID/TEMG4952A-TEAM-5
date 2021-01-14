@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import BarChartWrapper from "../wrappers/BarChartWrapper";
+import SingleBarChartWrapper from "../wrappers/SingleBarChartWrapper";
 import HistogramWrapper from "../wrappers/HistogramWrapper";
 
 const useStyles = makeStyles({
@@ -31,7 +31,7 @@ function Companies() {
           </Typography>
         </Grid>
         <Grid container item spacing={4}>
-          <Grid item>{<BarChartWrapper />}</Grid>
+          <Grid item>{<SingleBarChartWrapper />}</Grid>
           <Grid item>{<HistogramWrapper />}</Grid>
         </Grid>
       </Grid>

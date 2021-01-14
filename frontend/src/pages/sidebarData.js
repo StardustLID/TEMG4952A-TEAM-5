@@ -9,7 +9,7 @@ export const sidebarData = [
   {
     title: "Features Visualization",
     path: "/features",
-    icon: "analytics",
+    icon: "insert_chart",
   },
   {
     title: "Companies",
