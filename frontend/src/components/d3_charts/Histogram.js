@@ -11,7 +11,7 @@ const XLabel = "Hi";
 const YLabel = "Bye";
 const csv =
   "https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv";
-// TODO: Task 2 Change the d.price to d.dataname on line 59, 77
+// TODO: Task 2 Change the d.price to d.dataname on line 60, 80
 
 
 export default class Histogram {
@@ -44,7 +44,7 @@ export default class Histogram {
       .text(YLabel)
       .attr("transform", "rotate(-90)"); // rotate in clockwise, then it will revert x and y
 
-    
+    //Set x, y AxisGroup
     vis.xAxisGroup = vis.svg
       .append("g")
       .attr("transform", `translate(0, ${HEIGHT})`);
@@ -53,65 +53,58 @@ export default class Histogram {
 
     d3.csv(csv).then(function (data){
        
-        /** TODO: Task 3 Choose Which Max
-         *  if the maximum is too far from the general data, then choose 1000
-         *  Otherwise, use the d3.max function*/
+      /** TODO: Task 3 Choose Which Max
+      *  if the maximum is too far from the general data, then choose 1000
+      *  Otherwise, use the d3.max function*/
         
-         //let max = d3.max(data, (d) => d.price)
-        let max = 1000
+      //let max = d3.max(data, (d) => d.price)
+      let max = 1000
 
-        var x = d3
+      var x = d3
           .scaleLinear()
           .domain([0, max])
           .range([0, WIDTH]);
 
-        const xAxisCall = d3.axisBottom(x);
-        vis.xAxisGroup.transition().duration(500).call(xAxisCall);
+      //Call Axis
+      const xAxisCall = d3.axisBottom(x);
+      vis.xAxisGroup.transition().duration(500).call(xAxisCall);
 
-        // set the parameters for the histogram
-        // x.ticks divide the x.domain into different interval, ie. [0, 10), [10, 20), [20, 30) ...
-        // Thresholds are defined as an array of values [x0, x1, …]. Any value less than x0 will be placed in the first bin; 
-        // any value greater than or equal to x0 but less than x1 will be placed in the second bin; and so on. 
-        // Thus, the generated bins will have thresholds.length + 1 bins.
-        var histogram = d3
-                        .bin()
-                        .value((d) => {return d.price;}) // I need to give the vector of value
-                        .domain(x.domain()) // then the domain of the graphic
-                        .thresholds(x.ticks(70)); // then the numbers of bins
-
-          
-        // And apply this function to data to get the bins
-        var bins = histogram(data);
+      // set the parameters for the histogram
+      // x.ticks divide the x.domain into different interval, ie. [0, 10), [10, 20), [20, 30) ...
+      // Thresholds are defined as an array of values [x0, x1, …]. Any value less than x0 will be placed in the first bin; 
+      // any value greater than or equal to x0 but less than x1 will be placed in the second bin; and so on. 
+      // Thus, the generated bins will have thresholds.length + 1 bins.
+      var histogram = 
+        d3
+        .bin()
+        .value((d) => {return d.price;}) // I need to give the vector of value
+        .domain(x.domain()) // then the domain of the graphic
+        .thresholds(x.ticks(70)); // then the numbers of bins
         
-        // Y axis: scale and draw:
-        var y = d3.scaleLinear().range([HEIGHT, 0]);
-
-        y.domain([0,d3.max(bins, function (d) {return d.length;}),
-        ]); // d3.hist has to be called before the Y axis obviously
-        vis.yAxisGroup.transition().duration(500).call(d3.axisLeft(y));
-
+      // And apply this function to data to get the bins
+      var bins = histogram(data);
+      
+      // Y axis: scale and draw:
+      var y = d3.scaleLinear().range([HEIGHT, 0]);
+      y.domain([0,d3.max(bins, function (d) {return d.length;})]); // d3.hist has to be called before the Y axis obviously
+      vis.yAxisGroup.transition().duration(500).call(d3.axisLeft(y));
         
-        // append the bar rectangles to the svg element
-        vis.svg
-          .selectAll("rect")
-          .data(bins)
-          .enter()
-          .append("rect")
-          .attr("x", 1)
-          .attr("transform", function (d) {
-            return "translate(" + x(d.x0) + "," + y(d.length) + ")";
-          })
-          .attr("width", function (d) {
-            return x(d.x1) - x(d.x0) - 1;
-          })
-          .attr("height", function (d) {
-            return HEIGHT - y(d.length);
-          })
-          .style("fill", "#69b3a2")
-          
-          
-      });
+      // append the bar rectangles to the svg element
+        
+      vis.svg
+        .selectAll("rect")
+        .data(bins)
+        .enter()
+        .append("rect")
+        .attr("x", (d)=>x(d.x0))
+        .attr("width",(d)=> x(d.x1) - x(d.x0) - 1)
+        .attr("fill", "#69b3a2")
+        .attr("y", HEIGHT)
+        .transition()
+        .duration(500)
+        .attr("height", (d) => HEIGHT - y(d.length))
+        .attr("y", (d)=>y(d.length))
 
-    
+    });
   }
 }
