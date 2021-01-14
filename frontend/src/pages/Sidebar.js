@@ -9,7 +9,7 @@ import { sidebarData } from "./sidebarData";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: 250,
+    width: 260,
     marginTop: 30,
   },
   listItem: {

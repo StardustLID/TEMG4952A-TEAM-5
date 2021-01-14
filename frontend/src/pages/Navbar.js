@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ubs_logo from "../assets/ubs_white_logo.png";
 import Sidebar from "./Sidebar";
@@ -8,6 +8,8 @@ import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
+import { useLocation } from "react-router-dom";
+import { sidebarData } from "./sidebarData";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,8 +36,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = (props) => {
-  const [sidebar, setSidebar] = useState(false); // For toggling the temporary side bar
   const [selectedIndex, setSelectedIndex] = useState(0); // Which sidebar item is selected
+
+  // Determines which sidebar button is selected by looking at current path
+  const currentPath = useLocation().pathname;
+
+  useEffect(() => {
+    const currentIndex = sidebarData.findIndex((element) => element.path === currentPath);
+    setSelectedIndex(currentIndex);
+  }, []);
+
+  const [sidebar, setSidebar] = useState(false); // For toggling the temporary side bar
 
   const toggleSidebar = () => setSidebar(!sidebar);
 

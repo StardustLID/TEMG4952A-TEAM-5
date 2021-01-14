@@ -60,9 +60,7 @@ export default function FeaturesBtnListCard(props) {
               key={item.id}
             >
               <ListItemIcon
-                className={
-                  selectedId === item.id ? classes.listItemIconSelected : classes.listItemIcon
-                }
+                className={selectedId === item.id ? classes.listItemIconSelected : classes.listItemIcon}
               >
                 <Icon>{item.icon}</Icon>
               </ListItemIcon>
