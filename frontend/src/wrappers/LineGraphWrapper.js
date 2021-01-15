@@ -9,6 +9,7 @@ export default function LineGraphWrapper(props) {
   const [plot, setPlot] = useState(null); // "plot" will later point to an instance of InvestmentHistogram
 
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
@@ -16,11 +17,17 @@ export default function LineGraphWrapper(props) {
 
     // Example: Fetch from API (See backend/app.py)
     fetch("/line-graph-test")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch data!");
+        }
+        return res.json();
+      })
       .then((data) => {
         setLoading(false);
         setPlot(new LineGraph(plotArea.current, data));
-      });
+      })
+      .catch((error) => setError(true)); // When failed to fetch data
   }, []);
 
   // TODO: if use update then need to uncomment this part
@@ -32,7 +39,7 @@ export default function LineGraphWrapper(props) {
 
   return (
     <div className="plot-area" ref={plotArea}>
-      {loading ? <LoadingSpinner /> : null}
+      {loading ? <LoadingSpinner error={error} /> : null}
     </div>
   );
 }
