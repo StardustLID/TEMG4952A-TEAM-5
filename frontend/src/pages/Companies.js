@@ -5,6 +5,7 @@ import SingleBarChartWrapper from "../wrappers/SingleBarChartWrapper";
 import HistogramWrapper from "../wrappers/HistogramWrapper";
 import PieChartWrapper from "../wrappers/PiechartWrapper";
 import LineGraphWrapper from "../wrappers/LineGraphWrapper";
+import WorldMapWrapper from "../wrappers/WorldMapWrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -40,6 +41,10 @@ function Companies() {
           <Grid container item spacing={4}>
             <Grid item>{<PieChartWrapper />}</Grid>
             <Grid item>{<LineGraphWrapper />}</Grid>
+          </Grid>
+          <Grid container item spacing={4}>
+            <Grid item>{<WorldMapWrapper />}</Grid>
+            {/*<Grid item>{<LineGraphWrapper />}</Grid>*/}
           </Grid>
         </Grid>
       </Grid>
