@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import WorldMap from "../components/d3_charts/WorldMap";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function WorldMapWrapper(props) {
   const { chartID } = props;
@@ -7,8 +8,11 @@ export default function WorldMapWrapper(props) {
   const plotArea = useRef(null); // Reference to the div where the plot will be rendered inside
   const [plot, setPlot] = useState(null); // "plot" will later point to an instance of SingleBarChart
 
+  const [loading, setLoading] = useState(true);
+
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
+    setLoading(false);
     setPlot(new WorldMap(plotArea.current));
   }, []);
 
@@ -20,5 +24,9 @@ export default function WorldMapWrapper(props) {
     plot?.update(props.category);
   }, [plot, props.category]);*/
 
-  return <div className="plot-area" ref={plotArea}></div>;
+  return (
+    <div className="plot-area" ref={plotArea}>
+      {loading ? <LoadingSpinner /> : null}
+    </div>
+  );
 }

@@ -5,11 +5,12 @@ import CardContent from "@material-ui/core/CardContent";
 import featuresData from "../featuresData";
 import SingleBarChartWrapper from "../../wrappers/SingleBarChartWrapper";
 import LineGraphWrapper from "../../wrappers/LineGraphWrapper";
+import WorldMapWrapper from "../../wrappers/WorldMapWrapper";
 
 const useStyles = makeStyles({
   root: {
     padding: 5,
-    height: "100%",
+    minHeight: "100%",
   },
   contentRoot: {
     padding: "25px 50px",
@@ -37,6 +38,7 @@ export default function FeaturesPlotCard(props) {
       chartWrapper = <LineGraphWrapper chartID={selectedChartID} />;
       break;
     case "map":
+      chartWrapper = <WorldMapWrapper chartID={selectedChartID} />;
       break;
   }
 
