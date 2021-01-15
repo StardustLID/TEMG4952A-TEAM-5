@@ -1,0 +1,745 @@
+uuid,name,category_groups_list
+f9b14a15-5517-8f38-0562-729ebb54dfdb,Homeless Shelter,Other
+f8320fcf-b657-37d2-1495-daa3ad888ece,Freemium,Other
+f0193199-a968-b457-eb49-95344e22a5ce,Industrial,Manufacturing
+ed8217ff-bd11-26fe-d82e-eb98a276dc2e,Innovation Management,Professional Services
+e9794581-9547-2150-8185-7b747f5c9913,Lighting,Hardware
+e907cf2a-842d-8a30-a0b1-07d9de4a8178,Mobile,Mobile
+e8804a82-8603-d2e1-c3b5-d241dd8030b9,Tutoring,Education
+e6d30f03-ec4b-0380-56eb-c127dc979003,Clean Energy,"Energy,Sustainability"
+e391c491-c09d-a04e-b5b6-57aa8b8d0fc6,Sustainability,Sustainability
+e37ada49-ab15-5e46-0a49-f0ce1a3c9128,Neuroscience,"Biotechnology,Science and Engineering"
+e012a489-adc7-cd6d-975c-928a8dbf16cb,Religion,Community and Lifestyle
+dde4df9b-2d64-c8da-3dc8-4c9635f1d415,Social CRM,"Information Technology,Sales and Marketing,Software"
+dbca89fa-f083-5438-b4ad-d3fdeceb78e7,Information Technology,Information Technology
+d4a7bfe6-59ed-ae17-e043-1a7415745a0e,Events,"Events,Media and Entertainment"
+d4213181-48a9-dd50-10ff-32dd5a33e29f,Public Relations,Sales and Marketing
+d38b3f26-abc4-6f7b-b29d-b952021a1b14,Enterprise Software,Software
+d0c29b4e-27db-3c47-34fe-94881a585836,Cloud Data Services,"Information Technology,Internet Services"
+cd235510-75da-a660-5884-fa9977f9d729,Charity,Other
+c6adf822-7fa3-c0b3-5188-556e08d72128,Video,"Media and Entertainment,Video"
+c2a98b8f-f4bc-2a86-de72-ba85f41df990,Physical Security,"Administrative Services,Privacy and Security"
+c267b15a-caf8-a4c8-0973-1ee558de3eef,Knowledge Management,"Administrative Services,Other"
+c17de7ff-6903-1bd4-d8b8-9c72560048ea,Self-Storage,Real Estate
+bf395a9a-618c-0264-3a2b-b18d8dc56fff,Hardware,Hardware
+bcf1a24a-96df-d95b-099c-ddd418385579,Wholesale,Commerce and Shopping
+b9bd65b9-20bf-45cc-207d-b70ac35d5bf4,Consulting,Professional Services
+b9833503-2cf2-12dd-bd0d-6b0596ddf8c5,IaaS,Software
+b8f58a18-4533-50fb-93a9-b4f5579318c1,IT Management,Information Technology
+b65acba5-b299-3990-6390-8be3e3833a07,Retail,Commerce and Shopping
+b5907394-9837-f190-7eca-a27462666650,Space Travel,Transportation
+b57ba844-a631-9466-6e25-fb6e50aa5dca,Vertical Search,Internet Services
+af9307c9-6413-72ae-aac7-4391df240dd2,Image Recognition,"Data and Analytics,Software"
+ad091ee0-0259-f129-7777-10f65213584d,Accounting,"Financial Services,Professional Services"
+aac4d736-66bd-2327-7701-1416bf43695c,Geospatial,"Data and Analytics,Navigation and Mapping"
+a402e198-e69b-eda2-2454-0bd8c09fd0df,PaaS,Software
+a326e225-acb8-f9c0-abfe-609a82b71965,Real Estate,Real Estate
+a0e2db7f-8397-b365-a8eb-8907eadf527a,Private Social Networking,Community and Lifestyle
+9f8132a0-2620-1f89-a2d2-fadbb3f16b4c,Wireless,"Hardware,Mobile"
+9ea85399-55f4-8722-8d70-63271a266017,Lifestyle,Community and Lifestyle
+9c453c6c-2fe9-7f99-eed3-d39d6a05cb3a,Data Mining,"Data and Analytics,Information Technology"
+99dcb039-c672-885e-6290-e0c72667e1f0,Incubators,"Financial Services,Lending and Investments"
+99763baa-917d-488e-86e2-34bbbde18450,Risk Management,Professional Services
+98de1ee2-4c3b-be26-0f7b-46fddbbfe76d,Law Enforcement,"Government and Military,Privacy and Security"
+9126275d-d470-1524-02f4-93d481721a6e,Medical,Health Care
+90b4194f-1d4f-ff5c-d7a6-6b6f32ae4892,Financial Services,Financial Services
+8fae7891-8002-aee2-311a-92b253c892d8,Biometrics,"Biotechnology,Data and Analytics,Science and Engineering"
+8ebedea6-e4a7-8594-ac16-33e3cfef7634,Local,Sales and Marketing
+8a20023f-3e32-20bb-b6ab-e824a0386367,Aerospace,Science and Engineering
+89b9e37a-0dcb-a76e-0816-b69d9b54279c,Augmented Reality,"Hardware,Software"
+89677d30-71f2-a6c9-efca-fa3f4ae4de1e,Credit Cards,"Financial Services,Lending and Investments,Payments"
+8814acc5-9b6a-4f53-28e3-a41c22d6477b,Mobile Devices,"Consumer Electronics,Hardware,Mobile"
+82bf2be6-3f6a-dcc7-b503-db3361577b8b,Celebrity,Media and Entertainment
+7a37f7dd-da23-e8b0-3fea-7f16a607d7bc,Racing,Sports
+744fa5d2-258f-24df-55d6-38983e272543,Coworking,Real Estate
+663f3831-4ac8-a42d-8dbd-0a8c3a0a9dd7,Vending and Concessions,Commerce and Shopping
+62564c13-d63b-1a8e-6894-27dd668b51d4,RFID,Hardware
+61f19815-c7f8-ed2c-8dd1-81bb306560fa,College Recruiting,"Administrative Services,Education"
+61b83871-f3be-f95f-93bb-d555157a4ff6,Developer Tools,Software
+5fd72d4b-40dc-4f4d-f702-82e8cffb5e7d,EBooks,"Content and Publishing,Media and Entertainment"
+5d9d97f5-440d-56f7-976a-d5b0a3c5a77f,Multi-level Marketing,Sales and Marketing
+5d591be4-ff96-01a7-0493-183606afe26d,Document Management,"Information Technology,Software"
+5c4e6926-5ff7-b188-0892-c8eb036c5ace,SaaS,Software
+5ada59d6-cc9e-97c4-9dea-bed9f472100b,Crowdfunding,Financial Services
+59ca1fa9-cc20-7f84-3c52-a6cee0ffe4a8,Outsourcing,Professional Services
+58842728-7ab9-5bd1-bb67-e8e55f6520a0,Biotechnology,"Biotechnology,Science and Engineering"
+5667104c-03d1-0317-d996-55a02fb16f90,Personalization,Commerce and Shopping
+55d506cf-4bdc-85e0-2076-230bfac65d6e,Theatre,Media and Entertainment
+5349a2f2-14d8-9727-c32a-19ebea5db78c,Social Media,"Internet Services,Media and Entertainment"
+5222bb72-6a6d-08c3-7afe-afa9db296e5b,Reading Apps,"Apps,Software"
+4a45af54-9841-add7-cda3-1c166889a6b0,Loyalty Programs,Sales and Marketing
+4349df99-4484-6059-bde4-1b4ac7b55abd,Toys,Consumer Goods
+404d4762-e5b6-1721-c045-6b0556619e73,Public Transportation,Transportation
+3f21415b-5784-6be6-3722-eb189190b7cd,Health Care,Health Care
+2f47ba93-33d3-61fe-de89-0fe8a4a8366b,Digital Media,Media and Entertainment
+2de01956-ad66-8623-0b9b-2c83ef9b7ad9,Alumni,"Education,Other"
+2772a539-e636-09dc-30dc-b1a7deb98d0e,Internet,Internet Services
+275ddcbc-27de-ff4f-4e50-6dc26ebf9570,E-Commerce,Commerce and Shopping
+2643338a-b464-bb84-8a4e-2a1f0e8a9958,Tobacco,"Consumer Goods,Food and Beverage"
+202de69d-732b-5471-1e68-8453cfbc8b92,Therapeutics,Health Care
+1fe278ea-e441-01b9-30db-6c301c0d6fd1,Business Development,Professional Services
+1f843ff1-4a47-c956-aa2a-cc8d290da90f,Impact Investing,"Financial Services,Lending and Investments"
+1ded7054-9e6d-2ede-57ad-c95e83be0c06,Blogging Platforms,"Content and Publishing,Media and Entertainment"
+1b0319b6-bf80-9296-7c58-e45f0767bbb4,Crowdsourcing,Other
+11b5fc5f-2db3-a0a6-1457-bb237c7b6ac0,Credit,"Financial Services,Lending and Investments"
+104eed8c-8bd5-5d13-e418-d698bf8a2bce,Fraud Detection,"Financial Services,Payments,Privacy and Security"
+0ff04f3a-4264-226a-9c03-a481554b637d,Energy,Energy
+03f72e37-791c-2a02-cc32-3a202dbaab3e,Mobile Advertising,"Advertising,Sales and Marketing"
+fec1a806-6b09-549e-2c93-7aacad1a38f9,Lead Generation,Sales and Marketing
+fe55ab18-5d21-5cd3-3aac-f899919728ed,Landscaping,Real Estate
+fb98376c-283a-7d36-fd3e-65d036d7ef2a,Customer Service,"Other,Professional Services"
+f9e27700-8504-b203-6b23-606fb32d1449,Industrial Automation,"Manufacturing,Science and Engineering"
+f8146b4d-5d26-53a6-fea7-304e54b40e50,Email Marketing,Sales and Marketing
+f6de0321-9c3e-cbab-7a67-a018375bbb4e,Child Care,Health Care
+f6195c47-1e3b-4cce-5409-6ed62f94d43c,Payments,"Financial Services,Payments"
+f579213a-60af-8bb3-309b-1d80607ad2a9,Information Services,Information Technology
+f544c562-7d7f-0184-1344-ce30946b60e3,Content Syndication,"Content and Publishing,Media and Entertainment"
+f4ba246e-e61b-40f4-2289-0686ca748ea4,Leisure,Community and Lifestyle
+f3d22026-c056-e0f6-52d9-a6b4e6008f84,Field-Programmable Gate Array (FPGA),Hardware
+f283d492-b4e4-703f-1270-783173e63eef,Communications Infrastructure,Hardware
+efb26505-b898-6955-990b-3df12fa3e02b,Social Bookmarking,"Content and Publishing,Other"
+ef901c9f-de7f-7411-3d79-0f62c6b22e44,Power Grid,Energy
+ef231156-53f4-cfa3-79ee-a04b28bc3c4a,Public Safety,Government and Military
+ed3a589d-c9a7-3cbb-9feb-245f011e1d54,Internet of Things,Internet Services
+ecb24ac4-b12d-cec8-86b4-d3cd57b451ee,Data Center Automation,"Hardware,Information Technology,Software"
+eb80816d-769e-b2dc-e9b4-b6399e8c498e,Open Source,Software
+eb60e5da-548d-c298-3a92-06c15a2c89eb,Virtualization,"Hardware,Information Technology,Software"
+ea5b8052-d65d-c77b-6861-ebf3acf6d3cf,Waste Management,Sustainability
+e9ec479b-6753-59a6-c818-abc9eb1507b6,Test and Measurement,Data and Analytics
+e9abe18b-6578-192c-63a8-266acf7aa840,Social Media Advertising,"Advertising,Sales and Marketing"
+e811671c-168d-1fd2-36e5-df4e08a09f7c,Manufacturing,Manufacturing
+e7acbc99-32c7-4c88-09ed-8fae63eb2559,Text Analytics,"Data and Analytics,Software"
+e643b268-4da3-8a4a-c1ff-ae941d27b779,Energy Efficiency,"Energy,Sustainability"
+e5dbd6bd-bc84-dc1d-ebac-595549a4319d,Cooking,Food and Beverage
+e55f09e8-697b-1653-f86e-0274d25d6db6,Training,Education
+e4d83fbb-33f0-a6f0-1399-a68245e8f8ac,Construction,Real Estate
+e2ea4bf5-a8e8-50e4-e803-64db842d7983,Information and Communications Technology (ICT),Information Technology
+e2cc6239-1a97-0063-a30f-fe3b5d86161b,Young Adults,Community and Lifestyle
+e1a4665e-8b66-feda-2432-39e907eceb6d,Privacy,Privacy and Security
+e173f255-3db1-9d02-74cb-f58a1f45b483,Electronics,"Consumer Electronics,Hardware"
+e12cc7de-d276-007e-7d89-bdf3f8d1ffe7,Telecommunications,Hardware
+dedf003e-1bb6-d63c-8aa2-72384f91e5f0,Gift Exchange,Commerce and Shopping
+dddb9b25-2585-b348-f887-90a8c0fc4e0f,Video Conferencing,"Hardware,Information Technology,Internet Services,Messaging and Telecommunications,Software"
+dd82e300-d885-87dd-148b-419b21c14cc9,Web Design,Design
+dd74fc36-a3bd-4b34-d995-c4366e67c0cd,Language Learning,Education
+dd456d82-95d9-4e89-3e19-12a629a598ad,Billing,"Payments,Software"
+dd09c747-194a-1304-b2ba-c467be9226c8,Architecture,Real Estate
+dcfb5d50-2943-35bd-7ad4-4999a96c3480,Professional Services,Other
+db343f85-e0e3-807d-0517-742163265ebb,Cloud Security,"Information Technology,Privacy and Security"
+db173067-d318-c3fc-357a-ac38fa64c111,Project Management,"Administrative Services,Other"
+dabab6af-bf12-00ca-b185-85cead095097,Video Games,Gaming
+da2d8638-5b11-da4b-129c-a7c7f2cd4e55,Dental,Health Care
+d922c006-3ba0-537a-edb5-379ca5767662,Music,"Media and Entertainment,Music and Audio"
+d8cc3046-5eec-55fd-eaeb-4847152c3f77,Universities,Other
+d818cc40-e0a2-aac2-84da-aeaa3dfeacc0,B2B,Other
+d4daa14a-4946-67f6-d0b9-0997bdb2b889,Music Education,"Education,Media and Entertainment,Music and Audio"
+d29852ab-4bbf-95f5-6087-563ff127de71,Brand Marketing,Sales and Marketing
+d2836636-d33e-d8c2-1189-32668d519b74,Nanotechnology,Science and Engineering
+d1c5bf86-cc15-0f81-7020-8988122283cc,Musical Instruments,"Media and Entertainment,Music and Audio"
+d1a166b5-2c1e-757c-b08e-6e5b7962e944,Fashion,"Clothing and Apparel,Design"
+ccb73ca1-4648-8df2-22ae-029e3500f4c1,Animal Feed,Agriculture and Farming
+c9461eef-9ba2-cb92-0d05-2d2d5f85141c,Advice,Media and Entertainment
+c704ac44-d7ba-7cbe-146c-1503d4e620f0,Journalism,"Content and Publishing,Media and Entertainment"
+c6d041b1-4dbe-796e-bd46-b7e050a344ec,Lingerie,"Clothing and Apparel,Consumer Goods"
+c4c66159-7592-b141-ce57-4ffde4dabdde,Career Planning,Professional Services
+c3d5f46f-0a9d-cfdc-a44a-4cc6a13fe804,Solar,"Energy,Natural Resources,Sustainability"
+c333af05-5f63-e062-1fb3-99189f106b59,Film,"Media and Entertainment,Video"
+c2ddf939-d1f3-bd05-c436-22c0f3cdcb4b,E-Commerce Platforms,"Commerce and Shopping,Internet Services"
+c08b5441-a05b-9777-b7a6-012728caddd9,Software,Software
+c027cef7-0f5e-e22c-cc82-937146652034,Hedge Funds,"Financial Services,Lending and Investments"
+bf5c955e-6f68-da36-e502-1d3962c28325,Social Impact,Other
+be24ff10-a040-7d8f-d7a7-1169cc22497b,Digital Signage,Sales and Marketing
+be0f36fc-f1fa-504e-b9a7-d5496cc754cd,Organic,Sustainability
+be0cfcc4-764a-5444-8285-6e07bfb1c80d,Professional Networking,"Community and Lifestyle,Professional Services"
+bca6746a-a1b8-0637-b9b2-985d70a7e507,Recreation,Sports
+bb2ad65f-1009-db81-c6f6-83dbcfd64870,Automotive,Transportation
+bb1777e5-25f3-b9f2-922b-0d5defe0d5bb,Semantic Search,Internet Services
+b9cab5d0-2afc-6b49-ff6d-796d2ab49334,Content Delivery Network,Content and Publishing
+b94dffa8-e39f-1a70-ef05-451d1b29fb20,Location Based Services,"Data and Analytics,Internet Services,Navigation and Mapping"
+b8ca872c-983d-f8dd-3639-2660511203ef,Insurance,Financial Services
+b433ae30-feb9-c0c6-75b0-6b16174ebe09,Outdoor Advertising,"Advertising,Sales and Marketing"
+b37dbaeb-c825-e6a0-36de-84556a5d2e1f,Venture Capital,"Financial Services,Lending and Investments"
+b26d30cb-466d-10fb-df31-7931541c33aa,Virtual Goods,"Commerce and Shopping,Software"
+b1b3b2d7-85ed-2cb1-fc60-3e2b6a3b5ddd,Video Streaming,"Content and Publishing,Media and Entertainment,Video"
+b1234a83-0ad1-c131-b788-81f8eb48c35e,Legal,Professional Services
+b05bd17d-1df9-8add-ae14-14e07dc37c9c,Sporting Goods,"Commerce and Shopping,Sports"
+af922a55-ff56-771a-b9b5-06c1284ef0c8,Gamification,Gaming
+af333248-9c7e-50c5-168a-e91b86595a17,Apps,"Apps,Software"
+aeae9394-5d34-5f75-8439-5edfe8f12644,Resorts,Travel and Tourism
+ae8f68d2-9319-f2c2-3549-4f1ac2851660,3D Printing,Manufacturing
+ae5718dc-8602-c733-e62b-28e6167091ad,Finance,Financial Services
+ae47d4bc-fe64-9638-06b8-ffdf91a9f82a,Cloud Management,"Information Technology,Internet Services,Software"
+ad8f33a8-c5d0-b7d7-86f3-89aa2954c119,Visual Search,Internet Services
+acee45c1-07e3-c7a2-4853-f9df6c484e9a,Web Browsers,"Internet Services,Software"
+ac909e6a-4cc4-07ab-9d41-7eb068ebdb35,Darknet,Internet Services
+ac34c4c6-e430-f66f-44ae-ef8ca45b52bb,Semantic Web,Internet Services
+aad2f937-0707-e264-9c2e-63a2f5083150,Soccer,Sports
+a90af7ae-cd98-8e2a-1a6f-589fe4037a86,Concerts,"Events,Media and Entertainment"
+a7e6d51c-665d-5b0b-11ca-07737db50c4e,Local Advertising,"Advertising,Sales and Marketing"
+a69e7c2b-5a12-d999-e85e-a0da5f05b3d3,Computer Vision,"Hardware,Software"
+a5194b80-118a-af3e-db95-665fd12f2474,Dietary Supplements,"Food and Beverage,Health Care"
+a4ef4f4d-5063-a104-f758-53d855db79f1,MMO Games,Gaming
+a477d733-6770-63f6-8b37-9444379e3186,National Security,Government and Military
+a3a34a17-be2d-c903-687f-6f1f3e6530ba,Assisted Living,Health Care
+a1ec698c-164f-d8da-096f-bdbb751c21a8,Music Venues,Media and Entertainment
+a146d2f4-4b22-453a-f8bd-e671e3182112,Small and Medium Businesses,Other
+a05dcda6-3d19-288d-9b66-1473706720aa,Product Design,Design
+a0144815-bd8f-9a1b-42ae-74c91617a77c,Sports,Sports
+9fe4b692-8586-3baa-84a4-9ccf4d6eb0fa,Infrastructure,Other
+9ee51d4b-2d79-a32c-479f-668767ad6898,Aquaculture,Agriculture and Farming
+9ebf5fb1-a1f9-7c81-da82-517c05bfee06,Direct Sales,Sales and Marketing
+9d01b6be-c071-6db0-eb2d-b18094bde681,Wealth Management,Financial Services
+9b7bff94-c36c-b8d4-8789-69670454fe84,Direct Marketing,Sales and Marketing
+9a7758a1-8a6d-6489-3369-7315ac5e5e8c,Browser Extensions,Software
+99c5404c-0ff5-8ee5-d334-4b944ddb8cd9,Analytics,Data and Analytics
+98e7ead5-ed98-1a63-daa7-9ec18919a6ab,Content Creators,Media and Entertainment
+982fba85-05b9-7702-8a4e-518424a489ca,Natural Resources,"Natural Resources,Sustainability"
+95642ff0-23e9-79a3-612b-50de99f06305,Transportation,Transportation
+93872d37-a1f6-a0af-b9e2-0b150c79f8eb,Retail Technology,"Commerce and Shopping,Hardware,Software"
+92df4ad0-7ad6-87b0-2025-9e6c0f2395f8,In-Flight Entertainment,Media and Entertainment
+92deb86b-de05-53d4-e1f9-39658c12d2da,Human Resources,Administrative Services
+917e01db-e156-b8f9-507f-ae9b76ecfc48,Event Management,"Events,Media and Entertainment"
+8eced4ea-e4ff-e56a-b97a-7d87d6394fd0,Underserved Children,Other
+8e444f22-2d12-19a1-d6d0-1d1952887a83,Clinical Trials,Health Care
+8c453fd3-90cc-5be3-23a6-cb2944fb05cf,Data Visualization,"Data and Analytics,Design,Information Technology,Software"
+8c09868f-b82e-6e44-5908-384b5980db03,Prediction Markets,Financial Services
+8bd96e9c-db8c-261d-d074-1b80a919c786,Collectibles,Commerce and Shopping
+8a3ae13e-ac51-4759-31a5-c578e6c1e31c,Farmers Market,Food and Beverage
+89fc23fc-2ec1-4aa3-906e-e6afb448ae0b,Commercial Real Estate,Real Estate
+89da20c4-f7c5-1b6c-6ec6-ca4c272df3c9,Consumer Electronics,"Consumer Electronics,Hardware"
+8672f521-ce9a-e851-adff-c35d2441a0ad,Travel,Travel and Tourism
+839a5a99-3262-1e44-7688-895f3570d3aa,Meeting Software,"Messaging and Telecommunications,Software"
+8199d452-4fac-bd2f-30c2-4be85dc551cc,Emerging Markets,Other
+80ccab3c-f397-2628-2bc6-bdcbde68eb89,Gambling,Gaming
+7ec4e4c8-a648-da5d-c02b-90a98c5ebfcf,Supply Chain Management,Transportation
+7d5e72c3-4752-def2-ac40-e24aac2a004b,Parking,Transportation
+7cd5bc2d-b7d1-91dd-1778-eabdf1399ed9,Nutraceutical,Health Care
+789bbbef-c46e-1532-a68d-f17da87090ea,Natural Language Processing,"Artificial Intelligence,Data and Analytics,Software"
+78816963-be25-bc89-e317-a1b894f472cb,Non Profit,Other
+7866a1c0-21ec-241c-c2a6-d263a6ef49dd,Cloud Computing,"Internet Services,Software"
+77ed4b62-9d8b-8e69-fc03-56fd2297092c,Homeland Security,Privacy and Security
+76c672c1-ef33-72f0-8027-d747c8c6e4ba,3D Technology,"Hardware,Software"
+7607ad5b-247c-f366-00ba-dd0e738ec5b1,Jewelry,Consumer Goods
+755a3876-a84b-866f-a96c-396515fd5eb1,Advertising Platforms,Advertising
+72eb8163-24b3-80c8-6851-21019ceaaaf4,Lead Management,Sales and Marketing
+71918537-d499-ddfa-ec1c-ea7e2b775289,Charter Schools,Education
+70c61872-0802-45b9-3a48-aba7431b7bde,QR Codes,Software
+6f169dae-3199-cda7-a7eb-94c30066691c,Digital Entertainment,Media and Entertainment
+6ed1eddf-4d71-581a-c523-7ccdf6759e64,Photo Sharing,"Content and Publishing,Media and Entertainment"
+6d8f96f4-91cc-9501-4ad2-d66e65cfbca7,Presentations,Software
+6d121d5d-b67f-1765-6403-d33e865f0e28,Price Comparison,Commerce and Shopping
+6cb68537-2de1-b041-2ee5-451ff81bccab,Advertising,"Advertising,Sales and Marketing"
+6a733ac8-b79c-e2d2-55b9-cc3d66435eb6,Agriculture,Agriculture and Farming
+6a29209e-2241-72fd-358f-77f6e99905c6,Politics,Government and Military
+68e7ba7c-5e31-2abe-ec3e-c157059ec904,Nightlife,"Events,Media and Entertainment"
+687e34ef-30e2-af08-a178-436d6b53d633,Email,"Information Technology,Internet Services,Messaging and Telecommunications"
+68250c3a-6cf5-86fb-281e-9072ae2d4fe8,Banking,"Financial Services,Lending and Investments"
+6798b0e8-d683-9088-f29b-e9838a21e08a,Electrical Distribution,Energy
+66be03e0-5dab-b881-1c03-0a249714bf56,Ticketing,"Events,Media and Entertainment"
+655df1bf-587c-59e3-4665-136fb2920827,Shopping,Commerce and Shopping
+5ea0cdb7-c9a6-47fc-50f8-c9b0fac04863,Machine Learning,"Artificial Intelligence,Data and Analytics,Software"
+5e863b20-28f6-a760-89c7-005249ab4a70,Organic Food,Food and Beverage
+5d9b1750-8176-20fb-3bc6-f02ea58c7215,Adventure Travel,Travel and Tourism
+5ca011af-31fe-335c-6866-ff8b635bb2f8,Tourism,Travel and Tourism
+5c362e08-2d00-f3b4-ca60-584bfcc4e72f,Publishing,"Content and Publishing,Media and Entertainment"
+5b8aca67-4f27-bd26-d245-0350b537165e,Transaction Processing,"Financial Services,Payments,Software"
+564e5e59-65fb-82ef-ef3a-5084e5fa6132,Content Discovery,"Content and Publishing,Media and Entertainment"
+54af3c84-9aaa-f5b7-8a00-68d3ad54c3a8,Personal Branding,Sales and Marketing
+54ae5944-5d30-95de-62d5-170535f943cf,Personal Finance,Financial Services
+541939b6-43da-dc84-31e3-3523a87a2129,Film Production,"Media and Entertainment,Video"
+51c0d758-772d-e2e5-f7ea-0988d5a7d8f8,Indoor Positioning,Navigation and Mapping
+513c0231-6c91-3702-ab2a-4f01b7ec73fa,Nightclubs,"Events,Media and Entertainment"
+51385655-f802-346b-045d-f44f461989fc,Restaurants,Food and Beverage
+50f7f0b8-21a5-22e3-20ff-34c02396a047,Financial Exchanges,"Financial Services,Lending and Investments"
+4d5971dc-db1a-a9a5-8911-9f546f3c2be2,Edutainment,"Education,Media and Entertainment"
+4d4b3487-d2f7-4605-328a-adddc1a693be,Contact Management,"Information Technology,Software"
+4c6005cd-3476-35d2-ceab-b7d4f1d89e8b,Security,Privacy and Security
+4c2e7382-66cb-5e44-9b3a-d9983d537a0c,Rehabilitation,Health Care
+4c05603a-de94-fa09-adb6-7ecde1c12c14,Auctions,Commerce and Shopping
+4bacab56-cafe-2e50-fdb2-7cb16c0b1cd6,SEO,"Internet Services,Sales and Marketing"
+4b6c9531-07fb-d30c-4200-4af5c8571b14,DIY,Consumer Goods
+4b5272c7-6e2e-cba3-5b37-e35dcb737344,Quantified Self,"Biotechnology,Data and Analytics"
+48f77fba-91a0-ac0f-8367-b1aff1dc8170,Fleet Management,Transportation
+47e90bba-dfb4-2b2e-0034-d3e7c809373c,Outdoors,Sports
+47b7f337-c81c-bb9e-e4d2-08022a0dd60f,Genetics,"Biotechnology,Health Care"
+47592b2e-aaaa-6aa3-d0e9-82ab5e525c2d,TV Production,"Media and Entertainment,Video"
+46c250d5-00f6-d12f-4ad8-9b16f8b233d4,Cyber Security,"Information Technology,Privacy and Security"
+45a2bbea-ddd8-9198-5358-37d9c1c7e8b2,Home Renovation,Real Estate
+44cbfd35-6e4b-3af5-74d2-ab01eb112bbd,Stock Exchanges,"Financial Services,Lending and Investments"
+421943ef-50ae-c811-470e-c66a0323cf0d,Robotics,"Hardware,Science and Engineering,Software"
+3d95d448-d63e-c411-769b-9aa1321cc7a6,Energy Management,Energy
+3d91b7f7-78f6-2c44-e6ea-9a5e3e392f06,Craft Beer,Food and Beverage
+3cfdd7cc-1dfe-1746-2d08-aa25f056d781,CAD,"Design,Software"
+3b1e8633-70a5-0f3e-acbd-a5faa1c7b363,Ad Targeting,Advertising
+38332b1e-9615-917e-89c0-346d631ffa97,Recycling,Sustainability
+37d687ed-5ad9-d434-d1fc-09accbb96667,Point of Sale,Commerce and Shopping
+371b7b2c-75fb-9c00-1778-5a24bed20453,Developer APIs,Software
+351abbd7-efe7-dfb2-59c3-4d608db4d53a,Audiobooks,"Media and Entertainment,Music and Audio"
+342cedc1-6dff-c0fa-2e2f-f376b7db1f69,Psychology,Health Care
+3373d4b5-2db0-b716-1e22-f57271941e32,Green Building,"Real Estate,Sustainability"
+3082b9fa-e0fd-150a-1f2d-a6f8d3515c0c,Advanced Materials,"Manufacturing,Science and Engineering"
+2fb9b79f-0f4b-0f2b-a2f6-ef284a2a4219,Performing Arts,Media and Entertainment
+2e3b8104-b12e-468a-65b8-0989208f0b16,Business Intelligence,Data and Analytics
+2d294e65-80ba-93e5-3a51-92cf5e2533ed,Sales Automation,"Information Technology,Sales and Marketing,Software"
+292d82c5-5381-9717-827f-3122ee792e71,Web Development,Software
+28169022-9937-f752-a38c-c40538cd7222,Oil and Gas,"Energy,Natural Resources"
+24c5db84-02a2-6040-49cf-4314b287674f,Identity Management,"Information Technology,Privacy and Security"
+24c09530-c94b-258f-2e77-10aaa0bfe87e,Procurement,Transportation
+2366c2de-e560-cdd6-458d-749172aa7077,Film Distribution,"Media and Entertainment,Video"
+22fcae54-8845-1b71-e604-4f57fd3bcfd2,Collaborative Consumption,Other
+222a57e3-269e-6c3f-d2df-01a65ff1b9ac,Sex Industry,Community and Lifestyle
+217f63af-2e8f-9978-085b-262592840759,Collaboration,Other
+2095dd4a-768e-f2d5-c367-c3927a1188d2,Casual Games,Gaming
+1f24c7e8-a95d-3e1b-2724-0941e80c9884,CRM,"Information Technology,Sales and Marketing,Software"
+1eededec-493e-2f3d-9705-502fcc7485c0,Fitness,Sports
+1aa6e5d3-a882-e0d8-b37d-bec5a7f509fd,NFC,Hardware
+15c8defa-8bae-e547-1329-e2365bb9bb51,Parenting,Community and Lifestyle
+11f6d47d-1ab5-39d9-203c-272b227898c7,Humanitarian,Community and Lifestyle
+119ffa05-2231-044c-a99a-e9b030897dd4,Market Research,"Data and Analytics,Design"
+10b5eb37-9363-79fb-7fc9-4e8b04583307,Photography,"Content and Publishing,Media and Entertainment"
+0d39287e-5b13-77a6-9702-74294daded43,Search Engine,Internet Services
+0c4a69d3-888c-dbb6-0af3-28e09b80393c,Data Integration,"Data and Analytics,Information Technology,Software"
+0982d9e2-a0bc-a98e-db02-20b18c8b036a,Video Editing,"Content and Publishing,Media and Entertainment,Video"
+08e0a9b4-14d1-c281-daa8-a228c45e5110,SMS,"Internet Services,Messaging and Telecommunications"
+05e1d0a1-c34d-cf1a-c686-5a6466a8151b,Audio,"Media and Entertainment,Music and Audio"
+05ce5995-19d0-7c15-f4c7-19fb5c641c33,Network Security,"Information Technology,Privacy and Security"
+048fa3b0-ae53-7c4e-c5b7-1ae93b6dc303,Broadcasting,"Media and Entertainment,Video"
+04049818-51ba-3bc8-c0b8-226df09e97c9,Flash Storage,Hardware
+03ef4ce7-c2ac-aa82-a8f4-d97ab53cd085,Brewing,Food and Beverage
+025caab7-3e54-98f0-061c-73e7af159cd1,Education,Education
+fdbc28f6-7091-1714-42c9-0c6c435b3479,Alternative Medicine,Health Care
+fb5cc2a4-3acd-dc96-a784-d725775b14b1,Human Computer Interaction,"Design,Science and Engineering"
+f8c49f2b-05d1-923c-f820-6d67bd12f35f,Photo Editing,"Content and Publishing,Media and Entertainment"
+f3f21d3f-29ac-5008-c81e-f57c2ac9dc00,Motion Capture,"Media and Entertainment,Video"
+f3b5e481-8880-c039-99df-6a980fadb070,Green Consumer Goods,"Consumer Goods,Sustainability"
+f3ab458a-2913-2652-0187-66d083c5c860,Coupons,Commerce and Shopping
+f1e750d2-a898-8c0f-7d78-5d687b71b0a7,Textiles,Manufacturing
+f096ed15-f63f-d7f4-b2c3-89b70da2bd5e,Product Search,Internet Services
+f0752dac-b351-89d6-ff07-a1dc47d5ffc3,Veterinary,Health Care
+edfe69d7-57c2-dac4-fb02-86d10da987f1,Virtual Currency,"Financial Services,Payments,Software"
+e7d8b7ca-c72b-7793-5a6d-2801f6a0e8ee,Hospitality,Travel and Tourism
+e5fc663a-6268-a965-2482-309f11b21c7b,Social News,Media and Entertainment
+e5445f23-204d-6d79-5309-2c17f1e66d78,Video on Demand,"Media and Entertainment,Video"
+e4d98517-f894-5807-a67b-7c354214edd7,Independent Music,"Media and Entertainment,Music and Audio"
+e303e839-52d3-f2f0-b87d-757ee8b86b48,Farming,Agriculture and Farming
+df0d9e76-3b4f-10f2-4102-53f278ee6c5a,Retirement,"Community and Lifestyle,Other"
+dcdddd27-fcdb-3375-7a20-429d2a64d9e7,Group Buying,Commerce and Shopping
+dc779027-8b15-f74d-a7ae-a057c19c3975,Eyewear,Consumer Goods
+db01a201-1e47-57b3-c3cc-a63eb94e3878,News,"Content and Publishing,Media and Entertainment"
+dac09aef-b2be-1f15-694d-3dfc0676632b,Google Glass,"Consumer Electronics,Hardware,Mobile,Platforms"
+d9dda577-abfe-5a6b-0dc5-f5680bc376b0,Operating Systems,"Platforms,Software"
+d956d857-a68e-cbf0-4d80-be7e9470bacc,Linux,"Platforms,Software"
+d495dc9c-0b00-c157-a254-e350f573d61e,Navigation,Navigation and Mapping
+cbc36b3c-09fd-1e1f-7ac8-400a546de247,Wine And Spirits,Food and Beverage
+ca8390d7-22c6-5bb5-f870-22f52f364b1b,Predictive Analytics,"Artificial Intelligence,Data and Analytics,Software"
+c9546d53-3b28-8436-6358-584a3851dabf,Home Decor,Real Estate
+c935f86f-45e9-7937-bf48-406d055ef664,Virtual Desktop,Software
+c8e6b95f-80d9-bf15-ab7c-37a0e8f052c7,Property Management,Real Estate
+c7ab2c73-e46f-0f40-afe0-eb6182949b41,Smart Building,Real Estate
+c4d8caf3-5fe7-359b-f9f2-2d708378e4ee,Artificial Intelligence,"Artificial Intelligence,Data and Analytics,Science and Engineering,Software"
+c3e7ab05-df2e-17ed-187a-11040264ed58,Corporate Training,Education
+c33728a5-de33-d0da-7bce-0e3c4383bc99,Big Data,Data and Analytics
+bf605860-9fd2-4d32-e23e-93d977d72146,Video Chat,"Information Technology,Internet Services,Messaging and Telecommunications"
+be21aa9f-99cd-0379-b746-899e0ec7e0fd,Marketing Automation,"Sales and Marketing,Software"
+bca28131-fd1a-400a-9971-8279dd7fbbc0,Elderly,Community and Lifestyle
+bc4ee7e1-d4a1-c228-c551-29d716ba971f,Communities,Community and Lifestyle
+bc22c61d-4d2f-3dd0-531b-457af33011a4,Sponsorship,Sales and Marketing
+bad7067e-b24d-5c63-a2e9-54a9e059d7cb,Coffee,Food and Beverage
+b53bd8d3-71bc-b9bb-c9af-1d41cee0c822,Social Recruiting,Professional Services
+b3385762-ecb5-2f84-6a3c-0c399a9343d4,Flowers,Consumer Goods
+b244984c-5e8b-309a-0156-d579046114b2,Cause Marketing,Sales and Marketing
+af4d3fd1-e004-59df-c082-a0b0bbebd4a0,Cosmetic Surgery,Health Care
+ac057a31-756a-62be-1677-0fee94b6aeca,Bioinformatics,"Biotechnology,Data and Analytics,Science and Engineering"
+aa1a6ba1-4a41-6ab5-643a-fe90e2407577,Water Purification,Sustainability
+a78ac397-329a-b850-fe64-5e4c86705a32,Consumer Lending,"Financial Services,Lending and Investments"
+a6b9c45f-2caa-42e1-30e7-26c546d43186,Logistics,Transportation
+a4673e89-6e92-34b3-43ff-c0d68d682ef3,Intellectual Property,Professional Services
+a3b491d8-8d66-b566-a059-c14322895d77,mHealth,"Health Care,Mobile"
+a1251139-5e61-86a7-abe2-9e2eb1f16bfa,Simulation,Software
+9fc4cc26-b3dd-038b-ce64-713b75a91871,App Discovery,"Apps,Sales and Marketing,Software"
+9af4eb12-07db-5340-37f6-47a842b8d0bc,Handmade,Consumer Goods
+99606484-dc77-fe7a-2c8b-f20dd9e44f67,Personal Health,Health Care
+98698685-a983-4d2f-a11d-de7e3602eda4,Social Media Management,"Internet Services,Sales and Marketing"
+98200a73-2ba5-0e0c-74ad-f9c1140cb2f4,Ediscovery,Internet Services
+97e0bac2-7d87-173a-47b3-366f201da451,Food Processing,Food and Beverage
+9670a37a-fb55-d2e8-d6fc-b4d85c2e7eb3,Interior Design,"Design,Real Estate"
+91d07503-1e4b-bec1-6115-6df19b26be3c,Tea,Food and Beverage
+9017245c-8985-9a74-e855-0219d5ce56a3,Business Information Systems,Information Technology
+8c6239bf-6854-494b-1a16-e4f7a286dbd5,Messaging,"Information Technology,Internet Services,Messaging and Telecommunications"
+89007248-4ee9-6c15-8515-12f0c02c6ace,Smart Home,"Consumer Electronics,Real Estate"
+8114726a-f6cc-44ee-857c-e7b87776f06d,Guides,Media and Entertainment
+7fbec13c-08c6-3790-4c51-ff3f46311286,Q&A,Community and Lifestyle
+7c4a47a6-191f-47c2-acb7-7cb621e19ec2,Swimming,Sports
+70bb82f6-1bae-fa71-8c89-66307f6f22cb,Beauty,Consumer Goods
+6e028126-f8ae-ecdb-9bd4-2c4c1569084f,iOS,"Mobile,Platforms,Software"
+6dcf0103-1977-291c-71e3-04df32828986,Reputation,Information Technology
+68118c46-7a57-0ad6-71db-19beb493f01e,WebOS,Platforms
+67f3477c-efb8-1b7f-34dc-d9cf85c1919e,Shoes,"Clothing and Apparel,Consumer Goods"
+654b60a6-b105-fc40-2295-88a9a7dab2f5,Nutrition,"Food and Beverage,Health Care"
+63da4ab3-21da-7857-687e-24920e68c249,Diabetes,Health Care
+631d91d6-9da7-6e50-4eb0-d27e28ed2a7f,Art,Media and Entertainment
+5e61c8d6-0b40-8d9a-5d29-8142b897593e,App Marketing,Sales and Marketing
+58284e68-4cf7-e34f-ae3b-dd68f25e9b99,Printing,"Content and Publishing,Media and Entertainment"
+568bdc79-d059-d824-e701-255e5aa86888,SNS,Software
+56483f2d-3a35-70be-7b80-24c5bad5f1b8,Web Hosting,Internet Services
+4edcbe9d-678a-3b25-b61c-293ddc52507a,Spam Filtering,Information Technology
+4e20727f-c812-96f1-e6ce-c41fe6000cb3,Fantasy Sports,"Gaming,Sports"
+4996175c-0c92-f204-2b55-f940bc1cc6d6,Recruiting,Professional Services
+487dda72-7f23-9794-730c-9ce6250a748e,VoIP,"Information Technology,Internet Services,Messaging and Telecommunications"
+4824f20f-f433-e038-97d8-7be1126eb82c,Classifieds,Commerce and Shopping
+42a1e8f7-06c8-864e-d8c8-432e57b6a0db,Cloud Infrastructure,"Hardware,Internet Services"
+42707b93-949f-57f1-3b7e-8a6208e21efc,Penetration Testing,"Information Technology,Privacy and Security"
+3f726cba-a793-bfc9-fe64-bc05576244a1,Teenagers,Community and Lifestyle
+3f49498d-20fe-408c-ce0c-5425ee885d74,Android,"Mobile,Platforms,Software"
+3bfc0aae-0f8c-c8ef-cac9-ac6b2fa504aa,First Aid,Health Care
+3ab64b42-61dc-08a5-cfe3-a25127ae3eea,Content,Media and Entertainment
+394fda16-eeab-4398-f53c-79785038b60c,Online Auctions,Commerce and Shopping
+37c7ea8c-3919-ab3c-deb7-0c3735854f1c,Cosmetics,Consumer Goods
+343e767b-82a3-a443-f914-1d1966d8eab2,Skill Assessment,Education
+33cfeb88-f323-1b4f-8ecc-f3f876a5df05,Mobile Payments,"Financial Services,Mobile,Payments,Software"
+31ae67ae-614a-aa48-1c41-b496653cd903,Corrections Facilities,Privacy and Security
+3171fe79-1f83-8634-f6bb-2be9e71ff530,Task Management,Software
+2d410a02-e5d0-95f6-f7f7-690061283dd1,Employment,Professional Services
+29a20c87-a964-aa50-c4c5-1c913e350685,Gift Card,"Commerce and Shopping,Financial Services"
+297fe0f2-0d88-ff35-9d46-1c54bf812892,File Sharing,Software
+27d62522-9ec5-72be-aed4-a1d8dbf721a8,Serious Games,Gaming
+262727f4-409a-1b3a-4e14-040339daa54a,Social Media Marketing,Sales and Marketing
+24dad27e-6a49-ccc1-ec31-854b73d60d16,Speech Recognition,"Data and Analytics,Software"
+21b207a5-9f0b-b037-9ee9-d9d9ed7c3fa9,Fruit,Food and Beverage
+216f5e42-a641-b0f3-270a-c9d698604f40,Shipping,Transportation
+1fec33a7-163f-88a9-7e5c-8967fee59a1e,Drones,"Consumer Electronics,Consumer Goods,Hardware"
+1efce900-8f68-4c05-f18b-aa6ee273dcde,Water,Natural Resources
+1ca57cf3-99a1-759f-ef54-fca1acf64eac,Diving,Sports
+1c163fa9-a6a2-42ed-1fa5-299f626804db,Bitcoin,"Financial Services,Payments,Software"
+1b9f782b-129a-1d0d-e7c8-2af59bfd6c07,Fertility,Health Care
+19c6890b-dbf5-cd2b-6e5a-aadd81c22076,Energy Storage,Energy
+186d333a-99df-4a4a-6a0f-69bd2c0d0bba,Intelligent Systems,"Artificial Intelligence,Data and Analytics,Science and Engineering"
+1338a4ae-2b9c-a42d-40a5-99a088d99fda,Comics,Consumer Goods
+0b8c790f-03bc-b2ab-a02e-4be855952d6d,Facial Recognition,"Data and Analytics,Software"
+0a88e74a-a6c9-ff6d-69db-e8c85881b4b9,Real Time,Other
+0a590550-09f4-ce55-cc0b-4b9a035d428f,Elder Care,Health Care
+11d12f9b-9b5b-1a7b-6b03-86f76910b094,Wearables,"Consumer Electronics,Hardware"
+e06799a9-f789-76e7-49a7-71ee980a70ec,FinTech,Financial Services
+8c1b0c58-4cc6-5d0a-0208-f656f91e4c82,Health Diagnostics,Health Care
+245880f2-a61a-0ea2-cf81-306964716611,EdTech,"Education,Software"
+86985333-a422-db8b-7d51-478c132bfad7,Delivery,Administrative Services
+2103f7b8-4229-3d5c-408a-66426df21e95,GreenTech,Sustainability
+829f037b-8171-d9fc-7618-4c6b46038020,Ride Sharing,Transportation
+4e97741f-98ac-26d4-95b9-74220bad7814,Podcast,"Media and Entertainment,Music and Audio"
+bd082f4d-45d1-0de3-0371-bb6e02d5f0e8,Cryptocurrency,"Financial Services,Payments,Software"
+0cba6371-b9f7-0197-257e-0273e6da0b22,Subscription Service,Other
+e362ac36-2e59-c58d-08fe-e5c45f13bc64,Graphic Design,Design
+856e4d56-4de9-9650-5d2f-22d0bb2d2334,Furniture,Consumer Goods
+4056544b-0bef-a056-46a9-e2cf4f7d85dd,Social Entrepreneurship,Community and Lifestyle
+e334bbe7-f9ef-9691-df46-926554326d40,Industrial Design,"Design,Hardware"
+d97005a9-c9dc-e75d-4332-32329b93ebd4,Hockey,Sports
+3cb6925a-9f57-2f10-049c-6632a409269a,Google,Platforms
+aa868e5f-e016-f3ea-e079-80d01fddfbcd,Twitter,Platforms
+a572ed88-c7c5-7ebb-e06e-65e7ed62d17b,Software Engineering,"Science and Engineering,Software"
+7b38226f-8c7d-9fde-2bf4-2f10e1f34cb8,Drone Management,"Hardware,Software"
+594199f2-218a-15f9-e12a-1ac06a1dc48f,Environmental Engineering,"Science and Engineering,Sustainability"
+548cfeb2-0b4d-6b91-a514-c3646e3f70db,Life Insurance,Financial Services
+367f9cec-51a7-8561-3d3a-4f8855fd5c46,Trading Platform,"Financial Services,Lending and Investments"
+f4709705-7bad-8cbf-0fda-c126de9c2fcd,Virtual Reality,"Hardware,Software"
+e3bb0c51-d59c-e1de-cf96-795b22f085a4,Roku,"Consumer Electronics,Hardware,Platforms"
+47b73381-2216-6616-6616-fe4cf370f70c,Water Transportation,Transportation
+36d978da-3446-f5e0-8adc-ca923f0b62de,Table Tennis,Sports
+0a8d6f1b-1514-4854-5827-38f73a44eaa6,Nuclear,Science and Engineering
+07d360f5-ddf4-24f2-7f7b-a4be89daf727,Quality Assurance,Professional Services
+f9f2471c-b164-77bd-a9ca-b5defca5d67a,Tizen,Platforms
+9f701861-d7ed-8dba-de9b-25c2ce5018cf,Livestock,Agriculture and Farming
+62bac433-ee68-7075-c47e-c9efc0d3c0aa,Food Delivery,"Food and Beverage,Transportation"
+56778c1f-b81f-0b1f-f402-d21124c88b3b,Railroad,Transportation
+3de73809-e7ff-63ed-5292-ab3ef6602816,Network Hardware,Hardware
+01b9cf39-904e-178c-d959-8089f1e90a77,Gift,Commerce and Shopping
+78b2a236-7c94-0f2c-579c-9d710921c0d8,UX Design,Design
+53d763c7-8c06-f94a-1ba5-27039feee67c,Commercial Insurance,Financial Services
+49f88f02-6018-cdea-a366-abef5d02d8a2,Auto Insurance,Financial Services
+4835e2e6-66b5-9b5b-34ca-ce75de213225,Event Promotion,"Events,Media and Entertainment"
+1e36267a-f036-694f-25c0-d4f77c7a5bc1,Chemical Engineering,Science and Engineering
+1c946581-f37e-36e2-913f-b660b45448fe,Embedded Systems,"Hardware,Science and Engineering,Software"
+07507016-edd7-797e-603b-6dd40d01d582,Millennials,Other
+f8985bed-69c1-d34c-66d5-a7fb6bdad279,Mechanical Engineering,Science and Engineering
+e99ec6ff-09d2-ca21-caef-404b5b558181,Intrusion Detection,"Information Technology,Privacy and Security"
+b4181d9d-6bf4-6120-55ce-baa95df30bd0,Baseball,Sports
+78b58810-ad58-a623-2a80-2a0e3603a544,Media and Entertainment,Media and Entertainment
+37fdfb55-c4c7-e30c-279e-06b79f0d4c85,IT Infrastructure,Information Technology
+19ac2387-fcf9-3d99-b209-8b0bc7832829,Domain Registrar,Internet Services
+0caf426c-828c-53ef-473c-b9b5795d9040,Management Information Systems,Information Technology
+ce1f2a1b-09fc-781a-3e76-67a28b4abd15,Playstation,"Consumer Electronics,Hardware,Platforms"
+a0c80217-ef62-a3bd-5302-71e147d758b4,Ultimate Frisbee,Sports
+651da5e5-fa99-061c-31f7-52074fe2092f,Rugby,Sports
+4af38a51-59d8-e922-f739-204e1e35b441,Consumer Applications,"Apps,Software"
+46364f24-4c13-d464-305c-fe9bf0c30087,MOOC,"Education,Software"
+30315074-3399-87b3-bcff-8d480c8fdf3b,Fossil Fuels,"Energy,Natural Resources"
+da9c9ae8-f089-ecd0-3709-243ae50460dc,Windows,Platforms
+7d0f2edd-c829-7bba-c3c6-689cebcd2e01,Tennis,Sports
+28c00d6b-e130-1002-6923-a0336e72bd82,Private Cloud,"Hardware,Information Technology,Internet Services,Software"
+0be54c6a-fdbe-15ec-3bee-79be1f45bc7d,DSP,Hardware
+fa736a2c-3108-8e06-9adf-fb7a75744f5b,AgTech,Agriculture and Farming
+f213df87-6356-e51f-245a-cf9b7e788b13,Product Research,"Data and Analytics,Design"
+a60e9792-884d-0696-63f7-a9c0f3100ded,A/B Testing,Data and Analytics
+a4ee0f7f-b8b8-1156-4899-c490e1d26766,Commercial Lending,"Financial Services,Lending and Investments"
+a2684225-b25e-e606-6c7b-0f513d6eb7aa,Cycling,Sports
+66c636ea-a20c-cc61-fb12-73dce804788e,Property Insurance,Financial Services
+57d4964b-dc51-a0e9-fb24-869ed418e858,Consumer Software,Software
+47dfbbd5-ca99-4bc0-4fa1-dd2e60a7a7a6,Xbox,"Consumer Electronics,Hardware,Platforms"
+efd87ccf-860e-1a82-39a4-932afe0590e5,Generation Z,Other
+ed2c430c-795a-392e-13ba-370c8c4eb892,Nintendo,"Consumer Electronics,Hardware,Platforms"
+e69d7dbc-b29e-a56f-6dfa-f664b545fd29,Sharing Economy,Other
+e18856ce-94db-fc1c-a678-4fe8b487af64,Adult,Community and Lifestyle
+d543f842-188a-e2c5-e0c3-c747e340877c,Same Day Delivery,Transportation
+b27ea7e3-827e-dd23-6ebd-97f11317780b,Data Storage,"Hardware,Software"
+97c84ba1-ec20-457c-33cb-28dbbac5710b,Vocational Education,Education
+553f1e10-4f44-ea96-cbf1-4540b0ae0363,Satellite Communication,Hardware
+42704299-9fe2-b1cd-cbb1-cd94d2d24e75,GPU,Hardware
+f561f98d-845a-fb55-93bd-5c64aac205a7,Cricket,Sports
+d82f9f46-8a29-6c2b-791c-8006474b7e42,Air Transportation,Transportation
+94f4c1fe-27c1-1dd5-7cb7-0d8a687bc276,E-Signature,"Information Technology,Privacy and Security"
+045d1f34-7440-b8d9-52f7-ca59d77c946b,Embedded Software,Software
+bb6b92f9-ccfa-6f9b-a59e-4906ebf75fb9,Debit Cards,"Financial Services,Payments"
+78f709ae-d8fb-cd28-218a-f090789f628f,Mobile Apps,"Apps,Mobile,Software"
+59c8fdd7-d408-86d2-3805-de824af0016b,American Football,Sports
+0300a491-8816-447f-ab80-dd78a82b291e,Basketball,Sports
+ce027447-778c-015e-63e4-b80fd25a1259,Fast-Moving Consumer Goods,"Consumer Goods,Real Estate"
+c4cc6e8c-5e68-2d32-1a3d-ae8742432895,Volley Ball,Sports
+b3745f1d-614b-ae19-f0b7-946e2494aa6b,Web Apps,"Apps,Software"
+83bd19b9-d944-aab6-8da7-9552a453ed93,Lending,Financial Services
+75268e31-76ae-92df-b738-faa29c5a4ad4,Product Management,Other
+711f1e7d-b480-4822-7a24-14e5fa2e9427,Application Specific Integrated Circuit (ASIC),Hardware
+18f757d2-d6e7-6edd-d035-6b79af039288,Ferry Service,Transportation
+74f62604-0f9c-b02d-0ce8-6f750c0da7ab,Car Sharing,Transportation
+64bb1fd0-8519-e087-57a0-6b2c77ba91fd,RISC,Hardware
+19a14f81-ba04-ba19-5d9c-ff0dc6eec8a4,Enterprise,Other
+1807265d-6094-93ca-44c6-4bd0bc616183,Micro Lending,"Financial Services,Lending and Investments"
+b42d64b5-e6ea-c05e-d6b7-2732a057dd52,Cloud Storage,Internet Services
+92e4e78e-9327-235b-b7ad-a48b5e54ac55,Industrial Engineering,"Manufacturing,Science and Engineering"
+450c30b7-4e4e-2081-2a88-1ccea6196953,Content Marketing,Sales and Marketing
+2da9e9ae-e433-7d18-2e1b-4395d0cb14f4,B2C,Other
+ae1414c1-0cf4-982f-7ff7-c104e9a87c32,Ad Server,Advertising
+80da2623-d9d3-1c8c-e6eb-be97463d0fe1,Animation,"Media and Entertainment,Video"
+7fb7d93c-1a96-11b3-f35e-ade2c172458b,Ad Retargeting,Advertising
+1f69cdca-96c4-75ba-97e8-caeef5842a3d,Ad Network,Advertising
+acce6b21-0007-d432-f31c-42d7ee030a98,Facility Management,Real Estate
+7942caad-878e-65f5-4991-471dc8e7667d,eSports,Sports
+575b22d6-f4d8-abba-90b2-92bd25ff2ad2,Home Services,Real Estate
+56ebee1b-6762-12ca-1146-6081fa2027f8,Made to Order,Commerce and Shopping
+130948fe-84ca-8d3b-6c2c-4879e0c7cbf1,Home Improvement,Real Estate
+095057bd-f032-fbb8-eac8-287d1e72a2d9,Leasing,Financial Services
+2eb0b56b-6896-e0f0-545f-c747a9ba6751,Virtual Assistant,Software
+3f4ebc8c-8d6d-623c-099b-4b3a437d98db,Electric Vehicle,Transportation
+da6d4d3b-2911-c612-8350-008181ea1033,Compliance,Professional Services
+77327c13-6a59-488a-82dc-e39af2fa6df1,Computer,"Consumer Electronics,Hardware"
+3cfec0c2-95d7-78a9-8c8f-487f21b8130d,Online Forums,"Community and Lifestyle,Internet Services"
+c0bdd8b4-e184-51bb-9098-d01fef4bd560,Optical Communication,Hardware
+9db815ce-a0c2-03b0-cd64-f7492ea1a2e9,Fuel Cell,Energy
+86d91a85-ff9d-93db-4688-3b608fee756c,TV,"Media and Entertainment,Video"
+80de9bf4-789e-b80e-051c-dc079493803f,Social,Community and Lifestyle
+772da8fe-26d7-ea09-00ff-0fc7c8368b50,Marketplace,Commerce and Shopping
+75de3d67-54b8-46ce-0797-bc7ba0438c4d,Rental,Commerce and Shopping
+37714837-1551-7278-3912-4d5dd4c652a1,Timeshare,"Real Estate,Travel and Tourism"
+0fa1b481-b75a-c22d-b2cb-48caf1bf995a,Vacation Rental,"Real Estate,Travel and Tourism"
+06477b0d-4ca9-ac90-99b4-7323e3367e4b,Reservations,"Events,Media and Entertainment"
+e89057d0-4221-b6cd-8a26-dc846f371d56,E-Learning,"Education,Software"
+dd6300aa-6e9b-f529-dce7-9552e7f5fdc2,Affiliate Marketing,"Advertising,Sales and Marketing"
+c466550b-b161-0646-3049-0045fae01b18,Wellness,Health Care
+c2022726-fdc4-b171-8848-8b2f252ef987,Developer Platform,Software
+8256b6a2-134f-d28e-a78c-c606ce4e0b97,Property Development,Real Estate
+6dab555a-c4f3-dc69-4250-e1e530475197,STEM Education,"Education,Science and Engineering"
+4a52ad36-3a7e-1a14-8bb9-890aeb21f8c8,CMS,"Information Technology,Software"
+eee77d3b-0358-3f81-5f4e-86dce12a6d91,Primary Education,Education
+be133f07-21af-c85e-fd6a-e2e3ddf8466a,Health Insurance,Financial Services
+b8f561c5-521d-bfb2-2c56-46bc79f2f5d7,Dating,Community and Lifestyle
+92049b49-88e6-902d-4b0d-fbdf1d4478bb,Residential,Real Estate
+459ef85b-685a-1d51-c3e9-13fc35e6fe6e,Enterprise Applications,"Apps,Software"
+f2c39629-0eb0-ae45-4aa7-46956255df0c,Boating,Sports
+eca36366-3502-acb7-f7a4-03d35360ddbd,Grocery,Food and Beverage
+ea9c541f-e059-4e9a-4aaa-c445a2a0570b,Biomass Energy,"Energy,Natural Resources,Sustainability"
+e095d728-b946-4c74-bf46-b431627bf876,Franchise,Other
+a5d54295-9870-c680-9567-85226d7206c0,Communication Hardware,Hardware
+512e0deb-38ca-db24-2cfb-76b16f739766,Sex Tech,"Community and Lifestyle,Hardware,Software"
+6e492b25-9bc1-dea5-e58a-f2fd86a7788a,Debt Collections,"Administrative Services,Financial Services"
+6cccdcbd-26dd-4d3a-a278-568f9ae5ed8c,Creative Agency,"Content and Publishing,Media and Entertainment"
+37b8e1da-ddd2-2beb-aa15-9fadd061282c,Medical Device,Health Care
+dddc8c55-dd73-7fa2-967d-d30fa491ebc6,Home and Garden,Real Estate
+cf4bfa34-4e5c-0003-ac5a-6a8aa9608f40,Laser,"Hardware,Science and Engineering"
+b3f61863-2ac7-3381-5859-ca155b087551,GPS,"Hardware,Navigation and Mapping"
+9b58eb8a-89e7-b238-a1eb-5b9766cc4b3a,Life Science,"Biotechnology,Science and Engineering"
+82086f50-e760-003b-3a54-1649025c93d3,Assistive Technology,Health Care
+76fb8b23-b968-9417-9c2c-693b5006e504,Unified Communications,"Information Technology,Internet Services,Messaging and Telecommunications"
+63d2bafb-b8b8-8279-eaf3-dd06356d08aa,Surfing,Sports
+14f97695-c4eb-c348-d373-5863c4b4798a,Employee Benefits,"Administrative Services,Health Care"
+e611283c-e2f1-4f80-3650-4ced61374404,Biofuel,"Energy,Natural Resources,Sustainability"
+d21c8107-c0c8-5ba2-a4cb-40a96d5d001c,Civil Engineering,Science and Engineering
+14b8e624-9423-524b-cf15-ace880522cf5,Music Label,"Media and Entertainment,Music and Audio"
+d9cf3c35-fcf6-294c-e755-c8cad2653125,Online Portals,Internet Services
+3d8bdbe9-4c30-7a77-bba0-85d7f00f6a6a,macOS,"Platforms,Software"
+3286b492-cffe-5c52-f7a3-9f9f16ae88fe,Emergency Medicine,Health Care
+2195ba8a-24f8-ac97-f345-f36bba46927c,Social Shopping,Commerce and Shopping
+f8f4e4e3-f0aa-9b13-8131-c244f0315134,Technical Support,"Information Technology,Other"
+e42308b8-0757-71b4-0caa-cc1228e9cb98,Golf,Sports
+b7989a4f-ede2-d9ec-6d97-0e13212423a9,Wind Energy,"Energy,Natural Resources,Sustainability"
+92c7693b-bb7a-fa14-f760-a89a62c950e1,Building Material,Real Estate
+20cd907a-d9d6-2916-8fe3-e2ea07ae915e,Semiconductor,"Hardware,Science and Engineering"
+19d6c5f4-0609-ebd6-970e-fee0e36d20a7,Music Streaming,"Internet Services,Media and Entertainment,Music and Audio"
+04124a0a-1dcf-38a0-56b8-3fa71b8cba01,Textbook,Education
+cf573fc6-139f-c9fb-5b5e-b131fae12e51,Government,Government and Military
+a46ce4ef-1d69-817b-bc91-90452e588bd0,Hunting,Sports
+714d833f-2234-98bf-19bf-9ff70a5e2d17,Social Network,Internet Services
+5eec8ef3-9a35-3b26-1184-9dff459291fd,Family,Community and Lifestyle
+58d758fe-03c3-6cb4-cb71-c188d2596876,Limousine Service,Transportation
+39c6bdbf-d3db-5e68-53c3-5488e7699603,Data Center,"Hardware,Information Technology"
+1aca2f92-84f3-dbd6-5a5e-f6506cbdb1d9,Freelance,Professional Services
+d3b85d88-e16d-1a5a-c357-4c18df0ed60a,LGBT,"Community and Lifestyle,Other"
+9519382c-7907-e6fd-7669-fd7af414d32e,Courier Service,"Administrative Services,Transportation"
+650c4c50-3a45-4725-d8e8-48cd0e10bb05,Hospital,Health Care
+614d792f-67ed-cc5e-f654-48390d91eda6,Console Games,Gaming
+5de864a5-d563-86e4-bc83-0217ccb643a2,Application Performance Management,"Data and Analytics,Software"
+516d5e97-b6ec-f785-65ad-b2cea62ae68e,Electronic Design Automation (EDA),"Hardware,Software"
+298a2cd6-58da-226c-7cf0-3288673844cd,Real Estate Investment,"Financial Services,Real Estate"
+2795f8fd-4718-3f8f-7513-5391ab707c90,Marketing,Sales and Marketing
+ca121753-d26b-a8d7-854f-6b972fd1a391,Local Shopping,Commerce and Shopping
+9f50bbb6-bb1d-9c05-b673-a8876f547b2f,Windows Phone,"Consumer Electronics,Hardware,Mobile,Platforms"
+82de314c-ef02-754d-f515-d1c27021b22f,ISP,Internet Services
+7a5d7f38-1774-dd12-fda4-b96b067483b3,Consumer Research,"Data and Analytics,Design"
+420ed687-9b30-4463-115e-e6150ad85aa0,Ad Exchange,Advertising
+3b3b024f-f777-ed33-4309-75fbc37850bb,Consumer Reviews,Commerce and Shopping
+dda1f288-360b-4522-4943-a8e28db70976,Usability Testing,"Data and Analytics,Design"
+d8cda5ae-af47-b0d1-4a9c-aec87289adc0,Asset Management,Financial Services
+d2cf7cf9-fb76-9f92-8ee0-c49154efa98e,Mapping Services,Navigation and Mapping
+b70871aa-224e-90f6-40ce-c8f0f0d5780c,Virtual Workforce,Administrative Services
+961c226d-8c8f-a642-6bc2-03f92cdd3a2c,Wedding,"Community and Lifestyle,Events"
+6f5a4398-0331-8803-65de-c927ab8e5d20,Sensor,Hardware
+f55dc7f6-6a38-750c-333b-c265f3761fe1,Productivity Tools,Software
+d2ac92bc-3c9e-918d-dcb4-8ce0a1abb12c,Scheduling,"Information Technology,Software"
+b5f37349-8bd2-4aff-ca13-f89877d0e695,Children,Community and Lifestyle
+9c8cd193-3019-4b85-0080-258e4a807e29,Enterprise Resource Planning (ERP),Software
+99a87fee-dfc7-e887-2e41-5bdf00577cbb,CleanTech,Sustainability
+95cc88c3-e281-da11-b64b-b2ee379f3053,Baby,Community and Lifestyle
+3146fe49-55b3-c175-c3e1-ecf074bc87de,Translation Service,Professional Services
+0ae5c1be-64b1-a9fe-6c76-076285d2380f,Pharmaceutical,Health Care
+f3c5ef54-991e-c673-396b-4fd95a4f1273,Continuing Education,Education
+d6c66c61-1af2-b02f-cb28-a1cdae75b125,Cannabis,"Community and Lifestyle,Food and Beverage,Health Care"
+ce96eba3-ed75-ee34-c4c5-a5d29f6e34a5,Personal Development,Education
+aaf61538-799c-4dbd-74b8-276d16827133,Sailing,Sports
+00414591-ddef-8a0e-de5c-0cb829e8f2d9,Mechanical Design,"Design,Hardware"
+c68ad390-d05d-fc84-bced-3d52a6352316,Database,"Data and Analytics,Software"
+8e122314-2dde-8ccd-d250-548ee8f87c10,Angel Investment,"Financial Services,Lending and Investments"
+7de5b73e-eaae-fc18-86df-7a1cd7f298cc,PC Games,Gaming
+23c1776a-e1fb-d4e0-5f11-ea7c4dcbf02e,Archiving Service,Administrative Services
+b0842bff-0f4d-ce9a-a2bc-3a7fe9e114f9,Business Travel,Travel and Tourism
+918533dd-fab3-dce5-018f-e49cff260fb9,Shipping Broker,Transportation
+7c4c30f8-1d77-23ef-8349-43f2d67107c6,Mining Technology,Natural Resources
+69eb7729-14ce-2fb1-0998-ef15631f644b,Women's,Community and Lifestyle
+2357ca1d-601d-eb18-c0f1-146d91d7aeae,Consumer,Other
+210d44d6-0fd8-6453-4a31-39efac496f38,Men's,Community and Lifestyle
+14364faa-63f9-0d45-7b6a-7378113364a2,Food and Beverage,Food and Beverage
+c62f860a-9ee9-1746-8874-166e5f761c3d,Field Support,Professional Services
+817e5e50-a6ca-547e-f596-95afb880a818,Rental Property,Real Estate
+59d10fca-f43d-237e-bcae-535cd1ca657c,Facebook,Platforms
+4a751b79-be1f-1b0c-b123-8ea57112f2ba,Skiing,Sports
+3ced088e-84de-330f-443a-1aa6cd3cc29f,Higher Education,Education
+2d1ad8b1-e01b-f4ea-70be-41c43a4ec269,Virtual World,"Community and Lifestyle,Media and Entertainment,Software"
+28c9216f-6e08-d0f9-9ff4-aa2cf0cd17da,Chemical,Science and Engineering
+e531be19-46aa-fb4e-354e-79b05ae1802a,Renewable Energy,"Energy,Sustainability"
+e0f7b18a-4a5b-e2c0-a34e-1cad4114a984,Video Advertising,"Advertising,Sales and Marketing"
+dd1ef133-8ee8-088c-bbe1-bdf22241358f,Gaming,Gaming
+617826b9-058f-d135-8836-884483f3b299,Funerals,"Community and Lifestyle,Health Care"
+405bbe19-f48e-ca4e-0725-0ccce036fb37,Mineral,Natural Resources
+14440d99-99ad-b3ee-6024-052c070a2a78,Local Business,Sales and Marketing
+c2a64787-d2ee-21b6-6795-b411924f779c,Hotel,Travel and Tourism
+9a786ae3-ba9d-7d07-3165-2d4e3c91a124,Electronic Health Record (EHR),Health Care
+350734b8-4d94-abc8-27e3-ca2382737105,Peer to Peer,Other
+3081ce4e-c6f2-b335-5b5a-3b39607035a3,Fuel,Energy
+16ad1d6c-c7ee-b6b5-701d-32c79a19dfae,Biopharma,"Biotechnology,Health Care,Science and Engineering"
+07b9d58b-7673-8bf4-3e5d-ea1f2bacd142,Taxi Service,Transportation
+f71aa2bf-aa05-70ca-9c46-495ef4e4f06c,Battery,Energy
+f2120218-4c0a-a9e4-7d3a-4d1c8afeb155,DRM,"Content and Publishing,Media and Entertainment,Privacy and Security"
+e95caf6b-205f-3839-f3c2-6bb796012cd7,Pollution Control,Sustainability
+dd51c0d1-b953-89b6-4006-156640e8409f,Internet Radio,"Media and Entertainment,Music and Audio"
+7efa3b6d-0ad3-3b0c-153c-94e566e5adfd,Call Center,Administrative Services
+3a2e9f35-7845-a881-01d3-2852a3c6a2f9,Precious Metals,Natural Resources
+f7df428d-eb21-4d99-60d5-3cb8ed258b9e,Gift Registry,Commerce and Shopping
+9bff86a3-0dc8-1420-9a63-3b86f51d2f36,Digital Marketing,Sales and Marketing
+70b41afa-2761-ea9e-86c4-0dfa312bedf1,Sales,Sales and Marketing
+32777797-2760-0d5f-be94-e6260845925b,SEM,"Advertising,Internet Services,Sales and Marketing"
+2dc3618d-0d9f-9280-8a8f-58eca90d6198,Generation Y,Other
+b3b08a44-9f89-9e68-6f4a-04365b8636e0,Commercial,Other
+593534eb-7096-7307-deae-0206fa508e13,Staffing Agency,Administrative Services
+4e20225b-89bf-f189-d197-d7b96ed0c245,Secondary Education,Education
+3278dd73-9e17-26cd-11ef-1d5b99a6cea4,Pet,Community and Lifestyle
+2df4b821-5cd5-41f7-5a0e-6fc0feab2664,Service Industry,Other
+008acc9a-35f8-f250-776c-1cb1a2961b59,Flash Sale,Commerce and Shopping
+42bf7b8c-7f0f-3581-f6d0-ed135afd8278,Online Games,Gaming
+c8f25333-db94-e96e-5a93-ac4912be67a1,Building Maintenance,Real Estate
+d207fa81-f60f-f966-5564-92c133564737,Extermination Service,Administrative Services
+c051be69-51ed-d3ac-44ba-67dc5d9a4b3f,Facilities Support Services,Administrative Services
+1ab07b3d-0798-14f5-0119-59cbc3408f8e,Document Preparation,Administrative Services
+13a601f0-2ad6-7339-9fc9-29063b20dfb7,Collection Agency,Administrative Services
+c5f45ca6-4a1b-ddf7-ab5d-b4a9f83f831e,Housekeeping Service,Administrative Services
+9c5dc6d5-70fc-b0b1-106c-42d0326e8a37,Forestry,Agriculture and Farming
+889f41bc-32c4-033d-fcda-3b34ea30a42e,Office Administration,Administrative Services
+5ecb5545-454b-9dca-6eb3-1ea48692c3c4,Horticulture,Agriculture and Farming
+5330335e-33c9-5613-67d8-cac000930acf,Equestrian,Agriculture and Farming
+1c85a4fd-329d-7326-1617-50d98f72a6d1,Trade Shows,Administrative Services
+08d7bc9a-de67-b81c-076e-bc59f496ac67,Credit Bureau,Financial Services
+fdce94bf-c29d-00bd-2925-9c07fa487243,Home Health Care,Health Care
+ebc74b68-1367-8a99-e551-c182d4457e87,Packaging Services,Administrative Services
+d9ee2821-9f88-c0cf-e775-a34db739e9ec,Bakery,Food and Beverage
+ab4e56e5-a439-3a99-9a2a-90af9b88326c,Shopping Mall,Commerce and Shopping
+6f70fb36-d6a3-18d2-f09d-ccdd6bbf91e0,Industrial Manufacturing,Manufacturing
+4acdae6a-217f-be4d-5f3d-6955756b92d5,Winery,Food and Beverage
+04b9b565-9930-dbad-d021-c3ebdc28caa9,Foundries,Manufacturing
+cdb5753f-53c4-c62c-2afd-1e8d9c58cbf3,Machinery Manufacturing,Manufacturing
+c1179afb-3718-48f5-991f-c001aa32eb18,Laundry and Dry-cleaning,Clothing and Apparel
+ba32af71-dbca-ceba-814e-5a3947c4ea31,Hydroponics,Agriculture and Farming
+b5cdd7ca-83f5-f44a-ee85-955a43b74d0a,Confectionery,Food and Beverage
+688d1db0-0708-637a-3973-b1ca96ae2b9c,Paper Manufacturing,Manufacturing
+3d5fed86-1931-8979-980c-ccd11c500964,Timber,Natural Resources
+2a554cd3-018e-9350-a7e3-4e7d4c76be38,Amusement Park and Arcade,Travel and Tourism
+142332cc-29bc-a56c-3498-89a6c1a04ad3,Ports and Harbors,Transportation
+cda62d12-823c-4d74-ec6c-6ac78d705ea0,Tour Operator,Travel and Tourism
+b933df30-5110-493f-88f4-120979a1c00b,Social Assistance,Government and Military
+a640c3d9-c6e7-c184-e04a-e87f76092f50,Casino,Travel and Tourism
+8e46de21-5561-0114-eacc-cae29ea61767,Recipes,Food and Beverage
+5e259e7c-a263-836e-0c92-70bc5219d6cf,Recreational Vehicles,Transportation
+387a8f76-15f6-04db-3cbb-4e3f85a194f2,Travel Agency,Travel and Tourism
+301b97f0-6284-b2f2-6457-848b4e10828d,Seafood,Food and Beverage
+1101e2fd-fb06-08a8-9567-97652bbbe2cf,Wired Telecommunications,Messaging and Telecommunications
+e4f60985-e604-9faa-3226-2df779f0d198,Catering,Food and Beverage
+dac5cf7f-174b-40c5-9895-5189aadb463d,Outpatient Care,Health Care
+d7655f5e-d618-4fbb-94a3-8a13cc374ff8,Museums and Historical Sites,Travel and Tourism
+6ea20ef4-dd12-8a46-3565-22dab9c8a7d4,Snack Food,Food and Beverage
+3343a371-2b37-8490-7f75-9b6545d445c4,Distillery,Food and Beverage
+20f6eb6e-e7d4-b0b0-baea-4285d83c1a47,Contests,Gaming
+1680f5c4-9050-f7bf-0a37-4b929f68bd75,Food Trucks,Food and Beverage
+13c69ae7-c5ec-69b4-a48c-f19ab1071b21,Nursing and Residential Care,Health Care
+d1fa0ffc-a463-d8d8-2f7f-55ed33772c09,Plastics and Rubber Manufacturing,Manufacturing
+ac262c26-a817-48f7-1e93-3b2530a5e51d,Freight Service,Transportation
+897af483-8963-a2ab-16ff-2b3489106f0e,Autonomous Vehicles,Transportation
+88eb1c13-adf5-8728-df29-0590a0ce0ab8,Travel Accommodations,Travel and Tourism
+7a6d8aad-7b87-534a-7f5d-c1766c2cd33f,Management Consulting,Professional Services
+29aa8efa-db2e-0196-2249-b4cdf553b519,Environmental Consulting,Professional Services
+176f72b5-3733-b98e-7ccb-db49dc29ed4a,Wood Processing,Manufacturing
+d1851d7c-8df1-a9ac-96cb-906b662a7ac7,Warehousing,Transportation
+bf348036-5cb2-4d95-ec91-9ac7d1a27f94,Janitorial Service,Real Estate
+b0e95e5d-857e-d561-7c34-133445cff0f0,Parks,Travel and Tourism
+758d848a-708f-1c66-8388-9eb6af660417,Delivery Service,Transportation
+61e3a9dd-a7b8-0791-be72-42b72890fc01,Marine Transportation,Transportation
+38029a58-e0d2-1249-883f-7c8da9db32b7,Consumer Goods,Consumer Goods
+4ce2baa5-af58-d411-d635-5144a876881d,Mining,Natural Resources
+48d51286-b254-c626-b5cd-2357ef5bf2bc,Presentation Software,Software
+b9c920c1-97ef-c9d2-e300-522f5e1cdaf2,GovTech,"Government and Military,Information Technology"
+0bb56d77-4cd5-9ed3-0791-04897d35cd9c,Desktop Apps,Other
+8eb1f507-dc73-15d6-cd18-36f20a0e7318,CivicTech,"Government and Military,Information Technology"
+75e2efe6-f901-2137-da85-cd4f5627295c,Military,"Government and Military,Information Technology"
+7e92ba55-5c1b-ffd2-2d43-ae54965f86f7,Association,Other
+e33cac20-55b4-a943-e64a-7fc37a3d2ca3,InsurTech,Financial Services
+1f8c929b-3b58-327d-c417-256ea3ff98f8,Funding Platform,"Financial Services,Lending and Investments"
+1fea6201-3b7c-4c91-96ec-543f5eded46a,Blockchain,Other
+3e049219-1bcf-4aac-91de-778b9d329eec,Ethereum,Other
+68413bd1-e42d-4cf1-815b-62e64a6b922a,Quantum Computing,Science and Engineering
+3e0e2772-75e9-4f7b-aa6d-a8dc3dc9e7c6,Marine Technology,Science and Engineering
+ce11fd97-65a0-4f8c-b385-2ca48f444479,Smart Cities,Real Estate
+b561fa84-cb20-4a82-a6bc-fea613d74cdd,Last Mile Transportation,Transportation
+3fb898d3-4b96-418e-a58e-eaff8295e182,Legal Tech,Professional Services
