@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import SingleBarChart from "../components/d3_charts/SingleBarChart";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function SingleBarChartWrapper(props) {
   const { chartID } = props;
@@ -7,10 +8,13 @@ export default function SingleBarChartWrapper(props) {
   const plotArea = useRef(null); // Reference to the div where the plot will be rendered inside
   const [plot, setPlot] = useState(null); // "plot" will later point to an instance of SingleBarChart
 
+  const [loading, setLoading] = useState(true);
+
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
-    /** API Call here? */
+    /** API Call here. Use "chartID" to determine which API to call */
 
+    setLoading(false);
     setPlot(new SingleBarChart(plotArea.current));
   }, []);
 
@@ -22,5 +26,9 @@ export default function SingleBarChartWrapper(props) {
     plot?.update(props.category);
   }, [plot, props.category]);*/
 
-  return <div className="plot-area" ref={plotArea}></div>;
+  return (
+    <div className="plot-area" ref={plotArea}>
+      {loading ? <LoadingSpinner /> : null}
+    </div>
+  );
 }
