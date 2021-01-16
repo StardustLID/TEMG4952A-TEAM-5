@@ -6,6 +6,7 @@ import HistogramWrapper from "../wrappers/HistogramWrapper";
 import PieChartWrapper from "../wrappers/PiechartWrapper";
 import LineGraphWrapper from "../wrappers/LineGraphWrapper";
 import WorldMapWrapper from "../wrappers/WorldMapWrapper";
+import MultiBarChartWrapper from "../wrappers/MultiBarChartWrapper"
 
 const useStyles = makeStyles({
   root: {
@@ -44,7 +45,7 @@ function Companies() {
           </Grid>
           <Grid container item spacing={4}>
             <Grid item>{<WorldMapWrapper />}</Grid>
-            {/*<Grid item>{<LineGraphWrapper />}</Grid>*/}
+            <Grid item>{<MultiBarChartWrapper />}</Grid>
           </Grid>
         </Grid>
       </Grid>

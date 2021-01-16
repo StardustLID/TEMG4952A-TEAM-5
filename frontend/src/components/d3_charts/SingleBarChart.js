@@ -14,7 +14,7 @@ const json =
 //TODO: Task 2 CHange the d.name and d.height to d.dataname on line 84, 56, 57, 90, 91
 // where d.name is for x axis and d.height is for y axis
 
-export default class BarChart {
+export default class SingleBarChart {
   constructor(element) {
     let vis = this;
 
