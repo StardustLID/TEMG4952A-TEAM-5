@@ -7,6 +7,7 @@ import SingleBarChartWrapper from "../../wrappers/SingleBarChartWrapper";
 import LineGraphWrapper from "../../wrappers/LineGraphWrapper";
 import WorldMapWrapper from "../../wrappers/WorldMapWrapper";
 import MultiBarChartWrapper from "../../wrappers/MultiBarChartWrapper";
+import HistogramWrapper from "../../wrappers/HistogramWrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -34,7 +35,10 @@ export default function FeaturesPlotCard(props) {
       chartWrapper = <SingleBarChartWrapper chartID={selectedChartID} />;
       break;
     case "multiBar":
-      chartWrapper = <MultiBarChartWrapper chartID= {selectedChartID} />;
+      chartWrapper = <MultiBarChartWrapper chartID={selectedChartID} />;
+      break;
+    case "histogram":
+      chartWrapper = <HistogramWrapper chartID={selectedChartID} />;
       break;
     case "line":
       chartWrapper = <LineGraphWrapper chartID={selectedChartID} />;

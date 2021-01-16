@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-/** A circular loading spinner from Material UI, but with larger size and custom margin. */
+/** A circular loading spinner that would turn into an error icon if API fetching failed. */
 export default function LoadingSpinner(props) {
   const classes = useStyles();
 
@@ -33,7 +33,7 @@ export default function LoadingSpinner(props) {
       <Icon color="error" className={classes.errorIcon}>
         error
       </Icon>
-      <Typography variant="body-1" color="error" className={classes.errorText}>
+      <Typography variant="body1" color="error" className={classes.errorText}>
         Failed to fetch data. Please try again!
       </Typography>
     </div>

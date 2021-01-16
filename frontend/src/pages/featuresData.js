@@ -1,14 +1,14 @@
 /** This array is used in the "Features Visualization" page.
- * Explanation of object properties:
  *
- * "id": Acts as an ID for both the graph's name and the selected button for the left button list
- * "btnTitle": Title for the button at the left button list
- * "icon": ID for the Material UI icons (https://material.io/resources/icons)
- * "chartType": Type of chart ("singleBar" | "multiBar" | "line" | "map")
+ * For each object element in the array:
+ * @param {string} id - Acts as an ID for both the graph's name and the selected button for the left button list
+ * @param {string} btnTitle - Title for the button at the left button list
+ * @param {string} icon - ID for the Material UI icons (https://material.io/resources/icons)
+ * @param {string} chartType - Type of chart. Possible values: `("singleBar"|"multiBar"|"histogram"|"line"|"map")`
  */
 
 const featuresData = [
-  { id: "num-employees", btnTitle: "No. of Employees", icon: "people", chartType: "singleBar" },
+  { id: "num-employees", btnTitle: "No. of Employees", icon: "people", chartType: "histogram" },
   { id: "company-age", btnTitle: "Company Age", icon: "access_time", chartType: "multiBar" },
   { id: "funding-rounds", btnTitle: "No. of Funding Rounds", icon: "timeline", chartType: "singleBar" },
   { id: "funding-per-round", btnTitle: "Funding per Round", icon: "local_atm", chartType: "line" },
@@ -20,8 +20,8 @@ const featuresData = [
     chartType: "singleBar",
   },
   { id: "num-acquisitions", btnTitle: "No. of Acquisitions", icon: "bar_chart", chartType: "singleBar" },
-  { id: "acquisition-price", btnTitle: "Acquisition Price", icon: "monetization_on", chartType: "singleBar" },
-  { id: "funds-raised", btnTitle: "Total Funds Raised", icon: "money", chartType: "singleBar" },
+  { id: "acquisition-price", btnTitle: "Acquisition Price", icon: "monetization_on", chartType: "histogram" },
+  { id: "funds-raised", btnTitle: "Total Funds Raised", icon: "money", chartType: "histogram" },
   {
     id: "num-companies-owned",
     btnTitle: "No. of Companies Owned by Top 20 Founders",
