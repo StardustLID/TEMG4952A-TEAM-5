@@ -1,9 +1,10 @@
 import * as d3 from "d3";
+import "./WorldMap.css";
 
-// TODO: Total 3 Tasks, Reference: https://www.d3-graph-gallery.com/graph/choropleth_hover_effect.html
+// Reference: https://www.d3-graph-gallery.com/graph/choropleth_hover_effect.html
 
 const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 60, RIGHT: 20 };
-const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
+const WIDTH = 850 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class WorldMap {
@@ -22,8 +23,8 @@ export default class WorldMap {
     // Map and projection
     vis.path = d3.geoPath();
     vis.projection = d3.geoMercator()   // https://github.com/d3/d3-geo-projection#geoMercator
-        .scale(100)
-        .translate([WIDTH / 2, HEIGHT / 2]);
+        .scale(130)
+        .translate([WIDTH / 2 - 50, HEIGHT / 2 + 70]);
 
     // Data and color scale
     vis.colorScale = d3.scaleThreshold()
@@ -32,13 +33,13 @@ export default class WorldMap {
 
     // d3.map() changed to new Map() from ES6
     // It stores key-value pairs with key = country code ; value = population
-    var map1 = new Map()
+    var map1 = new Map();
 
     // HERE still need to change dk Y here return an array
     d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", data => {
         map1.set(data.code, parseInt(data.pop))   // Key = country code ; Value = population
       }
-    )
+    );
 
     // Load external data and boot
     d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then((geoData) => {
@@ -48,28 +49,19 @@ export default class WorldMap {
        * If we use arrow function, "this" equals to the WorldMap object itself
        */
       const mouseOver = function() {
-        d3.selectAll(".Country")
-          .transition()
-          .duration(200)
+        d3.selectAll(".world-map-country")
+          .transition().duration(150)
           .style("opacity", .4);
 
         d3.select(this)
-          .transition()
-          .duration(200)
+          .transition().duration(150)
           .style("opacity", 1)
-          .style("stroke", "black");
       }
 
       const mouseLeave = function() {
-        d3.selectAll(".Country")
-          .transition()
-          .duration(200)
+        d3.selectAll(".world-map-country")
+          .transition().duration(150)
           .style("opacity", .8);
-
-        d3.select(this)
-          .transition()
-          .duration(200)
-          .style("stroke", "transparent");
       }
 
       // Draw the map
@@ -88,10 +80,10 @@ export default class WorldMap {
             return vis.colorScale(population);
           })
           .style("stroke", "transparent")
-          .attr("class", "Country")
+          .attr("class", "world-map-country")
           .style("opacity", .8)
           .on("mouseover", mouseOver)
           .on("mouseleave", mouseLeave)
-    })
+    });
   }
 }   
