@@ -8,7 +8,13 @@ const WIDTH = 850 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class WorldMap {
-  constructor(element) {
+  /**
+   * @param element - Reference to the root <div /> the graph is rendered in
+   * @param geoData - JSON object containing path coordinates to draw each country
+   * @param {string} visualizationDataCsv - A CSV file containing data we wish to visualize.
+   * It should contain a column called `code` which lists all the possible country codes
+   */
+  constructor(element, geoData, visualizationDataCsv) {
     let vis = this;
 
     /** Add a SVG canvas to the root element (div) */
@@ -35,55 +41,53 @@ export default class WorldMap {
     // It stores key-value pairs with key = country code ; value = population
     var map1 = new Map();
 
-    // HERE still need to change dk Y here return an array
-    d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", data => {
-        map1.set(data.code, parseInt(data.pop))   // Key = country code ; Value = population
-      }
-    );
+    const visData = d3.csvParse(visualizationDataCsv);
+    visData.forEach((item) => {
+      // TODO: Change item.pop to item.XXX
+      map1.set(item.code, +item.pop)   // `+item.pop` is equivalent to `parseInt(item.pop)`
+    });
 
     // Load external data and boot
-    d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then((geoData) => {
 
-      /* NOTE: Use function() instead of ES6 arrow function here
-       * If we use "function()", "this" equals to the HTML element we hovered on it
-       * If we use arrow function, "this" equals to the WorldMap object itself
-       */
-      const mouseOver = function() {
-        d3.selectAll(".world-map-country")
-          .transition().duration(150)
-          .style("opacity", .4);
+    /* NOTE: Use function() instead of ES6 arrow function here
+      * If we use "function()", "this" equals to the HTML element we hovered on it
+      * If we use arrow function, "this" equals to the WorldMap object itself
+      */
+    const mouseOver = function() {
+      d3.selectAll(".world-map-country")
+        .transition().duration(150)
+        .style("opacity", .4);
 
-        d3.select(this)
-          .transition().duration(150)
-          .style("opacity", 1)
-      }
+      d3.select(this)
+        .transition().duration(150)
+        .style("opacity", 1);
+    }
 
-      const mouseLeave = function() {
-        d3.selectAll(".world-map-country")
-          .transition().duration(150)
-          .style("opacity", .8);
-      }
+    const mouseLeave = function() {
+      d3.selectAll(".world-map-country")
+        .transition().duration(150)
+        .style("opacity", .8);
+    }
 
-      // Draw the map
-      vis.svg.append("g")
-        .selectAll("path")
-        .data(geoData.features) // Coordinates for each country
-        .enter()
-        .append("path")
-          // draw each country
-          .attr("d", vis.path
-            .projection(vis.projection)
-          )
-          // set the color of each country
-          .attr("fill", (d) => {
-            const population = map1.get(d.id) || 0;
-            return vis.colorScale(population);
-          })
-          .style("stroke", "transparent")
-          .attr("class", "world-map-country")
-          .style("opacity", .8)
-          .on("mouseover", mouseOver)
-          .on("mouseleave", mouseLeave)
-    });
+    // Draw the map
+    vis.svg.append("g")
+      .selectAll("path")
+      .data(geoData.features) // Coordinates for each country
+      .enter()
+      .append("path")
+        // draw each country
+        .attr("d", vis.path
+          .projection(vis.projection)
+        )
+        // set the color of each country
+        .attr("fill", (d) => {
+          const population = map1.get(d.id) || 0;
+          return vis.colorScale(population);
+        })
+        .style("stroke", "transparent")
+        .attr("class", "world-map-country")
+        .style("opacity", .8)
+        .on("mouseover", mouseOver)
+        .on("mouseleave", mouseLeave);
   }
 }   
