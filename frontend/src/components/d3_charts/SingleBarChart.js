@@ -6,16 +6,15 @@ const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 60, RIGHT: 10 };
 const WIDTH = 460 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM;
 
-// TODO: Task 1 input the XLabel, YLabel, json/csv
+// TODO: Task 1 input the XLabel, YLabel
 const XLabel = "Hello";
 const YLabel = "898";
-const json =
-  "https://udemy-react-d3.firebaseio.com/tallest_men.json";
-//TODO: Task 2 CHange the d.name and d.height to d.dataname on line 84, 56, 57, 90, 91
+
+//TODO: Task 2 - Change all occurrences of d.name and d.height to d.dataname
 // where d.name is for x axis and d.height is for y axis
 
 export default class SingleBarChart {
-  constructor(element) {
+  constructor(element, data) {
     let vis = this;
 
     /** Add a SVG canvas to the root element (div) */
@@ -51,46 +50,40 @@ export default class SingleBarChart {
 
     vis.yAxisGroup = vis.svg.append("g");
 
-    
-    d3.json(json).then((data) => {
-      
-      let max = d3.max(data, (d)=> d.height)
-      let min = d3.min(data, (d)=> d.height)
+    let max = d3.max(data, (d)=> d.height)
+    let min = d3.min(data, (d)=> d.height)
 
-      //scales for x and y
-      const y = d3
-        .scaleLinear()
-        .domain([min * 0.95, max])
-        .range([HEIGHT, 0]);
+    //scales for x and y
+    const y = d3
+      .scaleLinear()
+      .domain([min * 0.95, max])
+      .range([HEIGHT, 0]);
 
-      const x = d3
-        .scaleBand()
-        .domain(data.map((d) => d.name))
-        .range([0, WIDTH])
-        .padding(0.4);
+    const x = d3
+      .scaleBand()
+      .domain(data.map((d) => d.name))
+      .range([0, WIDTH])
+      .padding(0.4);
 
-      //Call Axis
-      const xAxisCall = d3.axisBottom(x);
-      vis.xAxisGroup.transition().duration(500).call(xAxisCall);
+    //Call Axis
+    const xAxisCall = d3.axisBottom(x);
+    vis.xAxisGroup.transition().duration(500).call(xAxisCall);
 
-      const yAxisCall = d3.axisLeft(y);
-      vis.yAxisGroup.transition().duration(500).call(yAxisCall);
+    const yAxisCall = d3.axisLeft(y);
+    vis.yAxisGroup.transition().duration(500).call(yAxisCall);
 
-      //Data Join
-      const rects = vis.svg.selectAll("rect").data(data);
+    //Data Join
+    const rects = vis.svg.selectAll("rect").data(data);
 
-      rects
-        .enter()
-        .append("rect")
-        .attr("x", (d) => x(d.name))
-        .attr("width", x.bandwidth)
-        .attr("fill", "grey")
-        .attr("y", HEIGHT)
-        .transition()
-        .duration(500)
-        .attr("height", (d) => HEIGHT - y(d.height))
-        .attr("y", (d) => y(d.height));
-
-    });
+    rects
+      .enter()
+      .append("rect")
+      .attr("x", (d) => x(d.name))
+      .attr("width", x.bandwidth)
+      .attr("fill", "grey")
+      .attr("y", HEIGHT)
+      .transition().duration(500)
+      .attr("height", (d) => HEIGHT - y(d.height))
+      .attr("y", (d) => y(d.height));
   }
 }

@@ -6,7 +6,7 @@ export default function LineGraphWrapper(props) {
   const { chartID } = props; // ID of features chart
 
   const plotArea = useRef(null); // Reference to the div where the plot will be rendered inside
-  const [plot, setPlot] = useState(null); // "plot" will later point to an instance of InvestmentHistogram
+  const [plot, setPlot] = useState(null); // "plot" will later point to an instance of LineGraph
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -27,7 +27,7 @@ export default function LineGraphWrapper(props) {
         setLoading(false);
         setPlot(new LineGraph(plotArea.current, data));
       })
-      .catch((error) => setError(true)); // When failed to fetch data
+      .catch(() => setError(true)); // When failed to fetch data
   }, []);
 
   // TODO: if use update then need to uncomment this part

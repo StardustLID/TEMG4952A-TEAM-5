@@ -3,18 +3,34 @@ import Histogram from "../components/d3_charts/Histogram";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function HistogramWrapper(props) {
+  const { chartID } = props;
+
   const plotArea = useRef(null); // Reference to the div where the plot will be rendered inside
-  const [plot, setPlot] = useState(null); // "plot" will later point to an instance of InvestmentHistogram
+  const [plot, setPlot] = useState(null); // "plot" will later point to an instance of HistogramWrapper
 
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
-    setLoading(false);
-    setPlot(new Histogram(plotArea.current));
+    // TODO: Use "chartID" to determine which API to call
+
+    // Example API Call
+    fetch("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch data!");
+        }
+        return res.text(); // TODO: Change to `res.json()` if the fetched file is JSON
+      })
+      .then((data) => {
+        setLoading(false);
+        setPlot(new Histogram(plotArea.current, data));
+      })
+      .catch(() => setError(true)); // When failed to fetch data
   }, []);
 
-  // TODO: if use update then need to uncomment thhis part
+  // TODO: if use update then need to uncomment this part
   // Calls the update(category) method of InvestmentHistogram class when props.category updates
   // React will NOT re-render this component when props.category updates
   /**useEffect(() => {
@@ -23,7 +39,7 @@ export default function HistogramWrapper(props) {
 
   return (
     <div className="plot-area" ref={plotArea}>
-      {loading ? <LoadingSpinner /> : null}
+      {loading ? <LoadingSpinner error={error} /> : null}
     </div>
   );
 }

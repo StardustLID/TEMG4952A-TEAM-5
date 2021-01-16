@@ -15,7 +15,7 @@ const csv =
 
 
 export default class Histogram {
-  constructor(element) {
+  constructor(element, csvData) {
     let vis = this;
 
     /** Add a SVG canvas to the root element (div) */
@@ -51,7 +51,7 @@ export default class Histogram {
 
     vis.yAxisGroup = vis.svg.append("g");
 
-    d3.csv(csv).then(function (data){
+    const data = d3.csvParse(csvData); // Parse a string of CSV data
        
       /** TODO: Task 3 Choose Which Max
       *  if the maximum is too far from the general data, then choose 1000
@@ -103,8 +103,6 @@ export default class Histogram {
         .transition()
         .duration(500)
         .attr("height", (d) => HEIGHT - y(d.length))
-        .attr("y", (d)=>y(d.length))
-
-    });
+        .attr("y", (d)=>y(d.length));
   }
 }

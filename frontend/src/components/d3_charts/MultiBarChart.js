@@ -15,7 +15,7 @@ const csv =
 // where d.group is for x axis
 
 export default class MultiBarChart {
-  constructor(element) {
+  constructor(element, csvData) {
     let vis = this;
 
     /** Add a SVG canvas to the root element (div) */
@@ -51,8 +51,8 @@ export default class MultiBarChart {
 
     vis.yAxisGroup = vis.svg.append("g");
 
-    d3.csv(csv).then((data) => {
-      
+    const data = d3.csvParse(csvData);  // Parse a string of CSV data
+
         // List of subgroups = header of the csv files 
         vis.subgroups = data.columns.slice(1);
 
@@ -152,6 +152,5 @@ export default class MultiBarChart {
                 .attr("height", d => HEIGHT - vis.y(d.value))
                 .attr("y", d => vis.y(d.value)) 
 
-    } );
   } 
 }

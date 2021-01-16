@@ -9,13 +9,25 @@ export default function SingleBarChartWrapper(props) {
   const [plot, setPlot] = useState(null); // "plot" will later point to an instance of SingleBarChart
 
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
-    /** API Call here. Use "chartID" to determine which API to call */
+    // TODO: Use "chartID" to determine which API to call
 
-    setLoading(false);
-    setPlot(new SingleBarChart(plotArea.current));
+    // Example API Call
+    fetch("https://udemy-react-d3.firebaseio.com/tallest_men.json")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch data!");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setLoading(false);
+        setPlot(new SingleBarChart(plotArea.current, data));
+      })
+      .catch(() => setError(true)); // When failed to fetch data
   }, []);
 
   // TODO: if use update then need to uncomment this part
@@ -28,7 +40,7 @@ export default function SingleBarChartWrapper(props) {
 
   return (
     <div className="plot-area" ref={plotArea}>
-      {loading ? <LoadingSpinner /> : null}
+      {loading ? <LoadingSpinner error={error} /> : null}
     </div>
   );
 }
