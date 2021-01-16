@@ -1,0 +1,6 @@
+/* CSS is used to add/remove border on each country */
+
+path.world-map-country:hover {
+  stroke: black !important;
+  transition: 0.1s;
+}
