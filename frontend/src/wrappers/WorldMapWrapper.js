@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import WorldMap from "../components/d3_charts/WorldMap";
+import WorldMap from "../components/d3_charts/D3WorldMap";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function WorldMapWrapper(props) {

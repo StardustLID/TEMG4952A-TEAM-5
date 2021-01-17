@@ -6,25 +6,10 @@ import Home from "./pages/Home";
 import Investments from "./pages/Investments";
 import Companies from "./pages/Companies";
 import Features from "./pages/Features";
-import "./App.css";
 import muiTheme from "./theme/muiTheme";
+import "./App.css";
 
 function App() {
-  /*
-  const [title, setTitle] = useState("Flask API not working!"); // A state to store the title of our page
-
-  // We set the title of the page to be the message we fetch from our Flask API
-  // That API returns {'message': 'Flask is working!'}
-  useEffect(() => {
-    fetch("/react") // Route defined in backend\app.py line 10
-      .then((res) => res.json())
-      .then((data) => {
-        // data = {'message': 'Flask is working!'}
-        setTitle(data.message);
-      });
-  }, []);
-  */
-
   return (
     <>
       <Router>
