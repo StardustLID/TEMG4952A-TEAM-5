@@ -8,7 +8,7 @@
  */
 
 const featuresData = [
-  { id: "num-employees", btnTitle: "No. of Employees", icon: "people", chartType: "histogram" },
+  { id: "num-employees", btnTitle: "No. of Employees", icon: "people", chartType: "singleBar" },
   { id: "company-age", btnTitle: "Company Age", icon: "access_time", chartType: "multiBar" },
   { id: "funding-rounds", btnTitle: "No. of Funding Rounds", icon: "timeline", chartType: "singleBar" },
   { id: "funding-per-round", btnTitle: "Funding per Round", icon: "local_atm", chartType: "line" },

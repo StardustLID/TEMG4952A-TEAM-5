@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import Histogram from "../components/d3_charts/Histogram";
 import LoadingSpinner from "../components/LoadingSpinner";
+import axios from "axios";
 
 export default function HistogramWrapper(props) {
   const { chartID } = props;
@@ -16,18 +17,13 @@ export default function HistogramWrapper(props) {
     // TODO: Use "chartID" to determine which API to call
 
     // Example API Call
-    fetch("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv")
+    axios
+      .get("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv")
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch data!");
-        }
-        return res.text(); // TODO: Change to `res.json()` if the fetched file is JSON
-      })
-      .then((data) => {
         setLoading(false);
-        setPlot(new Histogram(plotArea.current, data));
+        setPlot(new Histogram(plotArea.current, res.data)); // res.data is a string of CSV data
       })
-      .catch(() => setError(true)); // When failed to fetch data
+      .catch(() => setError(true)); // failed to fetch data
   }, []);
 
   // TODO: if use update then need to uncomment this part
@@ -37,9 +33,5 @@ export default function HistogramWrapper(props) {
     plot?.update(props.category);
   }, [plot, props.category]);*/
 
-  return (
-    <div className="plot-area" ref={plotArea}>
-      {loading ? <LoadingSpinner error={error} /> : null}
-    </div>
-  );
+  return loading || error ? <LoadingSpinner error={error} /> : <div className="plot-area" ref={plotArea} />;
 }
