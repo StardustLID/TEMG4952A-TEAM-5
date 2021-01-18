@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   listItemIcon: {
     color: "white",
   },
-  selected: {},
+  selected: {}, // Don't delete it
 }));
 
 // The sidebar menu component (Used in Navbar.js)

@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import SingleBarChart from "../components/d3_charts/SingleBarChart";
 import LoadingSpinner from "../components/LoadingSpinner";
+import axios from "axios";
 
 export default function SingleBarChartWrapper(props) {
   const { chartID } = props;
@@ -16,18 +17,13 @@ export default function SingleBarChartWrapper(props) {
     // TODO: Use "chartID" to determine which API to call
 
     // Example API Call
-    fetch("https://udemy-react-d3.firebaseio.com/tallest_men.json")
+    axios
+      .get("https://udemy-react-d3.firebaseio.com/tallest_men.json")
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch data!");
-        }
-        return res.json();
-      })
-      .then((data) => {
         setLoading(false);
-        setPlot(new SingleBarChart(plotArea.current, data));
+        setPlot(new SingleBarChart(plotArea.current, res.data)); // res.data is a JSON array
       })
-      .catch(() => setError(true)); // When failed to fetch data
+      .catch(() => setError(true)); // failed to fetch data
   }, []);
 
   // TODO: if use update then need to uncomment this part
@@ -38,9 +34,5 @@ export default function SingleBarChartWrapper(props) {
     plot?.update(props.category);
   }, [plot, props.category]);*/
 
-  return (
-    <div className="plot-area" ref={plotArea}>
-      {loading ? <LoadingSpinner error={error} /> : null}
-    </div>
-  );
+  return loading || error ? <LoadingSpinner error={error} /> : <div className="plot-area" ref={plotArea} />;
 }
