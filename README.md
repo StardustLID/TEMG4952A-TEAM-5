@@ -12,10 +12,20 @@ The repository of Team 5 for the HKUST course TEMG4952A "Special Project: Financ
 
 Prerequisite: Install Python 3 in your system.
 
+This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render a world map in data visualization. Mapbox's APIs require an access token that is obtainable after registering for an account in [this page](https://account.mapbox.com/auth/signup/). After registering for an account, head to your [Mapbox account page](https://account.mapbox.com/) and copy your default public token.
+
+1. Create a file called `.env` in the root of the `frontend/` folder
+2. Copy the content in `frontend/.env.example` and paste it into the `.env` file you just created. Your `.env` file should look like:
+   ```
+   REACT_APP_MAPBOX_API_KEY=
+   ```
+3. At the end of the line, paste in the Mapbox default public token you previously copied from Mapbox's account page
+4. For Windows users, follow the remaining steps in [section 1.1](#11-for-windows-users). For Mac users, follow the remaining steps in [section 1.2](#12-for-mac-users).
+
 ### 1.1 For Windows Users,
 
-1. Open Powershell and change directory to this repository's root (`cd path\to\root\here`)
-2. Run the following commands:
+5. Open Powershell and change directory to this repository's root (`cd path\to\root\here`)
+6. Run the following commands:
 
    ```
    cd .\backend\
@@ -25,8 +35,9 @@ Prerequisite: Install Python 3 in your system.
    flask run
    ```
 
-3. Keep this Powershell window running in background. At the same time, open another Powershell window and change directory to this repository's root
-4. Run the following commands:
+7. Keep this Powershell window running in background. At the same time, open another Powershell window and change directory to this repository's root
+8. Run the following commands:
+
    ```
    cd .\frontend\
    npm install
@@ -35,8 +46,8 @@ Prerequisite: Install Python 3 in your system.
 
 ### 1.2 For Mac Users,
 
-1. Open Terminal and change directory to this repository's root (`cd path/to/root/here`)
-2. Run the following commands:
+5. Open Terminal and change directory to this repository's root (`cd path/to/root/here`)
+6. Run the following commands:
 
    ```
    cd backend/
@@ -46,8 +57,9 @@ Prerequisite: Install Python 3 in your system.
    flask run
    ```
 
-3. Keep this Terminal window running in background. At the same time, open another Terminal window and change directory to this repository's root
-4. Run the following commands:
+7. Keep this Terminal window running in background. At the same time, open another Terminal window and change directory to this repository's root
+8. Run the following commands:
+
    ```
    cd frontend/
    npm install
@@ -71,6 +83,7 @@ If you failed to run `npm start` after running `npm install` at the `frontend/` 
 2. Windows users: `npm run flask-run-win` ; Mac users: `npm run flask-run-mac`
 3. Keep this terminal running in background and open another terminal window. Change directory to this repository's root
 4. Run the following commands:
+
    ```
    cd frontend/
    npm start

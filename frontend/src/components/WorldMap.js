@@ -8,8 +8,7 @@ const styles = {
 
 // Mapbox Static Tiles API: https://docs.mapbox.com/api/maps/static-tiles/
 const STYLE_URL = "mapbox/light-v9";
-const ACCESS_TOKEN =
-  "pk.eyJ1IjoiYW5zb25oIiwiYSI6ImNrazB2M2tqYjA5anAyd3BqbmtvOG53MjYifQ.nv1WU0C7VoOfPdc7GYo6Fg";
+const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_API_KEY;
 
 const API_URL = `https://api.mapbox.com/styles/v1/${STYLE_URL}/tiles/256/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`;
 
