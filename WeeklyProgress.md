@@ -16,12 +16,12 @@
 | 03-01-21 | Confirmed 1st draft of Figma design           |
 
 ### Back-End
-| Date     | Tasks                                    |
-|----------|------------------------------------------|
-| 30-12-20 | Obtained Crunchbase dataset              |
-| 01-01-21 | Selected relevant columns for processing |
-| 02-01-21 | Data preprocessing for categories, funding rounds and other CSV |
-| 03-01-21 | Sliced the CSV into <100 MB each         |
+| Date     | Tasks                                                        |
+|----------|--------------------------------------------------------------|
+| 30-12-20 | Obtained Crunchbase dataset                                  |
+| 01-01-21 | Selected relevant columns for processing                     |
+| 02-01-21 | Data cleansing for categories, funding rounds and other CSVs |
+| 03-01-21 | Sliced the CSV into <100 MB each                             |
 
 ## Week 2 (4 Jan - 10 Jan)
 ### Overall Project Related
@@ -30,20 +30,20 @@
 ### Front-End
 | Date     | Tasks                                         |
 |----------|-----------------------------------------------|
-| 05-01-21 | Improvde Home page appearance and added cards |
+| 05-01-21 | Improved Home page appearance and added cards |
 | 07-01-21 | Added wrappers for Home page's D3.js charts   |
 | 08-01-21 | Created a dynamic D3.js scatterplot           |
 | 08-01-21 | Added tables with dummy data in Home page     |
 | 10-01-21 | Added a wrapper for a dynamic multi-bar chart |
 
 ### Back-End
-| Date     | Tasks                                       |
-|----------|---------------------------------------------|
-| 04-01-21 | Added generic one-hot encoder for `ipo.csv` |
-| 06-01-21 | Joined all csv                              |
-| 07-01-21 | Formatted csv files into 1 dataframe        |
-| 10-01-21 | Handled partially about null and categorical|
-| 10-01-21 | Plots and graphs selections                 |
+| Date     | Tasks                                                      |
+|----------|------------------------------------------------------------|
+| 04-01-21 | Added generic one-hot encoder for `ipo.csv` and other CSVs |
+| 06-01-21 | Joined all dataframes for data integration (file >60GB)    |
+| 07-01-21 | Improved the efficiency of encoders used                   |
+| 08-01-21 | Joined all dataframes for data integration (file 1.48GB)   |
+| 11-01-21 | Added preliminary data visualizations                      |
 
 
 ## Week 3 (11 Jan - 17 Jan)
