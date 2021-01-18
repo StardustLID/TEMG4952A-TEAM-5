@@ -3,19 +3,14 @@ import * as d3 from "d3";
 // TODO: Total 2 Tasks, Reference: O'Reilly for Higher Education
 
 const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 60, RIGHT: 10 };
-const WIDTH = 460 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM;
-
-// TODO: Task 1 input the XLabel, YLabel
-const XLabel = "Hello";
-const YLabel = "898";
-
-//TODO: Task 2 - Change all occurrences of d.name and d.height to d.dataname
-// where d.name is for x axis and d.height is for y axis
+const WIDTH = 700 - MARGIN.LEFT - MARGIN.RIGHT;
+const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class SingleBarChart {
-  constructor(element, data) {
+  constructor(element, csvData, axisLabels) {
     let vis = this;
+
+    const [XLabel, YLabel] = axisLabels;
 
     /** Add a SVG canvas to the root element (div) */
     vis.svg = d3
@@ -27,10 +22,10 @@ export default class SingleBarChart {
       .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
     //Set the X Label
-    vis.xLabel = vis.svg
+    vis.svg
       .append("text")
       .attr("x", WIDTH / 2)
-      .attr("y", HEIGHT + MARGIN.BOTTOM)
+      .attr("y", HEIGHT + MARGIN.BOTTOM - 10)
       .attr("text-anchor", "middle") //to put it in the middle
       .text(XLabel);
 
@@ -38,7 +33,7 @@ export default class SingleBarChart {
     vis.svg
       .append("text")
       .attr("x", -(HEIGHT / 2))
-      .attr("y", -40)
+      .attr("y", -50)
       .attr("text-anchor", "middle")
       .text(YLabel)
       .attr("transform", "rotate(-90)"); // rotate in clockwise, then it will revert x and y
@@ -50,8 +45,12 @@ export default class SingleBarChart {
 
     vis.yAxisGroup = vis.svg.append("g");
 
-    let max = d3.max(data, (d)=> d.height)
-    let min = d3.min(data, (d)=> d.height)
+    // Parse CSV
+    const data = d3.csvParse(csvData);
+    console.log(data);
+
+    let max = d3.max(data, (d)=> +d.y_values)
+    let min = d3.min(data, (d)=> +d.y_values)
 
     //scales for x and y
     const y = d3
@@ -61,7 +60,7 @@ export default class SingleBarChart {
 
     const x = d3
       .scaleBand()
-      .domain(data.map((d) => d.name))
+      .domain(data.map((d) => d.x_labels))
       .range([0, WIDTH])
       .padding(0.4);
 
@@ -78,12 +77,12 @@ export default class SingleBarChart {
     rects
       .enter()
       .append("rect")
-      .attr("x", (d) => x(d.name))
+      .attr("x", (d) => x(d.x_labels))
       .attr("width", x.bandwidth)
       .attr("fill", "grey")
       .attr("y", HEIGHT)
       .transition().duration(500)
-      .attr("height", (d) => HEIGHT - y(d.height))
-      .attr("y", (d) => y(d.height));
+      .attr("height", (d) => HEIGHT - y(+d.y_values))
+      .attr("y", (d) => y(+d.y_values));
   }
 }

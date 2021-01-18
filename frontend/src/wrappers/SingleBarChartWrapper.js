@@ -18,10 +18,12 @@ export default function SingleBarChartWrapper(props) {
 
     // Example API Call
     axios
-      .get("https://udemy-react-d3.firebaseio.com/tallest_men.json")
+      .get("/features/num-employees")
       .then((res) => {
+        const axisLabels = ["Number of Employees", "Number of Companies"];
+
         setLoading(false);
-        setPlot(new SingleBarChart(plotArea.current, res.data)); // res.data is a JSON array
+        setPlot(new SingleBarChart(plotArea.current, res.data, axisLabels)); // res.data is a JSON array
       })
       .catch(() => setError(true)); // failed to fetch data
   }, []);
