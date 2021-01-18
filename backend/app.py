@@ -23,6 +23,7 @@ def line_graph_test():
 
 	return json.dumps(jsonArray)
 
+
 '''
 Features Visualization
 '''
@@ -31,15 +32,74 @@ Features Visualization
 def num_employees():
 	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
 	series = df['employee_count'].value_counts()
+
+	# Remove "unknown" column
 	series.drop(labels='unknown', inplace=True)
 
+	# Move the row of "10000+" downwards
 	temp = series['10000+']
 	series.drop(labels='10000+', inplace=True)
 	series['10000+'] = temp
 
+	# Prepare the dataframe to be converted to CSV string
 	df = series.to_frame()
-	df.reset_index(inplace=True)
+	df.reset_index(inplace=True)	# Stop using x axis labels as the dataframe's index
 	df.rename(columns={'employee_count': 'y_values', 'index': 'x_labels'}, inplace=True)
 
-	# return df.to_string(index=False, justify='left')
+	# Convert dataframe to CSV string
 	return df.to_csv(index=False)
+
+
+@app.route('/features/company-age')
+def company_age():
+	return 0
+
+
+@app.route('/features/funding-rounds')
+def funding_rounds():
+	return 0
+
+
+@app.route('/features/funding-per-round')
+def funding_per_round():
+	return 0
+
+
+@app.route('/features/num-investments')
+def num_investments():
+	return 0
+
+
+@app.route('/features/top-investments')
+def top_investments():
+	return 0
+
+
+@app.route('/features/num-acquisitions')
+def num_acquisitions():
+	return 0
+
+
+@app.route('/features/acquisition-price')
+def acquisition_price():
+	return 0
+
+
+@app.route('/features/funds-raised')
+def funds_raised():
+	return 0
+
+
+@app.route('/features/num-companies-owned')
+def num_companies_owned():
+	return 0
+
+
+@app.route('/features/founder-exp')
+def founder_exp():
+	return 0
+
+
+@app.route('/features/funding-location')
+def funding_location():
+	return 0

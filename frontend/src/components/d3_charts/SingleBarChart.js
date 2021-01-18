@@ -7,6 +7,11 @@ const WIDTH = 700 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class SingleBarChart {
+  /**
+   * @param element - Reference to the <div /> that the chart will be rendered in 
+   * @param {string} csvData - The CSV data file
+   * @param {string[]} axisLabels - The x-axis and y-axis labels
+   */
   constructor(element, csvData, axisLabels) {
     let vis = this;
 
@@ -49,7 +54,7 @@ export default class SingleBarChart {
     const data = d3.csvParse(csvData);
     console.log(data);
 
-    let max = d3.max(data, (d)=> +d.y_values)
+    let max = d3.max(data, (d)=> +d.y_values) // `+d.y_values` coerces `d.y_values` from string to number
     let min = d3.min(data, (d)=> +d.y_values)
 
     //scales for x and y

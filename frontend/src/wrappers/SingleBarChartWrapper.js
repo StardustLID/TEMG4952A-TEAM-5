@@ -2,9 +2,11 @@ import { useRef, useState, useEffect } from "react";
 import SingleBarChart from "../components/d3_charts/SingleBarChart";
 import LoadingSpinner from "../components/LoadingSpinner";
 import axios from "axios";
+import featuresData from "../pages/featuresData";
 
 export default function SingleBarChartWrapper(props) {
   const { chartID } = props;
+  const selectedDataObj = featuresData.find((element) => element.id === chartID);
 
   const plotArea = useRef(null); // Reference to the div where the plot will be rendered inside
   const [plot, setPlot] = useState(null); // "plot" will later point to an instance of SingleBarChart
@@ -14,16 +16,11 @@ export default function SingleBarChartWrapper(props) {
 
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
-    // TODO: Use "chartID" to determine which API to call
-
-    // Example API Call
     axios
-      .get("/features/num-employees")
+      .get(`/features/${selectedDataObj.id}`)
       .then((res) => {
-        const axisLabels = ["Number of Employees", "Number of Companies"];
-
         setLoading(false);
-        setPlot(new SingleBarChart(plotArea.current, res.data, axisLabels)); // res.data is a JSON array
+        setPlot(new SingleBarChart(plotArea.current, res.data, selectedDataObj.axisLabels));
       })
       .catch(() => setError(true)); // failed to fetch data
   }, []);
