@@ -97,7 +97,14 @@ def num_acquisitions():
 
 @app.route('/features/acquisition-price')
 def acquisition_price():
-	return 0
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	series = df['acquisitions_price_usd']
+
+	df = series.to_frame()
+	df.divide(10^8)
+	df.rename(columns={'acquisitions_price_usd': 'x_values'}, inplace=True)
+
+	return df.to_csv(index = False)
 
 
 @app.route('/features/funds-raised')

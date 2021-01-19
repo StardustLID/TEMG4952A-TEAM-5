@@ -2,9 +2,11 @@ import { useRef, useState, useEffect } from "react";
 import Histogram from "../components/d3_charts/Histogram";
 import LoadingSpinner from "../components/LoadingSpinner";
 import axios from "axios";
+import featuresData from "../pages/featuresData";
 
 export default function HistogramWrapper(props) {
   const { chartID } = props;
+  const selectedDataObj = featuresData.find((element) => element.id === chartID);
 
   const plotArea = useRef(null); // Reference to the div where the plot will be rendered inside
   const [plot, setPlot] = useState(null); // "plot" will later point to an instance of HistogramWrapper
@@ -15,16 +17,25 @@ export default function HistogramWrapper(props) {
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
     // TODO: Use "chartID" to determine which API to call
+    // Remove existing single bar chart when a new single bar chart is selected
+    if(plot){
+      plot.removeGraph(); // Method of Histogram
+      setLoading(true);
+    }
+
+    if(error){
+      setError(false)
+    }
 
     // Example API Call
     axios
-      .get("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv")
+      .get(`/features/${selectedDataObj.id}`)
       .then((res) => {
         setLoading(false);
-        setPlot(new Histogram(plotArea.current, res.data)); // res.data is a string of CSV data
+        setPlot(new Histogram(plotArea.current, res.data, selectedDataObj.axisLabels)); // res.data is a string of CSV data
       })
       .catch(() => setError(true)); // failed to fetch data
-  }, []);
+  }, [chartID]);
 
   // TODO: if use update then need to uncomment this part
   // Calls the update(category) method of InvestmentHistogram class when props.category updates
