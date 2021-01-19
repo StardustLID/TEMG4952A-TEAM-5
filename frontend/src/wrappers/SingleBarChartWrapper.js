@@ -14,8 +14,14 @@ export default function SingleBarChartWrapper(props) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // Let D3 render the scatterplot after this component finished mounting
+  // Render the graph whenever props.chartID changes
   useEffect(() => {
+    // Remove existing single bar chart when a new single bar chart is selected
+    if (plot) {
+      plot.removeGraph(); // Method of SingleBarChart
+      setLoading(true);
+    }
+
     axios
       .get(`/features/${selectedDataObj.id}`)
       .then((res) => {
@@ -23,7 +29,7 @@ export default function SingleBarChartWrapper(props) {
         setPlot(new SingleBarChart(plotArea.current, res.data, selectedDataObj.axisLabels));
       })
       .catch(() => setError(true)); // failed to fetch data
-  }, []);
+  }, [chartID]);
 
   // TODO: if use update then need to uncomment this part
 

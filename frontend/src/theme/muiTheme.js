@@ -10,6 +10,7 @@ const muiTheme = createMuiTheme({
     primary: {
       light: "#e60100",
       main: "#a71111",
+      dark: "#750c0c",
     },
     action: {
       hover: "rgba(255, 255, 255, 0.08)",

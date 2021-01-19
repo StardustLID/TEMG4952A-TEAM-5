@@ -2,7 +2,7 @@ import * as d3 from "d3";
 
 // TODO: Total 2 Tasks, Reference: O'Reilly for Higher Education
 
-const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 60, RIGHT: 10 };
+const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 70, RIGHT: 10 };
 const WIDTH = 700 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
@@ -60,7 +60,7 @@ export default class SingleBarChart {
     //scales for x and y
     const y = d3
       .scaleLinear()
-      .domain([min * 0.95, max])
+      .domain([min * 0.95, max * 1.05])
       .range([HEIGHT, 0]);
 
     const x = d3
@@ -84,10 +84,14 @@ export default class SingleBarChart {
       .append("rect")
       .attr("x", (d) => x(d.x_labels))
       .attr("width", x.bandwidth)
-      .attr("fill", "grey")
+      .attr("fill", "#750c0c")
       .attr("y", HEIGHT)
       .transition().duration(500)
       .attr("height", (d) => HEIGHT - y(+d.y_values))
       .attr("y", (d) => y(+d.y_values));
+  }
+
+  removeGraph() {
+    d3.selectAll("svg").remove();
   }
 }

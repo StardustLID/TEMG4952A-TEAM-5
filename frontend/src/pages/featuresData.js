@@ -27,7 +27,7 @@ const featuresData = [
   {
     id: "funding-rounds",
     btnTitle: "No. of Funding Rounds",
-    icon: "timeline",
+    icon: "payments",
     chartType: "singleBar",
     axisLabels: ["Number of Funding Rounds", "Number of Companies"],
   },

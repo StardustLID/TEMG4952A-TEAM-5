@@ -57,7 +57,18 @@ def company_age():
 
 @app.route('/features/funding-rounds')
 def funding_rounds():
-	return 0
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	series = df['num_funding_rounds'].value_counts().sort_index()
+
+	# Remove num_funding_rounds == 0
+	df = series.to_frame()
+	df = series.reset_index().drop(index=0)
+
+	# Tidy up the dataframe
+	df['index'] = df['index'].astype(int)	# Convert from float to int
+	df.rename(columns={'index': 'x_labels', 'num_funding_rounds': 'y_values'}, inplace=True)
+
+	return df.to_csv(index=False)
 
 
 @app.route('/features/funding-per-round')
