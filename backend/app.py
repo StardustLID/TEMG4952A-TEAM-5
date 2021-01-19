@@ -101,7 +101,6 @@ def acquisition_price():
 	series = df['acquisitions_price_usd']
 
 	df = series.to_frame()
-	df.divide(10^8)
 	df.rename(columns={'acquisitions_price_usd': 'x_values'}, inplace=True)
 
 	return df.to_csv(index = False)
