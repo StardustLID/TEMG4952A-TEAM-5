@@ -2,9 +2,11 @@ import { useRef, useState, useEffect } from "react";
 import LineGraph from "../components/d3_charts/LineGraph";
 import LoadingSpinner from "../components/LoadingSpinner";
 import axios from "axios";
+import featuresData from "../pages/featuresData";
 
 export default function LineGraphWrapper(props) {
   const { chartID } = props; // ID of features chart
+  const selectedDataObj = featuresData.find((element) => element.id === chartID);
 
   const plotArea = useRef(null); // Reference to the div where the plot will be rendered inside
   const [plot, setPlot] = useState(null); // "plot" will later point to an instance of LineGraph
@@ -18,10 +20,12 @@ export default function LineGraphWrapper(props) {
 
     // Example: Fetch from API (See backend/app.py)
     axios
-      .get("/line-graph-test")
+      .get(`/features/${selectedDataObj.id}`)
       .then((res) => {
+
         setLoading(false);
-        setPlot(new LineGraph(plotArea.current, res.data));
+        console.log(selectedDataObj.id)
+        setPlot(new LineGraph(plotArea.current, res.data, selectedDataObj.axisLabels));
       })
       .catch(() => setError(true)); // failed to fetch data
   }, []);

@@ -62,7 +62,11 @@ def funding_rounds():
 
 @app.route('/features/funding-per-round')
 def funding_per_round():
-	return 0
+	# TODO: Need to add 2010-01-01 to make the graph start from 0
+	# https://www.geeksforgeeks.org/add-a-row-at-top-in-pandas-dataframe/
+	data = "date,value\n2010-01-01,0\n2013-01-01,150\n2013-07-01,30\n2016-01-01,70\n2018-07-01,220"
+	
+	return data
 
 
 @app.route('/features/num-investments')
