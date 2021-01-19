@@ -82,7 +82,15 @@ def funding_per_round():
 
 @app.route('/features/num-investments')
 def num_investments():
-	return 0
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	series = df['investment_count']
+
+	df = series.to_frame()
+	#drop zero
+	df = df[~(df == 0).any(axis = 1)]
+	df.rename(columns={'investment_count': 'x_values'}, inplace=True)
+
+	return df.to_csv(index = False)
 
 
 @app.route('/features/top-investments')

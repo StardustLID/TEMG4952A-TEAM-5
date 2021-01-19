@@ -42,7 +42,7 @@ const featuresData = [
     id: "num-investments",
     btnTitle: "No. of Investments",
     icon: "attach_money",
-    chartType: "singleBar",
+    chartType: "histogram",
     axisLabels: ["Number of Investments", "Number of Companies"],
   },
   {
