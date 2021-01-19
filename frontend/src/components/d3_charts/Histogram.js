@@ -52,11 +52,10 @@ export default class Histogram {
       *  Otherwise, use the d3.max function*/
         
       let max = d3.max(data, (d) => d.x_values)
-      
 
       var x = d3
           .scaleLinear()
-          .domain([0, max])
+          .domain([0, max * 1.1])
           .range([0, WIDTH]);
 
       //Call Axis
@@ -80,7 +79,7 @@ export default class Histogram {
       
       // Y axis: scale and draw:
       var y = d3.scaleLinear().range([HEIGHT, 0]);
-      y.domain([0,d3.max(bins, function (d) {return d.length;})]); // d3.hist has to be called before the Y axis obviously
+      y.domain([0,1.1 * d3.max(bins, function (d) {return d.length;})]); // d3.hist has to be called before the Y axis obviously
       vis.yAxisGroup.transition().duration(500).call(d3.axisLeft(y));
         
       // append the bar rectangles to the svg element
