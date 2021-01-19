@@ -1,11 +1,16 @@
 import * as d3 from "d3";
-import "./LineGraph.css";
+import "./GridLines.css";
 
 const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 50, RIGHT: 10 };
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class LineGraph {
+  /**
+   * @param element - Reference to the <div /> that the chart will be rendered in 
+   * @param {string} csvData - The CSV data file
+   * @param {string[]} axisLabels - The x-axis and y-axis labels
+   */
   constructor(element, csvData, axisLabels) {
     let vis = this;
 

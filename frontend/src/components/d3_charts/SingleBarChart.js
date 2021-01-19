@@ -1,10 +1,9 @@
 import * as d3 from "d3";
-
-// TODO: Total 2 Tasks, Reference: O'Reilly for Higher Education
+import "./GridLines.css";
 
 const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 70, RIGHT: 10 };
 const WIDTH = 700 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
+const HEIGHT = 550 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class SingleBarChart {
   /**
@@ -54,12 +53,12 @@ export default class SingleBarChart {
     const data = d3.csvParse(csvData);
 
     let max = d3.max(data, (d)=> +d.y_values) // `+d.y_values` coerces `d.y_values` from string to number
-    let min = d3.min(data, (d)=> +d.y_values)
+    // let min = d3.min(data, (d)=> +d.y_values)
 
     //scales for x and y
     const y = d3
       .scaleLinear()
-      .domain([min * 0.95, max * 1.05])
+      .domain([0, max * 1.05])
       .range([HEIGHT, 0]);
 
     const x = d3
@@ -74,6 +73,17 @@ export default class SingleBarChart {
 
     const yAxisCall = d3.axisLeft(y);
     vis.yAxisGroup.transition().duration(500).call(yAxisCall);
+
+    // Create horizontal grid lines
+    /** Ref: https://www.essycode.com/posts/adding-gridlines-chart-d3/
+     * Passing the negative chart height and width to the tickSize functions ensures that the axis lines will span across the chart. 
+     * Passing an empty string to tickFormat ensures that tick labels aren’t rendered. 
+     * The ticks function specifies the number of tick marks, here set to 10 to equal the count on the main axes.
+     */
+    const yAxisGridCall = d3.axisLeft(y).tickSize(-WIDTH).tickFormat("").ticks(10);
+    vis.svg.append("g")
+      .attr("class", "axis-grid")
+      .call(yAxisGridCall);
 
     //Data Join
     const rects = vis.svg.selectAll("rect").data(data);

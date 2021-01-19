@@ -65,8 +65,13 @@ def funding_rounds():
 	df = series.reset_index().drop(index=0)
 
 	# Tidy up the dataframe
-	df['index'] = df['index'].astype(int)	# Convert from float to int
+	df['index'] = df['index'].astype(int).astype(str)
 	df.rename(columns={'index': 'x_labels', 'num_funding_rounds': 'y_values'}, inplace=True)
+
+	# Find the sum of companies where no. of investments >= 8
+	df.iloc[7,1] = df.iloc[7:, 1].sum()
+	df.iloc[7,0] = '≥8'
+	df = df[:8]    # Only take the first 8 rows
 
 	return df.to_csv(index=False)
 

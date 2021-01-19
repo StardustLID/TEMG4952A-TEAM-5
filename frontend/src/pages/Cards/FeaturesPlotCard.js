@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     minHeight: "100%",
   },
   contentRoot: {
-    padding: "25px 50px",
+    padding: "15px 50px",
   },
 });
 
