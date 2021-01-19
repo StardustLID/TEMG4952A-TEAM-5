@@ -22,6 +22,11 @@ export default function SingleBarChartWrapper(props) {
       setLoading(true);
     }
 
+    // Remove the error icon if a new graph is selected
+    if (error) {
+      setError(false);
+    }
+
     axios
       .get(`/features/${selectedDataObj.id}`)
       .then((res) => {

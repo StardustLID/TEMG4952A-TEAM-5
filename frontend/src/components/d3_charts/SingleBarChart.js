@@ -52,7 +52,6 @@ export default class SingleBarChart {
 
     // Parse CSV
     const data = d3.csvParse(csvData);
-    console.log(data);
 
     let max = d3.max(data, (d)=> +d.y_values) // `+d.y_values` coerces `d.y_values` from string to number
     let min = d3.min(data, (d)=> +d.y_values)
