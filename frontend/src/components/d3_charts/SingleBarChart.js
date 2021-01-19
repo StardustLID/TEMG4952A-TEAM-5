@@ -20,32 +20,32 @@ export default class SingleBarChart {
     vis.svg = d3
       .select(element)
       .append("svg")
-      .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
-      .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+        .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+        .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
       .append("g")
-      .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
+        .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
     //Set the X Label
     vis.svg
       .append("text")
-      .attr("x", WIDTH / 2)
-      .attr("y", HEIGHT + MARGIN.BOTTOM - 10)
-      .attr("text-anchor", "middle") //to put it in the middle
+        .attr("x", WIDTH / 2)
+        .attr("y", HEIGHT + MARGIN.BOTTOM - 10)
+        .attr("text-anchor", "middle") //to put it in the middle
       .text(XLabel);
 
     //Set Y Label
     vis.svg
       .append("text")
-      .attr("x", -(HEIGHT / 2))
-      .attr("y", -50)
-      .attr("text-anchor", "middle")
-      .text(YLabel)
-      .attr("transform", "rotate(-90)"); // rotate in clockwise, then it will revert x and y
+        .attr("x", -(HEIGHT / 2))
+        .attr("y", -50)
+        .attr("text-anchor", "middle")
+        .text(YLabel)
+        .attr("transform", "rotate(-90)"); // rotate in clockwise, then it will revert x and y
 
     //Set x, y AxisGroup
     vis.xAxisGroup = vis.svg
       .append("g")
-      .attr("transform", `translate(0, ${HEIGHT})`);
+        .attr("transform", `translate(0, ${HEIGHT})`);
 
     vis.yAxisGroup = vis.svg.append("g");
 
@@ -74,8 +74,7 @@ export default class SingleBarChart {
     const yAxisCall = d3.axisLeft(y);
     vis.yAxisGroup.transition().duration(500).call(yAxisCall);
 
-    // Create horizontal grid lines
-    /** Ref: https://www.essycode.com/posts/adding-gridlines-chart-d3/
+    /** Create horizontal grid lines (Ref: https://www.essycode.com/posts/adding-gridlines-chart-d3/)
      * Passing the negative chart height and width to the tickSize functions ensures that the axis lines will span across the chart. 
      * Passing an empty string to tickFormat ensures that tick labels aren’t rendered. 
      * The ticks function specifies the number of tick marks, here set to 10 to equal the count on the main axes.
@@ -85,19 +84,35 @@ export default class SingleBarChart {
       .attr("class", "axis-grid")
       .call(yAxisGridCall);
 
-    //Data Join
-    const rects = vis.svg.selectAll("rect").data(data);
-
-    rects
+    // Render the bars. Every bar is wrapped by a <g>
+    const barGroups = vis.svg.selectAll(".bar-group")
+      .data(data)
       .enter()
+      .append("g")
+        .attr("class", "bar-group");
+
+    // Add a <rect> to the <g>
+    barGroups
       .append("rect")
-      .attr("x", (d) => x(d.x_labels))
-      .attr("width", x.bandwidth)
-      .attr("fill", "#750c0c")
-      .attr("y", HEIGHT)
-      .transition().duration(500)
-      .attr("height", (d) => HEIGHT - y(+d.y_values))
-      .attr("y", (d) => y(+d.y_values));
+        .attr("x", (d) => x(d.x_labels))
+        .attr("y", HEIGHT)
+        .attr("width", x.bandwidth)
+        .attr("fill", "#750c0c")
+        .transition().duration(500)
+        .attr("height", (d) => HEIGHT - y(+d.y_values))
+        .attr("y", (d) => y(+d.y_values));
+    
+    // Add a text label displaying the y value on top of each bar
+    barGroups
+      .append("text")
+        .text((d) => d.y_values)
+        .attr("text-anchor", "middle")
+        .attr("x", (d) => x(d.x_labels) + x.bandwidth()/2)
+        .attr("y", (d) => y(+d.y_values) - 8)
+        .attr("font-size", "12px")
+        .attr("opacity", "0")
+        .transition().duration(500)
+        .attr("opacity", "1");
   }
 
   removeGraph() {
