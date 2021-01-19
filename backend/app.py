@@ -108,7 +108,14 @@ def acquisition_price():
 
 @app.route('/features/funds-raised')
 def funds_raised():
-	return 0
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	series = df['total_funding_usd']
+
+	df = series.to_frame()
+	df.dropna(inplace=True)
+	df.rename(columns={'total_funding_usd': 'x_values'}, inplace=True)
+
+	return df.to_csv(index = False)
 
 
 @app.route('/features/num-companies-owned')
