@@ -34,7 +34,7 @@ const featuresData = [
   {
     id: "funding-per-round",
     btnTitle: "Funding per Round",
-    icon: "local_atm",
+    icon: "timeline",
     chartType: "line",
     axisLabels: ["Year", "Funding"],
   },
@@ -46,11 +46,11 @@ const featuresData = [
     axisLabels: ["Number of Investments", "Number of Companies"],
   },
   {
-    id: "top-investments",
-    btnTitle: "No. of Investments by Top 20 Investors",
+    id: "top-investors",
+    btnTitle: "No. of Investments by Top 10 Investors",
     icon: "person",
     chartType: "singleBar",
-    axisLabels: ["Top Investors' Names", "Number of Companies Invested"],
+    axisLabels: ["Top Investors", "Number of Companies Invested"],
   },
   {
     id: "num-acquisitions",

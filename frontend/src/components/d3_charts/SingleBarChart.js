@@ -1,8 +1,8 @@
 import * as d3 from "d3";
 import "./GridLines.css";
 
-const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 70, RIGHT: 10 };
-const WIDTH = 700 - MARGIN.LEFT - MARGIN.RIGHT;
+const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 75, RIGHT: 10 };
+const WIDTH = 810 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 550 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class SingleBarChart {
@@ -16,7 +16,7 @@ export default class SingleBarChart {
 
     const [XLabel, YLabel] = axisLabels;
 
-    /** Add a SVG canvas to the root element (div) */
+    // Add a SVG canvas to the root element (div)
     vis.svg = d3
       .select(element)
       .append("svg")
@@ -25,15 +25,15 @@ export default class SingleBarChart {
       .append("g")
         .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
 
-    //Set the X Label
+    // Set the X Label
     vis.svg
       .append("text")
         .attr("x", WIDTH / 2)
-        .attr("y", HEIGHT + MARGIN.BOTTOM - 10)
+        .attr("y", HEIGHT + MARGIN.BOTTOM - 3)
         .attr("text-anchor", "middle") //to put it in the middle
       .text(XLabel);
 
-    //Set Y Label
+    // Set Y Label
     vis.svg
       .append("text")
         .attr("x", -(HEIGHT / 2))
@@ -42,7 +42,7 @@ export default class SingleBarChart {
         .text(YLabel)
         .attr("transform", "rotate(-90)"); // rotate in clockwise, then it will revert x and y
 
-    //Set x, y AxisGroup
+    // Set x, y AxisGroup
     vis.xAxisGroup = vis.svg
       .append("g")
         .attr("transform", `translate(0, ${HEIGHT})`);
@@ -53,26 +53,42 @@ export default class SingleBarChart {
     const data = d3.csvParse(csvData);
 
     let max = d3.max(data, (d)=> +d.y_values) // `+d.y_values` coerces `d.y_values` from string to number
-    // let min = d3.min(data, (d)=> +d.y_values)
 
-    //scales for x and y
+    // Scales for x and y
     const y = d3
       .scaleLinear()
       .domain([0, max * 1.05])
       .range([HEIGHT, 0]);
 
+    const xLabels = data.map((d) => d.x_labels);
+
     const x = d3
       .scaleBand()
-      .domain(data.map((d) => d.x_labels))
+      .domain(xLabels)
       .range([0, WIDTH])
       .padding(0.4);
 
-    //Call Axis
+    // Call (render) x-axis
     const xAxisCall = d3.axisBottom(x);
-    vis.xAxisGroup.transition().duration(500).call(xAxisCall);
+    const xAxisLabels = vis.xAxisGroup
+      .transition().duration(500)
+      .call(xAxisCall)
+      .selectAll("text");
+    
+    // Automatically rotate the x-axis labels if any labels are too lengthy
+    const longestXLabelLength = Math.max(...data.map((d) => d.x_labels.length));
+    if (longestXLabelLength > 15) {
+      xAxisLabels.style("text-anchor", "end")
+        .attr("dx", "-0.5em")
+        .attr("dy", "0.3em")
+        .attr("transform", "rotate(-16)");
+    }
 
+    // Call (render) y-axis
     const yAxisCall = d3.axisLeft(y);
-    vis.yAxisGroup.transition().duration(500).call(yAxisCall);
+    vis.yAxisGroup
+      .transition().duration(500)
+      .call(yAxisCall);
 
     /** Create horizontal grid lines (Ref: https://www.essycode.com/posts/adding-gridlines-chart-d3/)
      * Passing the negative chart height and width to the tickSize functions ensures that the axis lines will span across the chart. 
@@ -109,7 +125,7 @@ export default class SingleBarChart {
         .attr("text-anchor", "middle")
         .attr("x", (d) => x(d.x_labels) + x.bandwidth()/2)
         .attr("y", (d) => y(+d.y_values) - 8)
-        .attr("font-size", "12px")
+        .attr("font-size", "11px")
         .attr("opacity", "0")
         .transition().duration(500)
         .attr("opacity", "1");

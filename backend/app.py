@@ -98,9 +98,32 @@ def num_investments():
 	return df.to_csv(index = False)
 
 
-@app.route('/features/top-investments')
+@app.route('/features/top-investors')
 def top_investments():
-	return 0
+	df = pd.read_csv("../bulk_export_processed/investors_processed.csv")
+	
+	# Drop unnecessary columns
+	keep_col = ['name', 'investment_count']
+	df = df[keep_col]
+
+	# Drop NaN and filter out investors with investment_count < 100
+	df.dropna(axis=0, how='any', subset=['investment_count'], inplace=True)
+	df.drop(df[df['investment_count'] < 100].index, inplace=True)
+
+	# Cast `investment_count` to int & sort in descending order
+	df['investment_count'] = df['investment_count'].astype(int)
+	df.sort_values(by='investment_count', axis=0, ascending=False, inplace=True)
+	
+	# Get the first N rows (ie. top N investors)
+	df = df[:10]
+
+	# Reset the index & rename the columns
+	df.reset_index(inplace=True)
+	df.drop(axis=1, labels='index', inplace=True)
+	df.rename(columns={'name': 'x_labels', 'investment_count': 'y_values'}, inplace=True)
+
+	return df.to_csv(index=False)
+
 
 
 @app.route('/features/num-acquisitions')
