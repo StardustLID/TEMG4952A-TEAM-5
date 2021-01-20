@@ -1,53 +1,25 @@
 import * as d3 from "d3";
+import * as d3Utils from "./D3Utilities";
 
-// TODO: Total 2 Tasks, Reference: https://www.d3-graph-gallery.com/graph/barplot_grouped_basicWide.html
+// Reference: https://www.d3-graph-gallery.com/graph/barplot_grouped_basicWide.html
 
-const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 60, RIGHT: 10 };
-const WIDTH = 460 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM;
+// Use default WIDTH, HEIGHT & MARGIN from d3Utils
 
-// TODO: Task 1 input the XLabel, YLabel, json/csv
-const XLabel = "Hello";
-const YLabel = "898";
-//TODO: Task 2 CHange the d.group to d.dataname on line 61, 111
+// TODO: Change the d.group to d.dataname on line 61, 111
 // where d.group is for x axis
 
 export default class MultiBarChart {
-  constructor(element, csvData) {
+  constructor(element, csvData, axisLabels) {
     let vis = this;
 
-    /** Add a SVG canvas to the root element (div) */
-    vis.svg = d3
-      .select(element)
-      .append("svg")
-      .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
-      .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
-      .append("g")
-      .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
+    // Add a SVG canvas to the root element
+    vis.svg = d3Utils.createSvgCanvas(element);
 
-    //Set the X Label
-    vis.xLabel = vis.svg
-      .append("text")
-      .attr("x", WIDTH / 2)
-      .attr("y", HEIGHT + MARGIN.BOTTOM)
-      .attr("text-anchor", "middle") //to put it in the middle
-      .text(XLabel);
-
-    //Set Y Label
-    vis.svg
-      .append("text")
-      .attr("x", -(HEIGHT / 2))
-      .attr("y", -40)
-      .attr("text-anchor", "middle")
-      .text(YLabel)
-      .attr("transform", "rotate(-90)"); // rotate in clockwise, then it will revert x and y
+    // Set the x-axis & y-axis labels
+    d3Utils.drawAxisLabels(vis.svg, axisLabels);
 
     //Set x, y AxisGroup
-    vis.xAxisGroup = vis.svg
-      .append("g")
-      .attr("transform", `translate(0, ${HEIGHT})`);
-
-    vis.yAxisGroup = vis.svg.append("g");
+    [vis.xAxisGroup, vis.yAxisGroup] = d3Utils.createAxisGroups(vis.svg);
 
     const data = d3.csvParse(csvData);  // Parse a string of CSV data
 
@@ -66,13 +38,13 @@ export default class MultiBarChart {
         vis.x = d3
            .scaleBand()
            .domain(vis.groups)
-           .range([0, WIDTH])
+           .range([0, d3Utils.WIDTH])
            .padding(0.4);
 
         vis.y = d3
            .scaleLinear()
            .domain([0, maxY * 1.2])
-           .range([HEIGHT, 0]);
+           .range([d3Utils.HEIGHT, 0]);
 
         //Call Axis
         const xAxisCall = d3.axisBottom(vis.x);
@@ -96,7 +68,7 @@ export default class MultiBarChart {
         
         /** List for Category Ref: https://observablehq.com/@d3/grouped-bar-chart */
         /*vis.list = vis.svg
-            .attr("transform", `translate(${WIDTH},0)`)
+            .attr("transform", `translate(${d3Utils.WIDTH},0)`)
             .attr("text-anchor", "end")
             .attr("font-family", "sans-serif")
             .attr("font-size", 10)
@@ -142,12 +114,12 @@ export default class MultiBarChart {
             .enter()
               .append("rect")
                 .attr("x", d => vis.xSubgroup(d.key))
-                .attr("y", HEIGHT)
+                .attr("y", d3Utils.HEIGHT)
                 .attr("width", vis.xSubgroup.bandwidth())
                 .attr("fill", d => vis.color(d.key))
                 .transition()
                 .duration(500)
-                .attr("height", d => HEIGHT - vis.y(d.value))
+                .attr("height", d => d3Utils.HEIGHT - vis.y(d.value))
                 .attr("y", d => vis.y(d.value)) 
 
   } 

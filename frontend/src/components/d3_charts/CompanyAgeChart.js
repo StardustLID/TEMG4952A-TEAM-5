@@ -8,8 +8,8 @@ const barColors = {
   all: "#750c0c",
   financial_services: "#e60100",
   fintech: "#07871e",
-  finance: "#06948b",
-  payments: "#7905b3"
+  finance: "#109ea1",
+  payments: "#fc7312"
 };
 
 export default class CompanyAgeChart {
@@ -49,13 +49,9 @@ export default class CompanyAgeChart {
       .range([0, vis.x.bandwidth()])
       .padding(0.05);
     
-    // Create axis groups
-    vis.xAxisGroup = vis.svg.append("g")
-      .attr("transform", `translate(0, ${d3Utils.HEIGHT})`);
-        
-    vis.yAxisGroup = vis.svg.append("g");
-    
     // Render x-axis & y-axis
+    [vis.xAxisGroup, vis.yAxisGroup] = d3Utils.createAxisGroups(vis.svg);
+    
     vis.xAxisGroup
       .transition().duration(500)
       .call(d3.axisBottom(vis.x));

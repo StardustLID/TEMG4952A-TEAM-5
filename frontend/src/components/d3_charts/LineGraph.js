@@ -1,10 +1,8 @@
 import * as d3 from "d3";
-import "./GridLines.css";
+import * as d3Utils from "./D3Utilities";
 import "./ToolTip.css";
 
-const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 50, RIGHT: 10 };
-const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
+// Use default WIDTH, HEIGHT & MARGIN from d3Utils
 
 export default class LineGraph {
   /**
@@ -15,41 +13,14 @@ export default class LineGraph {
   constructor(element, csvData, axisLabels) {
     let vis = this;
 
-    const [XLabel, YLabel] = axisLabels;
+    // Add a SVG canvas to the root element
+    vis.svg = d3Utils.createSvgCanvas(element);
 
-     /** Add a SVG canvas to the root element (div) */
-    vis.svg = d3
-     .select(element)
-     .append("svg")
-     .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
-     .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
-     .append("g")
-     .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
-
-   //Set the X Label
-   vis.xLabel = vis.svg
-     .append("text")
-     .attr("x", WIDTH / 2)
-     .attr("y", HEIGHT + MARGIN.BOTTOM - 10)
-     .attr("text-anchor", "middle") //to put it in the middle
-     .text(XLabel);
-
-   //Set Y Label
-    vis.svg
-     .append("text")
-     .attr("x", -(HEIGHT / 2))
-     .attr("y", -35)
-     .attr("text-anchor", "middle")
-     .text(YLabel)
-     .attr("transform", "rotate(-90)"); // rotate in clockwise, then it will revert x and y
+    // Set the x-axis & y-axis labels
+    d3Utils.drawAxisLabels(vis.svg, axisLabels);
 
     //Set x, y AxisGroup
-    vis.xAxisGroup = vis.svg
-      .append("g")
-      .attr("transform", `translate(0, ${HEIGHT})`)
-      .attr("color", "black");
-
-    vis.yAxisGroup = vis.svg.append("g");
+    [vis.xAxisGroup, vis.yAxisGroup] = d3Utils.createAxisGroups(vis.svg);
 
     // Parse CSV
     const data = d3.csvParse(csvData);
@@ -66,11 +37,11 @@ export default class LineGraph {
     // x, y Scale
     var x = d3.scaleTime()
         .domain(xDomain)
-        .range([ 0, WIDTH ]);
+        .range([ 0, d3Utils.WIDTH ]);
 
     var y = d3.scaleLinear()
         .domain([0, yMax * 1.2])
-        .range([ HEIGHT, 0 ]);
+        .range([ d3Utils.HEIGHT, 0 ]);
 
     // Call X and Y axis
     const xAxisCall = d3.axisBottom(x);
@@ -85,9 +56,9 @@ export default class LineGraph {
      * Passing an empty string to tickFormat ensures that tick labels aren’t rendered. 
      * The ticks function specifies the number of tick marks, here set to 10 to equal the count on the main axes.
      */
-    const xAxisGridCall = d3.axisBottom(x).tickSize(-HEIGHT).tickFormat('').ticks(10); 
+    const xAxisGridCall = d3.axisBottom(x).tickSize(-d3Utils.HEIGHT).tickFormat('').ticks(10); 
     vis.svg.append('g')
-      .attr('transform', 'translate(0,' + HEIGHT + ')').attr('class', 'x axis-grid').call(xAxisGridCall);
+      .attr('transform', 'translate(0,' + d3Utils.HEIGHT + ')').attr('class', 'x axis-grid').call(xAxisGridCall);
 
     // Plot the graph
     vis.svg

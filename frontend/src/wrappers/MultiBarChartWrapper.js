@@ -45,7 +45,7 @@ export default function MultiBarChartWrapper(props) {
         if (chartID === "company-age") {
           setPlot(new CompanyAgeChart(plotArea.current, res.data, selectedDataObj.axisLabels));
         } else {
-          setPlot(new MultiBarChart(plotArea.current, res.data));
+          setPlot(new MultiBarChart(plotArea.current, res.data, selectedDataObj.axisLabels));
         }
       })
       .catch(() => setError(true)); // failed to fetch data

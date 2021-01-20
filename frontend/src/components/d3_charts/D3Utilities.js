@@ -28,27 +28,43 @@ export function createSvgCanvas(element, width = WIDTH, height = HEIGHT, margin 
 
 /** Draws x-axis and y-axis labels.
  * 
- * @param {d3.Selection<SVGGElement, any, null, undefined>} svgRoot - `vis.vsg`
+ * @param {d3.Selection<SVGGElement, any, null, undefined>} vis_svg - `vis.vsg`
  * @param {string[]} axisLabels - An array containing the x-axis and y-axis labels
  * @param {number} [width] - The `WIDTH` constant
  * @param {number} [height] - The `HEIGHT` constant
  * @param {object} [margin] - The constant `MARGIN` object
  */
-export function drawAxisLabels(svgRoot, axisLabels, width = WIDTH, height = HEIGHT, margin = MARGIN) {
+export function drawAxisLabels(vis_svg, axisLabels, width = WIDTH, height = HEIGHT, margin = MARGIN) {
     const [xLabel, yLabel] = axisLabels;
 
-    svgRoot
+    vis_svg
       .append("text")
         .attr("x", width / 2)
         .attr("y", height + margin.BOTTOM - 3)
         .attr("text-anchor", "middle")  // center text
         .text(xLabel);
 
-    svgRoot
+    vis_svg
       .append("text")
         .attr("x", -(height / 2))
         .attr("y", -50)
         .attr("text-anchor", "middle")
         .attr("transform", "rotate(-90)")
         .text(yLabel);
+}
+
+
+/** Creates <g> for both x-axis and y-axis.
+ * 
+ * @param {d3.Selection<SVGGElement, any, null, undefined>} vis_svg - `vis.svg`
+ * @param {number} height - The `HEIGHT` constant
+ * @return {d3.Selection<SVGGElement, any, null, undefined>[]} `[xAxisGroup, yAxisGroup]`
+ */
+export function createAxisGroups(vis_svg, height = HEIGHT) {
+  const xAxisGroup = vis_svg.append("g")
+    .attr("transform", `translate(0, ${height})`);
+  
+  const yAxisGroup = vis_svg.append("g");
+
+  return [xAxisGroup, yAxisGroup];
 }
