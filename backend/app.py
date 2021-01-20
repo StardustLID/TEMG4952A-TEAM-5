@@ -47,7 +47,7 @@ def company_age():
 	# Find distribution of `company_age` for all categories
 	df_count_all =  df['founded_on'].value_counts().sort_index().to_frame()
 	df_count_all.reset_index(inplace=True)
-	df_count_all.rename(columns={'index': 'company_age', 'founded_on': 'All'}, inplace=True)
+	df_count_all.rename(columns={'index': 'company_age', 'founded_on': 'all'}, inplace=True)
 
 	# Find company age distribution for each category in `categories` array
 	df_category_counts = [df_count_all]
@@ -61,6 +61,10 @@ def company_age():
 	
 	# Merge the dataframes together
 	df_merged = reduce(lambda left,right: pd.merge(left, right, on='company_age', how='left'),df_category_counts)
+	df_merged['Payments'] = df_merged['Payments'].fillna(0).astype(int)
+
+	# Rename columns
+	df_merged.rename(columns={'Financial Services': 'financial_services', 'FinTech': 'fintech', 'Finance': 'finance', 'Payments': 'payments'}, inplace=True)
 
 	return df_merged.to_csv(index=False)
 
