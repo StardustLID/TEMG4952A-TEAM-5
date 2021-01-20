@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import "./GridLines.css";
+import "./ToolTip.css";
 
 const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 50, RIGHT: 10 };
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
@@ -37,7 +38,7 @@ export default class LineGraph {
     vis.svg
      .append("text")
      .attr("x", -(HEIGHT / 2))
-     .attr("y", -40)
+     .attr("y", -35)
      .attr("text-anchor", "middle")
      .text(YLabel)
      .attr("transform", "rotate(-90)"); // rotate in clockwise, then it will revert x and y
@@ -102,15 +103,50 @@ export default class LineGraph {
 
     // Remove 2010-01-01,0 from the data
     data.shift();
-    
+
+    // Define the div for the tooltip
+    var div = d3.select(element).append("div")	
+      .attr("class", "tooltip")				
+      .style("opacity", 0);
+
     // Add circle
     vis.svg
-        .selectAll(".circle")
+        .selectAll("circle")
         .data(data)
-        .join("circle") // enter append
+        .enter()
+        .append("circle") // enter append
+        .attr("fill", "#855CF8")
         .attr("r", "5") // radius
         .attr("cx", d=> x(new Date(d.date)))   // center x passing through your xScale
         .attr("cy", d=> y(+d.value ))  // center y through your yScale
-        .attr("fill", "#855CF8")
+        .on("mouseover", function(event, d) {	
+          // Reduce the opacity of the circle
+          d3.select(this).transition()
+            .duration('50')
+            .style('opacity', '0.8');
+          
+          // Makes the div appears
+          div.transition()
+              .duration(200)		
+              .style("opacity", 1);	
+              
+          // Put the value into the div and place it near the user’s mouse
+          div	.html(d.date + "<br/>"  + d.value)	
+              .style("left", (event.pageX + 10) + "px")		
+              .style("top", (event.pageY + 10) + "px");	
+
+        })
+        .on("mouseout", function(d) {		
+
+          // Bring back the opacity of the circle
+          d3.select(this).transition()
+            .duration('50')
+            .style('opacity', '1');
+
+          // Makes the div disappear
+          div.transition()
+            .duration('50')
+            .style("opacity", 0);
+        })
   }
 }

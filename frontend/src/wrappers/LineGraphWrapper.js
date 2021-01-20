@@ -22,9 +22,7 @@ export default function LineGraphWrapper(props) {
     axios
       .get(`/features/${selectedDataObj.id}`)
       .then((res) => {
-
         setLoading(false);
-        console.log(selectedDataObj.id)
         setPlot(new LineGraph(plotArea.current, res.data, selectedDataObj.axisLabels));
       })
       .catch(() => setError(true)); // failed to fetch data
