@@ -47,6 +47,8 @@ export default function FeaturesPlotCard(props) {
     case "map":
       chartWrapper = <WorldMap chartID={selectedChartID} />;
       break;
+    default:
+      break;
   }
 
   return (

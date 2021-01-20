@@ -9,8 +9,6 @@ const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM;
 // TODO: Task 1 input the XLabel, YLabel, json/csv
 const XLabel = "Hello";
 const YLabel = "898";
-const csv =
-"https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv";
 //TODO: Task 2 CHange the d.group to d.dataname on line 61, 111
 // where d.group is for x axis
 

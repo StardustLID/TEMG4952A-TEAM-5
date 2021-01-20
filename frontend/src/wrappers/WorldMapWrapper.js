@@ -34,7 +34,7 @@ export default function WorldMapWrapper(props) {
         if (!res.ok) {
           throw new Error("Failed to fetch population data!");
         }
-        return res.text(); // TODO: Change to res.json() if the API returns JSON
+        return res.text();
       })
       .catch(() => setError(true));
 
