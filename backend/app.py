@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 import pandas as pd
+from functools import reduce
 
 app = Flask(__name__)
 CORS(app)
@@ -33,7 +34,35 @@ def num_employees():
 
 @app.route('/features/company-age')
 def company_age():
-	return 0
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+
+	# Remove unnecessary columns
+	categories = ['Financial Services', 'FinTech', 'Finance', 'Payments']
+	cols_to_keep = ['founded_on', *categories]
+	df = df[cols_to_keep]
+
+	# Cast `founded_on` from float to int
+	df['founded_on'] = df['founded_on'].round(0).astype(int)
+
+	# Find distribution of `company_age` for all categories
+	df_count_all =  df['founded_on'].value_counts().sort_index().to_frame()
+	df_count_all.reset_index(inplace=True)
+	df_count_all.rename(columns={'index': 'company_age', 'founded_on': 'All'}, inplace=True)
+
+	# Find company age distribution for each category in `categories` array
+	df_category_counts = [df_count_all]
+
+	for _ in categories:
+		temp = df[df[_] == 1]
+		df_count = temp['founded_on'].value_counts().sort_index().to_frame()
+		df_count.reset_index(inplace=True)
+		df_count.rename(columns={'index': 'company_age', 'founded_on': _},inplace=True)
+		df_category_counts.append(df_count)
+	
+	# Merge the dataframes together
+	df_merged = reduce(lambda left,right: pd.merge(left, right, on='company_age', how='left'),df_category_counts)
+
+	return df_merged.to_csv(index=False)
 
 
 @app.route('/features/funding-rounds')
