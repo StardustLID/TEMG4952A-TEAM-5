@@ -74,11 +74,11 @@ const featuresData = [
     axisLabels: ["Dollar Amount (1M USD)", "Number of Companies"],
   },
   {
-    id: "num-companies-owned",
-    btnTitle: "No. of Companies Owned by Top 20 Founders",
+    id: "top-acquirers",
+    btnTitle: "No. of Acquisitions by Top 10 Acquirers",
     icon: "business",
-    chartType: "multiBar",
-    axisLabels: ["Top Investors' Names", "Number of Companies"],
+    chartType: "singleBar",
+    axisLabels: ["Top Acquirers' Names", "Number of Acquisitions"],
   },
   {
     id: "founder-exp",

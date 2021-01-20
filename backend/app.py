@@ -163,9 +163,24 @@ def funds_raised():
 	return df.to_csv(index = False)
 
 
-@app.route('/features/num-companies-owned')
+@app.route('/features/top-acquirers')
 def num_companies_owned():
-	return 0
+
+	df = pd.read_csv("../bulk_export_processed/acquisitions_processed.csv")
+
+	# Count Values
+	series = df['acquirer_name'].value_counts()
+
+	# convert back to dataframe
+	df = series.to_frame()
+	df.reset_index(inplace=True)
+	df.rename(columns={'index': 'x_labels', 'acquirer_name': 'y_values'}, inplace=True)
+
+	# Get the first N rows (ie. top N investors)
+	df = df[:10]
+
+	return df.to_csv(index=False)
+
 
 
 @app.route('/features/founder-exp')
