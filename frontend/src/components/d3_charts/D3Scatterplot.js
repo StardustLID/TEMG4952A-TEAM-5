@@ -58,7 +58,7 @@ class D3Scatterplot {
       .attr("y", HEIGHT + 40)
       .attr("font-size", 20)
       .attr("text-anchor", "middle")
-      .text("Age");
+      .text("Sample text");
 
     vis.g
       .append("text")
@@ -67,7 +67,7 @@ class D3Scatterplot {
       .attr("transform", "rotate(-90)")
       .attr("font-size", 20)
       .attr("text-anchor", "middle")
-      .text("Height in cm");
+      .text("Sample text");
 
     vis.data1 = data1;
     vis.data2 = data2;

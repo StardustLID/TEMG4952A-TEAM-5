@@ -5,6 +5,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import AllocationTableHome from "../../components/tables/AllocationTableHome";
+import PiechartWrapper from "../../wrappers/PiechartWrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -12,6 +13,9 @@ const useStyles = makeStyles({
   },
   col: {
     minHeight: 300,
+  },
+  h3Title: {
+    marginBottom: 20,
   },
 });
 
@@ -22,13 +26,18 @@ export default function AllocationCard() {
     <Card className={classes.root}>
       <CardHeader title="US$50M Portfolio Allocation" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
-        <Grid container direction="column">
+        <Grid container direction="column" spacing={5}>
           <Grid item>
-            <Typography variant="h3">By TimeSeries</Typography>
+            <Typography variant="h3" className={classes.h3Title}>
+              By Time Series
+            </Typography>
             <AllocationTableHome />
           </Grid>
           <Grid item>
-            <Typography variant="h3">By Size</Typography>
+            <Typography variant="h3" className={classes.h3Title}>
+              By Size
+            </Typography>
+            <PiechartWrapper />
           </Grid>
         </Grid>
       </CardContent>

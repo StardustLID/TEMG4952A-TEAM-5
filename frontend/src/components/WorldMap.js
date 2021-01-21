@@ -24,9 +24,7 @@ export default function WorldMap(props) {
         url={API_URL}
       />
       <Marker position={[51.505, -0.09]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
+        <Popup>ABC Company</Popup>
       </Marker>
     </MapContainer>
   );
