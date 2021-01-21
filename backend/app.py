@@ -187,9 +187,26 @@ def num_companies_owned():
 
 
 
-@app.route('/features/founder-exp')
+@app.route('/features/founder-edu')
 def founder_exp():
-	return 0
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+
+	# Count frequency for different degree types
+	df_edu = df['degree_type'].value_counts().to_frame()
+	df_edu.reset_index(inplace=True)
+	df_edu['index'] = df_edu['index'].astype(int).astype(str)
+
+	# Rename columns & remove `x_label == '0'`
+	df_edu.rename(columns={'index': 'x_labels', 'degree_type': 'y_values'}, inplace=True)
+	df_edu = df_edu[1:]
+
+	# Convert x_label values from numbers to actual meaning
+	x_label_convert = {1: "Bachelor", 2: "Master", 3: "PhD"}
+
+	for key, value in x_label_convert.items():
+			df_edu.at[key, 'x_labels'] = value
+	
+	return df_edu.to_csv(index=False)
 
 
 @app.route('/features/funding-location')

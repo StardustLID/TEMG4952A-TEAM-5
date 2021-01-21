@@ -81,11 +81,11 @@ const featuresData = [
     axisLabels: ["Top Acquirers' Names", "Number of Acquisitions"],
   },
   {
-    id: "founder-exp",
-    btnTitle: "Founder Experience",
+    id: "founder-edu",
+    btnTitle: "Founder Education Level",
     icon: "star",
     chartType: "singleBar",
-    axisLabels: ["Top Investors' Names", "Number of Years Between Job Start Date and Graduation"],
+    axisLabels: ["Education Level", "Number of Founders"],
   },
   {
     id: "funding-location",
