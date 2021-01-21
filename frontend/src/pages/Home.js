@@ -33,7 +33,7 @@ export default function Home() {
         </Grid>
         {/* Grid that holds the 3 cards */}
         <Grid container item spacing={4}>
-          <Grid container item sm={8} direction="column" spacing={4}>
+          <Grid container item sm={12} direction="column" spacing={4}>
             <Grid item>
               <WICard />
             </Grid>
@@ -41,9 +41,9 @@ export default function Home() {
               <RICard />
             </Grid>
           </Grid>
-          <Grid item sm={4}>
+          {/* <Grid item sm={4}>
             <ACard />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
       <Grid item sm={1} /> {/* Adds right margin */}
