@@ -64,11 +64,13 @@
 <br/>
 
 ### Front-End
-| Date     | Tasks                                 |
-|----------|---------------------------------------|
-| 12-01-21 | Completed Iteration 1 of Figma design |
-| 13-01-21 | Added generic D3 chart files          |
-| 14-01-21 | Successfully served CSV from backend  |
+| Date     | Tasks                                          |
+|----------|------------------------------------------------|
+| 12-01-21 | Completed Iteration 1 of Figma design          |
+| 13-01-21 | Added generic D3 chart files                   |
+| 14-01-21 | Successfully served CSV from backend           |
+| 15-01-21 | Added world map, loading spinners, etc         |
+| 16-01-21 | Moved API calls from D3 files to wrapper files |
 
 <br/>
 
@@ -76,9 +78,12 @@
 | Date     | Tasks                                                                     |
 |----------|---------------------------------------------------------------------------|
 | 12-01-21 | Parsed `datetime` objects and processed them                              |
-| 16-01-21 | Decision tree model completed with 0.94 accuracy                          |
+| 14-01-21 | Further processing of people, degrees and jobs                            |
+| 15-01-21 | Computed changes in fundind round amounts (later added dates)             |
+|          | Joined dataframe to eliminate duplicate companies                         |
+| 16-01-21 | Percentile plot (x-axis: cumulative % of momentum, y-axis: momentum)      |
 |          | Geographical plot by CSV from `Simplemap.com` and Python `folium` library |
-|          | Percentile plot (x-axis: cumulative % of momentum, y-axis: momentum)      |
+|          | Decision tree model completed with 0.94 accuracy                          |
 
 <br/>
 
@@ -90,9 +95,11 @@
 <br/>
 
 ### Front-End
-| Date     | Tasks                                          |
-|----------|------------------------------------------------|
-| 18-01-21 | Learned and adopted `Leaflet.js` for world map |
+| Date     | Tasks                                                                             |
+|----------|-----------------------------------------------------------------------------------|
+| 18-01-21 | Learned and adopted `Leaflet.js` for world map. Used `Mapbox.com` as map provider |
+|          | Used `Axios` library to fetch API                                                 |
+| 20-01-21 | Completed all single feature visualization                                        |
 <br/>
 
 ### Back-End
@@ -101,6 +108,9 @@
 | 19-01-21 | Linear and polynomial regression models completed. Low accuracy due to the discrete nature of x-labels including employee / investor counts and one-hot encoded features |
 |          | K-means clustering model completed. Low accurary due to high dimensionality of data                                                                                      |
 | 20-01-21 | Performed PCA (principle component analysis) on `category_list`. Used 5 components to represent 94% of fintech categories                                                |
+| 21-01-21 | Added 1st funding (pre-seed/seed/angel) amount as x-label                                                                                                                |
+|          | Resampled time intervals by quarter to avoid same date and misrepresented large momentum                                                                                 |
+|          | Further groupped subjects of people, one-hotted continents                                                                                                               |
 <br/>
 
 ## Week 5 (25 Jan - 31 Jan)
