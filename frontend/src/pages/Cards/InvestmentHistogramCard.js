@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import IHWrapper from "../../wrappers/InvestmentHistogramWrapper";
 import IHCheckbox from "../../components/Cards_button/InvestmentHistogramCheckbox";
+import BubblePlotWrapper from "../../wrappers/BubblePlotWrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -37,6 +38,7 @@ export default function InvestmentsHistogramCard() {
       <CardHeader title="Investment Histogram" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
         <Grid container spacing={2}>
+        <Grid item container spacing={2}>
           <Grid item>
             <IHWrapper category={category} barColors={barColors} />
           </Grid>
@@ -47,6 +49,10 @@ export default function InvestmentsHistogramCard() {
               barColors={barColors}
             />
           </Grid>
+        </Grid>
+        <Grid item>
+            <BubblePlotWrapper />
+        </Grid>
         </Grid>
       </CardContent>
     </Card>
