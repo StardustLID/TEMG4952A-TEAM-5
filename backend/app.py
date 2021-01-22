@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 import pandas as pd
 from functools import reduce
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -211,4 +212,23 @@ def founder_exp():
 
 @app.route('/features/funding-location')
 def funding_location():
-	return 0
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+
+	# Count no. of startups from different countries
+	df_countries = df['country_code'].value_counts().to_frame()
+	df_countries.reset_index(inplace=True)
+	df_countries.rename(columns={'index': 'country_code', 'country_code': 'count'}, inplace=True)
+
+	return df_countries.to_csv(index=False)
+
+
+'''
+Misc
+'''
+
+@app.route('/map/countries-geojson')
+def countries_geojson():
+	with open('countries.json') as file:
+		countries = json.load(file)
+
+		return json.dumps(countries)

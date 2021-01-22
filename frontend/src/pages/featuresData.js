@@ -83,7 +83,7 @@ const featuresData = [
   {
     id: "founder-edu",
     btnTitle: "Founder Education Level",
-    icon: "star",
+    icon: "school",
     chartType: "singleBar",
     axisLabels: ["Education Level", "Number of Founders"],
   },
