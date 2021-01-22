@@ -7,6 +7,24 @@ import json
 app = Flask(__name__)
 CORS(app)
 
+# Api for the bubbleplot
+@app.route('/BubblePlot')
+def BubblePlot():
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	df = df[['employee_count', 'degree_type',"founded_on",'ROI']]
+	#drop na for the ROI
+	df.dropna(inplace = True)
+
+	#drop unknown for employee_count
+	df.drop(df[df['employee_count'] == "unknown"].index, inplace = True)
+
+	df['employee_count'] = df['employee_count'].str.split('-').str[0]
+	df.drop(df[df['employee_count'] == "5001"].index, inplace = True)
+
+	df.rename(columns={'founded_on': 'y_values', 'degree_type': 'x_values', 'ROI': 'score'}, inplace=True)
+
+	return df.to_csv(index= False)
+
 '''
 Features Visualization
 '''
