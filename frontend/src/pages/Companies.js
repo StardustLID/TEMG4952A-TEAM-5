@@ -1,12 +1,8 @@
 import { Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import SingleBarChartWrapper from "../wrappers/SingleBarChartWrapper";
-import HistogramWrapper from "../wrappers/HistogramWrapper";
 import PieChartWrapper from "../wrappers/PiechartWrapper";
-import LineGraphWrapper from "../wrappers/LineGraphWrapper";
 import WorldMapWrapper from "../wrappers/WorldMapWrapper";
-import MultiBarChartWrapper from "../wrappers/MultiBarChartWrapper"
 
 const useStyles = makeStyles({
   root: {
@@ -31,21 +27,15 @@ function Companies() {
       <Grid container item sm={10} direction="column" spacing={2}>
         <Grid item>
           <Typography variant="h1" className={classes.title}>
-            Histogram and Bar Chart Example
+            Chart Examples
           </Typography>
         </Grid>
-        <Grid container item direction = "column" spacing={2}>
-          <Grid container item spacing={4}>
-            <Grid item>{<SingleBarChartWrapper />}</Grid>
-            <Grid item>{<HistogramWrapper />}</Grid>
-          </Grid>
+        <Grid container item direction="column" spacing={2}>
           <Grid container item spacing={4}>
             <Grid item>{<PieChartWrapper />}</Grid>
-            <Grid item>{<LineGraphWrapper />}</Grid>
           </Grid>
           <Grid container item spacing={4}>
             <Grid item>{<WorldMapWrapper />}</Grid>
-            <Grid item>{<MultiBarChartWrapper />}</Grid>
           </Grid>
         </Grid>
       </Grid>

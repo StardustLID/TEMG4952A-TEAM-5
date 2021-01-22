@@ -44,7 +44,7 @@ const Navbar = (props) => {
   useEffect(() => {
     const currentIndex = sidebarData.findIndex((element) => element.path === currentPath);
     setSelectedIndex(currentIndex);
-  }, []);
+  }, [currentPath]);
 
   const [sidebar, setSidebar] = useState(false); // For toggling the temporary side bar
 

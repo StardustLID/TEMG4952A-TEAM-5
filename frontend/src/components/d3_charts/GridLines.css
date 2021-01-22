@@ -1,0 +1,8 @@
+.axis-grid line {
+    stroke: #ccc;
+}
+
+/* Remove the black line at the rightmost or top of the graph */
+.axis-grid path {
+    stroke-width: 0;
+}

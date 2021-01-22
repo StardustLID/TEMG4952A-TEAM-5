@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import WorldMap from "../components/d3_charts/WorldMap";
+import WorldMap from "../components/d3_charts/D3WorldMap";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function WorldMapWrapper(props) {
@@ -34,7 +34,7 @@ export default function WorldMapWrapper(props) {
         if (!res.ok) {
           throw new Error("Failed to fetch population data!");
         }
-        return res.text(); // TODO: Change to res.json() if the API returns JSON
+        return res.text();
       })
       .catch(() => setError(true));
 
