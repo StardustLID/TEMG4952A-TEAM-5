@@ -52,13 +52,13 @@ const featuresData = [
     chartType: "singleBar",
     axisLabels: ["Top Investors", "Number of Companies Invested"],
   },
-  {
-    id: "num-acquisitions",
-    btnTitle: "No. of Acquisitions",
-    icon: "bar_chart",
-    chartType: "singleBar",
-    axisLabels: ["Number of Acquisitions", "Number of Companies"],
-  },
+  // {
+  //   id: "num-acquisitions",
+  //   btnTitle: "No. of Acquisitions",
+  //   icon: "bar_chart",
+  //   chartType: "singleBar",
+  //   axisLabels: ["Number of Acquisitions", "Number of Companies"],
+  // },
   {
     id: "acquisition-price",
     btnTitle: "Acquisition Price",
