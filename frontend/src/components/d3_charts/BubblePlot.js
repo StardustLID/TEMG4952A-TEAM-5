@@ -1,14 +1,5 @@
 import * as d3 from "d3";
 
-// Dummy data to be deleted
-const data1 = [
-  { age: "10", height: "152", name: "Tony", score: "100"},
-  { age: "12", height: "148", name: "Jessica", score: "50" },
-  { age: "9", height: "135", name: "Andrew", score: "30" },
-  { age: "10", height: "145", name: "Emily", score: "70" },
-  { age: "11", height: "141", name: "Richard", score: "90" },
-];
-
 const MARGIN = { TOP: 10, BOTTOM: 80, LEFT: 70, RIGHT: 10 };
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 800 - MARGIN.TOP - MARGIN.BOTTOM;

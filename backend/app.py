@@ -3,6 +3,7 @@ from flask_cors import CORS
 import pandas as pd
 from functools import reduce
 import json
+import numpy as np
 
 app = Flask(__name__)
 CORS(app)
@@ -20,6 +21,11 @@ def BubblePlot():
 
 	df['employee_count'] = df['employee_count'].str.split('-').str[0]
 	df.drop(df[df['employee_count'] == "5001"].index, inplace = True)
+
+	#drop inf in ROI
+	df.drop(df[df['ROI'] == np.inf].index, inplace = True)
+	df.drop(df[df['ROI'] < -2].index, inplace = True)
+	df.drop(df[df['ROI'] > 2].index, inplace = True)
 
 	df.rename(columns={'founded_on': 'y_values', 'degree_type': 'x_values', 'ROI': 'score'}, inplace=True)
 
