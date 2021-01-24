@@ -28,6 +28,9 @@ def ChangableGraph():
 	today = pd.Timestamp.today()
 	df['founded_on'] = (today - df['founded_on']) / pd.Timedelta(365, unit="d")
 
+	# drop the row with negative mean momentum
+	df.drop(df[df['fd_rd_mean_momentum'] < 0].index, inplace = True)
+
 	# rename the col
 	df.rename(columns={'founded_on': 'company_age', 'degree_type': 'degree_level', 
 	'fd_rd_first_fund_raised': 'first_fund', 'fd_rd_mean_momentum': 'mean_momentum',

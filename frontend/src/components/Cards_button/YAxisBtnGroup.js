@@ -14,11 +14,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const yaxisData = [
-  { id: "company_age", label: "Company Age" },
-  { id: "executive_degree_level", label: "Executive Degree Level" },
-  { id: "fund_size", label: "Fund Size in Seeds/Angels" },
-  { id: "num_invested", label: "Number Invested by Top 100" },
-  { id: "mean_momentum", label: "Mean Momentum" },
+  { id: "mean_momentum", label: "Mean Momentum", disabled: 0 },
+  { id: "company_age", label: "Company Age", disabled: 0 },
+  { id: "degree_level", label: "Executive Degree Level", disabled: 0 },
+  { id: "first_fund", label: "Fund Size in Seeds/Angels", disabled: 0 },
+  { id: "num_invested", label: "Number Invested by Top 100", disabled: 0 },
 ];
 
 function YAxisBtnGroup(props) {
@@ -26,12 +26,26 @@ function YAxisBtnGroup(props) {
     props.selectYaxis(event.target.value);
   };
 
+  yaxisData.map((item) => {
+    if (item.id == props.xaxis) {
+      item.disabled = 1;
+    } else {
+      item.disabled = 0;
+    }
+  });
+
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">Y Axis</FormLabel>
       <RadioGroup value={props.selected} onChange={handleChange}>
         {yaxisData.map((item) => (
-          <FormControlLabel value={item.id} control={<Radio />} label={item.label} key={item.id} />
+          <FormControlLabel
+            value={item.id}
+            disabled={item.disabled}
+            control={<Radio />}
+            label={item.label}
+            key={item.id}
+          />
         ))}
       </RadioGroup>
     </FormControl>
