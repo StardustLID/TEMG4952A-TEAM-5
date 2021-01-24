@@ -59,13 +59,13 @@ const featuresData = [
   //   chartType: "singleBar",
   //   axisLabels: ["Number of Acquisitions", "Number of Companies"],
   // },
-  {
-    id: "acquisition-price",
-    btnTitle: "Acquisition Price",
-    icon: "monetization_on",
-    chartType: "histogram",
-    axisLabels: ["Acquisition Price (1M USD)", "Number of Companies"],
-  },
+  // {
+  //   id: "acquisition-price",
+  //   btnTitle: "Acquisition Price",
+  //   icon: "monetization_on",
+  //   chartType: "histogram",
+  //   axisLabels: ["Acquisition Price (1M USD)", "Number of Companies"],
+  // },
   {
     id: "funds-raised",
     btnTitle: "Total Funds Raised",
