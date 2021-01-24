@@ -171,22 +171,31 @@ def num_acquisitions():
 
 @app.route('/features/acquisition-price')
 def acquisition_price():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
-	series = df['acquisitions_price_usd']
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_1.csv")
+	series = df['acq_price_usd']
+
+	series.dropna(inplace = True)
 
 	df = series.to_frame()
-	df.rename(columns={'acquisitions_price_usd': 'x_values'}, inplace=True)
+
+	# drop the index greater than 500,000,000
+	df.drop(df[df['acq_price_usd'] > 500000000].index, inplace = True)
+
+	df.rename(columns={'acq_price_usd': 'x_values'}, inplace=True)
 
 	return df.to_csv(index = False)
 
 
 @app.route('/features/funds-raised')
 def funds_raised():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_1.csv")
 	series = df['total_funding_usd']
 
 	df = series.to_frame()
 	df.dropna(inplace=True)
+
+	# drop the index greater than 50,000,000
+	df.drop(df[df['total_funding_usd'] > 50000000].index, inplace = True)
 	df.rename(columns={'total_funding_usd': 'x_values'}, inplace=True)
 
 	return df.to_csv(index = False)
