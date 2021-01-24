@@ -7,8 +7,8 @@ This is the repository of Team 5 for the HKUST course TEMG4952A "Special Project
 1. [Initial Set-up](#1-initial-set-up)
 2. [Start Development Server](#2-start-development-server)
 3. [Dependencies](#3-dependencies)
-4. [Weekly Progress](#3-weekly-progress)
-5. [Weekly Progress](#3-weekly-progress)
+4. [Project Methodology](#4-project-methodology)
+5. [Weekly Progress](#5-weekly-progress)
 
 ## 1. Initial Set-up
 

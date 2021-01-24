@@ -1,4 +1,5 @@
 # TEMG4952A - Team 5 Dependencies
+
 This markdown gives a list of the programming languages, libraries and frameworks used in this project.
 
 ## Front-End
