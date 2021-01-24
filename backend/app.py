@@ -48,7 +48,7 @@ Features Visualization
 
 @app.route('/features/num-employees')
 def num_employees():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
 	series = df['employee_count'].value_counts()
 
 	# Remove "unknown" column
@@ -70,15 +70,21 @@ def num_employees():
 
 @app.route('/features/company-age')
 def company_age():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv", parse_dates=['founded_on'])
 
 	# Remove unnecessary columns
-	categories = ['Financial Services', 'FinTech', 'Finance', 'Payments']
+	categories = ['cat_pca_0', 'cat_pca_1', 'cat_pca_2', 'cat_pca_3', 'cat_pca_4']
 	cols_to_keep = ['founded_on', *categories]
 	df = df[cols_to_keep]
 
-	# Cast `founded_on` from float to int
+	# Change `founded_on` from date string to no. of years from today
+	today = pd.Timestamp.today()
+	df['founded_on'] = (today - df['founded_on']) / pd.Timedelta(365, unit="d")
+
+	# Cast/Round columns
 	df['founded_on'] = df['founded_on'].round(0).astype(int)
+	for _ in categories:
+			df[_] = df[_].round(0).astype(int)
 
 	# Find distribution of `company_age` for all categories
 	df_count_all =  df['founded_on'].value_counts().sort_index().to_frame()
@@ -97,11 +103,11 @@ def company_age():
 	
 	# Merge the dataframes together
 	df_merged = reduce(lambda left,right: pd.merge(left, right, on='company_age', how='left'),df_category_counts)
-	df_merged['Payments'] = df_merged['Payments'].fillna(0).astype(int)
 
-	# Rename columns
-	df_merged.rename(columns={'Financial Services': 'financial_services', 'FinTech': 'fintech', 'Finance': 'finance', 'Payments': 'payments'}, inplace=True)
-
+	# Fill NaN generated from natural left join
+	for _ in categories:
+			df_merged[_] = df_merged[_].fillna(0).astype(int)
+	
 	return df_merged.to_csv(index=False)
 
 
@@ -256,7 +262,7 @@ def founder_exp():
 
 @app.route('/features/funding-location')
 def funding_location():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_1.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
 
 	# Count no. of startups from different countries
 	df_countries = df['country_code'].value_counts().to_frame()
