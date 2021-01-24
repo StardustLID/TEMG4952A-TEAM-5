@@ -236,7 +236,7 @@ def founder_exp():
 
 @app.route('/features/funding-location')
 def funding_location():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_1.csv")
 
 	# Count no. of startups from different countries
 	df_countries = df['country_code'].value_counts().to_frame()

@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import "./WorldMap.css";
+import "../WorldMap.css";
 
 // Reference: https://www.d3-graph-gallery.com/graph/choropleth_hover_effect.html
 
