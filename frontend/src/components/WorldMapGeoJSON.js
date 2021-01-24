@@ -70,6 +70,7 @@ export default function WorldMapGeoJSON(props) {
   // Reset the styling of a country when mouse leaves
   const resetHighlight = (event) => {
     geoJsonRef.current.resetStyle(event.target);
+    info.update();
   };
 
   // Zoom to the country when it's clicked
