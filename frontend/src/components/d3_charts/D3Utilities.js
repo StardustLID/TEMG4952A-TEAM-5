@@ -40,14 +40,14 @@ export function drawAxisLabels(vis_svg, axisLabels, width = WIDTH, height = HEIG
     vis_svg
       .append("text")
         .attr("x", width / 2)
-        .attr("y", height + margin.BOTTOM - 3)
+        .attr("y", height + margin.BOTTOM - 10)
         .attr("text-anchor", "middle")  // center text
         .text(xLabel);
 
     vis_svg
       .append("text")
         .attr("x", -(height / 2))
-        .attr("y", -50)
+        .attr("y", -MARGIN.LEFT + 25)
         .attr("text-anchor", "middle")
         .attr("transform", "rotate(-90)")
         .text(yLabel);

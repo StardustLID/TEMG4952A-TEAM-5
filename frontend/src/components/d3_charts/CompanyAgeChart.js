@@ -2,14 +2,17 @@ import * as d3 from "d3";
 import * as d3Utils from "./D3Utilities";
 import "./GridLines.css";
 
-// Use default WIDTH, HEIGHT & MARGIN from d3Utils
+const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 65, RIGHT: 10 };
+const WIDTH = 575 - MARGIN.LEFT - MARGIN.RIGHT;
+const HEIGHT = 525 - MARGIN.TOP - MARGIN.BOTTOM;
 
-const barColors = {
+export const barColors = {
   all: "#750c0c",
-  financial_services: "#e60100",
-  fintech: "#07871e",
-  finance: "#109ea1",
-  payments: "#fc7312"
+  cat_pca_0: "#e60100",
+  cat_pca_1: "#07871e",
+  cat_pca_2: "#109ea1",
+  cat_pca_3: "#fa5300",
+  cat_pca_4: "#8f35d4",
 };
 
 export default class CompanyAgeChart {
@@ -27,21 +30,21 @@ export default class CompanyAgeChart {
     vis.groups = data.map(d => d.company_age);
 
     // Add a SVG canvas to the root element
-    vis.svg = d3Utils.createSvgCanvas(element);
+    vis.svg = d3Utils.createSvgCanvas(element, WIDTH, HEIGHT, MARGIN);
 
     // Set the x-axis & y-axis labels
-    d3Utils.drawAxisLabels(vis.svg, axisLabels);
+    d3Utils.drawAxisLabels(vis.svg, axisLabels, WIDTH, HEIGHT, MARGIN);
 
     // Scales for x-axis and y-axis
     vis.x = d3.scaleBand()
       .domain(vis.groups)
-      .range([0, d3Utils.WIDTH])
+      .range([0, WIDTH])
       .padding(0.2);
 
     const maxY = d3.max(data.map(d => +d.all));   // `+d.all` = `parseInt(d.all)`
     vis.y = d3.scaleLinear()
       .domain([0, maxY * 1.05])
-      .range([d3Utils.HEIGHT, 0]);
+      .range([HEIGHT, 0]);
     
     // Scale for x-axis subgroup
     vis.xSubgroup = d3.scaleBand()
@@ -50,7 +53,7 @@ export default class CompanyAgeChart {
       .padding(0.05);
     
     // Render x-axis & y-axis
-    [vis.xAxisGroup, vis.yAxisGroup] = d3Utils.createAxisGroups(vis.svg);
+    [vis.xAxisGroup, vis.yAxisGroup] = d3Utils.createAxisGroups(vis.svg, HEIGHT);
     
     vis.xAxisGroup
       .transition().duration(500)
@@ -65,7 +68,7 @@ export default class CompanyAgeChart {
      * Passing an empty string to tickFormat ensures that tick labels aren’t rendered. 
      * The ticks function specifies the number of tick marks, here set to 10 to equal the count on the main axes.
      */
-    const yAxisGridCall = d3.axisLeft(vis.y).tickSize(-d3Utils.WIDTH).tickFormat("").ticks(10);
+    const yAxisGridCall = d3.axisLeft(vis.y).tickSize(-WIDTH).tickFormat("").ticks(10);
     vis.svg
       .append("g")
         .attr("class", "axis-grid")
@@ -97,16 +100,19 @@ export default class CompanyAgeChart {
       .enter()
         .append("rect")
           .attr("x", d => vis.xSubgroup(d.key))
-          .attr("y", d3Utils.HEIGHT)
+          .attr("y", HEIGHT)
           .attr("width", vis.xSubgroup.bandwidth())
           .attr("fill", d => barColors[d.key])
           .transition().duration(500)
           .attr("y", d => vis.y(d.value))
-          .attr("height", d => d3Utils.HEIGHT - vis.y(d.value));
+          .attr("height", d => HEIGHT - vis.y(d.value));
   }
 
   update(category) {
     const vis = this;
+    const {group, cat_pca_0, cat_pca_1, cat_pca_2, cat_pca_3, cat_pca_4 } = category;
+
+    console.log(category);
   }
 
   removeGraph() {
