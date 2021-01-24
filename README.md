@@ -1,12 +1,14 @@
 # TEMG4952A - Team 5
 
-The repository of Team 5 for the HKUST course TEMG4952A "Special Project: Financial Investment Prototyping for UBS Zurich".
+This is the repository of Team 5 for the HKUST course TEMG4952A "Special Project: Financial Investment Prototyping for UBS Zurich" in 2020-21 Winter Semester.
 
 ## Table of Contents
 
 1. [Initial Set-up](#1-initial-set-up)
 2. [Start Development Server](#2-start-development-server)
-3. [Weekly Progress](#3-weekly-progress)
+3. [Dependencies](#3-dependencies)
+4. [Weekly Progress](#3-weekly-progress)
+5. [Weekly Progress](#3-weekly-progress)
 
 ## 1. Initial Set-up
 
@@ -124,6 +126,14 @@ If you failed to run `npm start` after running `npm install` at the `frontend/` 
 
 5. Hover over `start - frontend` and press the right button to run the script
 
-## 3. Weekly Progress
+## 3. Dependencies
+
+[Click here](./Dependencies.md) to see the libraries and frameworks used in this project.
+
+## 4. Project Methodology
+
+[Click here](./ProjectMethodology.md) to see the methodology used in the project, e.g. code structure.
+
+## 5. Weekly Progress
 
 [Click here](./WeeklyProgress.md) to see the work progress for each week.
