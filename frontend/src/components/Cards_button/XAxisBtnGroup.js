@@ -18,8 +18,8 @@ const xaxisData = [
   { id: "company_age", label: "Company Age" },
   { id: "company_location", label: "Company Location" },
   { id: "company_category", label: "Company Category" },
-  { id: "executive_degree_level", label: "Executive Degree Level" },
-  { id: "fund_size", label: "Fund Size in Seeds/Angels" },
+  { id: "degree_level", label: "Executive Degree Level" },
+  { id: "first_fund", label: "Fund Size in Seeds/Angels" },
   { id: "num_invested", label: "Number Invested by Top 100" },
 ];
 

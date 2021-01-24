@@ -15,8 +15,29 @@ def ChangableGraph():
 	data = request.get_json()
 	#return "Hello test"
 	#print(data['xaxis'])
+
+	import pandas as pd
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv", parse_dates=['founded_on'])
+
+	cols_to_keep = ['employee_count','founded_on',  'degree_type', "fd_rd_first_fund_raised", "fd_rd_mean_momentum", "fd_rd_num_invested_by_top_100"]
+	df = df[cols_to_keep]
+
+	df.dropna(inplace = True)
+
+	# calculate company age
+	today = pd.Timestamp.today()
+	df['founded_on'] = (today - df['founded_on']) / pd.Timedelta(365, unit="d")
+
+	# rename the col
+	df.rename(columns={'founded_on': 'company_age', 'degree_type': 'degree_level', 
+	'fd_rd_first_fund_raised': 'first_fund', 'fd_rd_mean_momentum': 'mean_momentum',
+	 "fd_rd_num_invested_by_top_100": "num_invested"}, inplace=True)
+
+	df.rename(columns={data['xaxis']: 'xdata', data['yaxis']: 'ydata', }, inplace=True)
+
+	df = df[['xdata', 'ydata']]
 	
-	return data['xaxis']
+	return df.to_csv(index=False)
 
 
 # Api for the bubbleplot

@@ -18,6 +18,7 @@ const yaxisData = [
   { id: "executive_degree_level", label: "Executive Degree Level" },
   { id: "fund_size", label: "Fund Size in Seeds/Angels" },
   { id: "num_invested", label: "Number Invested by Top 100" },
+  { id: "mean_momentum", label: "Mean Momentum" },
 ];
 
 function YAxisBtnGroup(props) {
