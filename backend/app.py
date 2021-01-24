@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import request
 from flask_cors import CORS
 import pandas as pd
 from functools import reduce
@@ -7,6 +8,16 @@ import numpy as np
 
 app = Flask(__name__)
 CORS(app)
+
+# Api for the Changable Graph
+@app.route('/ChangableGraph', methods = ["POST"])
+def ChangableGraph():
+	data = request.get_json()
+	#return "Hello test"
+	#print(data['xaxis'])
+	
+	return data['xaxis']
+
 
 # Api for the bubbleplot
 @app.route('/BubblePlot')
@@ -171,7 +182,7 @@ def num_acquisitions():
 
 @app.route('/features/acquisition-price')
 def acquisition_price():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_1.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
 	series = df['acq_price_usd']
 
 	series.dropna(inplace = True)
@@ -188,7 +199,7 @@ def acquisition_price():
 
 @app.route('/features/funds-raised')
 def funds_raised():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_1.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
 	series = df['total_funding_usd']
 
 	df = series.to_frame()

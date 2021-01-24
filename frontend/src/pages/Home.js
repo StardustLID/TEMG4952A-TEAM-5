@@ -2,6 +2,7 @@ import Grid from "@material-ui/core/Grid";
 import WICard from "./Cards/WorthInvestingCard";
 import RICard from "./Cards/RecentInvestmentsCard";
 import ACard from "./Cards/AllocationCard";
+import CCard from "./Cards/CorrelationCard"
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -38,7 +39,8 @@ export default function Home() {
               <WICard />
             </Grid>
             <Grid item>
-              <RICard />
+              <CCard />
+              {/*<RICard />*/}
             </Grid>
           </Grid>
           {/* <Grid item sm={4}>
