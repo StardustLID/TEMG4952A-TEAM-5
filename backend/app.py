@@ -34,12 +34,8 @@ def ChangableGraph():
 	#return "Hello test"
 	#print(data['xaxis'])
 
-<<<<<<< HEAD
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv", parse_dates=['founded_on'])
-=======
 	import pandas as pd
 	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
->>>>>>> 1bdf5d687486c798251d6f1fd46b8bdcecd29e29
 
 	cols_to_keep = ['employee_count', 'founded_on', 'degree_type', "first_fund_raised", "average_momentum", "fd_rd_num_invested_by_top_100"]
 	df = df[cols_to_keep]

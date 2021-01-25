@@ -35,12 +35,8 @@ export default function ChangeableWrapper(props) {
         setPlot(new ChangeableGraph(plotArea.current, res.data, axisLabel, myParams));
       })
       .catch((error) => {
-<<<<<<< HEAD
         setError(true);
         //console.log(error);
-=======
-        console.log(error);
->>>>>>> 1bdf5d687486c798251d6f1fd46b8bdcecd29e29
       }); // failed to fetch data
   }, []);
 
