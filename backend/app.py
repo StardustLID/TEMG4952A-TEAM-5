@@ -9,6 +9,17 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
+# Api Search bar
+@app.route('/SearchBar')
+def searchbar():
+	df = pd.read_csv("../Week3_Onwards/frontend_funding_per_round_list.csv")
+	df.drop(columns="index", inplace = True)
+	df.drop(columns="org_uuid", inplace = True)
+
+	df = df["org_name"]
+	return df.to_csv(index = False)
+
+
 # Api for the Changable Graph
 @app.route('/ChangableGraph', methods = ["POST"])
 def ChangableGraph():
