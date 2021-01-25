@@ -42,8 +42,9 @@ def ChangableGraph():
 
 	df.dropna(inplace = True)
 
-	# drop the row with negative mean momentum
+	# drop the row with negative mean momentum & unknown employee count
 	df.drop(df[df['average_momentum'] < 0].index, inplace = True)
+	df.drop(df[df['employee_count'] == "unknown"].index, inplace = True)
 
 	# rename the col
 	df.rename(columns={'founded_on': 'company_age', 'degree_type': 'degree_level', 

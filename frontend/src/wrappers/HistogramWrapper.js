@@ -16,7 +16,6 @@ export default function HistogramWrapper(props) {
 
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
-    // TODO: Use "chartID" to determine which API to call
     // Remove existing single bar chart when a new single bar chart is selected
     if (plot) {
       plot.removeGraph(); // Method of Histogram
@@ -40,8 +39,7 @@ export default function HistogramWrapper(props) {
   const noteText =
     chartID === "executives-edu" ? (
       <p style={{ fontSize: 14, color: "#555", marginTop: 15 }}>
-        * The founders & co-founders are also included in the executives. 0 = No data ; 1 = Bachelor ; 2 =
-        Master ; 3 = PhD
+        * 0 = No data / No university degree ; 1 = Bachelor ; 2 = Master ; 3 = PhD
       </p>
     ) : null;
 

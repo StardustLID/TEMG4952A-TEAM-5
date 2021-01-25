@@ -8,8 +8,9 @@ export default class ChangableGraph {
    * @param element - Reference to the <div /> that the chart will be rendered in
    * @param {string} csvData - The CSV data file
    * @param {string[]} axisLabels - The x-axis and y-axis labels
+   * @param axisIDs - Object of `{ xaxis: "XX", yaxis: "YY"}`
    */
-  constructor(element, csvData, axisLabels) {
+  constructor(element, csvData, axisLabels, axisIDs) {
     let vis = this;
 
     // Add a SVG canvas to the root element
@@ -32,11 +33,15 @@ export default class ChangableGraph {
       .attr("text-anchor", "middle")
       .attr("transform", "rotate(-90)");
 
-    this.update(csvData, axisLabels);
+    this.update(csvData, axisLabels, axisIDs);
   }
 
-  update(csvData, axisLabels) {
+  update(csvData, axisLabels, axisID) {
     const vis = this;
+
+    const { xaxis, yaxis } = axisID;
+
+    const isEmployeeCount = xaxis === "employee_count";
 
     vis.xlabel.text(axisLabels[0]);
     vis.ylabel.text(axisLabels[1]);
@@ -46,12 +51,20 @@ export default class ChangableGraph {
 
     let xmax = d3.max(data, (d) => +d.xdata);
     let ymax = d3.max(data, (d) => +d.ydata);
+    console.log(ymax * 1.05)
 
     // Scales for x and y
-    const x = d3
+    let x = d3
       .scaleLinear()
       .domain([0, xmax * 1.05])
       .range([0, d3Utils.WIDTH]);
+
+    // Special case: Use ordinal scale for employee count
+    if (isEmployeeCount) {
+      x = d3.scaleBand()
+        .domain(["1-10", "11-50", "51-100", "101-250", "251-500", "501-1000", "1001-5000", "5001-10000"])
+        .range([0, d3Utils.WIDTH]);
+    }
 
     const y = d3
       .scaleLinear()
@@ -68,37 +81,29 @@ export default class ChangableGraph {
     const yAxisCall = d3.axisLeft(y);
     vis.yAxisGroup.transition().duration(500).call(yAxisCall);
 
-    console.log(data);
-
     // Data join
     const circles = vis.svg.selectAll("circle").data(data);
 
     // Exit
-    circles
-      .exit()
-      .transition()
-      .duration(500)
-      .attr("cy", y(0)) // Dots would move downwards and get removed
-      .remove();
+    circles.exit().remove();
 
     // Update
     circles
       .transition()
       .duration(500)
-      .attr("cx", (d) => x(+d.xdata))
+      .attr("cx", (d) => isEmployeeCount ? x(d.xdata) + x.bandwidth()/2 : x(+d.xdata))
       .attr("cy", (d) => y(+d.ydata));
 
     // Enter
     circles
       .enter()
       .append("circle")
-      .attr("cx", (d) => x(+d.xdata))
-      .attr("cy", y(0)) // Place the dots at bottom of the plot initially
-      .attr("r", 5)
-      .attr("fill", "red")
-      .attr("opacity", "0.5")
-      .transition()
-      .duration(500)
-      .attr("cy", (d) => y(+d.ydata));
+        .attr("cx", (d) => isEmployeeCount ? x(d.xdata) + x.bandwidth()/2 : x(+d.xdata))
+        .attr("cy", y(0)) // Place the dots at bottom of the plot initially
+        .attr("r", 4)
+        .attr("fill", "red")
+        .attr("opacity", "0.45")
+        .transition().duration(500)
+        .attr("cy", (d) => y(+d.ydata));
   }
 }
