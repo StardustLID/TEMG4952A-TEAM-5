@@ -32,7 +32,7 @@ export default function CompanyAgeBtnGroup(props) {
   const checkboxData = [
     { name: "commerce_shopping", label: "Commerce & Shopping", checked: commerce_shopping },
     { name: "fin_services", label: "Financial Services", checked: fin_services },
-    { name: "lending_invests", label: "Lending and Investments", checked: lending_invests },
+    { name: "lending_invests", label: "Lending & Investments", checked: lending_invests },
     { name: "payments", label: "Payments", checked: payments },
   ];
 

@@ -18,13 +18,13 @@ export default function HistogramWrapper(props) {
   useEffect(() => {
     // TODO: Use "chartID" to determine which API to call
     // Remove existing single bar chart when a new single bar chart is selected
-    if(plot){
+    if (plot) {
       plot.removeGraph(); // Method of Histogram
       setLoading(true);
     }
 
-    if(error){
-      setError(false)
+    if (error) {
+      setError(false);
     }
 
     // Example API Call
@@ -37,12 +37,20 @@ export default function HistogramWrapper(props) {
       .catch(() => setError(true)); // failed to fetch data
   }, [chartID]);
 
-  // TODO: if use update then need to uncomment this part
-  // Calls the update(category) method of InvestmentHistogram class when props.category updates
-  // React will NOT re-render this component when props.category updates
-  /**useEffect(() => {
-    plot?.update(props.category);
-  }, [plot, props.category]);*/
+  const noteText =
+    chartID === "executives-edu" ? (
+      <p style={{ fontSize: 14, color: "#555", marginTop: 15 }}>
+        * The founders & co-founders are also included in the executives. 0 = No data ; 1 = Bachelor ; 2 =
+        Master ; 3 = PhD
+      </p>
+    ) : null;
 
-  return loading || error ? <LoadingSpinner error={error} /> : <div className="plot-area" ref={plotArea} />;
+  return loading || error ? (
+    <LoadingSpinner error={error} />
+  ) : (
+    <>
+      <div className="plot-area" ref={plotArea} />
+      {noteText}
+    </>
+  );
 }

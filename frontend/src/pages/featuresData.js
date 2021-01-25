@@ -85,7 +85,7 @@ const featuresData = [
     btnTitle: "Executives Education Level",
     icon: "school",
     chartType: "histogram",
-    axisLabels: ["Average Education Level of Executives", "Number of Companies"],
+    axisLabels: ["Average Education Level of Executives *", "Number of Companies"],
   },
   {
     id: "funding-location",
