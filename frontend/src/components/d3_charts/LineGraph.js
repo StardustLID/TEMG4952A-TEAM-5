@@ -1,8 +1,10 @@
 import * as d3 from "d3";
 import * as d3Utils from "./D3Utilities";
 import "./ToolTip.css";
+import investmentTypes from "./investmentTypes";
 
-// Use default WIDTH, HEIGHT & MARGIN from d3Utils
+// Custom left margin
+const MARGIN = {...d3Utils.MARGIN, LEFT: 90 };
 
 export default class LineGraph {
   /**
@@ -13,13 +15,26 @@ export default class LineGraph {
   constructor(element, csvData) {
     let vis = this;
 
-    let axisLabels = ["Year", "Funding"];
+    let [xLabel, yLabel] = ["Year", "Funding per Round"];
 
     // Add a SVG canvas to the root element
-    vis.svg = d3Utils.createSvgCanvas(element);
+    vis.svg = d3Utils.createSvgCanvas(element, d3Utils.WIDTH, d3Utils.HEIGHT, MARGIN);
 
     // Set the x-axis & y-axis labels
-    d3Utils.drawAxisLabels(vis.svg, axisLabels);
+    vis.svg
+      .append("text")
+        .attr("x", d3Utils.WIDTH / 2)
+        .attr("y", d3Utils.HEIGHT + MARGIN.BOTTOM - 10)
+        .attr("text-anchor", "middle")  // center text
+        .text(xLabel);
+
+    vis.svg
+      .append("text")
+        .attr("x", -(d3Utils.HEIGHT / 2))
+        .attr("y", -MARGIN.LEFT + 20)
+        .attr("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
+        .text(yLabel);
 
     //Set x, y AxisGroup
     [vis.xAxisGroup, vis.yAxisGroup] = d3Utils.createAxisGroups(vis.svg);
@@ -75,7 +90,7 @@ export default class LineGraph {
     vis.paths
       .attr("fill", "none")
       .attr("stroke", "#4300FF")
-      .attr("stroke-width", 1.5)
+      .attr("stroke-width", 3)
       .attr(
         "d",
         d3
@@ -107,8 +122,8 @@ export default class LineGraph {
     circles
       .enter()
       .append("circle") // enter append
-      .attr("fill", "#855CF8")
-      .attr("r", "5") // radius
+      .attr("fill", "#4300FF")
+      .attr("r", "8") // radius
       .attr("cx", (d) => vis.x(new Date(d.date))) // center x passing through your xScale
       .attr("cy", (d) => y(+d.raised_amount)) // center y through your yScale
       .on("mouseover", function (event, d) {
@@ -120,7 +135,13 @@ export default class LineGraph {
 
         // Put the value into the div and place it near the user’s mouse
         div
-          .html("Type: " + d.invest_type + "<br/>" + "No. of Investor: " + d.investor_count)
+          .html(
+            "Type: " + vis.getInvestTypeName(d.invest_type)
+            + "<br/>"
+            + "No. of Investor(s): " + d.investor_count
+            + "<br />"
+            + "Announced On: " + d.announced_on
+          )
           .style("left", event.pageX + 10 + "px")
           .style("top", event.pageY + 10 + "px");
       })
@@ -131,6 +152,14 @@ export default class LineGraph {
         // Makes the div disappear
         div.transition().duration("50").style("opacity", 0);
       });
+  }
+
+  getInvestTypeName(investType) {
+    if (investmentTypes.hasOwnProperty(investType)) {
+      return investmentTypes[investType];
+    } else {
+      return investType;
+    }
   }
 
   removeLineGraph() {

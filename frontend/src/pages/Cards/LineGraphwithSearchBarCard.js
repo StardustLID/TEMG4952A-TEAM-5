@@ -9,12 +9,12 @@ function LineGraphwithSearchBarCard() {
 
   return (
     <Grid container direction="column" spacing={2}>
-      <Grid container item spacing={2}>
+      <Grid container item spacing={2} alignItems="center">
         <Grid item>
           <SearchBar setValue={setValue} value={value} />
         </Grid>
         <Grid item>
-          <h2>{`Current Company: ${value !== null ? `'${value}'` : "null"}`}</h2>
+          <h3>{value === null ? "Please select a company" : `Current Company : ${value}`}</h3>
         </Grid>
       </Grid>
       <Grid item>{<LineGraphWrapper selected={value} />}</Grid>

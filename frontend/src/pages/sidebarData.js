@@ -16,9 +16,9 @@ export const sidebarData = [
     path: "/companies",
     icon: "view_list",
   },
-  {
-    title: "Investments",
-    path: "/investments",
-    icon: "attach_money",
-  },
+  // {
+  //   title: "Investments",
+  //   path: "/investments",
+  //   icon: "attach_money",
+  // },
 ];

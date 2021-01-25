@@ -181,8 +181,9 @@ def funding_per_round():
 	invest_type = row.investment_type_list.array[0].replace("[", "").replace("]", "").replace("'", '').split(', ')
 	raised_amount = row.raised_amount_usd_list.array[0].replace("[", "").replace("]", "").split(', ')
 	investor_count = row.investor_count_list.array[0].replace("[", "").replace("]", "").split(', ')
+	announced_on = row.announced_on_list.array[0].replace("[", "").replace("]", "").replace("'", '').split(', ')
 
-	data =  {'date': date, 'invest_type': invest_type, 'raised_amount': raised_amount, 'investor_count': investor_count}
+	data =  {'date': date, 'invest_type': invest_type, 'raised_amount': raised_amount, 'investor_count': investor_count, 'announced_on': announced_on}
 	df = pd.DataFrame(data)
 
 	# add a dummy data for the visualization
