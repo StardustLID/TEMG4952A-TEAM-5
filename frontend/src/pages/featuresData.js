@@ -22,7 +22,7 @@ const featuresData = [
     btnTitle: "Company Age",
     icon: "access_time",
     chartType: "multiBar",
-    axisLabels: ["Company Age", "Number of Companies"],
+    axisLabels: ["Company Age (in years)", "Number of Companies"],
   },
   {
     id: "funding-rounds",
@@ -45,13 +45,13 @@ const featuresData = [
     chartType: "histogram",
     axisLabels: ["Number of Investments", "Number of Companies"],
   },
-  {
-    id: "top-investors",
-    btnTitle: "No. of Investments by Top 10 Investors",
-    icon: "person",
-    chartType: "singleBar",
-    axisLabels: ["Top Investors", "Number of Companies Invested"],
-  },
+  // {
+  //   id: "top-investors",
+  //   btnTitle: "No. of Investments by Top 10 Investors",
+  //   icon: "person",
+  //   chartType: "singleBar",
+  //   axisLabels: ["Top Investors", "Number of Companies Invested"],
+  // },
   // {
   //   id: "num-acquisitions",
   //   btnTitle: "No. of Acquisitions",

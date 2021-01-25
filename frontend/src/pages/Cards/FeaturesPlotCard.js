@@ -12,7 +12,7 @@ import HistogramWrapper from "../../wrappers/HistogramWrapper";
 const useStyles = makeStyles({
   root: {
     padding: 5,
-    minHeight: "100%",
+    minHeight: 600,
   },
   contentRoot: {
     padding: "15px 35px",
