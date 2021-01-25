@@ -29,12 +29,15 @@ export default function SearchBar(props) {
 
         setBar(
           <Autocomplete
+            onChange={(event, newValue) => {
+              newValue ? props.setValue(newValue.company_name) : props.setValue(null);
+            }}
             id="combo-box-demo"
             options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
             groupBy={(option) => option.firstLetter}
             getOptionLabel={(option) => option.company_name}
             style={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
+            renderInput={(params) => <TextField {...params} label="Company" variant="outlined" />}
           />,
         );
       })

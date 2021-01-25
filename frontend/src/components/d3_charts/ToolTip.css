@@ -1,13 +1,13 @@
 div.tooltip {
-    color: white;
-    position: absolute;			
-    text-align: center;			
-    width: 100px;					
-    height: 40px;					
-    padding: 2px;				
-    font: 15px sans-serif;		
-    background: #855CF8;	
-    border: 0px;		
-    border-radius: 8px;			
-    pointer-events: none;	
+  color: white;
+  position: absolute;
+  text-align: center;
+  width: 200px;
+  height: 40px;
+  padding: 2px;
+  font: 15px sans-serif;
+  background: #855cf8;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
 }

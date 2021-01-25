@@ -12,7 +12,7 @@ CORS(app)
 # Api Search bar
 @app.route('/SearchBar')
 def searchbar():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
 	df = df["company_name"]
 
 	return df.to_csv(index=False)
@@ -34,7 +34,6 @@ def ChangableGraph():
 	#return "Hello test"
 	#print(data['xaxis'])
 
-	import pandas as pd
 	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv", parse_dates=['founded_on'])
 
 	cols_to_keep = ['employee_count','founded_on',  'degree_type', "fd_rd_first_fund_raised", "fd_rd_mean_momentum", "fd_rd_num_invested_by_top_100"]
@@ -169,13 +168,30 @@ def funding_rounds():
 	return df.to_csv(index=False)
 
 
-@app.route('/features/funding-per-round')
+@app.route('/features/funding-per-round', methods = ["POST"])
 def funding_per_round():
 	# TODO: Need to add 2010-01-01 to make the graph start from 0
 	# https://www.geeksforgeeks.org/add-a-row-at-top-in-pandas-dataframe/
-	data = "date,value\n2010-01-01,0\n2013-01-01,150\n2013-07-01,30\n2016-01-01,70\n2018-07-01,220"
-	
-	return data
+	#data = "date,value\n2010-01-01,0\n2013-01-01,150\n2013-07-01,30\n2016-01-01,70\n2018-07-01,220"
+	input = request.get_json()
+
+	df = pd.read_csv("../Week3_Onwards/frontend_funding_per_round_list.csv")
+	row = df.loc[df["org_name"] == input["name"]]
+
+	# remove signs and split string to array
+	date = row.announced_on_list.array[0].replace("[", "").replace("]", "").replace("'", '').split(', ')
+	invest_type = row.investment_type_list.array[0].replace("[", "").replace("]", "").replace("'", '').split(', ')
+	raised_amount = row.raised_amount_usd_list.array[0].replace("[", "").replace("]", "").split(', ')
+	investor_count = row.investor_count_list.array[0].replace("[", "").replace("]", "").split(', ')
+
+	data =  {'date': date, 'invest_type': invest_type, 'raised_amount': raised_amount, 'investor_count': investor_count}
+	df = pd.DataFrame(data)
+
+	# add a dummy data for the visualization
+	new_row = pd.DataFrame({'date': "2010-01-01", 'invest_type': "null", 'raised_amount': 0, 'investor_count': 0}, index=[0])
+	df = pd.concat([new_row, df]).reset_index(drop = True) 
+
+	return df.to_csv(index=False)
 
 
 # @app.route('/features/num-investments')

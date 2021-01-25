@@ -42,8 +42,8 @@ export default function ChangableWrapper(props) {
         setPlot(new ChangableGraph(plotArea.current, res.data, axisLabel));
       })
       .catch((error) => {
-        //setError(true);
-        console.log(error);
+        setError(true);
+        //console.log(error);
       }); // failed to fetch data
   }, []);
 
@@ -69,7 +69,6 @@ export default function ChangableWrapper(props) {
       })
       .catch(() => {
         setError(true);
-        console.log("2");
       }); // failed to fetch data
   }, [plot, props.xaxis, props.yaxis]);
 

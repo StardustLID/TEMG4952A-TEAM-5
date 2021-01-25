@@ -68,8 +68,6 @@ export default class ChangableGraph {
     const yAxisCall = d3.axisLeft(y);
     vis.yAxisGroup.transition().duration(500).call(yAxisCall);
 
-    console.log(data);
-
     // Data join
     const circles = vis.svg.selectAll("circle").data(data);
 
