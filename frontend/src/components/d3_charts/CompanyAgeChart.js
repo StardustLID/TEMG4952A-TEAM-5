@@ -2,8 +2,8 @@ import * as d3 from "d3";
 import * as d3Utils from "./D3Utilities";
 import "./GridLines.css";
 
-const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 65, RIGHT: 10 };
-const WIDTH = 575 - MARGIN.LEFT - MARGIN.RIGHT;
+const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 65, RIGHT: 0 };
+const WIDTH = 580 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 525 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export const barColors = {
@@ -24,10 +24,12 @@ export default class CompanyAgeChart {
   constructor(element, csvData, axisLabels) {
     let vis = this;
 
-    const data = d3.csvParse(csvData);
+    vis.allSubGroups = ["all", "cat_pca_0", "cat_pca_1", "cat_pca_2", "cat_pca_3", "cat_pca_4"];
+
+    vis.data = d3.csvParse(csvData);
 
     vis.subgroups = ["all"];  // Initially "Show All" category is selected
-    vis.groups = data.map(d => d.company_age);
+    vis.groups = vis.data.map(d => d.company_age);
 
     // Add a SVG canvas to the root element
     vis.svg = d3Utils.createSvgCanvas(element, WIDTH, HEIGHT, MARGIN);
@@ -41,7 +43,7 @@ export default class CompanyAgeChart {
       .range([0, WIDTH])
       .padding(0.2);
 
-    const maxY = d3.max(data.map(d => +d.all));   // `+d.all` = `parseInt(d.all)`
+    const maxY = d3.max(vis.data.map(d => +d.all));   // `+d.all` = `parseInt(d.all)`
     vis.y = d3.scaleLinear()
       .domain([0, maxY * 1.05])
       .range([HEIGHT, 0]);
@@ -50,7 +52,7 @@ export default class CompanyAgeChart {
     vis.xSubgroup = d3.scaleBand()
       .domain(vis.subgroups)
       .range([0, vis.x.bandwidth()])
-      .padding(0.05);
+      .padding(0);
     
     // Render x-axis & y-axis
     [vis.xAxisGroup, vis.yAxisGroup] = d3Utils.createAxisGroups(vis.svg, HEIGHT);
@@ -79,9 +81,11 @@ export default class CompanyAgeChart {
 
     // Each group's bars is wrapped by a <g>.
     // It selects every <g> for every group and associate each group with an element from the "data" array
-    vis.barsGroup = vis.svg.append("g")
+    vis.barsGroup = vis.svg
+      .append("g")
+        .attr("class", "bars-container")
       .selectAll("g")
-      .data(data);
+      .data(vis.data);
     
     // For each CSV row, create a new <g> and insert corresponding bars
     vis.barsGroup.enter()
@@ -112,7 +116,92 @@ export default class CompanyAgeChart {
     const vis = this;
     const {group, cat_pca_0, cat_pca_1, cat_pca_2, cat_pca_3, cat_pca_4 } = category;
 
-    console.log(category);
+    /* Initialize the `newKeys` array */
+
+    var newKeys = [];   // Stores subgroup names to be shown
+
+    if (group === "all") {
+      newKeys = ["all"];
+    }
+    else {
+      cat_pca_0 && newKeys.push("cat_pca_0");
+      cat_pca_1 && newKeys.push("cat_pca_1");
+      cat_pca_2 && newKeys.push("cat_pca_2");
+      cat_pca_3 && newKeys.push("cat_pca_3");
+      cat_pca_4 && newKeys.push("cat_pca_4");
+    }
+
+    console.log("newKeys: " + newKeys);
+
+    /* Update axis */
+
+    vis.xSubgroup
+      .domain(newKeys)
+      .rangeRound([0, vis.x.bandwidth()]);
+    
+    const maxY = d3.max(vis.data, (d) => {
+      return d3.max(newKeys, key => +d[key]);  // For each row, find maxY value for columns in `newKeys`
+    });
+
+    vis.y.domain([0, maxY * 1.05]);
+
+    // Animate the update of y-axis
+    vis.yAxisGroup
+      .transition().duration(500)
+      .call(d3.axisLeft(vis.y));
+    
+    /* Filter out the bands that need to be hidden */
+
+    const barsGroup = vis.svg.selectAll(".bar");
+
+    const bars = barsGroup
+      .selectAll("rect")  // Similar to CSS selector "g.bar rect"
+      .data(d => {
+        return vis.allSubGroups.map(key => ({ key, value: +d[key] }));
+      });
+      // Example data array: [{ key: "all", value: 133 }, { key: "cat_pca_0", value: 11 }, ...]
+    
+    // Animate the removal of bars to be hidden
+    bars
+      .filter(d => newKeys.indexOf(d.key) < 0)  // ie. bars to be removed
+      .transition().duration(500)
+      .attr("height", 0)
+      .attr("width", 0)
+      .attr("y", HEIGHT);
+
+    /* Add bars to the graph */
+
+    vis.barsGroup.enter()
+      .append("g")
+        .attr("class", "bar")
+        .attr("transform", d => `translate(${vis.x(+d.company_age)}, 0)`)
+      .selectAll("rect")
+      .data(csvRow =>
+        newKeys.map(key => {
+          return { key: key, value: +csvRow[key] };
+        })
+      )
+      .enter()
+        .append("rect")
+          .attr("x", d => vis.xSubgroup(d.key))
+          .attr("y", HEIGHT)
+          .attr("width", vis.xSubgroup.bandwidth())
+          .attr("fill", d => barColors[d.key])
+          .transition().duration(500)
+          .attr("y", d => vis.y(d.value))
+          .attr("height", d => HEIGHT - vis.y(d.value));
+
+    
+    /* Adjust the remaining bars */
+    
+    bars
+      .filter(d => newKeys.indexOf(d.key) !== -1) // ie. bars to be shown
+      .transition().duration(500)
+      .attr("x", d => vis.xSubgroup(d.key))
+      .attr("y", d => vis.y(d.value))
+      .attr("height", d => HEIGHT - vis.y(d.value))
+      .attr("width", vis.xSubgroup.bandwidth())
+      .attr("fill", d => barColors[d.key]);
   }
 
   removeGraph() {

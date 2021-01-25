@@ -87,7 +87,9 @@ export default class InvestmentHistogram {
     // Each group's bars is wrapped by a <g>.
     // barsGroup would select every <g> for every group and associate each group
     // with an element from the "data" array.
-    vis.barsGroup = vis.g.append("g")
+    vis.barsGroup = vis.g
+      .append("g")
+        .attr("class", "bars-container")
       .selectAll("g")
       .data(data);
 
@@ -118,31 +120,15 @@ export default class InvestmentHistogram {
   update(category) {
     const vis = this;
 
-    /** Initialize the filtered and newKeys arrays */
+    /** Initialize the newKeys arrays */
 
-    var filtered = [];  // Stores subgroup names to be hidden
     var newKeys = [];   // Stores subgroup names to be shown
 
     const { all, personal, blockchain } = category;
 
-    if (all) {
-      // Since all == true, we wish to show it. Thus, we push "all" into newKeys
-      newKeys.push("all");  
-    } else {
-      filtered.push("all");
-    }
-
-    if (personal) {
-      newKeys.push("personal");
-    } else {
-      filtered.push("personal");
-    }
-
-    if (blockchain) {
-      newKeys.push("blockchain");
-    } else {
-      filtered.push("blockchain");
-    }
+    all && newKeys.push("all");
+    personal && newKeys.push("personal");
+    blockchain && newKeys.push("blockchain");
 
     /** Update axis */
 
@@ -154,9 +140,7 @@ export default class InvestmentHistogram {
       .domain([
         0,
         d3.max(data, (d) => {
-          return d3.max(vis.subgroups, key => {
-            if (filtered.indexOf(key) === -1) return d[key];
-          });
+          return d3.max(newKeys, key => d[key]);
         }),
       ])
       .nice();
@@ -164,13 +148,13 @@ export default class InvestmentHistogram {
     // Animate the update of y-axis
     vis.yAxisGroup
       .transition().duration(ANIM_TIME)
-      .call(d3.axisLeft(vis.y).ticks(null, "s"));
+      .call(d3.axisLeft(vis.y));
 
     
     /** Filter out the bands that need to be hidden */
 
     var bars = vis.g
-      .selectAll(".bar")
+      .selectAll("g.bar")
       .selectAll("rect")
       .data(d => {
         return vis.subgroups.map(key => {
@@ -180,13 +164,8 @@ export default class InvestmentHistogram {
 
     // Animate the removal of bars to be hidden
     bars
-      .filter(d => {
-        return filtered.indexOf(d.key) > -1;
-      })
+      .filter(d => newKeys.indexOf(d.key) < 0)
       .transition().duration(ANIM_TIME)
-      // .attr("x", (d) => {
-      //   return d3.select(this).attr("x") + d3.select(this).attr("width") / 2;
-      // })
       .attr("height", 0)
       .attr("width", 0)
       .attr("y", HEIGHT);
@@ -195,7 +174,7 @@ export default class InvestmentHistogram {
     /** Adjust the remaining bars */
     bars
       .filter(d => {
-        return filtered.indexOf(d.key) === -1;
+        return newKeys.indexOf(d.key) !== -1;
       })
       .transition().duration(ANIM_TIME)
       .attr("x", d => {

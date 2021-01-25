@@ -12,10 +12,10 @@ import { barColors } from "../d3_charts/CompanyAgeChart";
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: 100,
-    marginLeft: 20,
+    marginLeft: 30,
   },
   checkboxGroupRoot: {
-    marginLeft: 50,
+    marginLeft: 60,
   },
 }));
 
