@@ -17,10 +17,21 @@ export default function SearchBar(props) {
       .then((res) => {
         setLoading(false);
 
+        const data = d3.csvParse(res.data);
+
+        const options = data.map((option) => {
+          const firstLetter = option.company_name[0].toUpperCase();
+          return {
+            firstLetter: /[0-9]/.test(firstLetter) ? "0-9" : firstLetter,
+            ...option,
+          };
+        });
+
         setBar(
           <Autocomplete
             id="combo-box-demo"
-            options={d3.csvParse(res.data)}
+            options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
+            groupBy={(option) => option.firstLetter}
             getOptionLabel={(option) => option.company_name}
             style={{ width: 300 }}
             renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
