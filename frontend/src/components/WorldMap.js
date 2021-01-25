@@ -1,5 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
-import { useEffect, useState, useRef } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useEffect, useState } from "react";
 import { latLng, latLngBounds } from "leaflet";
 import axios from "axios";
 import { csvParse as d3_csvParse } from "d3";
@@ -96,9 +96,9 @@ export default function WorldMap(props) {
       />
       <WorldMapLegend />
       {geoData && <WorldMapGeoJSON geoData={geoData} />}
-      <Marker position={[51.505, -0.09]}>
+      {/* <Marker position={[51.505, -0.09]}>
         <Popup>ABC Company</Popup>
-      </Marker>
+      </Marker> */}
     </MapContainer>
   );
 }

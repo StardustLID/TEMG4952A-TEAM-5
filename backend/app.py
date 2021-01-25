@@ -34,23 +34,25 @@ def ChangableGraph():
 	#return "Hello test"
 	#print(data['xaxis'])
 
+<<<<<<< HEAD
 	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv", parse_dates=['founded_on'])
+=======
+	import pandas as pd
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+>>>>>>> 1bdf5d687486c798251d6f1fd46b8bdcecd29e29
 
-	cols_to_keep = ['employee_count','founded_on',  'degree_type', "fd_rd_first_fund_raised", "fd_rd_mean_momentum", "fd_rd_num_invested_by_top_100"]
+	cols_to_keep = ['employee_count', 'founded_on', 'degree_type', "first_fund_raised", "average_momentum", "fd_rd_num_invested_by_top_100"]
 	df = df[cols_to_keep]
 
 	df.dropna(inplace = True)
 
-	# calculate company age
-	today = pd.Timestamp.today()
-	df['founded_on'] = (today - df['founded_on']) / pd.Timedelta(365, unit="d")
-
-	# drop the row with negative mean momentum
-	df.drop(df[df['fd_rd_mean_momentum'] < 0].index, inplace = True)
+	# drop the row with negative mean momentum & unknown employee count
+	df.drop(df[df['average_momentum'] < 0].index, inplace = True)
+	df.drop(df[df['employee_count'] == "unknown"].index, inplace = True)
 
 	# rename the col
 	df.rename(columns={'founded_on': 'company_age', 'degree_type': 'degree_level', 
-	'fd_rd_first_fund_raised': 'first_fund', 'fd_rd_mean_momentum': 'mean_momentum',
+	'first_fund_raised': 'first_fund', 'average_momentum': 'mean_momentum',
 	 "fd_rd_num_invested_by_top_100": "num_invested"}, inplace=True)
 
 	df.rename(columns={data['xaxis']: 'xdata', data['yaxis']: 'ydata', }, inplace=True)
@@ -89,7 +91,7 @@ Features Visualization
 
 @app.route('/features/num-employees')
 def num_employees():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
 	series = df['employee_count'].value_counts()
 
 	# Remove "unknown" column
@@ -100,25 +102,24 @@ def num_employees():
 	df_num = df_num.reindex(["1-10", "11-50", "51-100", "101-250", "251-500", "501-1000", "1001-5000", "5001-10000"])
 	
 	# Prepare the dataframe to be converted to CSV string
-	df = series.to_frame()
-	df.reset_index(inplace=True)	# Stop using x axis labels as the dataframe's index
-	df.rename(columns={'employee_count': 'y_values', 'index': 'x_labels'}, inplace=True)
+	df_num.reset_index(inplace=True)	# Stop using x axis labels as the dataframe's index
+	df_num.rename(columns={'employee_count': 'y_values', 'index': 'x_labels'}, inplace=True)
 
 	# Convert dataframe to CSV string
-	return df.to_csv(index=False)
+	return df_num.to_csv(index=False)
 
 
 @app.route('/features/company-age')
 def company_age():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv", parse_dates=['founded_on'])
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
 
 	# Remove unnecessary columns
-	categories = ['cat_pca_0', 'cat_pca_1', 'cat_pca_2', 'cat_pca_3', 'cat_pca_4']
+	categories = ['cat_commerce_shopping', 'cat_fin_services', 'cat_lending_invests', 'cat_payments']
 	cols_to_keep = ['founded_on', *categories]
 	df = df[cols_to_keep]
 
 	# Cast/Round columns
-	df['founded_on'] = df['founded_on'].astype(float).round(0).astype(int)
+	df['founded_on'] = df['founded_on'].round(0).astype(int)
 	for _ in categories:
 			df[_] = df[_].round(0).astype(int)
 
@@ -134,7 +135,7 @@ def company_age():
 		temp = df[df[_] == 1]
 		df_count = temp['founded_on'].value_counts().sort_index().to_frame()
 		df_count.reset_index(inplace=True)
-		df_count.rename(columns={'index': 'company_age', 'founded_on': _},inplace=True)
+		df_count.rename(columns={'index': 'company_age', 'founded_on': _[4:]},inplace=True)
 		df_category_counts.append(df_count)
 	
 	# Merge the dataframes together
@@ -142,6 +143,7 @@ def company_age():
 
 	# Fill NaN generated from natural left join
 	for _ in categories:
+			_ = _[4:]
 			df_merged[_] = df_merged[_].fillna(0).astype(int)
 	
 	return df_merged.to_csv(index=False)
@@ -149,7 +151,7 @@ def company_age():
 
 @app.route('/features/funding-rounds')
 def funding_rounds():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
 	series = df['num_funding_rounds'].value_counts().sort_index()
 
 	# Remove num_funding_rounds == 0
@@ -160,10 +162,10 @@ def funding_rounds():
 	df['index'] = df['index'].astype(int).astype(str)
 	df.rename(columns={'index': 'x_labels', 'num_funding_rounds': 'y_values'}, inplace=True)
 
-	# Find the sum of companies where no. of investments >= 8
+	# Find the sum of companies
 	df.iloc[7,1] = df.iloc[7:, 1].sum()
-	df.iloc[7,0] = '≥8'
-	df = df[:8]    # Only take the first 8 rows
+	df.iloc[7,0] = '≥10'
+	df = df[:8]    # Only take the first 9 rows
 
 	return df.to_csv(index=False)
 
@@ -207,53 +209,53 @@ def funding_per_round():
 # 	return df.to_csv(index = False)
 
 
-@app.route('/features/top-investors')
-def top_investments():
-	df = pd.read_csv("../bulk_export_processed/investors_processed.csv")
+# @app.route('/features/top-investors')
+# def top_investments():
+# 	df = pd.read_csv("../bulk_export_processed/investors_processed.csv")
 	
-	# Drop unnecessary columns
-	keep_col = ['name', 'investment_count']
-	df = df[keep_col]
+# 	# Drop unnecessary columns
+# 	keep_col = ['name', 'investment_count']
+# 	df = df[keep_col]
 
-	# Drop NaN and filter out investors with investment_count < 100
-	df.dropna(axis=0, how='any', subset=['investment_count'], inplace=True)
-	df.drop(df[df['investment_count'] < 100].index, inplace=True)
+# 	# Drop NaN and filter out investors with investment_count < 100
+# 	df.dropna(axis=0, how='any', subset=['investment_count'], inplace=True)
+# 	df.drop(df[df['investment_count'] < 100].index, inplace=True)
 
-	# Cast `investment_count` to int & sort in descending order
-	df['investment_count'] = df['investment_count'].astype(int)
-	df.sort_values(by='investment_count', axis=0, ascending=False, inplace=True)
+# 	# Cast `investment_count` to int & sort in descending order
+# 	df['investment_count'] = df['investment_count'].astype(int)
+# 	df.sort_values(by='investment_count', axis=0, ascending=False, inplace=True)
 	
-	# Get the first N rows (ie. top N investors)
-	df = df[:10]
+# 	# Get the first N rows (ie. top N investors)
+# 	df = df[:10]
 
-	# Reset the index & rename the columns
-	df.reset_index(inplace=True)
-	df.drop(axis=1, labels='index', inplace=True)
-	df.rename(columns={'name': 'x_labels', 'investment_count': 'y_values'}, inplace=True)
+# 	# Reset the index & rename the columns
+# 	df.reset_index(inplace=True)
+# 	df.drop(axis=1, labels='index', inplace=True)
+# 	df.rename(columns={'name': 'x_labels', 'investment_count': 'y_values'}, inplace=True)
 
-	return df.to_csv(index=False)
+# 	return df.to_csv(index=False)
 
 
-@app.route('/features/acquisition-price')
-def acquisition_price():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
-	series = df['acq_price_usd']
+# @app.route('/features/acquisition-price')
+# def acquisition_price():
+# 	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
+# 	series = df['acq_price_usd']
 
-	series.dropna(inplace = True)
+# 	series.dropna(inplace = True)
 
-	df = series.to_frame()
+# 	df = series.to_frame()
 
-	# drop the index greater than 500,000,000
-	df.drop(df[df['acq_price_usd'] > 500000000].index, inplace = True)
+# 	# drop the index greater than 500,000,000
+# 	df.drop(df[df['acq_price_usd'] > 500000000].index, inplace = True)
 
-	df.rename(columns={'acq_price_usd': 'x_values'}, inplace=True)
+# 	df.rename(columns={'acq_price_usd': 'x_values'}, inplace=True)
 
-	return df.to_csv(index = False)
+# 	return df.to_csv(index = False)
 
 
 @app.route('/features/funds-raised')
 def funds_raised():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
 	series = df['total_funding_usd']
 
 	df = series.to_frame()
@@ -266,29 +268,29 @@ def funds_raised():
 	return df.to_csv(index = False)
 
 
-@app.route('/features/top-acquirers')
-def num_companies_owned():
+# @app.route('/features/top-acquirers')
+# def num_companies_owned():
 
-	df = pd.read_csv("../bulk_export_processed/acquisitions_processed.csv")
+# 	df = pd.read_csv("../bulk_export_processed/acquisitions_processed.csv")
 
-	# Count Values
-	series = df['acquirer_name'].value_counts()
+# 	# Count Values
+# 	series = df['acquirer_name'].value_counts()
 
-	# convert back to dataframe
-	df = series.to_frame()
-	df.reset_index(inplace=True)
-	df.rename(columns={'index': 'x_labels', 'acquirer_name': 'y_values'}, inplace=True)
+# 	# convert back to dataframe
+# 	df = series.to_frame()
+# 	df.reset_index(inplace=True)
+# 	df.rename(columns={'index': 'x_labels', 'acquirer_name': 'y_values'}, inplace=True)
 
-	# Get the first N rows (ie. top N investors)
-	df = df[:10]
+# 	# Get the first N rows (ie. top N investors)
+# 	df = df[:10]
 
-	return df.to_csv(index=False)
+# 	return df.to_csv(index=False)
 
 
 
-@app.route('/features/founder-edu')
+@app.route('/features/executives-edu')
 def founder_exp():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
 	df_degree = df['degree_type'].to_frame()
 	df_degree.rename(columns={'degree_type': 'x_values'}, inplace=True)
 	
@@ -297,7 +299,7 @@ def founder_exp():
 
 @app.route('/features/funding-location')
 def funding_location():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
+	df = pd.read_csv("../previous_notebooks/unifed_csv_20210124_2.csv")
 
 	# Count no. of startups from different countries
 	df_countries = df['country_code'].value_counts().to_frame()

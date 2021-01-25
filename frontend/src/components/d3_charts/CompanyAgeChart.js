@@ -8,11 +8,10 @@ const HEIGHT = 525 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export const barColors = {
   all: "#750c0c",
-  cat_pca_0: "#e60100",
-  cat_pca_1: "#07871e",
-  cat_pca_2: "#109ea1",
-  cat_pca_3: "#fa5300",
-  cat_pca_4: "#8f35d4",
+  commerce_shopping: "#e60100",
+  fin_services: "#07871e",
+  lending_invests: "#109ea1",
+  payments: "#fa5300",
 };
 
 export default class CompanyAgeChart {
@@ -24,7 +23,7 @@ export default class CompanyAgeChart {
   constructor(element, csvData, axisLabels) {
     let vis = this;
 
-    vis.allSubGroups = ["all", "cat_pca_0", "cat_pca_1", "cat_pca_2", "cat_pca_3", "cat_pca_4"];
+    vis.allSubGroups = ["all", "commerce_shopping", "fin_services", "lending_invests", "payments"];
 
     vis.data = d3.csvParse(csvData);
 
@@ -114,7 +113,7 @@ export default class CompanyAgeChart {
 
   update(category) {
     const vis = this;
-    const {group, cat_pca_0, cat_pca_1, cat_pca_2, cat_pca_3, cat_pca_4 } = category;
+    const {group, commerce_shopping, fin_services, lending_invests, payments } = category;
 
     /* Initialize the `newKeys` array */
 
@@ -124,14 +123,11 @@ export default class CompanyAgeChart {
       newKeys = ["all"];
     }
     else {
-      cat_pca_0 && newKeys.push("cat_pca_0");
-      cat_pca_1 && newKeys.push("cat_pca_1");
-      cat_pca_2 && newKeys.push("cat_pca_2");
-      cat_pca_3 && newKeys.push("cat_pca_3");
-      cat_pca_4 && newKeys.push("cat_pca_4");
+      commerce_shopping && newKeys.push("commerce_shopping");
+      fin_services && newKeys.push("fin_services");
+      lending_invests && newKeys.push("lending_invests");
+      payments && newKeys.push("payments");
     }
-
-    console.log("newKeys: " + newKeys);
 
     /* Update axis */
 

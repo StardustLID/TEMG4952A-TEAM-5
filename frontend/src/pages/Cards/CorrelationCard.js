@@ -27,7 +27,7 @@ export default function CorrelationCard(props) {
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="Changeable Graph" titleTypographyProps={{ variant: "h2" }} />
+      <CardHeader title="Multi-Feature Visualization" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
         <Grid container>
           <Grid item xs={9}>

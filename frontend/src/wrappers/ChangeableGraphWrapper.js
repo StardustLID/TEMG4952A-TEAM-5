@@ -1,59 +1,54 @@
 import { useRef, useState, useEffect } from "react";
-import ChangableGraph from "../components/d3_charts/ChangeableGraph";
+import ChangeableGraph from "../components/d3_charts/ChangeableGraph";
 import LoadingSpinner from "../components/LoadingSpinner";
 import axios from "axios";
 
-var map = new Map();
-map.set("employee_count", "Employee Count");
-map.set("company_age", "Company Age");
-map.set("degree_level", "Executive Degree Level");
-map.set("first_fund", "Fund Size in Seeds/Angels");
-map.set("num_invested", "Number Invested by Top 100");
-map.set("mean_momentum", "Mean Momentum");
+const axisLabels = {
+  employee_count: "Employee Count",
+  company_age: "Company Age",
+  degree_level: "Average Degree Level of Executives *",
+  first_fund: "Fund Size in Seeds/Angels",
+  num_invested: "Number Invested by Top 100",
+  mean_momentum: "Mean Momentum",
+};
 
-export default function ChangableWrapper(props) {
+export default function ChangeableWrapper(props) {
   const plotArea = useRef(null); // Reference to the div where the plot will be rendered inside
-  const [plot, setPlot] = useState(null); // "plot" will later point to an instance of SingleBarChart
+  const [plot, setPlot] = useState(null); // "plot" will later point to an instance of ChangeableGraph
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // Render the graph whenever props.chartID changes
   useEffect(() => {
-    // Remove existing single bar chart when a new single bar chart is selected
-    /**if (plot) {
-      plot.removeGraph(); // Method of SingleBarChart
-      setLoading(true);
-    }*/
-
     // Remove the error icon if a new graph is selected
     if (error) {
       setError(false);
     }
 
     let myParams = { xaxis: props.xaxis, yaxis: props.yaxis };
-    let axisLabel = [map.get(props.xaxis), map.get(props.yaxis)];
+    let axisLabel = [axisLabels[props.xaxis], axisLabels[props.yaxis]];
 
     axios
       .post("/ChangableGraph", myParams)
       .then((res) => {
         setLoading(false);
-        //console.log(res.data);
-        setPlot(new ChangableGraph(plotArea.current, res.data, axisLabel));
+        setPlot(new ChangeableGraph(plotArea.current, res.data, axisLabel, myParams));
       })
       .catch((error) => {
+<<<<<<< HEAD
         setError(true);
         //console.log(error);
+=======
+        console.log(error);
+>>>>>>> 1bdf5d687486c798251d6f1fd46b8bdcecd29e29
       }); // failed to fetch data
   }, []);
-
-  // TODO: if use update then need to uncomment this part
 
   // Calls the update(category) method of SingleBarChart class when props.category updates
   // React will NOT re-render this component when props.category updates
   useEffect(() => {
     let myParams = { xaxis: props.xaxis, yaxis: props.yaxis };
-    let axisLabel = [map.get(props.xaxis), map.get(props.yaxis)];
+    let axisLabel = [axisLabels[props.xaxis], axisLabels[props.yaxis]];
 
     // Remove the error icon if a new graph is selected
     if (error) {
@@ -64,13 +59,26 @@ export default function ChangableWrapper(props) {
       .post("/ChangableGraph", myParams)
       .then((res) => {
         setLoading(false);
-        //console.log(res.data);
-        plot?.update(res.data, axisLabel);
+        plot?.update(res.data, axisLabel, myParams);
       })
       .catch(() => {
         setError(true);
       }); // failed to fetch data
   }, [plot, props.xaxis, props.yaxis]);
 
-  return loading || error ? <LoadingSpinner error={error} /> : <div className="plot-area" ref={plotArea} />;
+  const degreeTypeNote =
+    props.xaxis === "degree_level" || props.yaxis === "degree_level" ? (
+      <p style={{ fontSize: 14, color: "#555", margin: "15px 30px" }}>
+        * 0 = No data / No university degree ; 1 = Bachelor ; 2 = Master ; 3 = PhD
+      </p>
+    ) : null;
+
+  return loading || error ? (
+    <LoadingSpinner error={error} />
+  ) : (
+    <>
+      <div className="plot-area" ref={plotArea} />
+      {degreeTypeNote}
+    </>
+  );
 }
