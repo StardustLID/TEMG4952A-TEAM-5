@@ -22,7 +22,7 @@ const featuresData = [
     btnTitle: "Company Age",
     icon: "access_time",
     chartType: "multiBar",
-    axisLabels: ["Company Age (in years)", "Number of Companies"],
+    axisLabels: ["Company Age (rounded in nearest year)", "Number of Companies"],
   },
   {
     id: "funding-rounds",
@@ -81,11 +81,11 @@ const featuresData = [
   //   axisLabels: ["Top Acquirers' Names", "Number of Acquisitions"],
   // },
   {
-    id: "founder-edu",
-    btnTitle: "Founder Education Level",
+    id: "executives-edu",
+    btnTitle: "Executives Education Level",
     icon: "school",
     chartType: "histogram",
-    axisLabels: ["Education Level", "Number of Founders"],
+    axisLabels: ["Average Education Level of Executives", "Number of Companies"],
   },
   {
     id: "funding-location",

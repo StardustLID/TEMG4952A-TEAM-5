@@ -20,11 +20,10 @@ export default function MultiBarChartWrapper(props) {
   // For "Company Age" buttons
   const [ageCategory, setAgeCategory] = useState({
     group: "all", // Either "all" or "show_category"
-    cat_pca_0: true,
-    cat_pca_1: true,
-    cat_pca_2: true,
-    cat_pca_3: true,
-    cat_pca_4: true,
+    commerce_shopping: true,
+    fin_services: true,
+    lending_invests: true,
+    payments: true,
   });
 
   // Handler for radio buttons in "Company Age"

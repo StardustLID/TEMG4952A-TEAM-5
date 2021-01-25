@@ -24,17 +24,16 @@ export default function CompanyAgeBtnGroup(props) {
 
   const {
     // Obtain values from `ageCategory` prop via destructuring
-    ageCategory: { group, cat_pca_0, cat_pca_1, cat_pca_2, cat_pca_3, cat_pca_4 },
+    ageCategory: { group, commerce_shopping, fin_services, lending_invests, payments },
     radioBtnHandler,
     checkboxHandler,
   } = props;
 
   const checkboxData = [
-    { name: "cat_pca_0", label: "PCA 0", checked: cat_pca_0 },
-    { name: "cat_pca_1", label: "PCA 1", checked: cat_pca_1 },
-    { name: "cat_pca_2", label: "PCA 2", checked: cat_pca_2 },
-    { name: "cat_pca_3", label: "PCA 3", checked: cat_pca_3 },
-    { name: "cat_pca_4", label: "PCA 4", checked: cat_pca_4 },
+    { name: "commerce_shopping", label: "Commerce & Shopping", checked: commerce_shopping },
+    { name: "fin_services", label: "Financial Services", checked: fin_services },
+    { name: "lending_invests", label: "Lending and Investments", checked: lending_invests },
+    { name: "payments", label: "Payments", checked: payments },
   ];
 
   // Checkbox group under the "Show Categories" radio option

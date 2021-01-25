@@ -14,12 +14,12 @@ const useStyles = makeStyles({
 });
 
 function createData(rank, name, category, size, region, funding, ROI) {
-  return { rank, name, category, size, region, funding, ROI};
+  return { rank, name, category, size, region, funding, ROI };
 }
 
 const rows = [
   createData(1, "Gnosis", "BlockChain", "11-50", "Gibraltar", 12525000, 737.78),
-  createData(2, "KudiGo", "BlockChain", "1-10", "Greater Accra", 490000, 619.80),
+  createData(2, "KudiGo", "BlockChain", "1-10", "Greater Accra", 490000, 619.8),
   createData(3, "SafetyWing", "Financial Services", "1-10", "California", 4120000, 437.79),
   createData(4, "Nethone", "AI", "51-100", "Mazowieckie", 3903400, 363.27),
   createData(5, "Purchext", "App", "1-10", "Nova Scotia", 78876, 354.66),
@@ -29,6 +29,8 @@ export default function WorthInvestingTableHome() {
   const classes = useStyles();
 
   return (
+    <p style={{ fontSize: 30 }}>To be completed</p>
+    /*
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -57,5 +59,6 @@ export default function WorthInvestingTableHome() {
         </TableBody>
       </Table>
     </TableContainer>
+    */
   );
 }

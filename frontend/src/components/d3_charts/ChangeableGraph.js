@@ -96,6 +96,7 @@ export default class ChangableGraph {
       .attr("cy", y(0)) // Place the dots at bottom of the plot initially
       .attr("r", 5)
       .attr("fill", "red")
+      .attr("opacity", "0.5")
       .transition()
       .duration(500)
       .attr("cy", (d) => y(+d.ydata));
