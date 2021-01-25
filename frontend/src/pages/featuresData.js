@@ -38,13 +38,13 @@ const featuresData = [
     chartType: "line",
     axisLabels: ["Year", "Funding"],
   },
-  {
-    id: "num-investments",
-    btnTitle: "No. of Investments",
-    icon: "attach_money",
-    chartType: "histogram",
-    axisLabels: ["Number of Investments", "Number of Companies"],
-  },
+  // {
+  //   id: "num-investments",
+  //   btnTitle: "No. of Investments",
+  //   icon: "attach_money",
+  //   chartType: "histogram",
+  //   axisLabels: ["Number of Investments", "Number of Companies"],
+  // },
   // {
   //   id: "top-investors",
   //   btnTitle: "No. of Investments by Top 10 Investors",
@@ -73,18 +73,18 @@ const featuresData = [
     chartType: "histogram",
     axisLabels: ["Dollar Amount (1M USD)", "Number of Companies"],
   },
-  {
-    id: "top-acquirers",
-    btnTitle: "No. of Acquisitions by Top 10 Acquirers",
-    icon: "business",
-    chartType: "singleBar",
-    axisLabels: ["Top Acquirers' Names", "Number of Acquisitions"],
-  },
+  // {
+  //   id: "top-acquirers",
+  //   btnTitle: "No. of Acquisitions by Top 10 Acquirers",
+  //   icon: "business",
+  //   chartType: "singleBar",
+  //   axisLabels: ["Top Acquirers' Names", "Number of Acquisitions"],
+  // },
   {
     id: "founder-edu",
     btnTitle: "Founder Education Level",
     icon: "school",
-    chartType: "singleBar",
+    chartType: "histogram",
     axisLabels: ["Education Level", "Number of Founders"],
   },
   {

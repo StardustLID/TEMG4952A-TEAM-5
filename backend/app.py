@@ -72,17 +72,16 @@ Features Visualization
 
 @app.route('/features/num-employees')
 def num_employees():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
 	series = df['employee_count'].value_counts()
 
 	# Remove "unknown" column
 	series.drop(labels='unknown', inplace=True)
 
-	# Move the row of "10000+" downwards
-	temp = series['10000+']
-	series.drop(labels='10000+', inplace=True)
-	series['10000+'] = temp
-
+	# Re-order the CSV rows
+	df_num = series.to_frame()
+	df_num = df_num.reindex(["1-10", "11-50", "51-100", "101-250", "251-500", "501-1000", "1001-5000", "5001-10000"])
+	
 	# Prepare the dataframe to be converted to CSV string
 	df = series.to_frame()
 	df.reset_index(inplace=True)	# Stop using x axis labels as the dataframe's index
@@ -94,19 +93,15 @@ def num_employees():
 
 @app.route('/features/company-age')
 def company_age():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv", parse_dates=['founded_on'])
+	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv", parse_dates=['founded_on'])
 
 	# Remove unnecessary columns
 	categories = ['cat_pca_0', 'cat_pca_1', 'cat_pca_2', 'cat_pca_3', 'cat_pca_4']
 	cols_to_keep = ['founded_on', *categories]
 	df = df[cols_to_keep]
 
-	# Change `founded_on` from date string to no. of years from today
-	today = pd.Timestamp.today()
-	df['founded_on'] = (today - df['founded_on']) / pd.Timedelta(365, unit="d")
-
 	# Cast/Round columns
-	df['founded_on'] = df['founded_on'].round(0).astype(int)
+	df['founded_on'] = df['founded_on'].astype(float).round(0).astype(int)
 	for _ in categories:
 			df[_] = df[_].round(0).astype(int)
 
@@ -137,7 +132,7 @@ def company_age():
 
 @app.route('/features/funding-rounds')
 def funding_rounds():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
 	series = df['num_funding_rounds'].value_counts().sort_index()
 
 	# Remove num_funding_rounds == 0
@@ -165,17 +160,17 @@ def funding_per_round():
 	return data
 
 
-@app.route('/features/num-investments')
-def num_investments():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
-	series = df['investment_count']
+# @app.route('/features/num-investments')
+# def num_investments():
+# 	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
+# 	series = df['investment_count']
 
-	df = series.to_frame()
-	#drop zero
-	df = df[~(df == 0).any(axis = 1)]
-	df.rename(columns={'investment_count': 'x_values'}, inplace=True)
+# 	df = series.to_frame()
+# 	#drop zero
+# 	df = df[~(df == 0).any(axis = 1)]
+# 	df.rename(columns={'investment_count': 'x_values'}, inplace=True)
 
-	return df.to_csv(index = False)
+# 	return df.to_csv(index = False)
 
 
 @app.route('/features/top-investors')
@@ -205,11 +200,6 @@ def top_investments():
 	return df.to_csv(index=False)
 
 
-@app.route('/features/num-acquisitions')
-def num_acquisitions():
-	return 0
-
-
 @app.route('/features/acquisition-price')
 def acquisition_price():
 	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
@@ -229,7 +219,7 @@ def acquisition_price():
 
 @app.route('/features/funds-raised')
 def funds_raised():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
 	series = df['total_funding_usd']
 
 	df = series.to_frame()
@@ -264,24 +254,11 @@ def num_companies_owned():
 
 @app.route('/features/founder-edu')
 def founder_exp():
-	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
-
-	# Count frequency for different degree types
-	df_edu = df['degree_type'].value_counts().to_frame()
-	df_edu.reset_index(inplace=True)
-	df_edu['index'] = df_edu['index'].astype(int).astype(str)
-
-	# Rename columns & remove `x_label == '0'`
-	df_edu.rename(columns={'index': 'x_labels', 'degree_type': 'y_values'}, inplace=True)
-	df_edu = df_edu[1:]
-
-	# Convert x_label values from numbers to actual meaning
-	x_label_convert = {1: "Bachelor", 2: "Master", 3: "PhD"}
-
-	for key, value in x_label_convert.items():
-			df_edu.at[key, 'x_labels'] = value
+	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
+	df_degree = df['degree_type'].to_frame()
+	df_degree.rename(columns={'degree_type': 'x_values'}, inplace=True)
 	
-	return df_edu.to_csv(index=False)
+	return df_degree.to_csv(index=False)
 
 
 @app.route('/features/funding-location')
