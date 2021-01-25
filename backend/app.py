@@ -12,12 +12,19 @@ CORS(app)
 # Api Search bar
 @app.route('/SearchBar')
 def searchbar():
-	df = pd.read_csv("../Week3_Onwards/frontend_funding_per_round_list.csv")
+	df = pd.read_csv("../Week3_Onwards/unifed_csv.csv")
+	df = df["company_name"]
+
+	return df.to_csv(index=False)
+
+	'''df = pd.read_csv("../Week3_Onwards/frontend_funding_per_round_list.csv")
 	df.drop(columns="index", inplace = True)
 	df.drop(columns="org_uuid", inplace = True)
 
 	df = df["org_name"]
 	return df.to_csv(index = False)
+	'''
+
 
 
 # Api for the Changable Graph
