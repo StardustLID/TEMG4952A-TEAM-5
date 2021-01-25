@@ -1,8 +1,8 @@
 import Grid from "@material-ui/core/Grid";
 import WICard from "./Cards/WorthInvestingCard";
-import RICard from "./Cards/RecentInvestmentsCard";
-import ACard from "./Cards/AllocationCard";
-import CCard from "./Cards/CorrelationCard"
+// import RICard from "./Cards/RecentInvestmentsCard";
+// import ACard from "./Cards/AllocationCard";
+import CCard from "./Cards/CorrelationCard";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -32,7 +32,7 @@ export default function Home() {
             Home
           </Typography>
         </Grid>
-        {/* Grid that holds the 3 cards */}
+        {/* Grid that holds the 2 cards */}
         <Grid container item spacing={4}>
           <Grid container item sm={12} direction="column" spacing={4}>
             <Grid item>
@@ -40,12 +40,8 @@ export default function Home() {
             </Grid>
             <Grid item>
               <CCard />
-              {/*<RICard />*/}
             </Grid>
           </Grid>
-          {/* <Grid item sm={4}>
-            <ACard />
-          </Grid> */}
         </Grid>
       </Grid>
       <Grid item sm={1} /> {/* Adds right margin */}

@@ -1,8 +1,7 @@
 import { Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import PieChartWrapper from "../wrappers/PiechartWrapper";
-import WorldMapWrapper from "../wrappers/WorldMapWrapper";
+import CompaniesListCard from "./Cards/CompaniesListCard";
 
 const useStyles = makeStyles({
   root: {
@@ -24,18 +23,15 @@ function Companies() {
   return (
     <Grid container className={classes.root}>
       <Grid item sm={1} /> {/* Adds left margin */}
-      <Grid container item sm={10} direction="column" spacing={2}>
+      <Grid container item sm={10} direction="column" spacing={3}>
         <Grid item>
           <Typography variant="h1" className={classes.title}>
-            Chart Examples
+            Companies
           </Typography>
         </Grid>
         <Grid container item direction="column" spacing={2}>
-          <Grid container item spacing={4}>
-            <Grid item>{<PieChartWrapper />}</Grid>
-          </Grid>
-          <Grid container item spacing={4}>
-            <Grid item>{<WorldMapWrapper />}</Grid>
+          <Grid item>
+            <CompaniesListCard />
           </Grid>
         </Grid>
       </Grid>
