@@ -37,7 +37,7 @@ def ChangableGraph():
 	import pandas as pd
 	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
 
-	cols_to_keep = ['employee_count', 'founded_on', 'degree_type', "first_fund_raised", "average_momentum", "fd_rd_num_invested_by_top_100"]
+	cols_to_keep = ['employee_count', 'founded_on', 'degree_type', "first_fund_raised", "average_momentum", "fd_rd_num_invested_by_top_100", "first_fund_investor_count"]
 	df = df[cols_to_keep]
 
 	df.dropna(inplace = True)
@@ -45,11 +45,16 @@ def ChangableGraph():
 	# drop the row with negative mean momentum & unknown employee count
 	df.drop(df[df['average_momentum'] < 0].index, inplace = True)
 	df.drop(df[df['employee_count'] == "unknown"].index, inplace = True)
+	df.drop(df[df['first_fund_investor_count'] > 80].index, inplace = True)
 
+	# log first fund raised
+	df.drop(df[df['first_fund_raised'] == 0].index, inplace = True)
+	df["first_fund_raised"] = np.log10(df["first_fund_raised"])
+	
 	# rename the col
 	df.rename(columns={'founded_on': 'company_age', 'degree_type': 'degree_level', 
 	'first_fund_raised': 'first_fund', 'average_momentum': 'mean_momentum',
-	 "fd_rd_num_invested_by_top_100": "num_invested"}, inplace=True)
+	 "fd_rd_num_invested_by_top_100": "num_invested", "first_fund_investor_count": "investor_count"}, inplace=True)
 
 	df.rename(columns={data['xaxis']: 'xdata', data['yaxis']: 'ydata', }, inplace=True)
 
@@ -259,7 +264,11 @@ def funds_raised():
 	df.dropna(inplace=True)
 
 	# drop the index greater than 50,000,000
-	df.drop(df[df['total_funding_usd'] > 50000000].index, inplace = True)
+	#df.drop(df[df['total_funding_usd'] > 50000000].index, inplace = True)
+	df.drop(df[df['total_funding_usd'] == 0].index, inplace = True)
+
+	df['total_funding_usd'] = np.log10(df['total_funding_usd'])
+
 	df.rename(columns={'total_funding_usd': 'x_values'}, inplace=True)
 
 	return df.to_csv(index = False)

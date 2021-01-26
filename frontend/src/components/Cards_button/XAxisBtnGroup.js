@@ -20,8 +20,9 @@ const xaxisData = [
   //{ id: "company_location", label: "Company Location", disabled: 0 },
   //{ id: "company_category", label: "Company Category", disabled: 0 },
   { id: "degree_level", label: "Executive Degree Level", disabled: 0 },
-  { id: "first_fund", label: "Fund Size in Seeds/Angels", disabled: 0 },
+  { id: "first_fund", label: "First Funding Size (log$)", disabled: 0 },
   { id: "num_invested", label: "Number Invested by Top 100", disabled: 0 },
+  { id: "investor_count", label: "Number of Investors in First Funding", disabled: 0 },
 ];
 
 function XAxisBtnGroup(props) {

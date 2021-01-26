@@ -138,6 +138,8 @@ export default class LineGraph {
           .html(
             "Type: " + vis.getInvestTypeName(d.invest_type)
             + "<br/>"
+            + "Amount: " + d.raised_amount
+            + "<br/>"
             + "No. of Investor(s): " + d.investor_count
             + "<br />"
             + "Announced On: " + d.announced_on

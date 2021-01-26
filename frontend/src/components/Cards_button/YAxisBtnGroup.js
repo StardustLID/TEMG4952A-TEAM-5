@@ -17,7 +17,7 @@ const yaxisData = [
   { id: "mean_momentum", label: "Mean Momentum", disabled: 0 },
   { id: "company_age", label: "Company Age", disabled: 0 },
   { id: "degree_level", label: "Executive Degree Level", disabled: 0 },
-  { id: "first_fund", label: "Fund Size in Seeds/Angels", disabled: 0 },
+  { id: "first_fund", label: "First Funding Size (log$)", disabled: 0 },
   { id: "num_invested", label: "Number Invested by Top 100", disabled: 0 },
 ];
 
