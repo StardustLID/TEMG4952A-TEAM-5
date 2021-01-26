@@ -4,8 +4,8 @@ import SearchBar from "../../components/SearchBar";
 import { useState } from "react";
 
 function LineGraphwithSearchBarCard() {
-  // value of the searching, set "Beatdapp" as default value
-  const [value, setValue] = useState("Beatdapp");
+  // value of the searching, set "Dispatch" as default value
+  const [value, setValue] = useState("Dispatch");
 
   return (
     <Grid container direction="column" spacing={2}>
