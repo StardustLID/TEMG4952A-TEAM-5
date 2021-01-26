@@ -1,9 +1,11 @@
 import { useRef, useState, useEffect } from "react";
+import Grid from "@material-ui/core/Grid";
+import axios from "axios";
 import MultiBarChart from "../components/d3_charts/MultiBarChart";
 import CompanyAgeChart from "../components/d3_charts/CompanyAgeChart";
 import LoadingSpinner from "../components/LoadingSpinner";
-import axios from "axios";
 import featuresData from "../pages/featuresData";
+import CompanyAgeBtnGroup from "../components/Cards_button/CompanyAgeBtnGroup";
 
 export default function MultiBarChartWrapper(props) {
   const { chartID } = props;
@@ -16,13 +18,23 @@ export default function MultiBarChartWrapper(props) {
   const [error, setError] = useState(false);
 
   // For "Company Age" buttons
-  const [companyAgeCategory, setCompanyAgeCategory] = useState({
-    all: true,
-    financial_services: false,
-    fintech: false,
-    finance: false,
-    payments: false,
+  const [ageCategory, setAgeCategory] = useState({
+    group: "all", // Either "all" or "show_category"
+    commerce_shopping: true,
+    fin_services: true,
+    lending_invests: true,
+    payments: true,
   });
+
+  // Handler for radio buttons in "Company Age"
+  const aegRadioBtnHandler = (event) => {
+    setAgeCategory({ ...ageCategory, group: event.target.value });
+  };
+
+  // Handler for checkboxes in "Company Age"
+  const ageCheckboxHandler = (event) => {
+    setAgeCategory({ ...ageCategory, [event.target.value]: event.target.checked });
+  };
 
   // Let D3 render the scatterplot after this component finished mounting
   useEffect(() => {
@@ -51,11 +63,35 @@ export default function MultiBarChartWrapper(props) {
       .catch(() => setError(true)); // failed to fetch data
   }, [chartID]);
 
-  // Calls the update(category) method of SingleBarChart class when props.category updates
-  // React will NOT re-render this component when props.category updates
-  /*useEffect(() => {
-    plot?.update(props.category);
-  }, [plot, props.category]);*/
+  const renderComponent =
+    chartID === "company-age" ? (
+      <Grid container direction="row" spacing={2}>
+        <Grid container item sm={8}>
+          <Grid item>
+            <div className="plot-area" ref={plotArea} />
+          </Grid>
+        </Grid>
+        <Grid container sm={4} item>
+          <Grid item>
+            <CompanyAgeBtnGroup
+              ageCategory={ageCategory}
+              radioBtnHandler={aegRadioBtnHandler}
+              checkboxHandler={ageCheckboxHandler}
+            />
+          </Grid>
+        </Grid>
+      </Grid>
+    ) : (
+      <div className="plot-area" ref={plotArea} />
+    );
 
-  return loading || error ? <LoadingSpinner error={error} /> : <div className="plot-area" ref={plotArea} />;
+  // Calls `update(category)` method of CompanyAgeChart object when `ageCategory` updates
+  // React will NOT re-render this component when props.category updates
+  useEffect(() => {
+    if (chartID === "company-age") {
+      plot?.update(ageCategory);
+    }
+  }, [plot, ageCategory]);
+
+  return loading || error ? <LoadingSpinner error={error} /> : renderComponent;
 }

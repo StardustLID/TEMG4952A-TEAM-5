@@ -30,7 +30,7 @@ export default function Features() {
   return (
     <Grid container className={classes.root}>
       <Grid item sm={1} /> {/* Adds left margin */}
-      <Grid container item sm={10} direction="column" spacing={3}>
+      <Grid container item sm={10} direction="column" spacing={2}>
         <Grid item>
           <Typography variant="h1" className={classes.title}>
             Features Visualization

@@ -25,7 +25,8 @@ export default class Histogram {
 
     const data = d3.csvParse(csvData); // Parse a string of CSV data
         
-    let max = d3.max(data, (d) => d.x_values)
+    let max = d3.max(data, (d) => +d.x_values)
+
     var x = d3
         .scaleLinear()
         .domain([0, max * 1.1])

@@ -37,6 +37,8 @@ This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render 
    flask run
    ```
 
+   If you encountered the following error when running `.\venv\Scripts\activate`, read [item 1.3.1](#131-running-scripts-is-disabled-on-the-system) in the Troubleshooting section.
+
 7. Keep this Powershell window running in background. At the same time, open another Powershell window and change directory to this repository's root
 8. Run the following commands:
 
@@ -69,6 +71,24 @@ This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render 
    ```
 
 ### 1.3 Troubleshooting
+
+#### 1.3.1 Running scripts is disabled on the system
+
+For Windows users, if you encounter the following error while running `.\venv\Scripts\activate`:
+
+> .\venv\Scripts\activate : File path\to\repo\root\backend\venv\Scripts\Activate.ps1 cannot be loaded because running scripts is disabled on this system.
+
+1. Open "Start" menu by pressing the Window key on the keyboard
+2. Search for "Windows Powershell"
+3. Run Powershell as Administrator
+4. Run the following command:
+
+   `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted`
+
+5. Type `Y` (Yes) when it asks whether you want to change the execution policy
+6. Retry the commands in [section 1.1](#11-for-windows-users) item 6
+
+#### 1.3.2 `npm start` not working
 
 If you failed to run `npm start` after running `npm install` at the `frontend/` directory, try re-installation all the npm packages:
 

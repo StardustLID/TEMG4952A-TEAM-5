@@ -2,27 +2,21 @@ import * as d3 from "d3";
 
 // Dummy data to be deleted
 const data1 = [
-  { age: "10", height: "152", name: "Tony" },
-  { age: "12", height: "148", name: "Jessica" },
-  { age: "9", height: "135", name: "Andrew" },
-  { age: "10", height: "145", name: "Emily" },
-  { age: "11", height: "141", name: "Richard" },
-];
-
-const data2 = [
-  { age: "29", height: "170", name: "Tony" },
-  { age: "26", height: "180", name: "Jessica" },
-  { age: "34", height: "169", name: "Andrew" },
-  { age: "54", height: "174", name: "Emily" },
-  { age: "33", height: "178", name: "Richard" },
-];
-
-const data3 = [
-  { age: "67", height: "100", name: "Tony" },
-  { age: "10", height: "100", name: "Jessica" },
-  { age: "55", height: "100", name: "Andrew" },
-  { age: "45", height: "100", name: "Emily" },
-  { age: "33", height: "170", name: "Richard" },
+  { age: "10", height: "152", name: "Tony" , phases: 0, sizes: 1, category: 0},
+  { age: "12", height: "148", name: "Jessica", phases: 2, sizes: 2, category: 1},
+  { age: "9", height: "135", name: "Andrew", phases: 1, sizes: 0, category: 2},
+  { age: "10", height: "145", name: "Emily", phases: 2 , sizes: 2, category: 1},
+  { age: "11", height: "141", name: "Richard" , phases: 1, sizes: 0, category: 2},
+  { age: "29", height: "170", name: "Tony", phases: 0 , sizes: 2, category: 1},
+  { age: "26", height: "180", name: "Jessica", phases: 2 , sizes: 1, category: 0 },
+  { age: "34", height: "169", name: "Andrew", phases: 0 , sizes: 2, category: 1 },
+  { age: "54", height: "174", name: "Emily", phases: 0 , sizes: 2, category: 2},
+  { age: "33", height: "178", name: "Richard", phases: 1 , sizes: 0, category: 1},
+  { age: "67", height: "100", name: "Tony", phases: 2 , sizes: 0, category: 0},
+  { age: "10", height: "100", name: "Jessica", phases: 1 , sizes: 1, category: 2 },
+  { age: "55", height: "100", name: "Andrew", phases: 0 , sizes: 1, category: 1},
+  { age: "45", height: "100", name: "Emily", phases: 2 , sizes: 0, category: 1 },
+  { age: "33", height: "170", name: "Richard", phases: 1 , sizes: 2, category: 0 },
 ];
 
 const MARGIN = { TOP: 10, BOTTOM: 80, LEFT: 70, RIGHT: 10 };
@@ -47,6 +41,10 @@ class D3Scatterplot {
     vis.x = d3.scaleLinear().range([0, WIDTH]);
     vis.y = d3.scaleLinear().range([HEIGHT, 0]);
 
+    vis.color = d3.scaleOrdinal(d3.schemeCategory10).domain([0, 2])
+    console.log(vis.color(0))
+    console.log(vis.color(1))
+
     // Axis groups (ie. "containers" for the axis)
     vis.xAxisGroup = vis.g.append("g").attr("transform", `translate(0, ${HEIGHT})`);
     vis.yAxisGroup = vis.g.append("g");
@@ -69,10 +67,8 @@ class D3Scatterplot {
       .attr("text-anchor", "middle")
       .text("Sample text");
 
-    vis.data1 = data1;
-    vis.data2 = data2;
-    vis.data3 = data3;
-
+    vis.data = data1;
+    
     // Finish the initial rendering of the plot
     vis.update("phases");
   }
@@ -80,16 +76,15 @@ class D3Scatterplot {
   update(cluster) {
     let vis = this;
 
-    console.log(cluster);
-
-    if (cluster === "phases") {
+    // For chaging the data
+    /** if (cluster === "phases") {
       vis.data = vis.data1;
     } else if (cluster === "sizes") {
       vis.data = vis.data2;
     } else {
       vis.data = vis.data3;
-    }
-
+    }*/
+    
     // Define the domain of x-axis and y-axis
     vis.x.domain([0, d3.max(vis.data, (d) => Number(d.age))]);
     vis.y.domain([0, d3.max(vis.data, (d) => Number(d.height))]);
@@ -106,7 +101,7 @@ class D3Scatterplot {
       .call(yAxisCall);
 
     // Data join
-    const circles = vis.g.selectAll("circle").data(vis.data, (d) => d.name);
+    const circles = vis.g.selectAll("circle").data(vis.data);
 
     // Exit
     circles.exit()
@@ -116,10 +111,11 @@ class D3Scatterplot {
 
     // Update
     circles
-      .transition().duration(500)
+      .attr("fill", (d)=>vis.color(d[cluster]))
+      /** .transition().duration(500)
       .attr("cx", (d) => vis.x(d.age))
-      .attr("cy", (d) => vis.y(d.height));
-
+      .attr("cy", (d) => vis.y(d.height));*/
+      
     // Enter
     circles
       .enter()
@@ -127,7 +123,7 @@ class D3Scatterplot {
       .attr("cx", (d) => vis.x(d.age))
       .attr("cy", vis.y(0))   // Place the dots at bottom of the plot initially
       .attr("r", 5)
-      .attr("fill", "red")
+      .attr("fill", (d)=>vis.color(d[cluster]))
       .transition().duration(500)
       .attr("cy", (d) => vis.y(d.height));
   }
