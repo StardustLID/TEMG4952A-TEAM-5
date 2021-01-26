@@ -273,6 +273,21 @@ def funds_raised():
 
 	return df.to_csv(index = False)
 
+@app.route('/features/first-fund')
+def first_fund():
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	series = df['first_fund_raised']
+
+	df = series.to_frame()
+	df.dropna(inplace=True)
+
+	df.drop(df[df['first_fund_raised'] == 0].index, inplace = True)
+
+	df['first_fund_raised'] = np.log10(df['first_fund_raised'])
+
+	df.rename(columns={'first_fund_raised': 'x_values'}, inplace=True)
+
+	return df.to_csv(index = False)
 
 # @app.route('/features/top-acquirers')
 # def num_companies_owned():

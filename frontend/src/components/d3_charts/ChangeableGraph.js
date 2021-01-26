@@ -51,7 +51,7 @@ export default class ChangableGraph {
 
     let xmax = d3.max(data, (d) => +d.xdata);
     let ymax = d3.max(data, (d) => +d.ydata);
-    console.log(ymax * 1.05)
+    console.log(ymax * 1.05);
 
     // Scales for x and y
     let x = d3
@@ -61,7 +61,8 @@ export default class ChangableGraph {
 
     // Special case: Use ordinal scale for employee count
     if (isEmployeeCount) {
-      x = d3.scaleBand()
+      x = d3
+        .scaleBand()
         .domain(["1-10", "11-50", "51-100", "101-250", "251-500", "501-1000", "1001-5000", "5001-10000"])
         .range([0, d3Utils.WIDTH]);
     }
@@ -91,19 +92,20 @@ export default class ChangableGraph {
     circles
       .transition()
       .duration(500)
-      .attr("cx", (d) => isEmployeeCount ? x(d.xdata) + x.bandwidth()/2 : x(+d.xdata))
+      .attr("cx", (d) => (isEmployeeCount ? x(d.xdata) + x.bandwidth() / 2 : x(+d.xdata)))
       .attr("cy", (d) => y(+d.ydata));
 
     // Enter
     circles
       .enter()
       .append("circle")
-        .attr("cx", (d) => isEmployeeCount ? x(d.xdata) + x.bandwidth()/2 : x(+d.xdata))
-        .attr("cy", y(0)) // Place the dots at bottom of the plot initially
-        .attr("r", 4)
-        .attr("fill", "red")
-        .attr("opacity", "0.45")
-        .transition().duration(500)
-        .attr("cy", (d) => y(+d.ydata));
+      .attr("cx", (d) => (isEmployeeCount ? x(d.xdata) + x.bandwidth() / 2 : x(+d.xdata)))
+      .attr("cy", y(0)) // Place the dots at bottom of the plot initially
+      .attr("r", 4)
+      .attr("fill", "red")
+      .attr("opacity", "0.2")
+      .transition()
+      .duration(500)
+      .attr("cy", (d) => y(+d.ydata));
   }
 }
