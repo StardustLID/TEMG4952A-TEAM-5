@@ -71,8 +71,17 @@ const featuresData = [
     btnTitle: "Total Funds Raised",
     icon: "money",
     chartType: "histogram",
-    axisLabels: ["Dollar Amount (1M USD)", "Number of Companies"],
+    axisLabels: ["Dollar Amount (log$)", "Number of Companies"],
   },
+
+  {
+    id: "first-fund",
+    btnTitle: "First Fund Raised",
+    icon: "monetization_on",
+    chartType: "histogram",
+    axisLabels: ["Dollar Amount (log$)", "Number of Companies"],
+  },
+
   // {
   //   id: "top-acquirers",
   //   btnTitle: "No. of Acquisitions by Top 10 Acquirers",

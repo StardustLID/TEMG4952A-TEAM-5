@@ -7,9 +7,11 @@ const axisLabels = {
   employee_count: "Employee Count",
   company_age: "Company Age",
   degree_level: "Average Degree Level of Executives *",
-  first_fund: "Fund Size in Seeds/Angels",
+  first_fund: "First Funding Size ($)",
+  first_fund_log: "First Funding Size (log$)",
   num_invested: "Number Invested by Top 100",
   mean_momentum: "Mean Momentum",
+  investor_count: "Number of Investors in First Funding",
 };
 
 export default function ChangeableWrapper(props) {
