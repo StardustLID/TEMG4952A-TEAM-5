@@ -55,7 +55,7 @@ function XAxisBtnGroup(props) {
           <FormControlLabel
             value={item.id}
             disabled={item.disabled}
-            control={<Radio />}
+            control={<Radio color="primary" />}
             label={item.label}
             key={item.id}
           />

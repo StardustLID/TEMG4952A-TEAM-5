@@ -24,7 +24,7 @@ export default function WorthInvestingCard() {
       <CardContent>
         <WorthInvestingTable inHomePage />
         <Button color="primary" href="/companies" className={classes.seeMoreBtn}>
-          See More
+          See Full List
         </Button>
       </CardContent>
     </Card>

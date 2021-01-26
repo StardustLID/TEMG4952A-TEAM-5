@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const yaxisData = [
-  { id: "mean_momentum", label: "Mean Momentum*", disabled: 0 },
+  { id: "mean_momentum", label: "Mean Momentum", disabled: 0 },
   { id: "first_fund", label: "First Funding Size ($)", disabled: 0 },
   { id: "first_fund_log", label: "First Funding Size (log$)", disabled: 0 },
   { id: "investor_count", label: "Number of Investors in First Funding", disabled: 0 },
@@ -55,7 +55,7 @@ function YAxisBtnGroup(props) {
           <FormControlLabel
             value={item.id}
             disabled={item.disabled}
-            control={<Radio />}
+            control={<Radio color="primary" />}
             label={item.label}
             key={item.id}
           />

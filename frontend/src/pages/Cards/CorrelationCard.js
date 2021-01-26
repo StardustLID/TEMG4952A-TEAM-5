@@ -29,11 +29,11 @@ export default function CorrelationCard(props) {
     <Card className={classes.root}>
       <CardHeader title="Multi-Feature Visualization" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
-        <Grid container>
+        <Grid container alignItems="center">
           <Grid item xs={9}>
             <ChangeableGraphWrapper xaxis={xaxis} yaxis={yaxis} />
           </Grid>
-          <Grid container item xs={3}>
+          <Grid container item xs={3} spacing={2}>
             <Grid item>
               <XAxisBtnGroup selected={xaxis} selectXaxis={selectXaxis} yaxis={yaxis} />
             </Grid>

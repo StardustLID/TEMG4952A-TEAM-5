@@ -1,8 +1,20 @@
 import { useState, useEffect } from "react";
 import { DataGrid } from "@material-ui/data-grid";
+import { makeStyles } from "@material-ui/core/styles";
 import { csvParse as d3_csvParse } from "d3";
 import axios from "axios";
 import LoadingSpinner from "../LoadingSpinner";
+
+const useStyles = makeStyles(() => ({
+  root: {
+    height: 550,
+    width: "100%",
+  },
+  rootHome: {
+    height: 340,
+    width: "100%",
+  },
+}));
 
 const columns = [
   {
@@ -11,10 +23,10 @@ const columns = [
     width: 100,
     description: "Ranked in descending order of Average Momentum",
   },
+  { field: "category", headerName: "Company Category", width: 180 },
   { field: "company_name", headerName: "Company", width: 150 },
   { field: "num_funding_rounds", headerName: "Funding Rounds", width: 160 },
   { field: "fd_rd_latest_investment", headerName: "Latest Investment", width: 170 },
-  { field: "category", headerName: "Company Category", width: 180 },
   { field: "first_fund_investor_count", headerName: "# of First Fund Investors", width: 210 },
   {
     field: "first_fund_post_money",
@@ -92,6 +104,8 @@ function processRows(parsedCsvData) {
 export default function WorthInvestingTableHome(props) {
   const { inHomePage } = props;
 
+  const classes = useStyles();
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -118,8 +132,14 @@ export default function WorthInvestingTableHome(props) {
   return loading || error ? (
     <LoadingSpinner error={error} />
   ) : (
-    <div style={{ height: 340, width: "100%" }}>
-      <DataGrid rows={tableRows} columns={columns} disableSelectionOnClick hideFooter={inHomePage} />
+    <div className={inHomePage ? classes.rootHome : classes.root}>
+      <DataGrid
+        rows={tableRows}
+        columns={columns}
+        disableSelectionOnClick
+        hideFooter={inHomePage}
+        pageSize={50}
+      />
     </div>
   );
 }
