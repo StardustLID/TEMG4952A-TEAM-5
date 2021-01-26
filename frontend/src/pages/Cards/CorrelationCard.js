@@ -19,7 +19,7 @@ export default function CorrelationCard(props) {
   const classes = useStyles(props);
 
   // This state has values of "phases", "sizes", "category"
-  const [xaxis, setXaxis] = useState("degree_level");
+  const [xaxis, setXaxis] = useState("first_fund");
   const [yaxis, setYaxis] = useState("mean_momentum");
 
   const selectXaxis = (xaxis) => setXaxis(xaxis);

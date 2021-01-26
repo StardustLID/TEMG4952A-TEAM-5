@@ -46,15 +46,18 @@ def ChangableGraph():
 	df.drop(df[df['average_momentum'] < 0].index, inplace = True)
 	df.drop(df[df['employee_count'] == "unknown"].index, inplace = True)
 	df.drop(df[df['first_fund_investor_count'] > 80].index, inplace = True)
+	df.drop(df[df['first_fund_raised'] > 25000000].index, inplace = True)
+
 
 	# log first fund raised
 	df.drop(df[df['first_fund_raised'] == 0].index, inplace = True)
-	df["first_fund_raised"] = np.log10(df["first_fund_raised"])
+	df["first_fund_raised_log"] = np.log10(df["first_fund_raised"])
 	
 	# rename the col
 	df.rename(columns={'founded_on': 'company_age', 'degree_type': 'degree_level', 
 	'first_fund_raised': 'first_fund', 'average_momentum': 'mean_momentum',
-	 "fd_rd_num_invested_by_top_100": "num_invested", "first_fund_investor_count": "investor_count"}, inplace=True)
+	 "fd_rd_num_invested_by_top_100": "num_invested", "first_fund_investor_count": "investor_count", 
+	 "first_fund_raised_log": 'first_fund_log'}, inplace=True)
 
 	df.rename(columns={data['xaxis']: 'xdata', data['yaxis']: 'ydata', }, inplace=True)
 
