@@ -2,11 +2,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
-import WorthInvestingTableHome from "../../components/tables/WorthInvestingTableHome";
+import WorthInvestingTable from "../../components/tables/WorthInvestingTable";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   root: {
+    padding: 5,
     minHeight: 300,
+  },
+  seeMoreBtn: {
+    marginTop: 20,
   },
 });
 
@@ -17,7 +22,10 @@ export default function WorthInvestingCard() {
     <Card className={classes.root}>
       <CardHeader title="Companies Worth Investing" titleTypographyProps={{ variant: "h2" }} />
       <CardContent>
-        <WorthInvestingTableHome />
+        <WorthInvestingTable inHomePage />
+        <Button color="primary" href="/companies" className={classes.seeMoreBtn}>
+          See More
+        </Button>
       </CardContent>
     </Card>
   );

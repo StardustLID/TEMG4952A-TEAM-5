@@ -25,6 +25,15 @@ def searchbar():
 	return df.to_csv(index = False)
 	'''
 
+# Top 400 worth investing companies
+@app.route('/top-companies')
+def top_companies():
+	df = pd.read_csv("../Week3_Onwards/Company_name_output.csv")
+	df['average_momentum'] = df['average_momentum'].round(3)
+	df.drop(columns=['tree_prediction'], inplace=True)
+	df.reset_index(inplace=True)
+
+	return df.to_csv(index=False)
 
 
 # Api for the Changable Graph
