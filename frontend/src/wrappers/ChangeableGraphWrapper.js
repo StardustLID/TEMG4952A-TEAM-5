@@ -75,6 +75,10 @@ export default function ChangeableWrapper(props) {
     <LoadingSpinner error={error} />
   ) : (
     <>
+      <p style={{ fontSize: 14, color: "#555", margin: "15px 30px" }}>
+        Each dot represents a company. Companies that are in top 400 worth investing list are highlighted in
+        blue.
+      </p>
       <div className="plot-area" ref={plotArea} />
       {degreeTypeNote}
     </>
