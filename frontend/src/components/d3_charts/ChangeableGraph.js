@@ -110,7 +110,7 @@ export default class ChangableGraph {
       .attr("cy", y(0)) // Place the dots at bottom of the plot initially
       .attr("r", 4)
       .attr("fill", (d) => d.is_top == "1" ? "blue" : "red")
-      .attr("opacity", (d) => d.is_top == "1" ? "0.4" : "0.2")
+      .attr("opacity", (d) => d.is_top == "1" ? "0.6" : "0.2")
       .transition()
       .duration(500)
       .attr("cy", (d) => (isEmployeeCounty ? y(d.ydata) + y.bandwidth() / 2 : y(+d.ydata)));

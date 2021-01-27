@@ -28,9 +28,8 @@ def searchbar():
 # Top 400 worth investing companies
 @app.route('/top-companies')
 def top_companies():
-	df = pd.read_csv("../Week3_Onwards/Company_name_output.csv")
+	df = pd.read_csv("../Week3_Onwards/predicted_best_100.csv")
 	df['average_momentum'] = df['average_momentum'].round(3)
-	df.drop(columns=['tree_prediction'], inplace=True)
 	df.reset_index(inplace=True)
 
 	return df.to_csv(index=False)
@@ -63,7 +62,7 @@ def ChangableGraph():
 	df["first_fund_raised_log"] = np.log10(df["first_fund_raised"])
 	
 	# Add a column called `is_top` to indicate whether the company is in top 10%
-	df_top = pd.read_csv("../Week3_Onwards/Company_name_output.csv")
+	df_top = pd.read_csv("../Week3_Onwards/predicted_best_100.csv")
 	df_top = df_top['company_name'].to_frame()
 
 	top_companies = []
@@ -72,7 +71,6 @@ def ChangableGraph():
 			top_companies.append(row['company_name'])
 
 	df['is_top'] = df['company_name'].isin(top_companies).astype(int)
-	df.loc[(df['is_top'] == 1) & (df['average_momentum'] < 1.7), ['is_top']] = 0
 
 	# rename the col
 	df.rename(columns={'founded_on': 'company_age', 'degree_type': 'degree_level', 

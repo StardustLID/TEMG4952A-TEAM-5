@@ -23,8 +23,14 @@ const columns = [
     width: 100,
     description: "Ranked in descending order of Average Momentum",
   },
-  { field: "company_name", headerName: "Company", width: 150 },
+  { field: "company_name", headerName: "Company", width: 180 },
   { field: "category", headerName: "Company Category", width: 180 },
+  {
+    field: "employee_count",
+    headerName: "Employee Count",
+    width: 170,
+    valueFormatter: (param) => getEmployeeCount(param.value),
+  },
   { field: "num_funding_rounds", headerName: "Funding Rounds", width: 160 },
   { field: "fd_rd_latest_investment", headerName: "Latest Investment", width: 170 },
   { field: "first_fund_investor_count", headerName: "# of First Fund Investors", width: 210 },
@@ -61,6 +67,27 @@ function getCategoryName(row) {
   }
 }
 
+function getEmployeeCount(id) {
+  switch (id) {
+    case 1:
+      return "1-10";
+    case 2:
+      return "11-50";
+    case 3:
+      return "51-100";
+    case 4:
+      return "101-250";
+    case 5:
+      return "251-500";
+    case 6:
+      return "501-600";
+    case 7:
+      return "10000+";
+    default:
+      return "Unknown";
+  }
+}
+
 function getLatestInvestName(investType) {
   switch (investType) {
     case 0:
@@ -88,9 +115,10 @@ function processRows(parsedCsvData) {
   const rows = parsedCsvData.map((row) => ({
     id: +row.index + 1,
     company_name: row.company_name,
+    category: getCategoryName(row),
+    employee_count: +row.employee_count,
     num_funding_rounds: +row.num_funding_rounds,
     fd_rd_latest_investment: getLatestInvestName(+row.fd_rd_latest_investment),
-    category: getCategoryName(row),
     first_fund_investor_count: +row.first_fund_investor_count,
     first_fund_post_money: +row.first_fund_post_money,
     num_exec: +row.num_exec,
