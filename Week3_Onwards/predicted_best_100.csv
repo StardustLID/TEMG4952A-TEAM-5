@@ -1,101 +1,101 @@
 company_name,status,category_group_list,num_funding_rounds,total_funding_usd,founded_on,employee_count
 BrikkApp,operating,"Commerce and Shopping,Financial Services,Other,Real Estate",2.0,542698.0,3.0767,1
-Beatdapp,operating,Unknown,4.0,2421799.0,3.0767,2
-Mobius,operating,"Apps,Financial Services,Payments,Software",2.0,39500000.0,4.0767,3
-FRESCO,operating,Unknown,2.0,5100000.0,3.2932,2
 SONM,operating,Unknown,2.0,42500000.0,5.0795,3
+FRESCO,operating,Unknown,2.0,5100000.0,3.2932,2
+Mobius,operating,"Apps,Financial Services,Payments,Software",2.0,39500000.0,4.0767,3
 Avenews-GT,operating,"Agriculture and Farming,Commerce and Shopping,Financial Services,Information Technology,Lending and Investments,Other",2.0,340000.0,3.7918,1
-Betmatch,operating,Unknown,2.0,4150000.0,2.9671,2
+Beatdapp,operating,Unknown,4.0,2421799.0,3.0767,2
 TrustToken,operating,"Commerce and Shopping,Financial Services,Other,Payments,Software",4.0,21700000.0,4.0767,2
-OnePipe,operating,Financial Services,2.0,1120000.0,3.0767,1
+Betmatch,operating,Unknown,2.0,4150000.0,2.9671,2
 Acorn Collective,operating,"Community and Lifestyle,Financial Services,Other",2.0,4400000.0,3.6630000000000003,2
-Dispatch,acquired,"Financial Services,Information Technology,Internet Services,Messaging and Telecommunications,Software",3.0,983000.0,9.7534,1
-Flex,operating,Financial Services,2.0,5800000.0,2.0767,2
-Pipe,operating,"Financial Services,Internet Services,Software",3.0,66000000.0,1.4959,2
 Wunderite,operating,"Financial Services,Software",2.0,130000.0,3.0767,1
+Pipe,operating,"Financial Services,Internet Services,Software",3.0,66000000.0,1.4959,2
+OnePipe,operating,Financial Services,2.0,1120000.0,3.0767,1
+Flex,operating,Financial Services,2.0,5800000.0,2.0767,2
 Core Scientific,operating,Unknown,3.0,72000000.0,4.0767,4
-FreightBro,operating,"Apps,Commerce and Shopping,Internet Services,Other,Software,Transportation",4.0,3500000.0,4.3233,2
-Finmark,operating,"Financial Services,Information Technology,Software",2.0,5125000.0,1.0767,2
-Moves,operating,"Apps,Financial Services,Software",2.0,9100000.0,0.8685,2
 Abacus,operating,"Financial Services,Other,Software",2.0,2120000.0,2.6521,1
+SURETLY,operating,"Financial Services,Lending and Investments",4.0,3380000.0,4.663,2
+FreightBro,operating,"Apps,Commerce and Shopping,Internet Services,Other,Software,Transportation",4.0,3500000.0,4.3233,2
+Dispatch,acquired,"Financial Services,Information Technology,Internet Services,Messaging and Telecommunications,Software",3.0,983000.0,9.7534,1
+Numbers Protocol,operating,Unknown,4.0,950000.0,1.6849,2
+Finmark,operating,"Financial Services,Information Technology,Software",2.0,5125000.0,1.0767,2
+Priceonomics,operating,"Commerce and Shopping,Financial Services,Internet Services,Software",4.0,1670000.0,9.1671,2
+Handle,operating,"Data and Analytics,Financial Services,Information Technology,Real Estate,Software",2.0,4650000.0,2.0767,2
 Yotta Savings,operating,Financial Services,2.0,3425000.0,1.3288,2
+Inkrypt,operating,Unknown,2.0,1300000.0,3.0767,1
 Pay-Z,operating,"Apps,Financial Services,Mobile,Payments,Software",2.0,366172.0,4.0767,0
 1inch Exchange,operating,"Financial Services,Lending and Investments,Other,Payments,Software",3.0,14800000.0,1.6959,1
-Acudeen Technologies,operating,"Financial Services,Other",4.0,6750000.0,4.8329,3
-Priceonomics,operating,"Commerce and Shopping,Financial Services,Internet Services,Software",4.0,1670000.0,9.1671,2
-Inkrypt,operating,Unknown,2.0,1300000.0,3.0767,1
-CoinTracker,operating,"Apps,Financial Services,Other,Payments,Professional Services,Software",2.0,1620000.0,3.4384,1
-SURETLY,operating,"Financial Services,Lending and Investments",4.0,3380000.0,4.663,2
-BlockCypher,operating,"Financial Services,Hardware,Internet Services,Payments,Software",2.0,3500000.0,7.0795,2
-Numbers Protocol,operating,Unknown,4.0,950000.0,1.6849,2
-Handle,operating,"Data and Analytics,Financial Services,Information Technology,Real Estate,Software",2.0,4650000.0,2.0767,2
-Stem,operating,"Financial Services,Other,Privacy and Security",2.0,297169.0,3.411,1
-Groundhog,operating,"Commerce and Shopping,Financial Services,Internet Services,Other,Payments,Software",2.0,620000.0,3.0767,1
-OpenSea,operating,"Commerce and Shopping,Financial Services,Other,Payments,Software",3.0,4220000.0,3.1096,1
-Snoop,operating,"Apps,Financial Services,Mobile,Software",2.0,16864523.0,2.0767,2
-CoreCare,operating,"Financial Services,Health Care,Software",2.0,3125000.0,2.0767,1
-StormX,operating,"Financial Services,Internet Services,Other,Payments,Software",4.0,32645000.0,7.0795,2
-Moov,operating,"Financial Services,Software",2.0,32500000.0,4.0548,2
 Qichacha,operating,"Data and Analytics,Financial Services,Software",4.0,1971411.0,6.8877,4
-Perch Credit,operating,"Apps,Financial Services,Internet Services,Lending and Investments,Payments,Software",3.0,2625000.0,1.2438,2
+Moves,operating,"Apps,Financial Services,Software",2.0,9100000.0,0.8685,2
+Stem,operating,"Financial Services,Other,Privacy and Security",2.0,297169.0,3.411,1
+BlockCypher,operating,"Financial Services,Hardware,Internet Services,Payments,Software",2.0,3500000.0,7.0795,2
+OpenSea,operating,"Commerce and Shopping,Financial Services,Other,Payments,Software",3.0,4220000.0,3.1096,1
+CoinTracker,operating,"Apps,Financial Services,Other,Payments,Professional Services,Software",2.0,1620000.0,3.4384,1
+StormX,operating,"Financial Services,Internet Services,Other,Payments,Software",4.0,32645000.0,7.0795,2
+Groundhog,operating,"Commerce and Shopping,Financial Services,Internet Services,Other,Payments,Software",2.0,620000.0,3.0767,1
 ShufflUp,operating,"Financial Services,Payments,Software",2.0,44264.0,3.0658,1
-Datamolino,operating,"Financial Services,Other,Software",2.0,731456.0,8.0795,2
-TruStory,operating,"Content and Publishing,Financial Services,Media and Entertainment,Mobile,Other,Payments,Software",2.0,3250000.0,4.0767,1
-PP Qianbao,operating,"Financial Services,Mobile,Payments,Software",3.0,26843171.0,10.937000000000001,5
-XCLAIM,operating,"Financial Services,Lending and Investments,Other,Professional Services",2.0,4845000.0,2.9205,2
-ArgonCredit,operating,"Data and Analytics,Financial Services,Lending and Investments,Professional Services",4.0,80050000.0,7.1644,2
-BharatPe,operating,"Apps,Financial Services,Payments,Software",4.0,141500000.0,2.8301,5
-Study Loans,operating,"Financial Services,Lending and Investments",3.0,88490338.0,4.663,2
+CoreCare,operating,"Financial Services,Health Care,Software",2.0,3125000.0,2.0767,1
+Acudeen Technologies,operating,"Financial Services,Other",4.0,6750000.0,4.8329,3
+Moov,operating,"Financial Services,Software",2.0,32500000.0,4.0548,2
 Cindicator,operating,"Artificial Intelligence,Data and Analytics,Financial Services,Lending and Investments,Payments,Science and Engineering,Software",3.0,15750000.0,6.0795,2
-Primer,operating,"Financial Services,Mobile,Payments,Software",3.0,23410286.0,1.0767,2
-Avuba,operating,"Apps,Financial Services,Mobile,Payments,Professional Services,Software",3.0,569896.0,8.0795,1
-Helium Health,operating,"Financial Services,Health Care,Payments,Software",5.0,12170000.0,5.0795,2
-Owl.co,operating,"Financial Services,Lending and Investments",2.0,1964727.0,2.4959,2
-WorkPay,operating,"Administrative Services,Financial Services,Payments,Software",2.0,2250000.0,2.6630000000000003,2
-Shopline,operating,"Commerce and Shopping,Financial Services,Payments,Software",5.0,1241250.0,7.6658,5
-QUIN,operating,"Financial Services,Lending and Investments",2.0,1228400.0,0.9123,2
-Zettabyte Pte Ltd,operating,Unknown,2.0,300000.0,4.2603,2
-Psykosoft,operating,"Content and Publishing,Financial Services,Internet Services,Media and Entertainment,Software,Video",3.0,618000.0,10.7534,1
-Local Lift,operating,"Financial Services,Mobile",2.0,160000.0,7.0795,1
-VALU,operating,"Financial Services,Payments,Software",4.0,4991815.0,4.1507,2
+Perch Credit,operating,"Apps,Financial Services,Internet Services,Lending and Investments,Payments,Software",3.0,2625000.0,1.2438,2
+XCLAIM,operating,"Financial Services,Lending and Investments,Other,Professional Services",2.0,4845000.0,2.9205,2
+BharatPe,operating,"Apps,Financial Services,Payments,Software",4.0,141500000.0,2.8301,5
+ArgonCredit,operating,"Data and Analytics,Financial Services,Lending and Investments,Professional Services",4.0,80050000.0,7.1644,2
+MainStreet,operating,"Financial Services,Government and Military,Information Technology,Internet Services,Other,Software",2.0,2650000.0,1.3288,2
 Benepass,operating,"Administrative Services,Financial Services,Health Care,Other",2.0,2699997.0,2.0767,1
 ReadyForZero,closed,"Financial Services,Software",3.0,4777000.0,10.7534,2
-Webbankir,operating,"Financial Services,Lending and Investments",2.0,1700000.0,9.0822,5
-Crop2Cash,operating,"Agriculture and Farming,Financial Services,Internet Services",2.0,103451.0,2.7014,1
-Payvil,operating,"Apps,Financial Services,Mobile,Payments,Software",4.0,121575.0,5.0795,1
-Veriff,operating,"Financial Services,Information Technology,Internet Services,Privacy and Security",5.0,23320000.0,5.2795,4
-Sparrow,operating,"Financial Services,Lending and Investments,Other,Payments,Software",3.0,9190000.0,3.0521,4
-Commissiontrac,acquired,"Financial Services,Real Estate,Software",2.0,1170000.0,6.0795,1
-GainBit,closed,"Financial Services,Natural Resources,Payments,Software",3.0,2450000.0,5.8932,0
-Rocket Dollar,operating,"Financial Services,Internet Services",4.0,5031319.0,2.9342,2
-Goodly,operating,"Administrative Services,Financial Services,Health Care",2.0,1420000.0,2.8301,2
-Sandbox Banking,operating,"Data and Analytics,Financial Services,Information Technology,Lending and Investments,Professional Services,Software",6.0,775000.0,7.0795,1
-Ankr,operating,Unknown,3.0,15120000.0,3.2438,2
-StudentFunder,operating,Financial Services,2.0,870087.0,8.2877,1
-Finli,operating,Financial Services,2.0,2625000.0,2.0767,1
-GoCoin,operating,"Financial Services,Mobile,Payments,Software",3.0,2050000.0,7.5753,2
-tabby,operating,"Financial Services,Payments,Software",4.0,32000000.0,2.0767,2
-DOVU,operating,"Financial Services,Other,Payments,Real Estate,Software,Transportation",3.0,6448025.0,4.4110000000000005,2
-MainStreet,operating,"Financial Services,Government and Military,Information Technology,Internet Services,Other,Software",2.0,2650000.0,1.3288,2
-Atom Finance,operating,"Education,Financial Services",2.0,12600000.0,2.2438,1
-37coins,operating,"Financial Services,Lending and Investments,Payments,Software",3.0,525000.0,7.0795,1
-Voatz,operating,Unknown,6.0,9270000.0,6.0795,2
 Settle (Merged with Allset),operating,"Financial Services,Food and Beverage,Mobile,Payments,Software",2.0,1815000.0,6.4192,1
-Khatabook,operating,"Financial Services,Payments,Professional Services,Software",4.0,86500000.0,3.0767,4
-AIVIA,operating,"Commerce and Shopping,Consumer Electronics,Financial Services,Hardware,Information Technology,Other",2.0,600000.0,3.7644,2
-Kashmi,operating,"Financial Services,Mobile,Payments,Software",3.0,555944.0,7.0795,2
-Clyde,operating,"Commerce and Shopping,Financial Services,Information Technology",6.0,17435000.0,3.411,2
-Indorse,operating,"Education,Financial Services,Internet Services,Other,Payments,Software",3.0,13825177.0,3.7479,2
-TempoIQ,operating,"Data and Analytics,Financial Services,Information Technology,Internet Services,Other",4.0,4068000.0,10.0822,2
-HITbills,operating,"Financial Services,Other,Payments,Professional Services,Software",3.0,3634366.0,7.0795,2
-Deel,operating,"Administrative Services,Financial Services,Payments,Professional Services,Software",5.0,48000000.0,2.4411,3
-The Cents factory,operating,"Design,Financial Services,Information Technology,Internet Services,Media and Entertainment,Other",4.0,248000.0,9.0822,1
-Stably,operating,"Financial Services,Other,Payments",2.0,1700000.0,2.9534,1
-Moretickets,operating,"Commerce and Shopping,Events,Financial Services,Media and Entertainment,Payments",4.0,101846220.0,6.0795,2
-Sunbit,operating,"Commerce and Shopping,Financial Services",4.0,53970000.0,5.0795,4
-Bitaccess,operating,"Financial Services,Information Technology,Internet Services,Payments,Software",3.0,1220000.0,8.0795,2
-Belvo,operating,"Financial Services,Lending and Investments,Software",4.0,13000000.0,1.7479,2
-Tradeline,operating,Unknown,3.0,2631063.0,3.9918,2
-OkCredit,operating,"Financial Services,Lending and Investments",3.0,84200000.0,3.8301,4
-TradeHero,acquired,"Financial Services,Lending and Investments,Mobile,Software",3.0,10464859.0,9.0822,3
+Snoop,operating,"Apps,Financial Services,Mobile,Software",2.0,16864523.0,2.0767,2
+TruStory,operating,"Content and Publishing,Financial Services,Media and Entertainment,Mobile,Other,Payments,Software",2.0,3250000.0,4.0767,1
+Avuba,operating,"Apps,Financial Services,Mobile,Payments,Professional Services,Software",3.0,569896.0,8.0795,1
+Primer,operating,"Financial Services,Mobile,Payments,Software",3.0,23410286.0,1.0767,2
+WorkPay,operating,"Administrative Services,Financial Services,Payments,Software",2.0,2250000.0,2.6630000000000003,2
+Study Loans,operating,"Financial Services,Lending and Investments",3.0,88490338.0,4.663,2
+QUIN,operating,"Financial Services,Lending and Investments",2.0,1228400.0,0.9123,2
 Conta Simples,operating,"Financial Services,Information Technology,Internet Services,Lending and Investments",3.0,2995000.0,3.0767,2
+Owl.co,operating,"Financial Services,Lending and Investments",2.0,1964727.0,2.4959,2
+Shopline,operating,"Commerce and Shopping,Financial Services,Payments,Software",5.0,1241250.0,7.6658,5
+Khatabook,operating,"Financial Services,Payments,Professional Services,Software",4.0,86500000.0,3.0767,4
+Sandbox Banking,operating,"Data and Analytics,Financial Services,Information Technology,Lending and Investments,Professional Services,Software",6.0,775000.0,7.0795,1
+Psykosoft,operating,"Content and Publishing,Financial Services,Internet Services,Media and Entertainment,Software,Video",3.0,618000.0,10.7534,1
+OkCredit,operating,"Financial Services,Lending and Investments",3.0,84200000.0,3.8301,4
+DealCircle,operating,"Financial Services,Information Technology,Professional Services,Software",2.0,770315.0,7.2466,1
+Goodly,operating,"Administrative Services,Financial Services,Health Care",2.0,1420000.0,2.8301,2
+Sparrow,operating,"Financial Services,Lending and Investments,Other,Payments,Software",3.0,9190000.0,3.0521,4
+PP Qianbao,operating,"Financial Services,Mobile,Payments,Software",3.0,26843171.0,10.937000000000001,5
+GainBit,closed,"Financial Services,Natural Resources,Payments,Software",3.0,2450000.0,5.8932,0
+tabby,operating,"Financial Services,Payments,Software",4.0,32000000.0,2.0767,2
+Helium Health,operating,"Financial Services,Health Care,Payments,Software",5.0,12170000.0,5.0795,2
+Crop2Cash,operating,"Agriculture and Farming,Financial Services,Internet Services",2.0,103451.0,2.7014,1
+Rocket Dollar,operating,"Financial Services,Internet Services",4.0,5031319.0,2.9342,2
+Zettabyte Pte Ltd,operating,Unknown,2.0,300000.0,4.2603,2
+Local Lift,operating,"Financial Services,Mobile",2.0,160000.0,7.0795,1
+Qbera,acquired,"Commerce and Shopping,Financial Services",4.0,4138655.0,5.1644,4
+Datamolino,operating,"Financial Services,Other,Software",2.0,731456.0,8.0795,2
+VALU,operating,"Financial Services,Payments,Software",4.0,4991815.0,4.1507,2
+TempoIQ,operating,"Data and Analytics,Financial Services,Information Technology,Internet Services,Other",4.0,4068000.0,10.0822,2
+goDutch,operating,"Apps,Financial Services,Payments,Software",2.0,1850000.0,2.0767,2
+StudentFunder,operating,Financial Services,2.0,870087.0,8.2877,1
+Bitaccess,operating,"Financial Services,Information Technology,Internet Services,Payments,Software",3.0,1220000.0,8.0795,2
+TradeHero,acquired,"Financial Services,Lending and Investments,Mobile,Software",3.0,10464859.0,9.0822,3
+Voatz,operating,Unknown,6.0,9270000.0,6.0795,2
+Webbankir,operating,"Financial Services,Lending and Investments",2.0,1700000.0,9.0822,5
+DOVU,operating,"Financial Services,Other,Payments,Real Estate,Software,Transportation",3.0,6448025.0,4.4110000000000005,2
+Commissiontrac,acquired,"Financial Services,Real Estate,Software",2.0,1170000.0,6.0795,1
+Stably,operating,"Financial Services,Other,Payments",2.0,1700000.0,2.9534,1
+Sunbit,operating,"Commerce and Shopping,Financial Services",4.0,53970000.0,5.0795,4
+GoCoin,operating,"Financial Services,Mobile,Payments,Software",3.0,2050000.0,7.5753,2
+SurBTC,operating,"Financial Services,Lending and Investments,Payments,Software",3.0,400000.0,6.5836,2
+RoadSync,operating,"Financial Services,Payments,Software,Transportation",4.0,8300000.0,5.9863,2
+Coinsquare,operating,"Financial Services,Lending and Investments,Other,Payments,Software",5.0,42070113.0,7.0795,3
+Ankr,operating,Unknown,3.0,15120000.0,3.2438,2
+"HashRabbit, Inc.",operating,"Financial Services,Information Technology,Payments,Privacy and Security,Software",4.0,2341500.0,6.9178,1
+Indorse,operating,"Education,Financial Services,Internet Services,Other,Payments,Software",3.0,13825177.0,3.7479,2
+Fundastik Kft,operating,"Financial Services,Lending and Investments",2.0,148630.0,2.9041,1
+Notabene,operating,"Financial Services,Other,Payments,Software",3.0,2300000.0,0.7699,1
+The Cents factory,operating,"Design,Financial Services,Information Technology,Internet Services,Media and Entertainment,Other",4.0,248000.0,9.0822,1
+HITbills,operating,"Financial Services,Other,Payments,Professional Services,Software",3.0,3634366.0,7.0795,2
+Grain,operating,Financial Services,4.0,180000.0,4.0767,1
+Veriff,operating,"Financial Services,Information Technology,Internet Services,Privacy and Security",5.0,23320000.0,5.2795,4
+CodeIsTrust,operating,Unknown,3.0,6500000.0,2.8959,2
