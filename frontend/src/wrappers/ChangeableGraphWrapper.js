@@ -103,9 +103,9 @@ export default function ChangeableWrapper(props) {
   ) : (
     <>
       <div className={classes.legend}>
-        <span className={clsx(classes.dot, classes.redDot)}></span> represents a financial company and{" "}
-        <span className={clsx(classes.dot, classes.blueDot)}></span> represents a financial company found in
-        the top 100 most worth investing list
+        <span className={clsx(classes.dot, classes.redDot)}></span> represents a fintech company and{" "}
+        <span className={clsx(classes.dot, classes.blueDot)}></span> represents a fintech company found in the
+        top 100 most worth investing list
       </div>
       <div className="plot-area" ref={plotArea} />
       {degreeTypeNote}
