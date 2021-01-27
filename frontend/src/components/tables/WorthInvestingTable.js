@@ -52,7 +52,7 @@ const columns = [
     width: 300,
     description: "How many investors of that company belongs to the Top 100 Investors list",
   },
-  { field: "average_momentum", headerName: "Average Momentum", width: 190 },
+  { field: "average_momentum", headerName: "Actual Avg. Momentum", width: 210 },
 ];
 
 function getCategoryName(row) {

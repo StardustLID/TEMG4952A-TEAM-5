@@ -18,6 +18,13 @@ const featuresData = [
     axisLabels: ["Number of Employees", "Number of Companies"],
   },
   {
+    id: "funding-location",
+    btnTitle: "Funding Location",
+    icon: "place",
+    chartType: "map",
+    axisLabels: null,
+  },
+  {
     id: "company-age",
     btnTitle: "Company Age",
     icon: "access_time",
@@ -95,13 +102,6 @@ const featuresData = [
     icon: "school",
     chartType: "histogram",
     axisLabels: ["Average Education Level of Executives *", "Number of Companies"],
-  },
-  {
-    id: "funding-location",
-    btnTitle: "Funding Location",
-    icon: "place",
-    chartType: "map",
-    axisLabels: null,
   },
 ];
 
