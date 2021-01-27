@@ -1,205 +1,101 @@
-<<<<<<< HEAD
 company_name,employee_count,num_funding_rounds,fd_rd_latest_investment,cat_lending_invests,cat_payments,cat_commerce_shopping,first_fund_investor_count,first_fund_post_money,num_exec,fd_rd_num_invested_by_top_100,average_momentum
-SONM,3,2.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,7.833699063259482
 BrikkApp,1,2.0,1.0,0.0,0.0,1.0,2.0,0.0,0.0,0.0,7.921424916809733
+SONM,3,2.0,0.0,0.0,0.0,0.0,0.0,0.0,8.0,0.0,7.833699063259482
 Mobius,3,2.0,1.0,0.0,1.0,0.0,1.0,0.0,4.0,0.0,7.9049760284168515
-Beatdapp,2,4.0,1.0,0.0,0.0,0.0,10.0,0.0,8.0,1.0,7.92012237367529
 FRESCO,2,2.0,1.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,7.707856508026401
-Betmatch,2,2.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,7.442525819281945
+Beatdapp,2,4.0,1.0,0.0,0.0,0.0,10.0,0.0,8.0,1.0,7.92012237367529
 TrustToken,2,4.0,1.0,0.0,1.0,1.0,5.0,0.0,17.0,1.0,6.7654871428016925
 Avenews-GT,1,2.0,1.0,1.0,0.0,1.0,4.0,0.0,9.0,1.0,7.000023333411112
-Acorn Collective,2,2.0,1.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,6.493506493506487
-Core Scientific,4,3.0,1.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,5.8574389474632795
+Betmatch,2,2.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,7.442525819281945
 Wunderite,1,2.0,0.0,0.0,0.0,0.0,2.0,0.0,5.0,0.0,6.785516007649129
-OnePipe,1,2.0,0.0,0.0,0.0,0.0,7.0,0.0,0.0,1.0,6.233354111180371
-Dispatch,1,3.0,1.0,0.0,0.0,0.0,17.0,0.0,4.0,0.0,7.642819643579878
-Pipe,2,3.0,1.0,0.0,0.0,0.0,20.0,0.0,4.0,0.0,6.563833278634722
-Yotta Savings,2,2.0,1.0,0.0,0.0,0.0,8.0,0.0,2.0,1.0,7.354282421817317
+Acorn Collective,2,2.0,1.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,6.493506493506487
 Flex,2,2.0,1.0,0.0,0.0,0.0,5.0,0.0,0.0,1.0,7.115489874110564
-Finmark,2,2.0,1.0,0.0,0.0,0.0,10.0,0.0,3.0,1.0,7.546366617970028
-Handle,2,2.0,1.0,0.0,0.0,0.0,17.0,0.0,3.0,2.0,7.504884644747225
-Moves,2,2.0,0.0,0.0,0.0,0.0,1.0,0.0,6.0,0.0,5.14564800279086
-Abacus,1,2.0,1.0,0.0,0.0,0.0,6.0,0.0,2.0,1.0,7.038035339922128
+Pipe,2,3.0,1.0,0.0,0.0,0.0,20.0,0.0,4.0,0.0,6.563833278634722
+Dispatch,1,3.0,1.0,0.0,0.0,0.0,17.0,0.0,4.0,0.0,7.642819643579878
 Pay-Z,0,2.0,1.0,0.0,1.0,0.0,2.0,0.0,0.0,1.0,6.065545538152128
+Core Scientific,4,3.0,1.0,0.0,0.0,0.0,0.0,0.0,5.0,0.0,5.8574389474632795
+Yotta Savings,2,2.0,1.0,0.0,0.0,0.0,8.0,0.0,2.0,1.0,7.354282421817317
 FreightBro,2,4.0,1.0,0.0,0.0,1.0,4.0,0.0,6.0,0.0,5.666685555618519
+Abacus,1,2.0,1.0,0.0,0.0,0.0,6.0,0.0,2.0,1.0,7.038035339922128
+Finmark,2,2.0,1.0,0.0,0.0,0.0,10.0,0.0,3.0,1.0,7.546366617970028
+Moves,2,2.0,0.0,0.0,0.0,0.0,1.0,0.0,6.0,0.0,5.14564800279086
+SURETLY,2,4.0,1.0,1.0,0.0,0.0,1.0,0.0,4.0,0.0,4.950799147059586
 Numbers Protocol,2,4.0,1.0,0.0,0.0,0.0,2.0,0.0,4.0,0.0,5.346164127238707
-OpenSea,1,3.0,1.0,0.0,1.0,1.0,17.0,0.0,2.0,1.0,3.5733456139974082
 Inkrypt,1,2.0,1.0,0.0,0.0,0.0,2.0,0.0,5.0,0.0,5.554012774229384
-1inch Exchange,1,3.0,2.0,1.0,1.0,0.0,7.0,0.0,0.0,0.0,4.931547970024765
 Priceonomics,2,4.0,1.0,0.0,0.0,1.0,32.0,0.0,5.0,0.0,6.349328923123788
-CoreCare,1,2.0,1.0,0.0,0.0,0.0,7.0,0.0,4.0,1.0,7.298690995636653
-BlockCypher,2,2.0,1.0,0.0,1.0,0.0,19.0,0.0,5.0,0.0,6.256517205422317
-Groundhog,1,2.0,0.0,0.0,1.0,1.0,5.0,0.0,3.0,1.0,4.8623817993371805
+OnePipe,1,2.0,0.0,0.0,0.0,0.0,7.0,0.0,0.0,1.0,6.233354111180371
+1inch Exchange,1,3.0,2.0,1.0,1.0,0.0,7.0,0.0,0.0,0.0,4.931547970024765
+OpenSea,1,3.0,1.0,0.0,1.0,1.0,17.0,0.0,2.0,1.0,3.5733456139974082
+StormX,2,4.0,1.0,0.0,1.0,0.0,9.0,0.0,9.0,0.0,4.076276991374325
+Snoop,2,2.0,1.0,0.0,0.0,0.0,3.0,0.0,10.0,0.0,4.180602607928514
+Handle,2,2.0,1.0,0.0,0.0,0.0,17.0,0.0,3.0,2.0,7.504884644747225
+Qichacha,4,4.0,1.0,0.0,0.0,0.0,4.0,0.0,3.0,0.0,5.069203655385035
+Stem,1,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.768528088513278
 Moov,2,2.0,2.0,0.0,0.0,0.0,17.0,0.0,2.0,2.0,5.248222622280537
 Acudeen Technologies,3,4.0,1.0,0.0,0.0,0.0,4.0,0.0,7.0,0.0,7.428206385286213
-Stem,1,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.768528088513278
-SURETLY,2,4.0,1.0,1.0,0.0,0.0,1.0,0.0,4.0,0.0,4.950799147059586
-CoinTracker,1,2.0,1.0,0.0,1.0,0.0,7.0,0.0,2.0,1.0,6.8339498744633165
-Shopline,5,5.0,1.0,0.0,1.0,1.0,11.0,0.0,6.0,0.0,3.744623919785069
-StudentFunder,1,2.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,2.4019182988743224
-TruStory,1,2.0,1.0,0.0,1.0,0.0,15.0,0.0,3.0,1.0,3.4125986939054105
-Snoop,2,2.0,1.0,0.0,0.0,0.0,3.0,0.0,10.0,0.0,4.180602607928514
-Owl.co,2,2.0,1.0,1.0,0.0,0.0,7.0,0.0,4.0,0.0,3.930434247793505
-StormX,2,4.0,1.0,0.0,1.0,0.0,9.0,0.0,9.0,0.0,4.076276991374325
+CoreCare,1,2.0,1.0,0.0,0.0,0.0,7.0,0.0,4.0,1.0,7.298690995636653
+BlockCypher,2,2.0,1.0,0.0,1.0,0.0,19.0,0.0,5.0,0.0,6.256517205422317
 ShufflUp,1,2.0,1.0,0.0,1.0,0.0,1.0,0.0,2.0,0.0,4.348794542972593
-PP Qianbao,5,3.0,2.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,3.826948453771072
-Sandbox Banking,1,6.0,1.0,1.0,0.0,0.0,3.0,0.0,3.0,0.0,3.664521424910285
-Psykosoft,1,3.0,1.0,0.0,0.0,0.0,6.0,0.0,2.0,0.0,4.9588686509930096
-Rocket Dollar,2,4.0,1.0,0.0,0.0,0.0,11.0,0.0,5.0,0.0,3.190738321646976
-Finli,1,2.0,1.0,0.0,0.0,0.0,6.0,0.0,1.0,0.0,3.5896127941357063
-MainStreet,2,2.0,1.0,0.0,0.0,0.0,14.0,0.0,14.0,0.0,2.9510690058302527
+Groundhog,1,2.0,0.0,0.0,1.0,1.0,5.0,0.0,3.0,1.0,4.8623817993371805
 Perch Credit,2,3.0,1.0,1.0,1.0,0.0,6.0,0.0,2.0,1.0,7.177801703783457
-XCLAIM,2,2.0,1.0,1.0,0.0,0.0,5.0,0.0,1.0,1.0,1.7284320915877267
-Cindicator,2,3.0,1.0,1.0,1.0,0.0,2.0,0.0,5.0,0.0,3.978457001249674
-Bitaccess,2,3.0,1.0,0.0,1.0,0.0,8.0,0.0,4.0,0.0,3.3349245064638664
+CoinTracker,1,2.0,1.0,0.0,1.0,0.0,7.0,0.0,2.0,1.0,6.8339498744633165
 ArgonCredit,2,4.0,2.0,1.0,0.0,0.0,1.0,0.0,7.0,0.0,4.802184068679745
-Primer,2,3.0,2.0,0.0,1.0,0.0,9.0,0.0,1.0,1.0,3.9572951716751503
-Helium Health,2,5.0,2.0,0.0,1.0,0.0,12.0,0.0,4.0,0.0,3.7934064512913306
-Qichacha,4,4.0,1.0,0.0,0.0,0.0,4.0,0.0,3.0,0.0,5.069203655385035
-Qbera,4,4.0,1.0,0.0,0.0,1.0,7.0,0.0,6.0,0.0,2.7566839263885243
-Benepass,1,2.0,1.0,0.0,0.0,0.0,6.0,0.0,3.0,1.0,7.131077139446143
-Study Loans,2,3.0,1.0,1.0,0.0,0.0,2.0,0.0,6.0,0.0,3.860050633912914
-Goodly,2,2.0,1.0,0.0,0.0,0.0,6.0,0.0,2.0,1.0,3.3332768371157537
-Local Lift,1,2.0,1.0,0.0,0.0,0.0,3.0,0.0,4.0,0.0,3.9666798889329695
-QUIN,2,2.0,1.0,1.0,0.0,0.0,4.0,0.0,2.0,0.0,3.618682388911092
-BharatPe,5,4.0,4.0,0.0,1.0,0.0,5.0,0.0,6.0,3.0,3.696828936006527
-Sparrow,4,3.0,2.0,1.0,1.0,0.0,0.0,1190000.0,1.0,0.0,3.6323902707619364
-goDutch,2,2.0,1.0,0.0,1.0,0.0,11.0,0.0,3.0,0.0,3.3426604342223736
-Grain,1,4.0,1.0,0.0,0.0,0.0,3.0,0.0,1.0,0.0,5.346164127238707
-Conta Simples,2,3.0,1.0,1.0,0.0,0.0,13.0,0.0,3.0,1.0,3.2297686726403554
-Webbankir,5,2.0,1.0,1.0,0.0,0.0,2.0,0.0,2.0,0.0,3.3395353275130013
-Crop2Cash,1,2.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,3.743611807311857
-Zettabyte Pte Ltd,2,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.406866720735326
-VALU,2,4.0,1.0,0.0,1.0,0.0,2.0,0.0,2.0,0.0,3.589251854016138
-Datamolino,2,2.0,1.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,3.442561224048484
-Settle (Merged with Allset),1,2.0,1.0,0.0,1.0,0.0,6.0,0.0,9.0,0.0,2.604278268781296
-PayCore.io,2,2.0,1.0,0.0,1.0,1.0,0.0,900000.0,1.0,0.0,3.49022736338253
-Veriff,4,5.0,2.0,0.0,0.0,0.0,2.0,0.0,13.0,1.0,4.0372317925572885
-Atom Finance,1,2.0,2.0,0.0,0.0,0.0,7.0,0.0,2.0,1.0,1.8118919101133064
+XCLAIM,2,2.0,1.0,1.0,0.0,0.0,5.0,0.0,1.0,1.0,1.7284320915877267
 Avuba,1,3.0,1.0,0.0,1.0,0.0,9.0,0.0,4.0,0.0,3.7311541676718414
-TradeHero,3,3.0,2.0,1.0,0.0,0.0,1.0,0.0,12.0,1.0,3.634455906945127
-GainBit,0,3.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,3.11075091889944
-DealCircle,1,2.0,1.0,0.0,0.0,0.0,2.0,0.0,7.0,0.0,7.682525089969228
-Kashmi,2,3.0,1.0,0.0,1.0,0.0,5.0,0.0,11.0,0.0,3.3162684740897808
-Arextech,1,3.0,0.0,0.0,0.0,0.0,2.0,0.0,4.0,0.0,2.821368460992149
-Voatz,2,6.0,2.0,0.0,0.0,0.0,8.0,0.0,4.0,1.0,2.965363703056433
-Wishfin.com,3,2.0,1.0,0.0,0.0,0.0,3.0,0.0,5.0,0.0,6.066686888956308
-Indorse,2,3.0,1.0,0.0,1.0,0.0,1.0,0.0,14.0,1.0,3.49933172462169
-TempoIQ,2,4.0,2.0,0.0,0.0,0.0,11.0,0.0,7.0,0.0,3.3329950841887475
+TruStory,1,2.0,1.0,0.0,1.0,0.0,15.0,0.0,3.0,1.0,3.4125986939054105
+Cindicator,2,3.0,1.0,1.0,1.0,0.0,2.0,0.0,5.0,0.0,3.978457001249674
+Benepass,1,2.0,1.0,0.0,0.0,0.0,6.0,0.0,3.0,1.0,7.131077139446143
+BharatPe,5,4.0,4.0,0.0,1.0,0.0,5.0,0.0,6.0,3.0,3.696828936006527
+Rocket Dollar,2,4.0,1.0,0.0,0.0,0.0,11.0,0.0,5.0,0.0,3.190738321646976
+Primer,2,3.0,2.0,0.0,1.0,0.0,9.0,0.0,1.0,1.0,3.9572951716751503
+PP Qianbao,5,3.0,2.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,3.826948453771072
+Helium Health,2,5.0,2.0,0.0,1.0,0.0,12.0,0.0,4.0,0.0,3.7934064512913306
+Datamolino,2,2.0,1.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,3.442561224048484
+Owl.co,2,2.0,1.0,1.0,0.0,0.0,7.0,0.0,4.0,0.0,3.930434247793505
+Study Loans,2,3.0,1.0,1.0,0.0,0.0,2.0,0.0,6.0,0.0,3.860050633912914
+Veriff,4,5.0,2.0,0.0,0.0,0.0,2.0,0.0,13.0,1.0,4.0372317925572885
 WorkPay,2,2.0,1.0,0.0,1.0,0.0,6.0,0.0,2.0,1.0,3.4576767072278747
+Atom Finance,1,2.0,2.0,0.0,0.0,0.0,7.0,0.0,2.0,1.0,1.8118919101133064
+Shopline,5,5.0,1.0,0.0,1.0,1.0,11.0,0.0,6.0,0.0,3.744623919785069
+Crop2Cash,1,2.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,3.743611807311857
+Payvil,1,4.0,1.0,0.0,1.0,0.0,3.0,0.0,0.0,0.0,3.7144097477225135
+Wishfin.com,3,2.0,1.0,0.0,0.0,0.0,3.0,0.0,5.0,0.0,6.066686888956308
+VALU,2,4.0,1.0,0.0,1.0,0.0,2.0,0.0,2.0,0.0,3.589251854016138
 tabby,2,4.0,2.0,0.0,1.0,0.0,6.0,0.0,0.0,1.0,2.171998670015116
 DOVU,2,3.0,1.0,0.0,1.0,0.0,2.0,0.0,12.0,0.0,3.4161276257552804
+Sparrow,4,3.0,2.0,1.0,1.0,0.0,0.0,1190000.0,1.0,0.0,3.6323902707619364
 ReadyForZero,2,3.0,2.0,0.0,0.0,0.0,6.0,0.0,11.0,1.0,5.276036780519612
-SurBTC,2,3.0,1.0,1.0,1.0,0.0,3.0,0.0,6.0,0.0,2.9396175320452187
+Webbankir,5,2.0,1.0,1.0,0.0,0.0,2.0,0.0,2.0,0.0,3.3395353275130013
+StudentFunder,1,2.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,2.4019182988743224
+QUIN,2,2.0,1.0,1.0,0.0,0.0,4.0,0.0,2.0,0.0,3.618682388911092
+Commissiontrac,1,2.0,1.0,0.0,0.0,0.0,5.0,0.0,1.0,1.0,3.8740953301723446
+Bitaccess,2,3.0,1.0,0.0,1.0,0.0,8.0,0.0,4.0,0.0,3.3349245064638664
+BuyCoins,1,3.0,1.0,0.0,1.0,0.0,3.0,0.0,5.0,0.0,3.2221367369618528
+Psykosoft,1,3.0,1.0,0.0,0.0,0.0,6.0,0.0,2.0,0.0,4.9588686509930096
+Sandbox Banking,1,6.0,1.0,1.0,0.0,0.0,3.0,0.0,3.0,0.0,3.664521424910285
+TradeHero,3,3.0,2.0,1.0,0.0,0.0,1.0,0.0,12.0,1.0,3.634455906945127
+AIVIA,2,2.0,1.0,0.0,0.0,1.0,0.0,0.0,6.0,0.0,1.5985080591447978
+Clyde,2,6.0,2.0,0.0,0.0,1.0,10.0,0.0,6.0,1.0,3.3949407407474665
+Zettabyte Pte Ltd,2,2.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.406866720735326
+Goodly,2,2.0,1.0,0.0,0.0,0.0,6.0,0.0,2.0,1.0,3.3332768371157537
+Deel,3,5.0,3.0,0.0,1.0,0.0,13.0,0.0,10.0,3.0,3.813620181440741
+TempoIQ,2,4.0,2.0,0.0,0.0,0.0,11.0,0.0,7.0,0.0,3.3329950841887475
+SmartKassa,1,3.0,1.0,0.0,1.0,0.0,4.0,0.0,0.0,0.0,5.139414684483793
 Belvo,2,4.0,2.0,1.0,0.0,0.0,11.0,0.0,3.0,1.0,3.338959510775898
-Mineful,2,3.0,1.0,0.0,1.0,0.0,1.0,0.0,3.0,0.0,3.972288946271352
-PlanetWatch,1,6.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,2.5999910527637704
+Sunbit,4,4.0,3.0,0.0,0.0,1.0,7.0,0.0,10.0,0.0,3.170175244599305
+MainStreet,2,2.0,1.0,0.0,0.0,0.0,14.0,0.0,14.0,0.0,2.9510690058302527
+Ankr,2,3.0,1.0,0.0,0.0,0.0,1.0,0.0,5.0,0.0,3.9690541807904194
+"HashRabbit, Inc.",1,4.0,1.0,0.0,1.0,0.0,4.0,0.0,2.0,0.0,2.1347111241539483
+The Cents factory,1,4.0,1.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,6.728517267704391
+Finli,1,2.0,1.0,0.0,0.0,0.0,6.0,0.0,1.0,0.0,3.5896127941357063
 Plutus Software,1,5.0,1.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,3.018418648007425
-Funding Tree,1,2.0,1.0,1.0,0.0,0.0,0.0,0.0,4.0,0.0,2.8880866425992693
-37coins,1,3.0,1.0,1.0,1.0,0.0,4.0,0.0,5.0,1.0,7.258418810765358
-MUNITEDPASS TECHNOLOGIES,4,2.0,1.0,0.0,0.0,0.0,3.0,0.0,0.0,0.0,2.9666620641144616
-Bizzy Labs,2,4.0,1.0,0.0,0.0,0.0,2.0,0.0,4.0,0.0,2.82325060075199
-Commandiv,1,2.0,1.0,0.0,0.0,0.0,5.0,0.0,4.0,0.0,6.134824567612848
-=======
-company_name,status,category_group_list,num_funding_rounds,total_funding_usd,founded_on,employee_count
-BrikkApp,operating,"Commerce and Shopping,Financial Services,Other,Real Estate",2.0,542698.0,3.0767,1
-SONM,operating,Unknown,2.0,42500000.0,5.0795,3
-FRESCO,operating,Unknown,2.0,5100000.0,3.2932,2
-Mobius,operating,"Apps,Financial Services,Payments,Software",2.0,39500000.0,4.0767,3
-Avenews-GT,operating,"Agriculture and Farming,Commerce and Shopping,Financial Services,Information Technology,Lending and Investments,Other",2.0,340000.0,3.7918,1
-Beatdapp,operating,Unknown,4.0,2421799.0,3.0767,2
-TrustToken,operating,"Commerce and Shopping,Financial Services,Other,Payments,Software",4.0,21700000.0,4.0767,2
-Betmatch,operating,Unknown,2.0,4150000.0,2.9671,2
-Acorn Collective,operating,"Community and Lifestyle,Financial Services,Other",2.0,4400000.0,3.6630000000000003,2
-Wunderite,operating,"Financial Services,Software",2.0,130000.0,3.0767,1
-Pipe,operating,"Financial Services,Internet Services,Software",3.0,66000000.0,1.4959,2
-OnePipe,operating,Financial Services,2.0,1120000.0,3.0767,1
-Flex,operating,Financial Services,2.0,5800000.0,2.0767,2
-Core Scientific,operating,Unknown,3.0,72000000.0,4.0767,4
-Abacus,operating,"Financial Services,Other,Software",2.0,2120000.0,2.6521,1
-SURETLY,operating,"Financial Services,Lending and Investments",4.0,3380000.0,4.663,2
-FreightBro,operating,"Apps,Commerce and Shopping,Internet Services,Other,Software,Transportation",4.0,3500000.0,4.3233,2
-Dispatch,acquired,"Financial Services,Information Technology,Internet Services,Messaging and Telecommunications,Software",3.0,983000.0,9.7534,1
-Numbers Protocol,operating,Unknown,4.0,950000.0,1.6849,2
-Finmark,operating,"Financial Services,Information Technology,Software",2.0,5125000.0,1.0767,2
-Priceonomics,operating,"Commerce and Shopping,Financial Services,Internet Services,Software",4.0,1670000.0,9.1671,2
-Handle,operating,"Data and Analytics,Financial Services,Information Technology,Real Estate,Software",2.0,4650000.0,2.0767,2
-Yotta Savings,operating,Financial Services,2.0,3425000.0,1.3288,2
-Inkrypt,operating,Unknown,2.0,1300000.0,3.0767,1
-Pay-Z,operating,"Apps,Financial Services,Mobile,Payments,Software",2.0,366172.0,4.0767,0
-1inch Exchange,operating,"Financial Services,Lending and Investments,Other,Payments,Software",3.0,14800000.0,1.6959,1
-Qichacha,operating,"Data and Analytics,Financial Services,Software",4.0,1971411.0,6.8877,4
-Moves,operating,"Apps,Financial Services,Software",2.0,9100000.0,0.8685,2
-Stem,operating,"Financial Services,Other,Privacy and Security",2.0,297169.0,3.411,1
-BlockCypher,operating,"Financial Services,Hardware,Internet Services,Payments,Software",2.0,3500000.0,7.0795,2
-OpenSea,operating,"Commerce and Shopping,Financial Services,Other,Payments,Software",3.0,4220000.0,3.1096,1
-CoinTracker,operating,"Apps,Financial Services,Other,Payments,Professional Services,Software",2.0,1620000.0,3.4384,1
-StormX,operating,"Financial Services,Internet Services,Other,Payments,Software",4.0,32645000.0,7.0795,2
-Groundhog,operating,"Commerce and Shopping,Financial Services,Internet Services,Other,Payments,Software",2.0,620000.0,3.0767,1
-ShufflUp,operating,"Financial Services,Payments,Software",2.0,44264.0,3.0658,1
-CoreCare,operating,"Financial Services,Health Care,Software",2.0,3125000.0,2.0767,1
-Acudeen Technologies,operating,"Financial Services,Other",4.0,6750000.0,4.8329,3
-Moov,operating,"Financial Services,Software",2.0,32500000.0,4.0548,2
-Cindicator,operating,"Artificial Intelligence,Data and Analytics,Financial Services,Lending and Investments,Payments,Science and Engineering,Software",3.0,15750000.0,6.0795,2
-Perch Credit,operating,"Apps,Financial Services,Internet Services,Lending and Investments,Payments,Software",3.0,2625000.0,1.2438,2
-XCLAIM,operating,"Financial Services,Lending and Investments,Other,Professional Services",2.0,4845000.0,2.9205,2
-BharatPe,operating,"Apps,Financial Services,Payments,Software",4.0,141500000.0,2.8301,5
-ArgonCredit,operating,"Data and Analytics,Financial Services,Lending and Investments,Professional Services",4.0,80050000.0,7.1644,2
-MainStreet,operating,"Financial Services,Government and Military,Information Technology,Internet Services,Other,Software",2.0,2650000.0,1.3288,2
-Benepass,operating,"Administrative Services,Financial Services,Health Care,Other",2.0,2699997.0,2.0767,1
-ReadyForZero,closed,"Financial Services,Software",3.0,4777000.0,10.7534,2
-Settle (Merged with Allset),operating,"Financial Services,Food and Beverage,Mobile,Payments,Software",2.0,1815000.0,6.4192,1
-Snoop,operating,"Apps,Financial Services,Mobile,Software",2.0,16864523.0,2.0767,2
-TruStory,operating,"Content and Publishing,Financial Services,Media and Entertainment,Mobile,Other,Payments,Software",2.0,3250000.0,4.0767,1
-Avuba,operating,"Apps,Financial Services,Mobile,Payments,Professional Services,Software",3.0,569896.0,8.0795,1
-Primer,operating,"Financial Services,Mobile,Payments,Software",3.0,23410286.0,1.0767,2
-WorkPay,operating,"Administrative Services,Financial Services,Payments,Software",2.0,2250000.0,2.6630000000000003,2
-Study Loans,operating,"Financial Services,Lending and Investments",3.0,88490338.0,4.663,2
-QUIN,operating,"Financial Services,Lending and Investments",2.0,1228400.0,0.9123,2
-Conta Simples,operating,"Financial Services,Information Technology,Internet Services,Lending and Investments",3.0,2995000.0,3.0767,2
-Owl.co,operating,"Financial Services,Lending and Investments",2.0,1964727.0,2.4959,2
-Shopline,operating,"Commerce and Shopping,Financial Services,Payments,Software",5.0,1241250.0,7.6658,5
-Khatabook,operating,"Financial Services,Payments,Professional Services,Software",4.0,86500000.0,3.0767,4
-Sandbox Banking,operating,"Data and Analytics,Financial Services,Information Technology,Lending and Investments,Professional Services,Software",6.0,775000.0,7.0795,1
-Psykosoft,operating,"Content and Publishing,Financial Services,Internet Services,Media and Entertainment,Software,Video",3.0,618000.0,10.7534,1
-OkCredit,operating,"Financial Services,Lending and Investments",3.0,84200000.0,3.8301,4
-DealCircle,operating,"Financial Services,Information Technology,Professional Services,Software",2.0,770315.0,7.2466,1
-Goodly,operating,"Administrative Services,Financial Services,Health Care",2.0,1420000.0,2.8301,2
-Sparrow,operating,"Financial Services,Lending and Investments,Other,Payments,Software",3.0,9190000.0,3.0521,4
-PP Qianbao,operating,"Financial Services,Mobile,Payments,Software",3.0,26843171.0,10.937000000000001,5
-GainBit,closed,"Financial Services,Natural Resources,Payments,Software",3.0,2450000.0,5.8932,0
-tabby,operating,"Financial Services,Payments,Software",4.0,32000000.0,2.0767,2
-Helium Health,operating,"Financial Services,Health Care,Payments,Software",5.0,12170000.0,5.0795,2
-Crop2Cash,operating,"Agriculture and Farming,Financial Services,Internet Services",2.0,103451.0,2.7014,1
-Rocket Dollar,operating,"Financial Services,Internet Services",4.0,5031319.0,2.9342,2
-Zettabyte Pte Ltd,operating,Unknown,2.0,300000.0,4.2603,2
-Local Lift,operating,"Financial Services,Mobile",2.0,160000.0,7.0795,1
-Qbera,acquired,"Commerce and Shopping,Financial Services",4.0,4138655.0,5.1644,4
-Datamolino,operating,"Financial Services,Other,Software",2.0,731456.0,8.0795,2
-VALU,operating,"Financial Services,Payments,Software",4.0,4991815.0,4.1507,2
-TempoIQ,operating,"Data and Analytics,Financial Services,Information Technology,Internet Services,Other",4.0,4068000.0,10.0822,2
-goDutch,operating,"Apps,Financial Services,Payments,Software",2.0,1850000.0,2.0767,2
-StudentFunder,operating,Financial Services,2.0,870087.0,8.2877,1
-Bitaccess,operating,"Financial Services,Information Technology,Internet Services,Payments,Software",3.0,1220000.0,8.0795,2
-TradeHero,acquired,"Financial Services,Lending and Investments,Mobile,Software",3.0,10464859.0,9.0822,3
-Voatz,operating,Unknown,6.0,9270000.0,6.0795,2
-Webbankir,operating,"Financial Services,Lending and Investments",2.0,1700000.0,9.0822,5
-DOVU,operating,"Financial Services,Other,Payments,Real Estate,Software,Transportation",3.0,6448025.0,4.4110000000000005,2
-Commissiontrac,acquired,"Financial Services,Real Estate,Software",2.0,1170000.0,6.0795,1
-Stably,operating,"Financial Services,Other,Payments",2.0,1700000.0,2.9534,1
-Sunbit,operating,"Commerce and Shopping,Financial Services",4.0,53970000.0,5.0795,4
-GoCoin,operating,"Financial Services,Mobile,Payments,Software",3.0,2050000.0,7.5753,2
-SurBTC,operating,"Financial Services,Lending and Investments,Payments,Software",3.0,400000.0,6.5836,2
-RoadSync,operating,"Financial Services,Payments,Software,Transportation",4.0,8300000.0,5.9863,2
-Coinsquare,operating,"Financial Services,Lending and Investments,Other,Payments,Software",5.0,42070113.0,7.0795,3
-Ankr,operating,Unknown,3.0,15120000.0,3.2438,2
-"HashRabbit, Inc.",operating,"Financial Services,Information Technology,Payments,Privacy and Security,Software",4.0,2341500.0,6.9178,1
-Indorse,operating,"Education,Financial Services,Internet Services,Other,Payments,Software",3.0,13825177.0,3.7479,2
-Fundastik Kft,operating,"Financial Services,Lending and Investments",2.0,148630.0,2.9041,1
-Notabene,operating,"Financial Services,Other,Payments,Software",3.0,2300000.0,0.7699,1
-The Cents factory,operating,"Design,Financial Services,Information Technology,Internet Services,Media and Entertainment,Other",4.0,248000.0,9.0822,1
-HITbills,operating,"Financial Services,Other,Payments,Professional Services,Software",3.0,3634366.0,7.0795,2
-Grain,operating,Financial Services,4.0,180000.0,4.0767,1
-Veriff,operating,"Financial Services,Information Technology,Internet Services,Privacy and Security",5.0,23320000.0,5.2795,4
-CodeIsTrust,operating,Unknown,3.0,6500000.0,2.8959,2
->>>>>>> ca724bb5ddf40e6a84dbc537a529fca79b44ecba
+Settle (Merged with Allset),1,2.0,1.0,0.0,1.0,0.0,6.0,0.0,9.0,0.0,2.604278268781296
+Local Lift,1,2.0,1.0,0.0,0.0,0.0,3.0,0.0,4.0,0.0,3.9666798889329695
+goDutch,2,2.0,1.0,0.0,1.0,0.0,11.0,0.0,3.0,0.0,3.3426604342223736
+CreditLogic,2,2.0,1.0,0.0,0.0,0.0,3.0,0.0,4.0,1.0,1.439527446952136
+Kashmi,2,3.0,1.0,0.0,1.0,0.0,5.0,0.0,11.0,0.0,3.3162684740897808
+GoCoin,2,3.0,2.0,0.0,1.0,0.0,15.0,0.0,17.0,0.0,3.758431744901392
+Smartr365,2,2.0,1.0,0.0,0.0,0.0,2.0,0.0,5.0,0.0,2.0021336778979344
+GainBit,0,3.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,3.11075091889944
+Voatz,2,6.0,2.0,0.0,0.0,0.0,8.0,0.0,4.0,1.0,2.965363703056433
+iFunding,1,5.0,1.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,2.9505029639789893
