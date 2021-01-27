@@ -6,6 +6,7 @@ import { csvParse as d3_csvParse } from "d3";
 import "./WorldMap.css";
 import WorldMapLegend from "./WorldMapLegend";
 import WorldMapGeoJSON from "./WorldMapGeoJSON";
+import WorldMapMarkers from "./WorldMapMarkers";
 
 const styles = {
   mapRoot: {
@@ -49,36 +50,44 @@ const bounds = latLngBounds(corner1, corner2);
 export default function WorldMap(props) {
   const { chartID } = props;
   const [geoData, setGeoData] = useState(null);
+  const [topCompanyCities, setTopCompanyCities] = useState(null);
 
   useEffect(() => {
     // 1st API - Get CSV file containing country codes and no. of startups
     // 2nd API - Get the GeoJSON file containing polygon coordinates for all countries
-    axios.all([axios.get(`/features/${chartID}`), axios.get("/map/countries-geojson")]).then(
-      axios.spread((resFeature, resCountries) => {
-        const features = d3_csvParse(resFeature.data);
-        const countries = resCountries.data;
+    axios
+      .all([
+        axios.get(`/features/${chartID}`),
+        axios.get("/map/countries-geojson"),
+        axios.get("/features/top-companies-cities"),
+      ])
+      .then(
+        axios.spread((resFeature, resCountries, resTopCompanyCities) => {
+          const features = d3_csvParse(resFeature.data);
+          const countries = resCountries.data;
+          setTopCompanyCities(resTopCompanyCities.data);
 
-        const countriesIndex = createGeoJsonIndex(countries);
+          const countriesIndex = createGeoJsonIndex(countries);
 
-        // Add a new property called `company_count` for every country
-        countries.features.forEach((country) => {
-          country.properties.company_count = 0;
-        });
+          // Add a new property called `company_count` for every country
+          countries.features.forEach((country) => {
+            country.properties.company_count = 0;
+          });
 
-        // Add a new property called `company_count` to the GeoJSON data
-        features.forEach((row) => {
-          // `countries.features` is an array. This will get the array index of a country
-          const countryIndex = countriesIndex[row.country_code];
+          // Add a new property called `company_count` to the GeoJSON data
+          features.forEach((row) => {
+            // `countries.features` is an array. This will get the array index of a country
+            const countryIndex = countriesIndex[row.country_code];
 
-          if (countries.features[countryIndex]) {
-            // Add a new property called `company_count`
-            countries.features[countryIndex].properties.company_count = +row.count;
-          }
-        });
+            if (countries.features[countryIndex]) {
+              // Add a new property called `company_count`
+              countries.features[countryIndex].properties.company_count = +row.count;
+            }
+          });
 
-        setGeoData(countries);
-      }),
-    );
+          setGeoData(countries);
+        }),
+      );
   }, []);
 
   return (
@@ -96,9 +105,7 @@ export default function WorldMap(props) {
       />
       <WorldMapLegend />
       {geoData && <WorldMapGeoJSON geoData={geoData} />}
-      {/* <Marker position={[51.505, -0.09]}>
-        <Popup>ABC Company</Popup>
-      </Marker> */}
+      {topCompanyCities && <WorldMapMarkers countData={topCompanyCities} />}
     </MapContainer>
   );
 }

@@ -351,6 +351,29 @@ def funding_location():
 
 	return df_countries.to_csv(index=False)
 
+@app.route('/features/top-companies-cities')
+def top_companies_cities():
+	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	cities = ['city_London', 'city_New York', 'city_San Francisco', 'city_Singapore','city_Toronto','city_Beijing','city_Mumbai','city_Los Angeles','city_Chicago','city_Sydney','city_Paris','city_São Paulo','city_Tokyo','city_Berlin','city_Boston','city_Stockholm','city_Shanghai','city_Tel Aviv','city_Amsterdam']
+	cols_to_keep = ['company_name', *cities]
+	df = df[cols_to_keep]
+
+	df_top = pd.read_csv("../Week3_Onwards/predicted_best_100.csv")
+	df_top = df_top['company_name'].to_frame()
+
+	pd_merged = pd.merge(df, df_top, on='company_name')
+
+	counts = {}
+
+	for _ in cities:
+			df_temp = pd_merged[_].value_counts().to_frame()
+			if df_temp.iloc[0][_] == len(pd_merged):
+					counts[_] = 0
+			else:
+					counts[_] = int(df_temp.iloc[1][_])
+	
+	return counts
+
 
 '''
 Misc
