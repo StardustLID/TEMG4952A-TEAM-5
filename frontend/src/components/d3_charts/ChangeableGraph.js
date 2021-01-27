@@ -52,7 +52,6 @@ export default class ChangableGraph {
 
     let xmax = d3.max(data, (d) => +d.xdata);
     let ymax = d3.max(data, (d) => +d.ydata);
-    console.log(ymax * 1.05);
 
     // Scales for x and y
     let x = d3
@@ -110,8 +109,8 @@ export default class ChangableGraph {
       .attr("cx", (d) => (isEmployeeCountx ? x(d.xdata) + x.bandwidth() / 2 : x(+d.xdata)))
       .attr("cy", y(0)) // Place the dots at bottom of the plot initially
       .attr("r", 4)
-      .attr("fill", "red")
-      .attr("opacity", "0.2")
+      .attr("fill", (d) => d.is_top == "1" ? "blue" : "red")
+      .attr("opacity", (d) => d.is_top == "1" ? "0.6" : "0.2")
       .transition()
       .duration(500)
       .attr("cy", (d) => (isEmployeeCounty ? y(d.ydata) + y.bandwidth() / 2 : y(+d.ydata)));

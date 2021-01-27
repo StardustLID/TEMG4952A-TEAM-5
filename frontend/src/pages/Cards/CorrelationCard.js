@@ -13,6 +13,12 @@ const useStyles = makeStyles({
   root: {
     padding: 5,
   },
+  cardTitle: {
+    padding: "16px 16px 0px",
+  },
+  cardContentRoot: {
+    padding: "0px 16px",
+  },
 });
 
 export default function CorrelationCard(props) {
@@ -27,8 +33,12 @@ export default function CorrelationCard(props) {
 
   return (
     <Card className={classes.root}>
-      <CardHeader title="Multi-Feature Visualization" titleTypographyProps={{ variant: "h2" }} />
-      <CardContent>
+      <CardHeader
+        title="Multi-Feature Visualization"
+        titleTypographyProps={{ variant: "h2" }}
+        className={classes.cardTitle}
+      />
+      <CardContent className={classes.cardContentRoot}>
         <Grid container alignItems="center">
           <Grid item xs={9}>
             <ChangeableGraphWrapper xaxis={xaxis} yaxis={yaxis} />
