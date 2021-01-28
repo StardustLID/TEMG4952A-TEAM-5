@@ -48,6 +48,9 @@ export default function WorldMapMarkers(props) {
 
   return topCitiesLocation.map((element) => {
     const marker = chooseMarker(countData[element.id]);
+    console.log(element.id + ": " + countData[element.id]);
+    console.log(marker);
+    console.log("===");
 
     return marker ? (
       <Marker position={element.position} icon={marker}>

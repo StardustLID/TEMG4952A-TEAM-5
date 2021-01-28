@@ -354,7 +354,7 @@ def funding_location():
 @app.route('/features/top-companies-cities')
 def top_companies_cities():
 	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
-	cities = ['city_London', 'city_New York', 'city_San Francisco', 'city_Singapore','city_Toronto','city_Beijing','city_Mumbai','city_Los Angeles','city_Chicago','city_Sydney','city_Paris','city_São Paulo','city_Tokyo','city_Berlin','city_Boston','city_Stockholm','city_Shanghai','city_Tel Aviv','city_Amsterdam']
+	cities = ['city_London', 'city_New York', 'city_San Francisco', 'city_Singapore','city_Toronto','city_Beijing','city_Mumbai','city_Los Angeles','city_Chicago','city_Sydney','city_Paris','city_São Paulo','city_Tokyo','city_Berlin','city_Boston','city_Stockholm','city_Shanghai','city_Tel Aviv','city_Amsterdam', 'city_Madrid']
 	cols_to_keep = ['company_name', *cities]
 	df = df[cols_to_keep]
 
