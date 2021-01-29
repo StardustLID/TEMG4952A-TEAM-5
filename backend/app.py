@@ -17,13 +17,6 @@ def searchbar():
 
 	return df.to_csv(index=False)
 
-	'''df = pd.read_csv("../Week3_Onwards/frontend_funding_per_round_list.csv")
-	df.drop(columns="index", inplace = True)
-	df.drop(columns="org_uuid", inplace = True)
-
-	df = df["org_name"]
-	return df.to_csv(index = False)
-	'''
 
 # Top 400 worth investing companies
 @app.route('/top-companies')
@@ -39,8 +32,6 @@ def top_companies():
 @app.route('/ChangableGraph', methods = ["POST"])
 def ChangableGraph():
 	data = request.get_json()
-	#return "Hello test"
-	#print(data['xaxis'])
 
 	import pandas as pd
 	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
@@ -107,6 +98,7 @@ def BubblePlot():
 	df.rename(columns={'founded_on': 'y_values', 'degree_type': 'x_values', 'ROI': 'score'}, inplace=True)
 
 	return df.to_csv(index= False)
+
 
 '''
 Features Visualization
@@ -195,9 +187,6 @@ def funding_rounds():
 
 @app.route('/features/funding-per-round', methods = ["POST"])
 def funding_per_round():
-	# TODO: Need to add 2010-01-01 to make the graph start from 0
-	# https://www.geeksforgeeks.org/add-a-row-at-top-in-pandas-dataframe/
-	#data = "date,value\n2010-01-01,0\n2013-01-01,150\n2013-07-01,30\n2016-01-01,70\n2018-07-01,220"
 	input = request.get_json()
 
 	df = pd.read_csv("../Week3_Onwards/frontend_funding_per_round_list.csv")
@@ -218,63 +207,6 @@ def funding_per_round():
 	df = pd.concat([new_row, df]).reset_index(drop = True) 
 
 	return df.to_csv(index=False)
-
-
-# @app.route('/features/num-investments')
-# def num_investments():
-# 	df = pd.read_csv("../Week3_Onwards/unifed_csv_without_duplicated_company.csv")
-# 	series = df['investment_count']
-
-# 	df = series.to_frame()
-# 	#drop zero
-# 	df = df[~(df == 0).any(axis = 1)]
-# 	df.rename(columns={'investment_count': 'x_values'}, inplace=True)
-
-# 	return df.to_csv(index = False)
-
-
-# @app.route('/features/top-investors')
-# def top_investments():
-# 	df = pd.read_csv("../bulk_export_processed/investors_processed.csv")
-	
-# 	# Drop unnecessary columns
-# 	keep_col = ['name', 'investment_count']
-# 	df = df[keep_col]
-
-# 	# Drop NaN and filter out investors with investment_count < 100
-# 	df.dropna(axis=0, how='any', subset=['investment_count'], inplace=True)
-# 	df.drop(df[df['investment_count'] < 100].index, inplace=True)
-
-# 	# Cast `investment_count` to int & sort in descending order
-# 	df['investment_count'] = df['investment_count'].astype(int)
-# 	df.sort_values(by='investment_count', axis=0, ascending=False, inplace=True)
-	
-# 	# Get the first N rows (ie. top N investors)
-# 	df = df[:10]
-
-# 	# Reset the index & rename the columns
-# 	df.reset_index(inplace=True)
-# 	df.drop(axis=1, labels='index', inplace=True)
-# 	df.rename(columns={'name': 'x_labels', 'investment_count': 'y_values'}, inplace=True)
-
-# 	return df.to_csv(index=False)
-
-
-# @app.route('/features/acquisition-price')
-# def acquisition_price():
-# 	df = pd.read_csv("../Week3_Onwards/unifed_csv_20210124_2.csv")
-# 	series = df['acq_price_usd']
-
-# 	series.dropna(inplace = True)
-
-# 	df = series.to_frame()
-
-# 	# drop the index greater than 500,000,000
-# 	df.drop(df[df['acq_price_usd'] > 500000000].index, inplace = True)
-
-# 	df.rename(columns={'acq_price_usd': 'x_values'}, inplace=True)
-
-# 	return df.to_csv(index = False)
 
 
 @app.route('/features/funds-raised')
@@ -311,25 +243,6 @@ def first_fund():
 
 	return df.to_csv(index = False)
 
-# @app.route('/features/top-acquirers')
-# def num_companies_owned():
-
-# 	df = pd.read_csv("../bulk_export_processed/acquisitions_processed.csv")
-
-# 	# Count Values
-# 	series = df['acquirer_name'].value_counts()
-
-# 	# convert back to dataframe
-# 	df = series.to_frame()
-# 	df.reset_index(inplace=True)
-# 	df.rename(columns={'index': 'x_labels', 'acquirer_name': 'y_values'}, inplace=True)
-
-# 	# Get the first N rows (ie. top N investors)
-# 	df = df[:10]
-
-# 	return df.to_csv(index=False)
-
-
 
 @app.route('/features/executives-edu')
 def founder_exp():
@@ -350,6 +263,7 @@ def funding_location():
 	df_countries.rename(columns={'index': 'country_code', 'country_code': 'count'}, inplace=True)
 
 	return df_countries.to_csv(index=False)
+
 
 @app.route('/features/top-companies-cities')
 def top_companies_cities():
