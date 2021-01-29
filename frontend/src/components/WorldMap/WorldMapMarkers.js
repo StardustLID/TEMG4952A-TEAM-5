@@ -1,10 +1,10 @@
 import { Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import topCitiesLocation from "./topCitiesLocation.json";
-import marker0_png from "../assets/map_marker0.png";
-import marker1_png from "../assets/map_marker1.png";
-import marker2_png from "../assets/map_marker2.png";
-import marker3_png from "../assets/map_marker3.png";
+import marker0_png from "../../assets/map_marker0.png";
+import marker1_png from "../../assets/map_marker1.png";
+import marker2_png from "../../assets/map_marker2.png";
+import marker3_png from "../../assets/map_marker3.png";
 
 export default function WorldMapMarkers(props) {
   const { countData } = props;
