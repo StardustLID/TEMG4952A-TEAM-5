@@ -47,19 +47,16 @@ const corner1 = latLng(-56, -180);
 const corner2 = latLng(80, 180); // upper right corner
 const bounds = latLngBounds(corner1, corner2);
 
-export default function WorldMap(props) {
-  const { chartID } = props;
+export default function WorldMap() {
   const [geoData, setGeoData] = useState(null);
   const [topCompanyCities, setTopCompanyCities] = useState(null);
 
   useEffect(() => {
-    // 1st API - Get CSV file containing country codes and no. of startups
-    // 2nd API - Get the GeoJSON file containing polygon coordinates for all countries
     axios
       .all([
-        axios.get(`/features/${chartID}`),
-        axios.get("/map/countries-geojson"),
-        axios.get("/features/top-companies-cities"),
+        axios.get(`/features/funding-location`), // Get CSV file of country codes & no. of startups
+        axios.get("/map/countries-geojson"), // Get GeoJSON file containing polygon coordinates for all countries
+        axios.get("/features/top-companies-cities"), // Get no. of top 100 startups found in top 20 cities
       ])
       .then(
         axios.spread((resFeature, resCountries, resTopCompanyCities) => {

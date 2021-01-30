@@ -35,12 +35,6 @@ const columns = [
   { field: "fd_rd_latest_investment", headerName: "Latest Investment", width: 170 },
   { field: "first_fund_investor_count", headerName: "# of First Fund Investors", width: 210 },
   {
-    field: "first_fund_post_money",
-    headerName: "First Fund Post Money",
-    valueFormatter: (params) => params.value.toLocaleString(),
-    width: 200,
-  },
-  {
     field: "num_exec",
     headerName: "# of Company Executives",
     width: 220,
@@ -120,7 +114,6 @@ function processRows(parsedCsvData) {
     num_funding_rounds: +row.num_funding_rounds,
     fd_rd_latest_investment: getLatestInvestName(+row.fd_rd_latest_investment),
     first_fund_investor_count: +row.first_fund_investor_count,
-    first_fund_post_money: +row.first_fund_post_money,
     num_exec: +row.num_exec,
     fd_rd_num_invested_by_top_100: +row.fd_rd_num_invested_by_top_100,
     average_momentum: +row.average_momentum,

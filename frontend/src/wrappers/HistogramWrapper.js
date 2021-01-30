@@ -26,7 +26,6 @@ export default function HistogramWrapper(props) {
       setError(false);
     }
 
-    // Example API Call
     axios
       .get(`/features/${selectedDataObj.id}`)
       .then((res) => {

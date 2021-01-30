@@ -1,9 +1,3 @@
-/* D3WorldMap */
-path.world-map-country:hover {
-  stroke: black !important;
-  transition: 0.1s;
-}
-
 /* WorldMap (React Leaflet) */
 .info {
   padding: 3px 8px;

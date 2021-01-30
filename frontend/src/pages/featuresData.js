@@ -45,34 +45,6 @@ const featuresData = [
     chartType: "line",
     axisLabels: ["Year", "Funding"],
   },
-  // {
-  //   id: "num-investments",
-  //   btnTitle: "No. of Investments",
-  //   icon: "attach_money",
-  //   chartType: "histogram",
-  //   axisLabels: ["Number of Investments", "Number of Companies"],
-  // },
-  // {
-  //   id: "top-investors",
-  //   btnTitle: "No. of Investments by Top 10 Investors",
-  //   icon: "person",
-  //   chartType: "singleBar",
-  //   axisLabels: ["Top Investors", "Number of Companies Invested"],
-  // },
-  // {
-  //   id: "num-acquisitions",
-  //   btnTitle: "No. of Acquisitions",
-  //   icon: "bar_chart",
-  //   chartType: "singleBar",
-  //   axisLabels: ["Number of Acquisitions", "Number of Companies"],
-  // },
-  // {
-  //   id: "acquisition-price",
-  //   btnTitle: "Acquisition Price",
-  //   icon: "monetization_on",
-  //   chartType: "histogram",
-  //   axisLabels: ["Acquisition Price (1M USD)", "Number of Companies"],
-  // },
   {
     id: "funds-raised",
     btnTitle: "Total Funds Raised",
@@ -80,7 +52,6 @@ const featuresData = [
     chartType: "histogram",
     axisLabels: ["Dollar Amount (log$)", "Number of Companies"],
   },
-
   {
     id: "first-fund",
     btnTitle: "First Fund Raised",
@@ -88,14 +59,6 @@ const featuresData = [
     chartType: "histogram",
     axisLabels: ["Dollar Amount (log$)", "Number of Companies"],
   },
-
-  // {
-  //   id: "top-acquirers",
-  //   btnTitle: "No. of Acquisitions by Top 10 Acquirers",
-  //   icon: "business",
-  //   chartType: "singleBar",
-  //   axisLabels: ["Top Acquirers' Names", "Number of Acquisitions"],
-  // },
   {
     id: "executives-edu",
     btnTitle: "Executives Education Level",

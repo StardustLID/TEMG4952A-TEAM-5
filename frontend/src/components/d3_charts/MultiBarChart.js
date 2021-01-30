@@ -5,9 +5,6 @@ import * as d3Utils from "./D3Utilities";
 
 // Use default WIDTH, HEIGHT & MARGIN from d3Utils
 
-// TODO: Change the d.group to d.dataname on line 61, 111
-// where d.group is for x axis
-
 export default class MultiBarChart {
   constructor(element, csvData, axisLabels) {
     let vis = this;

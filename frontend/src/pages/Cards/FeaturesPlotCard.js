@@ -44,7 +44,7 @@ export default function FeaturesPlotCard(props) {
       chartWrapper = <LineGraphwithSearchBarCard />;
       break;
     case "map":
-      chartWrapper = <WorldMap chartID={selectedChartID} />;
+      chartWrapper = <WorldMap />;
       break;
     default:
       break;

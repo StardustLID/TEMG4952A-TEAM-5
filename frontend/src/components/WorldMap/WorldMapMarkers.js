@@ -9,33 +9,32 @@ import marker3_png from "../../assets/map_marker3.png";
 export default function WorldMapMarkers(props) {
   const { countData } = props;
 
-  // Deep red marker
-  const marker0 = L.icon({
-    iconUrl: marker0_png,
+  const markerProps = {
     iconSize: [35, 35],
     iconAnchor: [17, 34],
     popupAnchor: [0, -30],
+  };
+
+  // Deep red marker
+  const marker0 = L.icon({
+    iconUrl: marker0_png,
+    ...markerProps,
   });
 
   const marker1 = L.icon({
     iconUrl: marker1_png,
-    iconSize: [35, 35],
-    iconAnchor: [17, 34],
-    popupAnchor: [0, -30],
+    ...markerProps,
   });
 
   const marker2 = L.icon({
     iconUrl: marker2_png,
-    iconSize: [35, 35],
-    iconAnchor: [17, 34],
-    popupAnchor: [0, -30],
+    ...markerProps,
   });
 
+  // White marker
   const marker3 = L.icon({
     iconUrl: marker3_png,
-    iconSize: [35, 35],
-    iconAnchor: [17, 34],
-    popupAnchor: [0, -30],
+    ...markerProps,
   });
 
   const chooseMarker = (count) => {
@@ -48,9 +47,6 @@ export default function WorldMapMarkers(props) {
 
   return topCitiesLocation.map((element) => {
     const marker = chooseMarker(countData[element.id]);
-    console.log(element.id + ": " + countData[element.id]);
-    console.log(marker);
-    console.log("===");
 
     return marker ? (
       <Marker position={element.position} icon={marker}>

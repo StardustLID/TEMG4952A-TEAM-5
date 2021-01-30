@@ -65,7 +65,6 @@ export default function ChangeableWrapper(props) {
       })
       .catch((error) => {
         setError(true);
-        //console.log(error);
       }); // failed to fetch data
   }, []);
 
