@@ -41,7 +41,7 @@ export default function LineGraphWrapper(props) {
 
     if (props.selected != null) {
       if (plot) {
-        plot.removeLineGraph(); // Method of SingleBarChart
+        plot.removeLineGraph(); // Method of LineGraph
       }
 
       axios

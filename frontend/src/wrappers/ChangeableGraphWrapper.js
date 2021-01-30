@@ -68,8 +68,7 @@ export default function ChangeableWrapper(props) {
       }); // failed to fetch data
   }, []);
 
-  // Calls the update(category) method of SingleBarChart class when props.category updates
-  // React will NOT re-render this component when props.category updates
+  // Calls the update() method of ChangeableGraph class when props.xaxis or props.yaxis updates
   useEffect(() => {
     let myParams = { xaxis: props.xaxis, yaxis: props.yaxis };
     let axisLabel = [axisLabels[props.xaxis], axisLabels[props.yaxis]];

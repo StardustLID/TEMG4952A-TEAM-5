@@ -40,7 +40,7 @@ export default function MultiBarChartWrapper(props) {
   useEffect(() => {
     // Remove existing single bar chart when a new single bar chart is selected
     if (plot) {
-      plot.removeGraph(); // Method of SingleBarChart
+      plot.removeGraph();
       setLoading(true);
     }
 

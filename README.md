@@ -21,7 +21,10 @@ This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render 
    ```
    REACT_APP_MAPBOX_API_KEY=
    ```
-3. At the end of the line, paste in the Mapbox default public token you previously copied from Mapbox's account page
+3. At the end of the line, paste in the Mapbox default public token you previously copied from Mapbox's account page. After that, it should look something like:
+   ```
+   REACT_APP_MAPBOX_API_KEY=pk.XXXXXXXX
+   ```
 4. For Windows users, follow the remaining steps in [section 1.1](#11-for-windows-users). For Mac users, follow the remaining steps in [section 1.2](#12-for-mac-users).
 
 ### 1.1 For Windows Users,
