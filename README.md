@@ -8,9 +8,10 @@ Note: this project's raw data are the CSV files from `bulk_export` folder from C
 
 1. [Initial Set-up](#1-initial-set-up)
 2. [Start Development Server](#2-start-development-server)
-3. [Dependencies](#3-dependencies)
-4. [Project Methodology](#4-project-methodology)
-5. [Weekly Progress](#5-weekly-progress)
+3. [View Jupyter Notebooks](#3-view-jupyter-notebooks)
+4. [Dependencies](#4-dependencies)
+5. [Project Methodology](#5-project-methodology)
+6. [Weekly Progress](#6-weekly-progress)
 
 ## 1. Initial Set-up
 
@@ -105,6 +106,8 @@ If you failed to run `npm start` after running `npm install` at the `frontend/` 
 
 ## 2. Start Development Server
 
+The following steps are used to start up the React and Flask server in order to view the GUI. Before running these steps, make sure that you have already finished the initial set-up guide in Step 1.
+
 ### 2.1 Via Command Line
 
 1. `cd frontend/`
@@ -132,14 +135,36 @@ If you failed to run `npm start` after running `npm install` at the `frontend/` 
 
 5. Hover over `start - frontend` and press the right button to run the script
 
-## 3. Dependencies
+## 3. View Jupyter Notebooks
+
+### 3.1 View in Browser
+
+1. Open Terminal and change directory to the root folder of this repository (`cd path/to/root/`)
+2. For Windows users, run `.\venv\Scripts\activate`. For Mac users, run `. venv/bin/activate`
+3. Run `jupyter notebook`
+4. A new browser window will pop up. Click on the `data_and_model` folder on the browser screen and you can click on different notebooks to view them
+
+### 3.2 View in VS Code
+
+Prerequisite: Make sure that [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) is installed in your VS Code.
+
+1. Open Explorer in the sidebar, expand the `data_and_model` folder and double click on a Jupyter notebook you wish to view
+2. On the upper right corner, click the "Python 3: Idle" button
+   <br />
+   ![](./pics/vs_code_choose_python.png)
+3. In the new window, choose the Python interpreter where the path looks something like `path\to\root\venv\Scripts\python.exe` (Windows) or `path/to/root/venv/bin/python` (Mac)
+   <br />
+   ![](./pics/vs_code_choose_python2.png)
+4. Your Jupyter notebook now runs in the virtual environment that we've set up earlier in Step 1. You can now run the cells in the notebook
+
+## 4. Dependencies
 
 [Click here](./Dependencies.md) to see the libraries and frameworks used in this project.
 
-## 4. Project Methodology
+## 5. Project Methodology
 
 [Click here](./ProjectMethodology.md) to see the methodology used in the project, e.g. code structure.
 
-## 5. Weekly Progress
+## 6. Weekly Progress
 
 [Click here](./WeeklyProgress.md) to see the work progress for each week.
