@@ -12,6 +12,9 @@ const styles = {
   mapRoot: {
     height: 500,
   },
+  note: {
+    margin: "0px 20px 20px",
+  },
 };
 
 // Mapbox Static Tiles API: https://docs.mapbox.com/api/maps/static-tiles/
@@ -88,21 +91,27 @@ export default function WorldMap() {
   }, []);
 
   return (
-    <MapContainer
-      style={styles.mapRoot}
-      center={[51.505, -0.09]}
-      zoom={2}
-      minZoom={2}
-      maxZoom={10}
-      maxBounds={bounds} // Set the map's viewable area
-    >
-      <TileLayer
-        attribution='Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
-        url={API_URL}
-      />
-      <WorldMapLegend />
-      {geoData && <WorldMapGeoJSON geoData={geoData} />}
-      {topCompanyCities && <WorldMapMarkers countData={topCompanyCities} />}
-    </MapContainer>
+    <>
+      <ul style={styles.note}>
+        <li>Each marker represents top 20 cities where start-ups are most located in</li>
+        <li>Deeper red color of marker = More top 100 worth investing companies are found</li>
+      </ul>
+      <MapContainer
+        style={styles.mapRoot}
+        center={[51.505, -0.09]}
+        zoom={2}
+        minZoom={2}
+        maxZoom={10}
+        maxBounds={bounds} // Set the map's viewable area
+      >
+        <TileLayer
+          attribution='Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
+          url={API_URL}
+        />
+        <WorldMapLegend />
+        {geoData && <WorldMapGeoJSON geoData={geoData} />}
+        {topCompanyCities && <WorldMapMarkers countData={topCompanyCities} />}
+      </MapContainer>
+    </>
   );
 }

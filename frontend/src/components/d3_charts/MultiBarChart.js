@@ -6,6 +6,11 @@ import * as d3Utils from "./D3Utilities";
 // Use default WIDTH, HEIGHT & MARGIN from d3Utils
 
 export default class MultiBarChart {
+  /**
+   * @param element - Reference to the <div /> that the chart will be rendered in
+   * @param {string} csvData - The CSV data
+   * @param {string[]} axisLabels - The x-axis and y-axis labels
+   */
   constructor(element, csvData, axisLabels) {
     let vis = this;
 
@@ -15,7 +20,7 @@ export default class MultiBarChart {
     // Set the x-axis & y-axis labels
     d3Utils.drawAxisLabels(vis.svg, axisLabels);
 
-    //Set x, y AxisGroup
+    // Set x, y AxisGroup
     [vis.xAxisGroup, vis.yAxisGroup] = d3Utils.createAxisGroups(vis.svg);
 
     const data = d3.csvParse(csvData);  // Parse a string of CSV data

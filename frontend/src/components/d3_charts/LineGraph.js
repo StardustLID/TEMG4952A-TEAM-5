@@ -9,8 +9,7 @@ const MARGIN = {...d3Utils.MARGIN, LEFT: 90 };
 export default class LineGraph {
   /**
    * @param element - Reference to the <div /> that the chart will be rendered in
-   * @param {string} csvData - The CSV data file
-   * @param {string[]} axisLabels - The x-axis and y-axis labels
+   * @param {string} csvData - The CSV data
    */
   constructor(element, csvData) {
     let vis = this;

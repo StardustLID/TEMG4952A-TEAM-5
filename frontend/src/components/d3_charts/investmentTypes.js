@@ -1,3 +1,6 @@
+// Used in frontend/src/components/d3_charts/LineGraph.js
+// It coverts investment type codes into a string
+
 const investTypes = {
   series_unknown: "Unknown Series",
   debt_financing: "Debt Financing",
