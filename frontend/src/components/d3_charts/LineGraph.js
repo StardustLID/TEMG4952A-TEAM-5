@@ -49,12 +49,7 @@ export default class LineGraph {
     const xAxisCall = d3.axisBottom(vis.x);
     vis.xAxisGroup.transition().duration(500).call(xAxisCall);
 
-    // Call Grid line
-    /** Ref: https://www.essycode.com/posts/adding-gridlines-chart-d3/
-     * Passing the negative chart height and width to the tickSize functions ensures that the axis lines will span across the chart.
-     * Passing an empty string to tickFormat ensures that tick labels aren’t rendered.
-     * The ticks function specifies the number of tick marks, here set to 10 to equal the count on the main axes.
-     */
+    // Create Vertical Grid Line (Ref: https://www.essycode.com/posts/adding-gridlines-chart-d3/)
     const xAxisGridCall = d3.axisBottom(vis.x).tickSize(-d3Utils.HEIGHT).tickFormat("").ticks(10);
     vis.svg
       .append("g")
@@ -105,20 +100,20 @@ export default class LineGraph {
     // Define the div for the tooltip
     var div = d3.select(element).append("div").attr("class", "tooltip").style("opacity", 0);
 
-    // Add circle
+    // Add Circle
     const circles = vis.svg.selectAll("circle").data(data);
 
-    // exit
+    // Circle Exit
     circles.exit().transition().duration(500).attr("cy", y(0)).remove();
 
-    // Update
+    // Update Circle 
     circles
       .transition()
       .duration(500)
       .attr("cx", (d) => vis.x(new Date(d.date))) // center x passing through your xScale
       .attr("cy", (d) => y(+d.raised_amount)); // center y through your yScale
 
-    // Create
+    // Create Circle
     circles
       .enter()
       .append("circle") // enter append

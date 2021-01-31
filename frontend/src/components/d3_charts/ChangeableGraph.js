@@ -92,17 +92,17 @@ export default class ChangableGraph {
     // Data join
     const circles = vis.svg.selectAll("circle").data(data);
 
-    // Exit
+    // Data Exit
     circles.exit().remove();
 
-    // Update
+    // Data Update
     circles
       .transition()
       .duration(500)
       .attr("cx", (d) => (isEmployeeCountx ? x(d.xdata) + x.bandwidth() / 2 : x(+d.xdata)))
       .attr("cy", (d) => (isEmployeeCounty ? y(d.ydata) + y.bandwidth() / 2 : y(+d.ydata)));
 
-    // Enter
+    // Data Enter
     circles
       .enter()
       .append("circle")
