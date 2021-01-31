@@ -14,7 +14,9 @@ Note: this project's raw data are the CSV files from `bulk_export` folder from C
 
 ## 1. Initial Set-up
 
-Prerequisite: Install Python 3 in your system.
+### 1.1 Prerequisites
+
+We assume that Python 3 and Jupyter Notebook is already installed in your system.
 
 This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render a world map in data visualization. Mapbox's APIs require an access token that is obtainable after registering for an account in [this page](https://account.mapbox.com/auth/signup/). After registering for an account, head to your [Mapbox account page](https://account.mapbox.com/) and copy your default public token.
 
@@ -27,22 +29,22 @@ This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render 
    ```
    REACT_APP_MAPBOX_API_KEY=pk.XXXXXXXX
    ```
-4. For Windows users, follow the remaining steps in [section 1.1](#11-for-windows-users). For Mac users, follow the remaining steps in [section 1.2](#12-for-mac-users). After sections 1.1 or 1.2, continue to [section 1.3](#13-model)
+4. For Windows users, follow the remaining steps in [section 1.2](#12-for-windows-users). For Mac users, follow the remaining steps in [section 1.3](#13-for-mac-users).
 
-### 1.1 For Windows Users,
+### 1.2 For Windows Users,
 
 5. Open Powershell and change directory to this repository's root (`cd path\to\root\here`)
 6. Run the following commands:
 
    ```
-   cd .\backend\
    py -m venv venv
    .\venv\Scripts\activate
    pip install -r requirements.txt
+   cd backend\
    flask run
    ```
 
-   If you encountered the following error when running `.\venv\Scripts\activate`, read [item 1.3.1](#131-running-scripts-is-disabled-on-the-system) in the Troubleshooting section.
+   If you encountered the following error when running `.\venv\Scripts\activate`, read [item 1.4.1](#141-running-scripts-is-disabled-on-the-system) in the Troubleshooting section.
 
 7. Keep this Powershell window running in background. At the same time, open another Powershell window and change directory to this repository's root
 8. Run the following commands:
@@ -53,17 +55,16 @@ This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render 
    npm start
    ```
 
-### 1.2 For Mac Users,
+### 1.3 For Mac Users,
 
 5. Open Terminal and change directory to this repository's root (`cd path/to/root/here`)
 6. Run the following commands:
 
    ```
-   cd backend/
    python3 -m venv venv
    . venv/bin/activate
    pip install -r requirements.txt
-   flask run
+   cd backend && flask run
    ```
 
 7. Keep this Terminal window running in background. At the same time, open another Terminal window and change directory to this repository's root
@@ -73,17 +74,6 @@ This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render 
    cd frontend/
    npm install
    npm start
-   ```
-
-### 1.3 Model
-1. Open Powershell and change directory to this repository's root (`cd path\to\root\here`)
-
-2. Run the following commands:
-
-   ```
-   $ virtualenv <env_name>
-   $ source <env_name>/bin/activate
-   (<env_name>)$ pip install -r path/to/requirements.txt
    ```
 
 ### 1.4 Troubleshooting
@@ -102,7 +92,7 @@ For Windows users, if you encounter the following error while running `.\venv\Sc
    `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted`
 
 5. Type `Y` (Yes) when it asks whether you want to change the execution policy
-6. Retry the commands in [section 1.1](#11-for-windows-users) item 6
+6. Retry the commands in [section 1.2](#12-for-windows-users) item 6
 
 #### 1.4.2 `npm start` not working
 
