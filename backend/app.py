@@ -12,7 +12,7 @@ CORS(app)
 # Api Search bar
 @app.route('/SearchBar')
 def searchbar():
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
 	df = df["company_name"]
 
 	return df.to_csv(index=False)
@@ -21,7 +21,7 @@ def searchbar():
 # Top 400 worth investing companies
 @app.route('/top-companies')
 def top_companies():
-	df = pd.read_csv("../Week3_Onwards/predicted_best_100.csv")
+	df = pd.read_csv("../data_and_model/predicted_best_100.csv")
 	df['average_momentum'] = df['average_momentum'].round(3)
 	df.reset_index(inplace=True)
 
@@ -34,7 +34,7 @@ def ChangableGraph():
 	data = request.get_json()
 
 	import pandas as pd
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
 
 	cols_to_keep = ['company_name', 'employee_count', 'founded_on', 'degree_type', "first_fund_raised", "average_momentum", "fd_rd_num_invested_by_top_100", "first_fund_investor_count"]
 	df = df[cols_to_keep]
@@ -53,7 +53,7 @@ def ChangableGraph():
 	df["first_fund_raised_log"] = np.log10(df["first_fund_raised"])
 	
 	# Add a column called `is_top` to indicate whether the company is in top 10%
-	df_top = pd.read_csv("../Week3_Onwards/predicted_best_100.csv")
+	df_top = pd.read_csv("../data_and_model/predicted_best_100.csv")
 	df_top = df_top['company_name'].to_frame()
 
 	top_companies = []
@@ -82,7 +82,7 @@ Features Visualization
 
 @app.route('/features/num-employees')
 def num_employees():
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
 	series = df['employee_count'].value_counts()
 
 	# Remove "unknown" column
@@ -102,10 +102,10 @@ def num_employees():
 
 @app.route('/features/company-age')
 def company_age():
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
 
 	# Remove unnecessary columns
-	categories = ['cat_commerce_shopping', 'cat_fin_services', 'cat_lending_invests', 'cat_payments']
+	categories = ['Commerce and Shopping', 'Financial Services', 'Lending and Investments', 'Payments']
 	cols_to_keep = ['founded_on', *categories]
 	df = df[cols_to_keep]
 
@@ -126,7 +126,7 @@ def company_age():
 		temp = df[df[_] == 1]
 		df_count = temp['founded_on'].value_counts().sort_index().to_frame()
 		df_count.reset_index(inplace=True)
-		df_count.rename(columns={'index': 'company_age', 'founded_on': _[4:]},inplace=True)
+		df_count.rename(columns={'index': 'company_age', 'founded_on': _},inplace=True)
 		df_category_counts.append(df_count)
 	
 	# Merge the dataframes together
@@ -134,15 +134,16 @@ def company_age():
 
 	# Fill NaN generated from natural left join
 	for _ in categories:
-			_ = _[4:]
 			df_merged[_] = df_merged[_].fillna(0).astype(int)
 	
+	df_merged.rename(columns={'Commerce and Shopping': 'commerce_shopping', 'Financial Services': 'fin_services', 'Lending and Investments': 'lending_invests', 'Payments': 'payments'}, inplace=True)
+
 	return df_merged.to_csv(index=False)
 
 
 @app.route('/features/funding-rounds')
 def funding_rounds():
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
 	series = df['num_funding_rounds'].value_counts().sort_index()
 
 	# Remove num_funding_rounds == 0
@@ -165,7 +166,7 @@ def funding_rounds():
 def funding_per_round():
 	input = request.get_json()
 
-	df = pd.read_csv("../Week3_Onwards/frontend_funding_per_round_list.csv")
+	df = pd.read_csv("../data_and_model/frontend_funding_per_round_list.csv")
 	row = df.loc[df["org_name"] == input["name"]]
 
 	# remove signs and split string to array
@@ -187,7 +188,7 @@ def funding_per_round():
 
 @app.route('/features/funds-raised')
 def funds_raised():
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
 	series = df['total_funding_usd']
 
 	df = series.to_frame()
@@ -205,7 +206,7 @@ def funds_raised():
 
 @app.route('/features/first-fund')
 def first_fund():
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
 	series = df['first_fund_raised']
 
 	df = series.to_frame()
@@ -222,7 +223,7 @@ def first_fund():
 
 @app.route('/features/executives-edu')
 def founder_exp():
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
 	df_degree = df['degree_type'].to_frame()
 	df_degree.rename(columns={'degree_type': 'x_values'}, inplace=True)
 	
@@ -231,7 +232,7 @@ def founder_exp():
 
 @app.route('/features/funding-location')
 def funding_location():
-	df = pd.read_csv("../previous_notebooks/unifed_csv_20210124_2.csv")
+	df = pd.read_csv("../data_and_model/unifed_csv_20210124_2.csv")
 
 	# Count no. of startups from different countries
 	df_countries = df['country_code'].value_counts().to_frame()
@@ -243,12 +244,12 @@ def funding_location():
 
 @app.route('/features/top-companies-cities')
 def top_companies_cities():
-	df = pd.read_csv("../Week3_Onwards/unified_csv.csv")
-	cities = ['city_London', 'city_New York', 'city_San Francisco', 'city_Singapore','city_Toronto','city_Beijing','city_Mumbai','city_Los Angeles','city_Chicago','city_Sydney','city_Paris','city_São Paulo','city_Tokyo','city_Berlin','city_Boston','city_Stockholm','city_Shanghai','city_Tel Aviv','city_Amsterdam', 'city_Madrid']
+	df = pd.read_csv("../data_and_model/unified_csv.csv")
+	cities = ['city_London','city_New York','city_San Francisco','city_Los Angeles','city_Singapore','city_Amsterdam','city_Toronto','city_Mumbai','city_Paris','city_Chicago','city_Bangalore','city_São Paulo','city_New Delhi','city_Berlin','city_Beijing','city_Sydney','city_Madrid','city_Tokyo','city_Austin','city_Boston']
 	cols_to_keep = ['company_name', *cities]
 	df = df[cols_to_keep]
 
-	df_top = pd.read_csv("../Week3_Onwards/predicted_best_100.csv")
+	df_top = pd.read_csv("../data_and_model/predicted_best_100.csv")
 	df_top = df_top['company_name'].to_frame()
 
 	pd_merged = pd.merge(df, df_top, on='company_name')
