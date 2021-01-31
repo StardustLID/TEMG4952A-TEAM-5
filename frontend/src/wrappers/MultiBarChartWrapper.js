@@ -40,7 +40,7 @@ export default function MultiBarChartWrapper(props) {
   useEffect(() => {
     // Remove existing single bar chart when a new single bar chart is selected
     if (plot) {
-      plot.removeGraph(); // Method of SingleBarChart
+      plot.removeGraph();
       setLoading(true);
     }
 
@@ -85,8 +85,8 @@ export default function MultiBarChartWrapper(props) {
       <div className="plot-area" ref={plotArea} />
     );
 
-  // Calls `update(category)` method of CompanyAgeChart object when `ageCategory` updates
-  // React will NOT re-render this component when props.category updates
+  // Calls `update()` method of CompanyAgeChart object when `ageCategory` updates
+  // React will NOT re-render this component when props.ageCategory updates
   useEffect(() => {
     if (chartID === "company-age") {
       plot?.update(ageCategory);

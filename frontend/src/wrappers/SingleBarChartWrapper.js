@@ -36,13 +36,5 @@ export default function SingleBarChartWrapper(props) {
       .catch(() => setError(true)); // failed to fetch data
   }, [chartID]);
 
-  // TODO: if use update then need to uncomment this part
-
-  // Calls the update(category) method of SingleBarChart class when props.category updates
-  // React will NOT re-render this component when props.category updates
-  /*useEffect(() => {
-    plot?.update(props.category);
-  }, [plot, props.category]);*/
-
   return loading || error ? <LoadingSpinner error={error} /> : <div className="plot-area" ref={plotArea} />;
 }

@@ -25,15 +25,12 @@ export default function LineGraphWrapper(props) {
       .then((res) => {
         setLoading(false);
 
-        console.log(res.data);
         setPlot(new LineGraph(plotArea.current, res.data));
       })
       .catch(() => setError(true)); // failed to fetch data
   }, []);
 
-  // TODO: if use update then need to uncomment this part
-  // Calls the update(category) method of InvestmentHistogram class when props.category updates
-  // React will NOT re-render this component when props.category updates
+  // Calls the update() method of LineGraph class when props.selected updates
   useEffect(() => {
     let myParams = { name: props.selected };
 
@@ -44,14 +41,13 @@ export default function LineGraphWrapper(props) {
 
     if (props.selected != null) {
       if (plot) {
-        plot.removeLineGraph(); // Method of SingleBarChart
+        plot.removeLineGraph(); // Method of LineGraph
       }
 
       axios
         .post("/features/funding-per-round", myParams)
         .then((res) => {
           setLoading(false);
-          console.log(res.data);
           plot?.update(plotArea.current, res.data);
         })
         .catch(() => {

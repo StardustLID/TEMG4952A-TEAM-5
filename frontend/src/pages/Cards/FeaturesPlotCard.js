@@ -5,7 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import featuresData from "../featuresData";
 import SingleBarChartWrapper from "../../wrappers/SingleBarChartWrapper";
 import LineGraphwithSearchBarCard from "../Cards/LineGraphwithSearchBarCard";
-import WorldMap from "../../components/WorldMap";
+import WorldMap from "../../components/WorldMap/WorldMap";
 import MultiBarChartWrapper from "../../wrappers/MultiBarChartWrapper";
 import HistogramWrapper from "../../wrappers/HistogramWrapper";
 
@@ -44,7 +44,7 @@ export default function FeaturesPlotCard(props) {
       chartWrapper = <LineGraphwithSearchBarCard />;
       break;
     case "map":
-      chartWrapper = <WorldMap chartID={selectedChartID} />;
+      chartWrapper = <WorldMap />;
       break;
     default:
       break;
