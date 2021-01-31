@@ -1,6 +1,6 @@
 # TEMG4952A - Team 5
 
-This is the repository of Team 5 for the HKUST course TEMG4952A "Special Project: Financial Investment Prototyping for UBS Zurich" in 2020-21 Winter Semester.
+This is the repository of Team 5 for the HKUST course TEMG4952A "Special Project: Financial Investment Prototyping for UBS Zurich" in 2020-21 Winter Semester. For the final front-end results, see the instructions below. For the back-end models, see `..\data_and_model\stable_prediction\Models_training.ipynb`.
 
 ## Table of Contents
 

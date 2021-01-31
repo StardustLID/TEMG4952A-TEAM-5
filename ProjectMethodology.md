@@ -1,6 +1,6 @@
 # TEMG4952A - Team 5 Project Methodology
 
-This markdown records the methodology used in this project, including Crunchbase CSV treatment, justification to preprocessing techniques and ML models used, and analysis of the business insights to UBS.
+This markdown records the methodology used in this project, including Crunchbase CSV treatment, data preprocessing and model training, and analysis of the business insights to UBS.
 
 ## Crunchbase CSV Treatment
 
@@ -25,23 +25,23 @@ This markdown records the methodology used in this project, including Crunchbase
 | people                         |                                        |
 | <del>people_descriptions       | too wordy, hard to extract useful info |
 
----
 
+## Data Preprocessing 
+* `organizatons.csv` is used as the foundation to join other dataframes
+* Most categorical features are one-hotted or dropped if there are too many null values
+* Numerical features are min-max scaled
 
-## Justification to Preprocessing 
----
 
 ## Machine learning Models
 
 ### *Step 1 Filtering out "successful" companies by **Decision Tree** and **Logistic Regression***
+Only companies predicted as successful by both models will proceed to the next stage.
 
 ### *Step 2 Rank the companies that are identified as "successful" by **Polynomial Regression***
+The polynomial regression obtained about 60% accuracy.
 
 ### *Step 3 Top 100 companies sorted by Average Momentum are output for visualization*
-
-
----
-
+Please see the front-end web app for details.
 
 
 ## Analysis of Business Insights
