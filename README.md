@@ -2,6 +2,8 @@
 
 This is the repository of Team 5 for the HKUST course TEMG4952A "Special Project: Financial Investment Prototyping for UBS Zurich" in 2020-21 Winter Semester. For the final front-end results, see the instructions below. For the back-end models, see `..\data_and_model\stable_prediction\Models_training.ipynb`.
 
+Note: this project's raw data are the CSV files from `bulk_export` folder from Crunchbase at the end of Dec 2020.
+
 ## Table of Contents
 
 1. [Initial Set-up](#1-initial-set-up)
