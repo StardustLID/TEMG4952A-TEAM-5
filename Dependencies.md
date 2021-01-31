@@ -72,6 +72,7 @@ import math                             # Python module for math
 ```py
 import matplotlib.pyplot as plt         # MATLAB-like plotting library
 import seaborn as sns                   # statistical graphics library
+import graphviz                         # Tree visualization library
 ```
 
 ### PCA (Principle Component Analysis)
@@ -88,9 +89,10 @@ from sklearn.preprocessing import LabelEncoder          # label encoder for
 from sklearn.preprocessing import OneHotEncoder         # one-hot encoder for categorical features
 from sklearn.pipeline import Pipeline                   # pipeline to assemble cross-validated transformations
 
-from sklearn.model_selection import train_test_split    # split training and testing sets
+from sklearn.model_selection import train_test_split    # split training and testing set
 
 from sklearn import metrics
+from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 ```
