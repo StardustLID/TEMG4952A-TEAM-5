@@ -64,11 +64,7 @@ export default class CompanyAgeChart {
       .transition().duration(500)
       .call(d3.axisLeft(vis.y));
     
-    /** Create horizontal grid lines (Ref: https://www.essycode.com/posts/adding-gridlines-chart-d3/)
-     * Passing the negative chart height and width to the tickSize functions ensures that the axis lines will span across the chart. 
-     * Passing an empty string to tickFormat ensures that tick labels aren’t rendered. 
-     * The ticks function specifies the number of tick marks, here set to 10 to equal the count on the main axes.
-     */
+    // Create horizontal grid lines (Ref: https://www.essycode.com/posts/adding-gridlines-chart-d3/)
     const yAxisGridCall = d3.axisLeft(vis.y).tickSize(-WIDTH).tickFormat("").ticks(10);
     vis.svg
       .append("g")
