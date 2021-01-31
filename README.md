@@ -25,7 +25,7 @@ This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render 
    ```
    REACT_APP_MAPBOX_API_KEY=pk.XXXXXXXX
    ```
-4. For Windows users, follow the remaining steps in [section 1.1](#11-for-windows-users). For Mac users, follow the remaining steps in [section 1.2](#12-for-mac-users).
+4. For Windows users, follow the remaining steps in [section 1.1](#11-for-windows-users). For Mac users, follow the remaining steps in [section 1.2](#12-for-mac-users). After sections 1.1 or 1.2, continue to [section 1.3](#13-model)
 
 ### 1.1 For Windows Users,
 
@@ -73,9 +73,20 @@ This project's GUI uses [Mapbox](https://www.mapbox.com/maps/)'s APIs to render 
    npm start
    ```
 
-### 1.3 Troubleshooting
+### 1.3 Model
+1. Open Powershell and change directory to this repository's root (`cd path\to\root\here`)
 
-#### 1.3.1 Running scripts is disabled on the system
+2. Run the following commands:
+
+   ```
+   $ virtualenv <env_name>
+   $ source <env_name>/bin/activate
+   (<env_name>)$ pip install -r path/to/requirements.txt
+   ```
+
+### 1.4 Troubleshooting
+
+#### 1.4.1 Running scripts is disabled on the system
 
 For Windows users, if you encounter the following error while running `.\venv\Scripts\activate`:
 
@@ -91,7 +102,7 @@ For Windows users, if you encounter the following error while running `.\venv\Sc
 5. Type `Y` (Yes) when it asks whether you want to change the execution policy
 6. Retry the commands in [section 1.1](#11-for-windows-users) item 6
 
-#### 1.3.2 `npm start` not working
+#### 1.4.2 `npm start` not working
 
 If you failed to run `npm start` after running `npm install` at the `frontend/` directory, try re-installation all the npm packages:
 
